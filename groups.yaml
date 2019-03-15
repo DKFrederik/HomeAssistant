@@ -86,7 +86,7 @@ Tristans Værelse:
   entities:
     - light.tristans_vrelse
 
-Lege Stue:
+Legestue:
   name: Lege Stue
   view: yes
   entities:
@@ -97,6 +97,12 @@ Lege Stue:
     - binary_sensor.terrassedr_baghave
     - binary_sensor.terrassedr_forhave
     - climate.lege_stue
+    ##Legestue 1
+    - light.dimmable_light_1
+    ##Legestue 2
+    - light.color_light_1
+    ##Legestue 3
+    - light.dimmable_light_1_4 
 
 Sophies Værelse:
   name: Sophies Værelse
