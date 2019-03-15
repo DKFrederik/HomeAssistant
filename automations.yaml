@@ -1,0 +1,67 @@
+- alias: 'under_koekkenbordet On'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.under_koekkenbordet
+        
+- alias: 'under_koekkenbordet Off'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.under_koekkenbordet
+        
+- alias: 'Garage On'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: 
+          - light.dimmable_light_1_2
+          - light.dimmable_light_1_3
+        
+- alias: 'Garage Off'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: 
+          - light.dimmable_light_1_2
+          - light.dimmable_light_1_3
+        
+- alias: "Media player paused/stopped"
+  trigger:
+    - platform: state
+      entity_id: media_player.chromecastultra4028
+      from: 'playing'
+      to: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: scene.turn_on
+      entity_id: scene.livingroom_normal
+
+- alias: "Media player playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.chromecastultra4028
+      to: 'playing'
+      from: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: scene.turn_on
+      entity_id: scene.livingroom_dim

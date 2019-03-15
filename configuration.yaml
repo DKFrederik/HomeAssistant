@@ -1,0 +1,125 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: !secret HomeAssistantName
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 2
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Copenhagen
+  # Customization file
+  customize: !include customize.yaml
+  
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+#Indkøbsliste
+shopping_list:
+
+#Philips Hue
+hue:
+  bridges:
+    - host: 192.168.1.15
+      allow_unreachable: true
+      allow_hue_groups: true
+
+light:
+  - platform: flux_led
+    devices:
+      192.168.1.62:
+        name: under_koekkenbordet
+      192.168.1.61:
+        name: kontor_led
+
+verisure:
+    username: !secret verisure_username
+    password: !secret verisure_password
+
+tado:
+    username: !secret tado_username
+    password: !secret tado_password
+
+device_tracker:
+  - platform: tado
+    username: !secret tado_username
+    password: !secret tado_password
+    home_id: 255063
+    
+scene:
+  - name: Livingroom normal
+    entities:
+      light.stue_1:
+        state: on
+        transition: 2
+        brightness_pct: 100
+      light.stue_2:
+        state: on
+        transition: 2
+        brightness_pct: 100
+  - name: Livingroom dim
+    entities:
+      light.stue_1:
+        state: on
+        transition: 2
+        brightness_pct: 30
+      light.stue_2:
+        state: on
+        transition: 2
+        brightness_pct: 30
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+#scene: !include scene.yaml
