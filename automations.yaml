@@ -41,7 +41,7 @@
 - alias: "Media player paused/stopped"
   trigger:
     - platform: state
-      entity_id: media_player.chromecastultra4028
+      entity_id: media_player.chromecast_ultra
       from: 'playing'
       to: 'idle'
   condition:
@@ -55,7 +55,7 @@
 - alias: "Media player playing"
   trigger:
     - platform: state
-      entity_id: media_player.chromecastultra4028
+      entity_id: media_player.chromecast_ultra
       to: 'playing'
       from: 'idle'
   condition:
