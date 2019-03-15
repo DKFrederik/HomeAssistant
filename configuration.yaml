@@ -58,9 +58,6 @@ sensor:
   # Weather prediction
   - platform: yr
 
-  - platform: travisci
-    api_key: ce3e8a9e8c6c5fb5d82522916ef338838e08e491
-
 # Text to speech
 tts:
   - platform: google
