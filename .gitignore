@@ -22,3 +22,4 @@ home-assistant.log
 .db
 plex.conf
 home-assistant_v2.db
+.uuid
