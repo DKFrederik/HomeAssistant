@@ -9,6 +9,9 @@ https://github.com/pkozul/ha-floorplan/blob/master/README.md
 ##Incscape
 https://inkscape.org/
 
+##Incscape tutorial
+https://github.com/pkozul/ha-floorplan/blob/master/own-floorplan-svg-file-tutorial.md
+
 ##Icons for Incscape
 https://thenounproject.com/
 
