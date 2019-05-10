@@ -6,8 +6,8 @@
 !*.yaml
 !.gitignore
 !*.md
-!panels
-!www
+!/panels
+!/www
 
 # Ignore folders.
 .storage
