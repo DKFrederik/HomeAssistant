@@ -19,13 +19,14 @@ system_health:
 # Enables the frontend
 frontend:
   extra_html_url:
-    - /local/www/custom_ui/state-card-floorplan.html
+    - /local/custom_ui/state-card-floorplan.html
 
+# If you change the name of your floorplan.svg file, change it here too.
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
     sidebar_icon: mdi:home
-    url_path: floorplan
+    url_path: floorplan 
     config: !include floorplan.yaml
     
 # Enables configuration UI

@@ -21,10 +21,9 @@ Stue:
   name: Stue
   view: yes
   entities:
-    - light.stue_1_2
-    - light.stue_2_2
-    - sensor.stue_2_heating
-    - sensor.stue_heating
+    - light.stue_1
+    - light.stue_2
+    - sensor.stue_humidity
     - media_player.chromecastultra4028
     - climate.stue_2
     - climate.stue
@@ -32,15 +31,17 @@ Stue:
     - media_player.philipstv
     - camera.stue
     - media_player.googlehome2415
+    - sensor.stue_temperature
+    - sensor.stue_temperature_2
 
 Bryggers:
   name: Bryggers
   view: yes
   entities:
-    - alarm_control_panel.blevangen_alarm
+    - alarm_control_panel.aeblevangen_alarm
     - sensor.bryggers_temperature
     - sensor.bryggers_humidity
-    - binary_sensor.indgangsdr
+    - binary_sensor.indgangsdor
 
 Køkken:
   name: Køkken
@@ -49,7 +50,7 @@ Køkken:
     - light.kkken_1
     - light.kkken_2
     - light.spisebord
-    - sensor.kkken_temperature
+    - sensor.kokken_temperature
     - switch.kaffemaskine
     - light.under_koekkenbordet
   
@@ -57,8 +58,8 @@ Gang:
   name: Gang
   view: yes
   entities:
-    - light.gang_1_2
-    - light.gang_2_2
+    - light.gang_1
+    - light.gang_2
     - sensor.gang_sensor_1
     - sensor.gang_humidity
     - sensor.gang_temperature
@@ -68,8 +69,9 @@ Soveværelse:
   name: Soveværelse
   view: yes
   entities:
-    - climate.sovevrelse
-    - light.sovevrelse_2
+    - climate.sovevaerelse
+    - light.sovevrelse
+    - sensor.sovevaerelse_humidity
 
 Kontor:
   name: Kontor
@@ -139,7 +141,7 @@ Fordørrdør:
   name: Fordør
   view: yes
   entities:
-    - binary_sensor.fordren
+    - binary_sensor.fordoren
     
 Garage:
   name: Garage
@@ -154,7 +156,7 @@ Alle lys indenfor undtagen LED Strips:
   entities:
     - light.badevrelse
     - light.tristans_vrelse
-    - light.sovevrelse_2
+    - light.sovevrelse
     - light.gang_1
     - light.gang_2
     - light.kkken_1
