@@ -12,13 +12,22 @@ homeassistant:
   time_zone: Europe/Copenhagen
   # Customization file
   customize: !include customize.yaml
-  
-# Show links to resources in log and frontend
-introduction:
+
+#System Health
+system_health:
 
 # Enables the frontend
 frontend:
+  extra_html_url:
+    - /local/www/custom_ui/state-card-floorplan.html
 
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+    
 # Enables configuration UI
 config:
 
@@ -60,7 +69,8 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # Cloud
 cloud:
@@ -80,8 +90,8 @@ light:
     devices:
       192.168.1.62:
         name: under_koekkenbordet
-      192.168.1.61:
-        name: kontor_led
+      #192.168.1.61:
+        #name: kontor_led
 
 verisure:
     username: !secret verisure_username
@@ -90,6 +100,7 @@ verisure:
 tado:
     username: !secret tado_username
     password: !secret tado_password
+    #home_id: 5bf29226c9e77c0007ef3684
 
 device_tracker:
   - platform: tado

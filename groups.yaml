@@ -12,6 +12,11 @@ default_view:
     - zone.home
     - group.all_lights
 
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
+    
 Stue:
   name: Stue
   view: yes
@@ -123,7 +128,7 @@ Badeværelse:
   entities:
     - sensor.badevrelse_sensor_1
     - sensor.badevrelse_sensor_2
-    - light.badevrelse_2
+    - light.badevrelse
   
 Toilet:
   name: Toilet
@@ -147,7 +152,7 @@ Alle lys indenfor undtagen LED Strips:
   name: Alle Lys Indenfor
   view: no
   entities:
-    - light.badevrelse_2
+    - light.badevrelse
     - light.tristans_vrelse
     - light.sovevrelse_2
     - light.gang_1
@@ -163,10 +168,3 @@ Alle lys indenfor undtagen LED Strips:
     - light.color_light_1
     ##Legestue 3
     - light.dimmable_light_1_4 
-    
-Garage:
-  name: Garage Lys
-  view: no
-  entities:
-    - light.dimmable_light_1_2
-    - light.dimmable_light_1_3
