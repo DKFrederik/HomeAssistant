@@ -108,6 +108,13 @@ device_tracker:
     username: !secret tado_username
     password: !secret tado_password
     home_id: 255063
+  - platform: nmap_tracker 
+    #Witch devices to track
+    hosts: 192.168.1.86
+    #How many seconds between scans 
+    home_interval: 10
+    #Execlude Raspberry pi to eleminate issus
+    execlude: 192.168.1.7 
     
 scene:
   - name: Livingroom normal
