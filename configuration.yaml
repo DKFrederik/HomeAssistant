@@ -110,11 +110,20 @@ device_tracker:
     home_id: 255063
   - platform: nmap_tracker 
     #Witch devices to track
-    hosts: 192.168.1.86
+    hosts:
+       #Frederik
+       - 192.168.1.86
+       #Trine
+       - 192.168.1.87
+       #Sophie
+       - 192.168.1.81
     #How many seconds between scans 
     home_interval: 10
-    #Execlude Raspberry pi to eleminate issus
-    execlude: 192.168.1.7 
+    #How long (in seconds) before a device is considered not home. This helps prevent false readings
+    consider_home: 180
+    #Find and track new devices 
+    new_device_defaults:
+      track_new_devices: true
     
 scene:
   - name: Livingroom normal
