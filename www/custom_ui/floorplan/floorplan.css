@@ -90,6 +90,16 @@ svg, svg * {
   fill: #6FAECE !important;
 }
 
+/* TV */
+
+.tv-off {
+  fill: #C3B7F4 !important;
+}
+
+.tv-on {
+  fill: #F8D2B9 !important;
+}
+
 /* Light */
 
 .light-off {
