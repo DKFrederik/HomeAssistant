@@ -12,6 +12,15 @@
       last_motion_class: last-motion
 
       groups:
+      
+        - name: PhilipsTV
+          entities:
+             - media_player.philipstv
+          states:
+            - state: 'on'
+              class: 'tv-on'
+            - state: 'off'
+              class: 'tv-off'
         
         - name: Chromecast
           entities:
