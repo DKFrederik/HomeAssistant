@@ -3,19 +3,26 @@ default_view:
   view: no
   entities:
     - sensor.familen_pedersen_tado_bridge_status
-    - alarm_control_panel.blevangen_alarm
+    # - alarm_control_panel.blevangen_alarm
     - device_tracker.frederiks_mobil
     - device_tracker.trines_mobil
     - sun.sun
     - sensor.yr_symbol
-    - updater.updater
+    # - updater.updater
     - zone.home
     - group.all_lights
+    # - group.floorplan
 
-zones:
-  name: Zones
-  entities:
-    - binary_sensor.floorplan
+# zones:
+  # name: Zones
+  # entities:
+    # - binary_sensor.floorplan
+
+# floorplan:
+  # view: yes
+  # name: Floorplan
+  # entities:
+    # - group.floorplan_group
     
 Stue:
   name: Stue

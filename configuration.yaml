@@ -12,6 +12,9 @@ homeassistant:
   time_zone: Europe/Copenhagen
   # Customization file
   customize: !include customize.yaml
+    # binary_sensor.floorplan:
+      # custom_ui_state_card: state-card-floorplan
+      # config: !include floorplan.yaml
 
 #System Health
 system_health:
@@ -67,6 +70,11 @@ sun:
 sensor:
   # Weather prediction
   - platform: yr
+  
+# binary_sensor:
+  # - platform: mqtt
+    # state_topic: dummy/floorplan/sensor
+    # name: Floorplan
 
 # Text to speech
 tts:
