@@ -44,6 +44,7 @@ config:
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -109,7 +110,6 @@ verisure:
 tado:
     username: !secret tado_username
     password: !secret tado_password
-    #home_id: 5bf29226c9e77c0007ef3684
 
 device_tracker:
   - platform: tado
@@ -120,11 +120,11 @@ device_tracker:
     #Witch devices to track
     hosts:
        #Frederik
-       - 192.168.1.86
+       - !secret frederikMobilNmap
        #Trine
-       - 192.168.1.87
+       - !secret trineMobilNmap
        #Sophie
-       - 192.168.1.81
+       - !secret sophieMobilNmap
     #How many seconds between scans 
     home_interval: 10
     #How long (in seconds) before a device is considered not home. This helps prevent false readings

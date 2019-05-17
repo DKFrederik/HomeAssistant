@@ -2,16 +2,12 @@ default_view:
   name: Hjem
   view: no
   entities:
-    - sensor.familen_pedersen_tado_bridge_status
-    # - alarm_control_panel.blevangen_alarm
     - device_tracker.frederiks_mobil
     - device_tracker.trines_mobil
     - sun.sun
     - sensor.yr_symbol
-    # - updater.updater
-    - zone.home
     - group.all_lights
-    # - group.floorplan
+    # - updater.updater
 
 # zones:
   # name: Zones
