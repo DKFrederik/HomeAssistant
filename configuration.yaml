@@ -105,7 +105,7 @@ hue:
 light:
   - platform: flux_led
     devices:
-      192.168.1.62:
+      192.168.3.62:
         name: under_koekkenbordet
       192.168.3.61:
         name: kontor_led
