@@ -107,8 +107,8 @@ light:
     devices:
       192.168.1.62:
         name: under_koekkenbordet
-      #192.168.1.61:
-        #name: kontor_led
+      192.168.3.61:
+        name: kontor_led
 
 verisure:
     username: !secret verisure_username
