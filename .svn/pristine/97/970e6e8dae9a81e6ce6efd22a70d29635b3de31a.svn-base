@@ -1,0 +1,175 @@
+default_view:
+  name: Hjem
+  view: no
+  entities:
+    - device_tracker.frederiks_mobil
+    - device_tracker.trines_mobil
+    - sun.sun
+    - sensor.yr_symbol
+    - group.all_lights
+    # - updater.updater
+
+# zones:
+  # name: Zones
+  # entities:
+    # - binary_sensor.floorplan
+
+# floorplan:
+  # view: yes
+  # name: Floorplan
+  # entities:
+    # - group.floorplan_group
+    
+Stue:
+  name: Stue
+  view: yes
+  entities:
+    - light.stue_1
+    - light.stue_2
+    - sensor.stue_humidity
+    - media_player.chromecastultra4028
+    - climate.stue_2
+    - climate.stue
+    - media_player.4k_uhd_razor_slim_led_tv_powered_by_androidtm
+    - media_player.philipstv
+    - camera.stue
+    - media_player.googlehome2415
+    - sensor.stue_temperature
+    - sensor.stue_temperature_2
+
+Bryggers:
+  name: Bryggers
+  view: yes
+  entities:
+    - alarm_control_panel.aeblevangen_alarm
+    - sensor.bryggers_temperature
+    - sensor.bryggers_humidity
+    - binary_sensor.indgangsdor
+
+Køkken:
+  name: Køkken
+  view: yes
+  entities:
+    - light.kkken_1
+    - light.kkken_2
+    - light.spisebord
+    - sensor.kokken_temperature
+    - switch.kaffemaskine
+    - light.under_koekkenbordet
+  
+Gang:
+  name: Gang
+  view: yes
+  entities:
+    - light.gang_1
+    - light.gang_2
+    - sensor.gang_sensor_1
+    - sensor.gang_humidity
+    - sensor.gang_temperature
+    - camera.gang
+
+Soveværelse:
+  name: Soveværelse
+  view: yes
+  entities:
+    - climate.sovevaerelse
+    - light.sovevrelse
+    - sensor.sovevaerelse_humidity
+
+Kontor:
+  name: Kontor
+  view: yes
+  entities:
+    - sensor.kontor_heating
+    - sensor.kontor_humidity
+    - sensor.kontor_overlay
+    - sensor.kontor_tado_mode
+    - climate.kontor
+    - binary_sensor.kontor
+    - switch.computer
+    - switch.kontor
+    - light.kontor_led
+
+Tristans Værelse:
+  name: Tristans Værelse
+  view: yes
+  entities:
+    - light.tristans_vrelse
+
+Legestue:
+  name: Lege Stue
+  view: yes
+  entities:
+    - media_player.legerum
+    - camera.alrum_brn
+    - sensor.alrum_brn_humidity
+    - sensor.alrum_brn_temperature
+    - binary_sensor.terrassedr_baghave
+    - binary_sensor.terrassedr_forhave
+    - climate.lege_stue
+    ##Legestue 1
+    - light.dimmable_light_1
+    ##Legestue 2
+    - light.color_light_1
+    ##Legestue 3
+    - light.dimmable_light_1_4 
+
+Sophies Værelse:
+  name: Sophies Værelse
+  view: yes
+  entities:
+    - media_player.sophies_chromecast
+    - climate.sophies_vrelse
+
+Victorias Værelse:
+  name: Victorias Værelse
+  view: yes
+  entities:
+    - climate.victorias_vrelse
+
+Badeværelse:
+  name: Badeværelse
+  view: yes
+  entities:
+    - sensor.badevrelse_sensor_1
+    - sensor.badevrelse_sensor_2
+    - light.badevrelse
+  
+Toilet:
+  name: Toilet
+  view: yes
+  entities:
+  
+Fordørrdør:
+  name: Fordør
+  view: yes
+  entities:
+    - binary_sensor.fordoren
+    
+Garage:
+  name: Garage
+  view: yes
+  entities:
+    - light.dimmable_light_1_2
+    - light.dimmable_light_1_3
+    
+Alle lys indenfor undtagen LED Strips:
+  name: Alle Lys Indenfor
+  view: no
+  entities:
+    - light.badevrelse
+    - light.tristans_vrelse
+    - light.sovevrelse
+    - light.gang_1
+    - light.gang_2
+    - light.kkken_1
+    - light.kkken_2
+    - light.spisebord
+    - light.stue_1
+    - light.stue_2
+    ##Legestue 1
+    - light.dimmable_light_1
+    ##Legestue 2
+    - light.color_light_1
+    ##Legestue 3
+    - light.dimmable_light_1_4 
