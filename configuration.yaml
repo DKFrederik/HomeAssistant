@@ -121,6 +121,11 @@ light:
       192.168.3.61:
         name: kontor_led
 
+# Google Calendar API
+google:
+  client_id: !secret calendar_username
+  client_secret: !secret calendar_password
+
 verisure:
     username: !secret verisure_username
     password: !secret verisure_password
