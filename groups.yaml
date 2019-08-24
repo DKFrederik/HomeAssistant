@@ -50,8 +50,8 @@ Køkken:
   name: Køkken
   view: yes
   entities:
-    - light.kkken_1
-    - light.kkken_2
+    - light.kokken_1
+    - light.kokken_2
     - light.spisebord
     - sensor.kokken_temperature
     - switch.kaffemaskine
@@ -73,7 +73,7 @@ Soveværelse:
   view: yes
   entities:
     - climate.sovevaerelse
-    - light.sovevrelse
+    - light.sovevaerelse
     - sensor.sovevaerelse_humidity
 
 Kontor:
@@ -94,7 +94,7 @@ Tristans Værelse:
   name: Tristans Værelse
   view: yes
   entities:
-    - light.tristans_vrelse
+    - light.tristans_vaerelse
 
 Legestue:
   name: Lege Stue
@@ -108,32 +108,30 @@ Legestue:
     - binary_sensor.terrassedr_forhave
     - climate.lege_stue
     ##Legestue 1
-    - light.dimmable_light_1
+    - light.legestue1
     ##Legestue 2
-    - light.color_light_1
+    - light.legestue2
     ##Legestue 3
-    - light.dimmable_light_1_4 
+    - light.legestue3 
 
 Sophies Værelse:
   name: Sophies Værelse
   view: yes
   entities:
     - media_player.sophies_chromecast
-    - climate.sophies_vrelse
+    - climate.sophies_vaerelse
 
 Victorias Værelse:
   name: Victorias Værelse
   view: yes
   entities:
-    - climate.victorias_vrelse
+    - climate.victorias_vaerelse
 
 Badeværelse:
   name: Badeværelse
   view: yes
   entities:
-    - sensor.badevrelse_sensor_1
-    - sensor.badevrelse_sensor_2
-    - light.badevrelse
+    - light.badevaerelse
   
 Toilet:
   name: Toilet
@@ -150,26 +148,6 @@ Garage:
   name: Garage
   view: yes
   entities:
-    - light.dimmable_light_1_2
-    - light.dimmable_light_1_3
+    - light.garage3
+    - light.garage4
     
-Alle lys indenfor undtagen LED Strips:
-  name: Alle Lys Indenfor
-  view: no
-  entities:
-    - light.badevrelse
-    - light.tristans_vrelse
-    - light.sovevrelse
-    - light.gang_1
-    - light.gang_2
-    - light.kkken_1
-    - light.kkken_2
-    - light.spisebord
-    - light.stue_1
-    - light.stue_2
-    ##Legestue 1
-    - light.dimmable_light_1
-    ##Legestue 2
-    - light.color_light_1
-    ##Legestue 3
-    - light.dimmable_light_1_4 

@@ -45,26 +45,26 @@
         
         - name: Light
           entities:
+             - light.garage3
+             - light.garage4
              - light.stue_1
              - light.stue_2
-             - light.kkken_1
-             - light.kkken_2
+             - light.kokken_1
+             - light.kokken_2
              - light.spisebord
              - light.under_koekkenbordet
              - light.kontor_led
              - light.gang_1
              - light.gang_2
-             - light.sovevrelse
-             - light.tristans_vrelse
+             - light.sovevaerelse
+             - light.tristans_vaerelse
+             - light.badevaerelse
              ##Legestue 1
-             - light.dimmable_light_1
+             - light.legestue1
              ##Legestue 2
-             - light.color_light_1
+             - light.legestue2
              ##Legestue 3
-             - light.dimmable_light_1_4 
-             - light.badevrelse
-             - light.dimmable_light_1_2
-             - light.dimmable_light_1_3
+             - light.legestue3
           states:
             - state: 'on'
               class: 'light-on'
