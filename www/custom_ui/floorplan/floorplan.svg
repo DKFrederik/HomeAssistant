@@ -27,16 +27,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="299.45746"
+     inkscape:cx="135.30767"
      inkscape:cy="405.2094"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1280"
-     inkscape:window-height="961"
-     inkscape:window-x="-8"
-     inkscape:window-y="46"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3731">
@@ -412,7 +412,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       id="light.kontor_led"
+       id="switch.sonoff_1000319a9b"
        transform="matrix(0.19532269,0,0,0.1289851,1.1148915,130.13297)"
        inkscape:label="#g4725-3-2">
       <g

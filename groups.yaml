@@ -89,6 +89,7 @@ Kontor:
     - switch.computer
     - switch.kontor
     - light.kontor_led
+    - switch.sonoff_1000319a9b
 
 Tristans Værelse:
   name: Tristans Værelse

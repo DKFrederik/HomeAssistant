@@ -65,6 +65,8 @@
              - light.legestue2
              ##Legestue 3
              - light.legestue3
+             # Kontor lys
+             - switch.sonoff_1000319a9b
           states:
             - state: 'on'
               class: 'light-on'
