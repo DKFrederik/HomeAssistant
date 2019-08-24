@@ -15,4 +15,4 @@ https://github.com/pkozul/ha-floorplan/blob/master/own-floorplan-svg-file-tutori
 https://thenounproject.com/
 
 ##Ideas for later 
-https://www.awesome-ha.com/my
+https://www.awesome-ha.com/
