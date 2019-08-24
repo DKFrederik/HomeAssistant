@@ -1,3 +1,90 @@
 binary_sensor.floorplan:
   custom_ui_state_card: state-card-floorplan
-  config: !include floorplan.yaml
+  config:
+    name: Demo Floorplan
+    image: /local/custom_ui/floorplan/floorplan.svg
+    stylesheet: /local/custom_ui/floorplan/floorplan.css
+    date_format: DD-MMM-YYYY
+    last_motion_entity: sensor.template_last_motion
+    last_motion_class: last-motion
+    groups:
+    - name: PhilipsTV
+      entities:
+      - media_player.philipstv
+      states:
+      - state: 'on'
+        class: tv-on
+      - state: 'off'
+        class: tv-off
+    - name: windowSensor
+      entities:
+      - binary_sensor.kontor
+      states:
+      - state: 'on'
+        class: binary_sensor_windows-open
+      - state: 'off'
+        class: binary_sensor_windows-closed
+    - name: doorSensor
+      entities:
+      - binary_sensor.fordoren
+      - binary_sensor.indgangsdor
+      - binary_sensor.terrassedor_forhave
+      - binary_sensor.terrassedor_baghave
+      states:
+      - state: 'on'
+        class: binary_sensor_doors-open
+      - state: 'off'
+        class: binary_sensor_doors-closed
+    - name: Light
+      entities:
+      - light.garage3
+      - light.garage4
+      - light.stue_1
+      - light.stue_2
+      - light.kokken_1
+      - light.kokken_2
+      - light.spisebord
+      - light.under_koekkenbordet
+      - light.kontor_led
+      - light.gang_1
+      - light.gang_2
+      - light.sovevaerelse
+      - light.tristans_vaerelse
+      - light.badevaerelse
+      - light.legestue1
+      - light.legestue2
+      - light.legestue3
+      - switch.sonoff_1000319a9b
+      states:
+      - state: 'on'
+        class: light-on
+      - state: 'off'
+        class: light-off
+      action:
+        domain: homeassistant
+        service: toggle
+    - name: kaffemaskine
+      entities:
+      - switch.kaffemaskine
+      states:
+      - state: 'on'
+        class: switch-on
+      - state: 'off'
+        class: switch-off
+      action:
+        domain: homeassistant
+        service: toggle
+    - name: Binary sensors
+      entities:
+      - binary_sensor.kitchen
+      states:
+      - state: 'off'
+        class: info-background
+      - state: 'on'
+        class: warning-background
+      state_transitions:
+      - name: On to off
+        from_state: 'on'
+        to_state: 'off'
+        duration: 10
+group.calendar: {}
