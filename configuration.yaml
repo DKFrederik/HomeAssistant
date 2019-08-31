@@ -71,11 +71,6 @@ sun:
 sensor:
   # Weather prediction
   - platform: yr
-  
-# binary_sensor:
-  # - platform: mqtt
-    # state_topic: dummy/floorplan/sensor
-    # name: Floorplan
 
 # Text to speech
 tts:
@@ -84,9 +79,6 @@ tts:
 
 # Cloud
 cloud:
-
-#Indkøbsliste
-#shopping_list:
 
 #Sonoff
 sonoff:
@@ -113,6 +105,7 @@ hue:
       allow_unreachable: true
       allow_hue_groups: true
 
+#Led strips 
 light:
   - platform: flux_led
     devices:
@@ -121,7 +114,7 @@ light:
       192.168.3.61:
         name: kontor_led
 
-# Google Calendar API
+#Google Calendar API
 google:
   client_id: !secret calendar_username
   client_secret: !secret calendar_password
@@ -130,10 +123,12 @@ verisure:
     username: !secret verisure_username
     password: !secret verisure_password
 
+#Temperature in our house (Tado)
 tado:
     username: !secret tado_username
     password: !secret tado_password
 
+#Tracking who is home or out (not on WiFi)
 device_tracker:
   - platform: tado
     username: !secret tado_username
@@ -155,7 +150,8 @@ device_tracker:
     #Find and track new devices 
     new_device_defaults:
       track_new_devices: true
-    
+
+#Scenes
 scene:
   - name: Livingroom normal
     entities:
@@ -178,6 +174,9 @@ scene:
         transition: 2
         brightness_pct: 30
 
+#include Gruoups
 group: !include groups.yaml
+#include Automations
 automation: !include automations.yaml
+#include Scripts
 script: !include scripts.yaml
