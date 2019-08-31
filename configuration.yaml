@@ -92,8 +92,8 @@ sonoff:
 
 #MQTT 
 mqtt:
-  broker: 192.168.1.7
-  port: 1883
+  broker: !secret mqqt_ip
+  port: !secret mqqt_port
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
@@ -101,7 +101,7 @@ mqtt:
 #Philips Hue
 hue:
   bridges:
-    - host: 192.168.1.15
+    - host: !secret hue_ip
       allow_unreachable: true
       allow_hue_groups: true
 
@@ -111,8 +111,8 @@ light:
     devices:
       192.168.3.62:
         name: under_koekkenbordet
-      192.168.3.61:
-        name: kontor_led
+      # 192.168.3.61:
+      #   name: kontor_led
 
 #Google Calendar API
 google:

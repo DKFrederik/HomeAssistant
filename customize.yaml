@@ -45,7 +45,7 @@ binary_sensor.floorplan:
       - light.kokken_2
       - light.spisebord
       - light.under_koekkenbordet
-      - light.kontor_led
+      #- light.kontor_led
       - light.gang_1
       - light.gang_2
       - light.sovevaerelse
