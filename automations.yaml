@@ -24,8 +24,8 @@
     - service: light.turn_on
       data:
         entity_id: 
-          - light.dimmable_light_1_2
-          - light.dimmable_light_1_3
+          - light.garage3
+          - light.garage4
         
 - alias: 'Garage Off'
   trigger:
@@ -35,8 +35,8 @@
     - service: light.turn_off
       data:
         entity_id: 
-          - light.dimmable_light_1_2
-          - light.dimmable_light_1_3
+          - light.garage3
+          - light.garage4
         
 - alias: "Media player paused/stopped"
   trigger:
