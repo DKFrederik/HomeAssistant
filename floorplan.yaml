@@ -75,10 +75,12 @@
           action:
             domain: homeassistant
             service: toggle
-            
+        
+        #Switches
         - name: kaffemaskine
           entities:
              - switch.kaffemaskine
+             - switch.kontor
           states:
             - state: 'on'
               class: 'switch-on'
