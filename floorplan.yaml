@@ -80,7 +80,6 @@
         - name: Switches_on_off
           entities:
              - switch.kaffemaskine
-             - switch.kontor
           states:
             - state: 'on'
               class: 'switch-on'
