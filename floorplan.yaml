@@ -76,8 +76,8 @@
             domain: homeassistant
             service: toggle
         
-        #Switches
-        - name: kaffemaskine
+        #Switches with on/off
+        - name: Switches_on_off
           entities:
              - switch.kaffemaskine
              - switch.kontor
@@ -89,7 +89,23 @@
           action:
             domain: homeassistant
             service: toggle
-      
+        
+        #Switches without on/off
+        - name: switches
+          entities:
+             - switch.computer
+             #Switch kontor should not be switchable when it's connected to EdgeRouterPoE. 
+             #Can be moved to "Switches_on_off" whenever it's not connected to EdgeRouterPoE. 
+             - switch.kontor
+          states:
+            - state: 'on'
+              class: 'switch-on'
+            - state: 'off'
+              class: 'switch-off'
+          action:
+            domain: homeassistant
+            #service: toggle
+
         #This is just a dummy to make floor plan show
         - name: Binary sensors
           entities:
