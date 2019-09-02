@@ -176,7 +176,8 @@
           entities:
             - sensor.sovevaerelse_temperature
           text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
-          class_template: 'return "static-temp";'          
+          class_template: 'return "static-temp";'
+          
 
       ####Example####
       
