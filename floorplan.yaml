@@ -123,10 +123,61 @@
               to_state: 'off'
               duration: 10
       
+        #Temp
+        - name: Kontor
+          entities:
+            - sensor.kontor_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: LegeStue
+          entities:
+            - sensor.lege_stue_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: Sophie
+          entities:
+            - sensor.sophies_vaerelse_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: Victoria
+          entities:
+            - sensor.victorias_vaerelse_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: Stuen
+          entities:
+            - sensor.stue_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+        
+        - name: Koekken
+          entities:
+            - sensor.kokken_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
       
-      
-      
-      
+        - name: Bryggers
+          entities:
+            - sensor.bryggers_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: Gang
+          entities:
+            - sensor.gang_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: Sovevaerelse
+          entities:
+            - sensor.sovevaerelse_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          class_template: 'return "static-temp";'          
+
       ####Example####
       
       

@@ -55,9 +55,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="226.95434"
-     inkscape:cy="500.48805"
+     inkscape:zoom="1.979899"
+     inkscape:cx="324.10003"
+     inkscape:cy="293.17045"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -120,7 +120,7 @@
     </g>
     <g
        id="light.gang_2"
-       transform="matrix(0.2110717,0,0,0.12656217,58.979539,181.1495)"
+       transform="matrix(0.2110717,0,0,0.12656217,63.742042,182.20784)"
        inkscape:label="#g4725-3-2">
       <g
          id="g4707-7-5"
@@ -138,7 +138,7 @@
     </g>
     <g
        id="light.gang_1"
-       transform="matrix(0.20319719,0,0,0.13625387,35.050277,180.79304)"
+       transform="matrix(0.20319719,0,0,0.13625387,29.758607,181.85138)"
        inkscape:label="#g4725-3-2-7">
       <g
          id="g4707-7-5-8"
@@ -561,5 +561,129 @@
        inkscape:connector-curvature="0"
        style="fill:#000000;fill-opacity:1;stroke-width:0.26458332;stroke-linejoin:round"
        inkscape:label="#path4618" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="14.741071"
+       y="162.81842"
+       id="sensor.kontor_temperature"
+       inkscape:label="#text916"><tspan
+         sodipodi:role="line"
+         id="tspan914"
+         x="14.741071"
+         y="162.81842"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.936249"
+       y="167.11311"
+       id="sensor.bryggers_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9"
+         x="82.936249"
+         y="167.11311"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="163.82315"
+       y="166.73514"
+       id="sensor.kokken_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5"
+         x="163.82315"
+         y="166.73514"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="160.04338"
+       y="199.24109"
+       id="sensor.stue_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3"
+         x="160.04338"
+         y="199.24109"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="64.415413"
+       y="187.90181"
+       id="sensor.gang_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3-3"
+         x="64.415413"
+         y="187.90181"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="92.574646"
+       y="236.66074"
+       id="sensor.lege_stue_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3-3-4"
+         x="92.574646"
+         y="236.66074"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="13.199638"
+       y="207.74556"
+       id="sensor.sovevaerelse_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3-3-4-6"
+         x="13.199638"
+         y="207.74556"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="65.171364"
+       y="278.61612"
+       id="sensor.sophies_vaerelse_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3-3-4-3"
+         x="65.171364"
+         y="278.61612"
+         style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="119.41095"
+       y="279.18304"
+       id="sensor.victorias_vaerelse_temperature"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="49.514883"
+       inkscape:transform-center-y="-3.4017859"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-5-3-3-4-3-2"
+         x="119.41095"
+         y="279.18304"
+         style="stroke-width:0.26458332">Temp</tspan></text>
   </g>
 </svg>
