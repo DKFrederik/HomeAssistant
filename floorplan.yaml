@@ -119,10 +119,7 @@
         #This is just a dummy to make floor plan show
         - name: Binary sensors
           entities:
-          # - binary_sensor.fordoren
           - binary_sensor.kitchen
-          # - binary_sensor.master_bedroom
-          # - binary_sensor.theatre_room
           states:
             - state: 'off'
               class: 'info-background'
