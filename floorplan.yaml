@@ -19,7 +19,7 @@
           states:
             - state: 'armed_away'
               class: 'alarm-armed'
-            - state: 'Tilkoblet_hjemme'
+            - state: 'armed_home'
               class: 'alarm-armed'
             - state: 'disarmed'
               class: 'alarm-disarmed'
