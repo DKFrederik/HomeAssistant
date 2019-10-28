@@ -55,9 +55,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="324.10003"
-     inkscape:cy="293.17045"
+     inkscape:zoom="1.4"
+     inkscape:cx="450.34911"
+     inkscape:cy="478.28393"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -685,5 +685,48 @@
          x="119.41095"
          y="279.18304"
          style="stroke-width:0.26458332">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.32118416px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18302962"
+       x="121.46107"
+       y="90.751213"
+       id="alarm_control_panel.aeblevangen_alarm"
+       inkscape:label="#text916"
+       inkscape:transform-center-x="30.181369"
+       inkscape:transform-center-y="-2.6706669"
+       transform="scale(0.88113871,1.1348951)"><tspan
+         sodipodi:role="line"
+         id="tspan914-9-8"
+         x="121.46107"
+         y="90.751213"
+         style="stroke-width:0.18302962">Temp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="20.312483"
+       y="103.49685"
+       id="text4772"><tspan
+         sodipodi:role="line"
+         id="tspan4770"
+         x="20.312483"
+         y="113.15234"
+         style="stroke-width:0.26458332" /><tspan
+         sodipodi:role="line"
+         x="20.312483"
+         y="126.38151"
+         style="stroke-width:0.26458332"
+         id="tspan4774" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.58372641px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18959315"
+       x="70.271843"
+       y="90.666672"
+       id="text4778"
+       transform="scale(0.87853492,1.1382587)"><tspan
+         sodipodi:role="line"
+         id="tspan4776"
+         x="70.271843"
+         y="90.666672"
+         style="stroke-width:0.18959315">Alarm status:</tspan></text>
   </g>
 </svg>
