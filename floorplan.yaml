@@ -136,19 +136,14 @@
         - name: Kontor
           entities:
              -  sensor.kontor_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -156,19 +151,14 @@
         - name: LegeStue
           entities:
              -  sensor.lege_stue_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -176,19 +166,14 @@
         - name: Sophie
           entities:
              -  sensor.sophies_vaerelse_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -196,19 +181,14 @@
         - name: Victoria
           entities:
              -  sensor.victorias_vaerelse_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -216,19 +196,14 @@
         - name: Stuen
           entities:
              -  sensor.stue_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -236,19 +211,14 @@
         - name: Koekken
           entities:
              -  sensor.kokken_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -256,19 +226,14 @@
         - name: Bryggers
           entities:
              -  sensor.bryggers_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -276,19 +241,14 @@
         - name: Gang
           entities:
              -  sensor.gang_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
@@ -296,19 +256,14 @@
         - name: Sovevaerelse
           entities:
              -  sensor.sovevaerelse_temperature
-          #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 18)
               return "temp-very-low-background";
-            if (temp < 16)
-              return "temp-below-average-background";
-            if (temp < 22)
-              return "temp-average-background";
             else if (temp < 25)
-              return "temp-very-high-background";
+              return "temp-average-background";
             else
               return "temp-high";
             '
