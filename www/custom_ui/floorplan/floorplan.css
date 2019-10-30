@@ -168,12 +168,12 @@ svg, svg * {
 }
 
 .temp-very-high-background {
-  fill: #f2dede !important;
+  fill: #ec6d18 !important;
   fill-opacity: 1 !important;
 }
 
 .temp-high {
-  fill: #ec6d18 !important;
+  fill: #f2dede !important;
   fill-opacity: 1 !important;
 }
 
