@@ -1,13 +1,13 @@
 # The domain of your component. Should be equal to the name of your component.
-import logging, time, hmac, hashlib, random, base64, json, socket, requests, re, threading, hashlib
+import logging, time, hmac, hashlib, random, base64, json, socket, requests, re, threading, hashlib, string
 import voluptuous as vol
+import asyncio
 
 from datetime import timedelta
 from datetime import datetime
 
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.event import async_track_time_interval
-from homeassistant.util.async_ import run_coroutine_threadsafe
 from homeassistant.helpers import discovery
 from homeassistant.helpers import config_validation as cv
 from homeassistant.const import (
@@ -23,7 +23,7 @@ CONF_ENTITY_PREFIX  = 'entity_prefix'
 
 DOMAIN              = "sonoff"
 
-REQUIREMENTS = ['uuid', 'websocket-client==0.54.0']
+REQUIREMENTS        = ['uuid', 'websocket-client==0.54.0']
 
 import websocket
 
@@ -52,14 +52,6 @@ async def async_setup(hass, config):
 
     hass.data[DOMAIN] = Sonoff(hass, config)
 
-    if hass.data[DOMAIN].get_debug_state():
-        SCAN_INTERVAL = timedelta(seconds=10)
-    else:
-        if config.get(DOMAIN, {}).get(CONF_SCAN_INTERVAL) > timedelta(seconds=60):
-            SCAN_INTERVAL = config.get(DOMAIN, {}).get(CONF_SCAN_INTERVAL)
-        else:
-            SCAN_INTERVAL = timedelta(seconds=60)
-
     if hass.data[DOMAIN].get_wshost(): # make sure login was successful
 
         for component in ['switch','sensor']:
@@ -71,9 +63,9 @@ async def async_setup(hass, config):
         # hass.bus.listen_once(EVENT_HOMEASSISTANT_STOP, hass.data[DOMAIN].get_ws().close())
 
         def update_devices(event_time):
-            run_coroutine_threadsafe( hass.data[DOMAIN].async_update(), hass.loop)
+            asyncio.run_coroutine_threadsafe( hass.data[DOMAIN].async_update(), hass.loop)
 
-        async_track_time_interval(hass, update_devices, SCAN_INTERVAL)
+        async_track_time_interval(hass, update_devices, hass.data[DOMAIN].get_scan_interval())
 
     return True
 
@@ -88,7 +80,7 @@ class Sonoff():
         self._password      = config.get(DOMAIN, {}).get(CONF_PASSWORD,'')
         self._api_region    = config.get(DOMAIN, {}).get(CONF_API_REGION,'')
         self._entity_prefix = config.get(DOMAIN, {}).get(CONF_ENTITY_PREFIX,'')
-        self._grace_period  = timedelta(seconds=config.get(DOMAIN, {}).get(CONF_GRACE_PERIOD,''))
+        self._scan_interval = config.get(DOMAIN, {}).get(CONF_SCAN_INTERVAL)
 
         self._sonoff_debug  = config.get(DOMAIN, {}).get(CONF_DEBUG, False)
         self._sonoff_debug_log = []
@@ -107,6 +99,15 @@ class Sonoff():
         self.write_debug('{}', new=True)
         self.do_login()
 
+    def get_scan_interval(self):
+        if DOMAIN in self._hass.data and self._hass.data[DOMAIN].get_debug_state():
+            self._scan_interval = timedelta(seconds=10)
+
+        elif self._scan_interval < timedelta(seconds=60):
+            self._scan_interval = timedelta(seconds=60)
+
+        return self._scan_interval
+
     def get_debug_state(self):
         return self._sonoff_debug
 
@@ -122,17 +123,34 @@ class Sonoff():
         # reset the grace period
         self._skipped_login = 0
 
+        self._model         = 'iPhone' + random.choice(['6,1', '6,2', '7,1', '7,2', '8,1', '8,2', '8,4', '9,1', '9,2', '9,3', '9,4', '10,1', '10,2', '10,3', '10,4', '10,5', '10,6', '11,2', '11,4', '11,6', '11,8'])
+        self._romVersion    = random.choice([
+            '10.0', '10.0.2', '10.0.3', '10.1', '10.1.1', '10.2', '10.2.1', '10.3', '10.3.1', '10.3.2', '10.3.3', '10.3.4',
+            '11.0', '11.0.1', '11.0.2', '11.0.3', '11.1', '11.1.1', '11.1.2', '11.2', '11.2.1', '11.2.2', '11.2.3', '11.2.4', '11.2.5', '11.2.6', '11.3', '11.3.1', '11.4', '11.4.1',
+            '12.0', '12.0.1', '12.1', '12.1.1', '12.1.2', '12.1.3', '12.1.4', '12.2', '12.3', '12.3.1', '12.3.2', '12.4', '12.4.1', '12.4.2',
+            '13.0', '13.1', '13.1.1', '13.1.2', '13.2'
+        ])
+        self._appVersion    = random.choice(['3.5.3', '3.5.4', '3.5.6', '3.5.8', '3.5.10', '3.5.12', '3.6.0', '3.6.1', '3.7.0', '3.8.0', '3.9.0', '3.9.1', '3.10.0', '3.11.0'])
+        self._imei          = str(uuid.uuid4())
+
+        _LOGGER.debug(json.dumps({
+            'model'         : self._model,
+            'romVersion'    : self._romVersion,
+            'appVersion'    : self._appVersion,
+            'imei'          : self._imei
+        }))
+
         app_details = {
             'password'  : self._password,
             'version'   : '6',
             'ts'        : int(time.time()),
-            'nonce'     : ''.join([str(random.randint(0, 9)) for i in range(15)]),
+            'nonce'     : ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(8)),
             'appid'     : 'oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq',
-            'imei'      : str(uuid.uuid4()),
+            'imei'      : self._imei,
             'os'        : 'iOS',
-            'model'     : 'iPhone10,6',
-            'romVersion': '11.1.2',
-            'appVersion': '3.5.3'
+            'model'     : self._model,
+            'romVersion': self._romVersion,
+            'appVersion': self._appVersion
         }
 
         if re.match(r'[^@]+@[^@]+\.[^@]+', self._username):
@@ -168,14 +186,13 @@ class Sonoff():
 
             # re-login using the new localized endpoint
             self.do_login()
-            return
 
         elif 'error' in resp and resp['error'] in [HTTP_NOT_FOUND, HTTP_BAD_REQUEST]:
             # (most likely) login with +86... phone number and region != cn
-            if '@' not in self._username and self._api_region != 'cn':
-                self._api_region = 'cn'
-                self.do_login()
-                return
+            if '@' not in self._username and self._api_region in ['eu', 'us']:
+                # self._api_region = 'cn'
+                # self.do_login()
+                _LOGGER.error('Login failed! try to change the api_region to \'cn\' OR \'as\'')
 
             else:
                 _LOGGER.error("Couldn't authenticate using the provided credentials!")
@@ -240,7 +257,6 @@ class Sonoff():
         the payload rule is like this:
           normal device (non-shared)
               apikey      = login apikey (= device apikey too)
-
           shared device
               apikey      = device apikey
               selfApiKey  = login apikey (yes, it's typed corectly selfApikey and not selfApiKey :|)
@@ -319,7 +335,7 @@ class Sonoff():
         _LOGGER.error('websocket error: %s' % str(error))
 
     def is_grace_period(self):
-        grace_time_elapsed = self._skipped_login * int(SCAN_INTERVAL.total_seconds())
+        grace_time_elapsed = self._skipped_login * int(self.get_scan_interval().total_seconds())
         grace_status = grace_time_elapsed < int(self._grace_period.total_seconds())
 
         if grace_status:
@@ -343,13 +359,20 @@ class Sonoff():
         self.write_debug(data, type='s')
 
     def update_devices(self):
+        if self.get_user_apikey() is None:
+            _LOGGER.error("Initial login failed, devices cannot be updated!")
+            return self._devices
+
         # we are in the grace period, no updates to the devices
         if self._skipped_login and self.is_grace_period():
             _LOGGER.info("Grace period active")
             return self._devices
 
-        r = requests.get('https://{}-api.coolkit.cc:8080/api/user/device?lang=en&apiKey={}&getTags=1'.format(self._api_region, self.get_user_apikey()),
-            headers=self._headers)
+        r = requests.get('https://{}-api.coolkit.cc:8080/api/user/device?lang=en&apiKey={}&getTags=1&version=6&ts=%s&nonce=%s&appid=oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq&imei=%s&os=iOS&model=%s&romVersion=%s&appVersion=%s'.format(
+            self._api_region, self.get_user_apikey(), str(int(time.time())), ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(8)), self._imei, self._model, self._romVersion, self._appVersion
+            ), headers=self._headers)
+
+        # _LOGGER.error(r.text)
 
         resp = r.json()
         if 'error' in resp and resp['error'] in [HTTP_BAD_REQUEST, HTTP_UNAUTHORIZED]:
@@ -364,7 +387,7 @@ class Sonoff():
             _LOGGER.info("Re-login component")
             self.do_login()
 
-        self._devices = r.json()
+        self._devices = r.json()['devicelist'] if 'devicelist' in r.json() else r.json()
 
         self.write_debug(r.text, type='D')
 
@@ -392,6 +415,12 @@ class Sonoff():
 
     def get_wshost(self):
         return self._wshost
+
+    def get_model(self):
+        return self._model
+
+    def get_romVersion(self):
+        return self._romVersion
 
     async def async_update(self):
         devices = self.update_devices()
@@ -569,14 +598,14 @@ class WebsocketListener(threading.Thread, websocket.WebSocketApp):
             'action'    : "userOnline",
             'userAgent' : 'app',
             'version'   : 6,
-            'nonce'     : ''.join([str(random.randint(0, 9)) for i in range(15)]),
-            'apkVesrion': "1.8",
-            'os'        : 'ios',
+            'nonce'     : ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(8)),
+            'apkVersion': "1.8",
+            'os'        : 'iOS',
             'at'        : self._sonoff.get_bearer_token(),
             'apikey'    : self._sonoff.get_user_apikey(),
             'ts'        : str(int(time.time())),
-            'model'     : 'iPhone10,6',
-            'romVersion': '11.1.2',
+            'model'     : self._sonoff.get_model(),
+            'romVersion': self._sonoff.get_romVersion(),
             'sequence'  : str(time.time()).replace('.','')
         }
 
@@ -631,11 +660,23 @@ class SonoffDevice(Entity):
         if 'voltage' in device['params']:
             self._attributes['voltage'] = device['params']['voltage']
 
+        if 'dusty' in device['params']:
+            self._attributes['dusty'] = device['params']['dusty']
+        if 'light' in device['params']:
+            self._attributes['light'] = device['params']['light']
+        if 'noise' in device['params']:
+            self._attributes['noise'] = device['params']['noise']
+
         # TH10/TH16
         if 'currentHumidity' in device['params'] and device['params']['currentHumidity'] != "unavailable":
             self._attributes['humidity'] = device['params']['currentHumidity']
         if 'currentTemperature' in device['params'] and device['params']['currentTemperature'] != "unavailable":
             self._attributes['temperature'] = device['params']['currentTemperature']
+
+        if 'humidity' in device['params'] and device['params']['humidity'] != "unavailable":
+            self._attributes['humidity'] = device['params']['humidity']
+        if 'temperature' in device['params'] and device['params']['temperature'] != "unavailable":
+            self._attributes['temperature'] = device['params']['temperature']
 
         if 'rssi' in device['params']:
             self._attributes['rssi'] = device['params']['rssi']

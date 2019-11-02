@@ -119,6 +119,7 @@ google:
   client_id: !secret calendar_username
   client_secret: !secret calendar_password
 
+#Security
 verisure:
     username: !secret verisure_username
     password: !secret verisure_password
