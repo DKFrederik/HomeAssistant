@@ -88,10 +88,12 @@ sonoff:
   grace_period: 600 #(optional)
   api_region: 'eu' #(optional)
   entity_prefix: True #(optional)
-  debug: False #(optional)
+  debug: True #(optional)
 
 #MQTT 
 mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
   broker: !secret mqqt_ip
   port: !secret mqqt_port
   client_id: home-assistant
@@ -115,11 +117,10 @@ light:
       #   name: kontor_led
 
 #Google Calendar API
-google:
-  client_id: !secret calendar_username
-  client_secret: !secret calendar_password
+# google:
+  # client_id: !secret calendar_username
+  # client_secret: !secret calendar_password
 
-#Security
 verisure:
     username: !secret verisure_username
     password: !secret verisure_password
@@ -174,6 +175,174 @@ scene:
         state: on
         transition: 2
         brightness_pct: 30
+
+# #Lille WC
+ # climate wavinAhc9000_1:
+   # - platform: mqtt
+     # name: LilleWCVarme
+     # current_temperature_topic: "heat/floor807D3A790941/0/current"
+     # temperature_command_topic: "heat/floor807D3A790941/0/target_set"
+     # temperature_state_topic: "heat/floor807D3A790941/0/target"
+     # mode_command_topic: "heat/floor807D3A790941/0/mode_set"
+     # mode_state_topic: "heat/floor807D3A790941/0/mode"
+     # modes:
+       # - "heat"
+       # - "off"
+     # availability_topic: "heat/floor807D3A790941/online"
+     # payload_available: "True"
+     # payload_not_available: "False"
+     # qos: 0
+
+# sensor wavinBattery1:
+  # - platform: mqtt
+    # state_topic: "heat/floor807D3A790941/0/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: LilleWCBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
+
+# #Bryggers
+# climate wavinAhc9000_2:
+  # - platform: mqtt
+    # name: BryggersVarme
+    # current_temperature_topic: "heat/floor807D3A790941/1/current"
+    # temperature_command_topic: "heat/floor807D3A790941/1/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/1/target"
+    # mode_command_topic: "heat/floor807D3A790941/1/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/1/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
+
+# sensor wavinBattery2:
+  # - platform: mqtt
+    # state_topic: "heat/floor807D3A790941/1/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: BryggersBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
+
+# #Køkken
+# climate wavinAhc9000_3:
+  # - platform: mqtt
+    # name: KøkkenVarme
+    # current_temperature_topic: "heat/floor807D3A790941/2/current"
+    # temperature_command_topic: "heat/floor807D3A790941/2/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/2/target"
+    # mode_command_topic: "heat/floor807D3A790941/2/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/2/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
+    
+# sensor wavinBattery3:
+  # - platform: mqtt
+    # state_topic: "heat/floor807D3A790941/2/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: KøkkenBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
+
+# #Stor WC
+# climate wavinAhc9000_4:
+  # - platform: mqtt
+    # name: StorWCVarme
+    # current_temperature_topic: "heat/floor807D3A790941/3/current"
+    # temperature_command_topic: "heat/floor807D3A790941/3/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/3/target"
+    # mode_command_topic: "heat/floor807D3A790941/3/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/3/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
+    
+# sensor wavinBattery4:
+  # - platform: mqtt
+    # state_topic: "heat/floor807D3A790941/3/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: StorWCBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
+
+# #Gang
+# climate wavinAhc9000_5:
+  # - platform: mqtt
+    # name: GangVarme
+    # current_temperature_topic: "heat/floor807D3A790941/4/current"
+    # temperature_command_topic: "heat/floor807D3A790941/4/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/4/target"
+    # mode_command_topic: "heat/floor807D3A790941/4/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/4/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
+    
+# sensor wavinBattery5:
+  # - platform: mqtt
+    # state_topic: "heat/floor807D3A790941/4/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: GangBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
+
+# #Tristans Værelse
+# climate wavinAhc9000_6:
+  # - platform: mqtt
+    # name: TristansVarme
+    # current_temperature_topic: "heat/floor807D3A790941/5/current"
+    # temperature_command_topic: "heat/floor807D3A790941/5/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/5/target"
+    # mode_command_topic: "heat/floor807D3A790941/5/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/5/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
+    
+# sensor wavinBattery6:
+  # - platform: mqtt
+    # state_topic: "heat/floor80:7d:3a:79:09:41/5/battery"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # name: TristansBatt
+    # unit_of_measurement: "%"
+    # device_class: battery
+    # qos: 0
 
 #include Gruoups
 group: !include groups.yaml
