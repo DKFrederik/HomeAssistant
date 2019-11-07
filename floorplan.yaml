@@ -133,6 +133,31 @@
       
         #Temp
 
+        - name: Lille WC
+          entities:
+             -  climate.floor807d3a790941_0_climate_current
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+              return "temp-average-background";
+            '
+
+        - name: Lille WC
+          entities:
+             -  climate.floor807d3a790941_0_climate
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+
         - name: Kontor
           entities:
              -  sensor.kontor_temperature
