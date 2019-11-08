@@ -5,20 +5,10 @@ default_view:
     - device_tracker.frederiks_mobil
     - device_tracker.trines_mobil
     - sun.sun
-    - sensor.yr_symbol
+    # - sensor.yr_symbol
     - group.all_lights
     # - updater.updater
 
-# zones:
-  # name: Zones
-  # entities:
-    # - binary_sensor.floorplan
-
-# floorplan:
-  # view: yes
-  # name: Floorplan
-  # entities:
-    # - group.floorplan_group
     
 Stue:
   name: Stue

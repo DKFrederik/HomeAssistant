@@ -1,0 +1,4 @@
+### MQTT extracting Wavin current temperatur from all the topics/sensors
+- platform: mqtt
+    name: 'LilleWC'
+    state_topic: "heat/floor807D3A790941/0/current"

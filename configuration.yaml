@@ -69,8 +69,23 @@ sun:
 
 # Sensors
 sensor:
-  # Weather prediction
   - platform: yr
+    name: Weather
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
 
 # Text to speech
 tts:
@@ -121,6 +136,7 @@ light:
   # client_id: !secret calendar_username
   # client_secret: !secret calendar_password
 
+# Verisure setup configuration
 verisure:
     username: !secret verisure_username
     password: !secret verisure_password
@@ -176,22 +192,44 @@ scene:
         transition: 2
         brightness_pct: 30
 
+# MQTT extracting Wavin current temperatur from all the topics/sensors
+sensor:
+  - platform: mqtt
+    name: "LilleWC"
+    state_topic: "heat/floor807D3A790941/0/current"
+  - platform: mqtt
+    name: "BryggersVarme"
+    state_topic: "heat/floor807D3A790941/1/current"
+  - platform: mqtt
+    name: "KøkkenVarme"
+    state_topic: "heat/floor807D3A790941/2/current"
+  - platform: mqtt
+    name: "StorWCVarme"
+    state_topic: "heat/floor807D3A790941/3/current"
+  - platform: mqtt
+    name: "GangVarme"
+    state_topic: "heat/floor807D3A790941/4/current"
+  - platform: mqtt
+    name: "TristansVarme"
+    state_topic: "heat/floor807D3A790941/5/current"
+  
+
 # #Lille WC
- # climate wavinAhc9000_1:
-   # - platform: mqtt
-     # name: LilleWCVarme
-     # current_temperature_topic: "heat/floor807D3A790941/0/current"
-     # temperature_command_topic: "heat/floor807D3A790941/0/target_set"
-     # temperature_state_topic: "heat/floor807D3A790941/0/target"
-     # mode_command_topic: "heat/floor807D3A790941/0/mode_set"
-     # mode_state_topic: "heat/floor807D3A790941/0/mode"
-     # modes:
-       # - "heat"
-       # - "off"
-     # availability_topic: "heat/floor807D3A790941/online"
-     # payload_available: "True"
-     # payload_not_available: "False"
-     # qos: 0
+# climate wavinAhc9000_1:
+  # - platform: mqtt
+    # name: LilleWCVarme
+    # current_temperature_topic: "heat/floor807D3A790941/0/current"
+    # temperature_command_topic: "heat/floor807D3A790941/0/target_set"
+    # temperature_state_topic: "heat/floor807D3A790941/0/target"
+    # mode_command_topic: "heat/floor807D3A790941/0/mode_set"
+    # mode_state_topic: "heat/floor807D3A790941/0/mode"
+    # modes:
+      # - "heat"
+      # - "off"
+    # availability_topic: "heat/floor807D3A790941/online"
+    # payload_available: "True"
+    # payload_not_available: "False"
+    # qos: 0
 
 # sensor wavinBattery1:
   # - platform: mqtt

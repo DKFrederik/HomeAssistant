@@ -131,8 +131,98 @@
               to_state: 'off'
               duration: 10
       
-        #Temp
+        ### Wavin Temperatur ###
 
+        - name: LilleWC
+          entities:
+             -  sensor.lillewc
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+         
+        - name: BryggersVarme
+          entities:
+             -  sensor.bryggersvarme
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+            
+        - name: KøkkenVarme
+          entities:
+             -  sensor.kokkenvarme
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+            
+        - name: StorWCVarme
+          entities:
+             -  sensor.storwcvarme
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '    
+            
+        - name: GangVarme
+          entities:
+             -  sensor.gangvarme
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+            
+        - name: TristansVarme
+          entities:
+             -  sensor.tristansvarme
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+        
         - name: Kontor
           entities:
              -  sensor.kontor_temperature
@@ -193,9 +283,24 @@
               return "temp-high";
             '
 
-        - name: Stuen
+        - name: Stuen (Verisure)
           entities:
              -  sensor.stue_temperature
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 18)
+              return "temp-very-low-background";
+            else if (temp < 25)
+              return "temp-average-background";
+            else
+              return "temp-high";
+            '
+            
+        - name: Stuen (Tado)
+          entities:
+             -  sensor.stue_temperature_2
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
