@@ -9,6 +9,23 @@ default_view:
     - group.all_lights
     # - updater.updater
 
+
+Varme:
+  name: Varme
+  view: yes
+  entities:
+    - climate.bryggersvarme
+    - climate.gangvarme
+    - climate.kokkenvarme
+    - climate.kontor
+    - climate.lege_stue
+    - climate.lillewcvarme
+    - climate.sophies_vaerelse
+    - climate.sovevaerelse
+    - climate.storwcvarme
+    - climate.stue
+    - climate.tristansvarme
+    - climate.victorias_vaerelse
     
 Stue:
   name: Stue
@@ -35,6 +52,7 @@ Bryggers:
     - sensor.bryggers_temperature
     - sensor.bryggers_humidity
     - binary_sensor.indgangsdor
+    - climate.bryggersvarme
 
 Køkken:
   name: Køkken
@@ -46,6 +64,7 @@ Køkken:
     - sensor.kokken_temperature
     - switch.kaffemaskine
     - light.under_koekkenbordet
+    - climate.kokkenvarme
   
 Gang:
   name: Gang
@@ -57,6 +76,7 @@ Gang:
     - sensor.gang_humidity
     - sensor.gang_temperature
     - camera.gang
+    - climate.gangvarme
 
 Soveværelse:
   name: Soveværelse
@@ -86,6 +106,7 @@ Tristans Værelse:
   view: yes
   entities:
     - light.tristans_vaerelse
+    - climate.tristansvarme
 
 Legestue:
   name: Lege Stue
@@ -123,17 +144,20 @@ Badeværelse:
   view: yes
   entities:
     - light.badevaerelse
+    - climate.storwcvarme
   
 Toilet:
   name: Toilet
   view: yes
   entities:
+    - climate.lillewcfordoervarme
   
 Fordørrdør:
   name: Fordør
   view: yes
   entities:
     - binary_sensor.fordoren
+    - climate.lillewcfordoervarme
     
 Garage:
   name: Garage
