@@ -133,9 +133,9 @@
       
         ### Wavin Temperatur ###
 
-        - name: LilleWC
+        - name: LilleFordoerWC
           entities:
-             -  sensor.lillewc
+             -  sensor.lillewcfordoer
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
