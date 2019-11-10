@@ -368,7 +368,7 @@ climate wavinAhc9000_6:
     
 sensor wavinBattery6:
   - platform: mqtt
-    state_topic: "heat/floor80:7d:3a:79:09:41/5/battery"
+    state_topic: "heat/floor807D3A790941/5/battery"
     availability_topic: "heat/floor807D3A790941/online"
     payload_available: "True"
     payload_not_available: "False"
