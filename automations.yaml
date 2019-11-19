@@ -56,6 +56,7 @@
         entity_id: 
           - light.garage3
           - light.garage4
+        brightness: 100
         
 - alias: 'Garage Off'
   trigger:
