@@ -12,6 +12,11 @@
       last_motion_class: last-motion
 
       groups:
+        
+        # - name: Camera Images
+          # entities:
+            # - camera.ip_webcam
+          # camera_image_template: '${entity.attributes.entity_picture}'
 
         - name: Alarm Panel
           entities:
@@ -56,27 +61,35 @@
         
         - name: Light
           entities:
+             # Garage
              - light.garage3
              - light.garage4
-             - light.stue_1
-             - light.stue_2
+             # køkken
+             - light.under_koekkenbordet
              - light.kokken_1
              - light.kokken_2
+             # Stue
+             - light.stue_1
+             - light.stue_2
              - light.spisebord
-             - light.under_koekkenbordet
              #- light.kontor_led
+             # Gang
              - light.gang_1
              - light.gang_2
+             # Soveværelse
              - light.sovevaerelse
+             # Tristans værelse
              - light.tristans_vaerelse
+             - light.hue_ambiance_candle_1
+             # Badeværelse
              - light.badevaerelse
              ##Legestue 1
              - light.legestue1
              ##Legestue 2
              - light.legestue2
              ##Legestue 3
-             - light.legestue3
              # Kontor lys
+             - light.legestue3
              - switch.sonoff_1000319a9b
           states:
             - state: 'on'
