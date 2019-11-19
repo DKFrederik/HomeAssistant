@@ -1,3 +1,33 @@
+# - action:
+  # - alias: ''
+    # data:
+      # entity_id: switch.security_camera_video_recording
+    # service: switch.turn_on
+  # alias: 'Camera: Turn on camera on motion when nobody is home.'
+  # # condition:
+  # # - condition: state
+    # # entity_id: group.family_group
+    # # state: not_home
+  # # id: '1517323546560'
+  # trigger:
+  # - above: '350'
+    # entity_id: sensor.security_camera_motion
+    # platform: numeric_state
+# - action:
+  # - alias: ''
+    # data:
+      # entity_id: switch.security_camera_video_recording
+    # service: switch.turn_off
+  # alias: 'Camera: Turn off when no motion detected'
+  # condition: []
+  # id: '1517323600118'
+  # trigger:
+  # - below: '350'
+    # entity_id: sensor.security_camera_motion
+    # for:
+      # minutes: 5
+    # platform: numeric_state
+
 - alias: 'under_koekkenbordet On'
   trigger:
     platform: sun
