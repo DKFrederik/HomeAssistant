@@ -69,11 +69,6 @@ map:
 # Track the sun
 sun:
 
-# Travis
-sensor:
-  - platform: travisci
-    api_key: !secret travis_token
-
 # Kamera
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
@@ -129,6 +124,9 @@ sensor:
       - mediumClouds
       - highClouds
       - dewpointTemperature
+  # travis
+  - platform: travisci
+    api_key: !secret travis_token
 
 # Text to speech
 tts:
