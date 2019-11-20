@@ -53,6 +53,7 @@ Bryggers:
     - sensor.bryggers_humidity
     - binary_sensor.indgangsdor
     - climate.bryggersvarme
+    - sensor.bryggersbatt
 
 Køkken:
   name: Køkken
@@ -65,6 +66,7 @@ Køkken:
     - switch.kaffemaskine
     - light.under_koekkenbordet
     - climate.kokkenvarme
+    - sensor.kokkenbatt
   
 Gang:
   name: Gang
@@ -77,6 +79,7 @@ Gang:
     - sensor.gang_temperature
     - camera.gang
     - climate.gangvarme
+    - sensor.gangbatt
 
 Soveværelse:
   name: Soveværelse
@@ -107,6 +110,7 @@ Tristans Værelse:
   entities:
     - light.tristans_vaerelse
     - climate.tristansvarme
+    - sensor.tristansbatt
 
 Legestue:
   name: Lege Stue
@@ -145,12 +149,14 @@ Badeværelse:
   entities:
     - light.badevaerelse
     - climate.storwcvarme
+    - sensor.storwcbatt
   
 Toilet:
   name: Toilet
   view: yes
   entities:
     - climate.lillewcfordoervarme
+    - sensor.lillewcbatt
   
 Fordørrdør:
   name: Fordør
@@ -158,6 +164,7 @@ Fordørrdør:
   entities:
     - binary_sensor.fordoren
     - climate.lillewcfordoervarme
+    - sensor.lillewcbatt
     
 Garage:
   name: Garage
