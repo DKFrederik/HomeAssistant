@@ -37,23 +37,34 @@ binary_sensor.floorplan:
         class: binary_sensor_doors-closed
     - name: Light
       entities:
+      # garage
       - light.garage3
       - light.garage4
+      # stue
       - light.stue_1
       - light.stue_2
+      # køkken
       - light.kokken_1
       - light.kokken_2
       - light.spisebord
       - light.under_koekkenbordet
       #- light.kontor_led
+      # gang 
       - light.gang_1
       - light.gang_2
+      # soveværelse
       - light.sovevaerelse
+      # tristans værelse 
       - light.tristans_vaerelse
+      # badeværelse 
       - light.badevaerelse
+      - light.badevaerelse_2
+      - light.color_temperature_light_1
+      # legestue
       - light.legestue1
       - light.legestue2
       - light.legestue3
+      # kontor
       - switch.sonoff_1000319a9b
       states:
       - state: 'on'

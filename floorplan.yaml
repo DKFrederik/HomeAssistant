@@ -68,10 +68,10 @@
              - light.under_koekkenbordet
              - light.kokken_1
              - light.kokken_2
+             - light.spisebord
              # Stue
              - light.stue_1
              - light.stue_2
-             - light.spisebord
              #- light.kontor_led
              # Gang
              - light.gang_1
@@ -83,13 +83,15 @@
              - light.hue_ambiance_candle_1
              # Badeværelse
              - light.badevaerelse
+             - light.badevaerelse_2
+             - light.color_temperature_light_1
              ##Legestue 1
              - light.legestue1
              ##Legestue 2
              - light.legestue2
              ##Legestue 3
-             # Kontor lys
              - light.legestue3
+             # Kontor lys
              - switch.sonoff_1000319a9b
           states:
             - state: 'on'
