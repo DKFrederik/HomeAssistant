@@ -1,6 +1,9 @@
 HomeAssistant
 This is my Home Assistant configuration. Password (secrets) are not included. Nor is plex.conf and known devices!
 
+##Travis
+https://travis-ci.org/DKFrederik/HomeAssistant
+
 ##Florplan 
 https://github.com/pkozul/ha-floorplan 
 https://github.com/pkozul/ha-floorplan/blob/master/README.md
