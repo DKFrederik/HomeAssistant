@@ -107,3 +107,63 @@
     - service: notify.notify
       data_template:
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+
+- alias: "BadevaerelseDag"
+  trigger:
+    - platform: state
+      entity_id: 
+        - light.color_temperature_light_1
+        - light.badevaerelse_2
+      to: 'on'
+      from: 'off'
+  condition:
+    - condition: time
+      after: '06:00:01'
+      before: '18:59:59'
+  action:
+      service: scene.turn_on
+      entity_id: scene.BadevaerelseDag
+
+- alias: "BadevaerelseNat"
+  trigger:
+    - platform: state
+      entity_id: 
+        - light.color_temperature_light_1
+        - light.badevaerelse_2
+      to: 'on'
+      from: 'off'
+  condition:
+    - condition: time
+      after: '19:00:00'
+      before: '06:00:00'
+  action:
+      service: scene.turn_on
+      entity_id: scene.BadevaerelseNat
+
+- alias: "SovevaerelseDag"
+  trigger:
+    - platform: state
+      entity_id: light.sovevaerelse_2
+      to: 'on'
+      from: 'off'
+  condition:
+    - condition: time
+      after: '06:00:01'
+      before: '18:59:59'
+  action:
+      service: scene.turn_on
+      entity_id: scene.SovevaerelseDag
+
+- alias: "SovevaerelseNat"
+  trigger:
+    - platform: state
+      entity_id: light.sovevaerelse_2
+      to: 'on'
+      from: 'off'
+  condition:
+    - condition: time
+      after: '19:00:00'
+      before: '06:00:00'
+  action:
+      service: scene.turn_on
+      entity_id: scene.SovevaerelseNat
