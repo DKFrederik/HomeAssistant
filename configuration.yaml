@@ -69,6 +69,13 @@ map:
 # Track the sun
 sun:
 
+# Enable googlt to speak
+tts:
+  - platform: google_translate
+    time_memory: 57600
+    base_url: http://192.168.0.7:8123
+    service_name: google_say
+
 # Kamera
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
@@ -226,29 +233,6 @@ device_tracker:
     #Find and track new devices 
     new_device_defaults:
       track_new_devices: true
-
-#Scenes
-scene:
-  - name: Livingroom normal
-    entities:
-      light.stue_1:
-        state: on
-        transition: 2
-        brightness_pct: 100
-      light.stue_2:
-        state: on
-        transition: 2
-        brightness_pct: 100
-  - name: Livingroom dim
-    entities:
-      light.stue_1:
-        state: on
-        transition: 2
-        brightness_pct: 30
-      light.stue_2:
-        state: on
-        transition: 2
-        brightness_pct: 30
 
 #Lille WC
 climate wavinAhc9000_1:
@@ -424,3 +408,4 @@ group: !include groups.yaml
 automation: !include automations.yaml
 #include Scripts
 script: !include scripts.yaml
+scene: !include scene.yaml
