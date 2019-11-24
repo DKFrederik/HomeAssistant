@@ -19,5 +19,3 @@ https://thenounproject.com/
 
 ##Ideas for later 
 https://www.awesome-ha.com/
-
-just testing
