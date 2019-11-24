@@ -8,16 +8,13 @@ homeassistant:
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 2
+  elevation: !secret elevation
   # metric for Metric, imperial for Imperial
-  unit_system: metric
+  unit_system: !secret unit_system 
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Copenhagen
+  time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
-    # binary_sensor.floorplan:
-      # custom_ui_state_card: state-card-floorplan
-      # config: !include floorplan.yaml
 
 #System Health
 system_health:
@@ -81,6 +78,7 @@ cloud:
 tts:
   - platform: google_translate
     language: 'da'
+    base_url: http://192.168.1.7:8123
 
 # Kamera
 ffmpeg:
