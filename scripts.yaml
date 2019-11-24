@@ -1,0 +1,12 @@
+speak_message:
+    sequence:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.stuen
+          volume_level: 100
+      - service: tts.google_say
+        entity_id: media_player.stuen
+        data_template:
+          message: "{{ message }}"
+          cache: true
+          language: 'da'
