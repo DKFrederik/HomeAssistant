@@ -167,3 +167,23 @@
   action:
       service: scene.turn_on
       entity_id: scene.SovevaerelseNat
+
+- alias: 'Julelys On'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.sonoff_1000986a15
+        
+- alias: 'Julelys Off'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.sonoff_1000986a15
