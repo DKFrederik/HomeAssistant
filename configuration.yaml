@@ -1,4 +1,5 @@
 homeassistant:
+  # packages: !include_dir_named packages
   whitelist_external_dirs:
     - /tmp
   # Name of the location where Home Assistant is running
@@ -69,12 +70,17 @@ map:
 # Track the sun
 sun:
 
-# Enable googlt to speak
+# travis
+- platform: travisci
+  api_key: !secret travis_token
+
+# Cloud
+cloud:
+
+# Enable google to speak
 tts:
   - platform: google_translate
-    time_memory: 57600
-    base_url: http://192.168.0.7:8123
-    service_name: google_say
+    language: 'da'
 
 # Kamera
 ffmpeg:
@@ -104,13 +110,6 @@ ffmpeg:
       # - torch
       # - whitebalance_lock
       # - video_recording
-
-# stream:
-
-# camera:
-  # - platform: generic
-    # #still_image_url: http://192.168.1.60/jpg/image.jpg
-    # stream_source: http://192.168.1.60/video1.mjpg
 
 # Sensors
 sensor:
@@ -152,18 +151,6 @@ sensor:
   - platform: mqtt
     name: "TristansVarme"
     state_topic: "heat/floor807D3A790941/5/current"
-      
-  # travis
-  - platform: travisci
-    api_key: !secret travis_token
-
-# Text to speech
-tts:
-  - platform: google_translate
-    service_name: google_say
-
-# Cloud
-cloud:
 
 #Sonoff
 sonoff:
