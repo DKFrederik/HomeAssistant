@@ -84,23 +84,18 @@ sun:
 
 tts:
   - platform: google_cloud
-    key_file: Credentials/GoogleTTS-5ac8260b4b3c.json
-    base_url: http://192.168.1.7:8123
+    key_file: !secret key_file
+    base_url: !secret base_url_for_text_to speak
     language: da-DK
     gender: female
-    # voice: en-US-Wavenet-F
-    # encoding: linear16
     speed: 1.0
     pitch: 0.0
     gain: 0.0
-    # profiles:
-    #   - telephony-class-application
-    #   - wearable-class-device
 
 # Enable google to speak
   - platform: google_translate
     language: 'da'
-    base_url: http://192.168.1.7:8123
+    base_url: base_url_for_text_to speak
 
 # Kamera
 ffmpeg:
