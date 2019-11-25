@@ -194,7 +194,7 @@
         entity_id: 
           - switch.sonoff_1000986a15
 
-# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber!)
+# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber! Husk at åbne adgang til google device i UFW på server!)
 - alias: FordoerAabnerTTS
   trigger:
     - platform: state
