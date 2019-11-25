@@ -1,0 +1,43 @@
+# Sensors
+# Weather
+- platform: yr
+  name: Weather
+  forecast: 24
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
+    - pressure
+    - windDirection
+    - humidity
+    - fog
+    - cloudiness
+    - lowClouds
+    - mediumClouds
+    - highClouds
+    - dewpointTemperature
+
+  # travis
+- platform: travisci
+  api_key: !secret travis_token
+      
+  # MQTT extracting Wavin current temperatur from all the topics   
+- platform: mqtt
+  name: "LilleWCFordoer"
+  state_topic: "heat/floor807D3A790941/0/current"
+- platform: mqtt
+  name: "BryggersVarme"
+  state_topic: "heat/floor807D3A790941/1/current"
+- platform: mqtt
+  name: "KøkkenVarme"
+  state_topic: "heat/floor807D3A790941/2/current"
+- platform: mqtt
+  name: "StorWCVarme"
+  state_topic: "heat/floor807D3A790941/3/current"
+- platform: mqtt
+  name: "GangVarme"
+  state_topic: "heat/floor807D3A790941/4/current"
+- platform: mqtt
+  name: "TristansVarme"
+  state_topic: "heat/floor807D3A790941/5/current"

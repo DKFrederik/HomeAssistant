@@ -34,7 +34,18 @@ panel_custom:
     
 # Enables configuration UI
 config:
+#include Gruoups
+group: !include groups.yaml
+#include Automations
+automation: !include automations.yaml
+#include Scripts
+script: !include scripts.yaml
+#include Scene
+scene: !include scene.yaml
+#include Cloud
 cloud: !include cloud.yaml
+#include sensor
+sensor: !include sensor.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -68,17 +79,12 @@ map:
 # Track the sun
 sun:
 
-# travis
-- platform: travisci
-  api_key: !secret travis_token
-
 # Cloud
-cloud:
+# cloud:
 
 tts:
   - platform: google_cloud
     key_file: Credentials/GoogleTTS-5ac8260b4b3c.json
-    base_url: http://192.168.1.7:8123
     language: da-DK
     gender: female
     # voice: en-US-Wavenet-F
@@ -122,48 +128,7 @@ ffmpeg:
       # - overlay
       # - torch
       # - whitebalance_lock
-      # - video_recording
-
-# Sensors
-sensor:
-  # Weather
-  - platform: yr
-    name: Weather
-    forecast: 24
-    monitored_conditions:
-      - temperature
-      - symbol
-      - precipitation
-      - windSpeed
-      - pressure
-      - windDirection
-      - humidity
-      - fog
-      - cloudiness
-      - lowClouds
-      - mediumClouds
-      - highClouds
-      - dewpointTemperature
-      
-  # MQTT extracting Wavin current temperatur from all the topics   
-  - platform: mqtt
-    name: "LilleWCFordoer"
-    state_topic: "heat/floor807D3A790941/0/current"
-  - platform: mqtt
-    name: "BryggersVarme"
-    state_topic: "heat/floor807D3A790941/1/current"
-  - platform: mqtt
-    name: "KøkkenVarme"
-    state_topic: "heat/floor807D3A790941/2/current"
-  - platform: mqtt
-    name: "StorWCVarme"
-    state_topic: "heat/floor807D3A790941/3/current"
-  - platform: mqtt
-    name: "GangVarme"
-    state_topic: "heat/floor807D3A790941/4/current"
-  - platform: mqtt
-    name: "TristansVarme"
-    state_topic: "heat/floor807D3A790941/5/current"
+      # - video_recording  
 
 #Sonoff
 sonoff:
@@ -402,10 +367,3 @@ sensor wavinBattery6:
     device_class: battery
     qos: 0
 
-#include Gruoups
-group: !include groups.yaml
-#include Automations
-automation: !include automations.yaml
-#include Scripts
-script: !include scripts.yaml
-scene: !include scene.yaml
