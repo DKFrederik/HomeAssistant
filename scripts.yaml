@@ -3,7 +3,7 @@ speak_message:
       - service: media_player.volume_set
         data:
           entity_id: media_player.stuen
-          volume_level: 100
+          volume_level: 20
       - service: tts.google_cloud_say
         entity_id: "all"
         data_template:
