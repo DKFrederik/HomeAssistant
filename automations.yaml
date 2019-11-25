@@ -187,3 +187,15 @@
       data:
         entity_id: 
           - switch.sonoff_1000986a15
+
+- alias: TTS Google Home
+  trigger:
+    - platform: state
+      entity_id: switch.sonoff_1000319a9b
+      to: 'off'
+  action:
+    - service: tts.google_cloud_say
+      entity_id: media_player.stuen
+      data:
+        message: 'Lyset på kontoret, er slukket.'
+        cache: true
