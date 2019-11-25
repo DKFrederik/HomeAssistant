@@ -85,6 +85,7 @@ sun:
 tts:
   - platform: google_cloud
     key_file: Credentials/GoogleTTS-5ac8260b4b3c.json
+    base_url: http://192.168.1.7:8123
     language: da-DK
     gender: female
     # voice: en-US-Wavenet-F

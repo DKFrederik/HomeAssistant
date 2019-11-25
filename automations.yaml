@@ -13,6 +13,7 @@
   # - above: '350'
     # entity_id: sensor.security_camera_motion
     # platform: numeric_state
+
 # - action:
   # - alias: ''
     # data:
@@ -28,6 +29,19 @@
       # minutes: 5
     # platform: numeric_state
 
+# Notifikation om update til Home Assistant
+- alias: Update Available Notification
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.notify
+      data_template:
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+
+# Tænd lys om natten
 - alias: 'under_koekkenbordet On'
   trigger:
     platform: sun
@@ -68,7 +82,8 @@
         entity_id: 
           - light.garage3
           - light.garage4
-        
+
+# Dim lys om aftenen/natten når der afspilles på chromecast
 - alias: "Media player paused/stopped"
   trigger:
     - platform: state
@@ -96,18 +111,8 @@
   action:
       service: scene.turn_on
       entity_id: scene.livingroom_dim
-      
-- alias: Update Available Notification
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.updater
-      from: 'off'
-      to: 'on'
-  action:
-    - service: notify.notify
-      data_template:
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
+# Dim lys om natten
 - alias: "BadevaerelseDag"
   trigger:
     - platform: state
@@ -168,6 +173,7 @@
       service: scene.turn_on
       entity_id: scene.SovevaerelseNat
 
+# Julelys
 - alias: 'Julelys On'
   trigger:
     platform: sun
@@ -188,14 +194,83 @@
         entity_id: 
           - switch.sonoff_1000986a15
 
-- alias: TTS Google Home
+# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber!)
+- alias: FordoerAabnerTTS
   trigger:
     - platform: state
-      entity_id: switch.sonoff_1000319a9b
-      to: 'off'
+      entity_id: binary_sensor.fordoren
+      to: 'on'
   action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.stuen
+        volume_level: '0.5'
     - service: tts.google_cloud_say
-      entity_id: media_player.stuen
       data:
-        message: 'Lyset på kontoret, er slukket.'
+        entity_id: media_player.stuen
+        message: "..... Fordøren er blevet åbnet! "
+        cache: true
+
+- alias: IndgangsdorAabnerTTS
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.indgangsdor
+      to: 'on'
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.stuen
+        volume_level: '0.5'
+    - service: tts.google_cloud_say
+      data:
+        entity_id: media_player.stuen
+        message: "..... Bryggersdøren er blevet åbnet! "
+        cache: true
+
+- alias: terrassedoerForhaveAabnerTTS
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.terrassedor_forhave
+      to: 'on'
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.stuen
+        volume_level: '0.5'
+    - service: tts.google_cloud_say
+      data:
+        entity_id: media_player.stuen
+        message: "..... Terrassedøren i forhaven er blevet åbnet! "
+        cache: true
+
+- alias: terrassedoerBaghaveAabnerTTS
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.terrassedor_baghave
+      to: 'on'
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.stuen
+        volume_level: '0.5'
+    - service: tts.google_cloud_say
+      data:
+        entity_id: media_player.stuen
+        message: "..... Terrassedøren i baghaven er blevet åbnet! "
+        cache: true
+
+- alias: KontorVindueAabnerTTS
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kontor
+      to: 'on'
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.stuen
+        volume_level: '0.5'
+    - service: tts.google_cloud_say
+      data:
+        entity_id: media_player.stuen
+        message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true
