@@ -79,6 +79,10 @@ map:
 # Track the sun
 sun:
 
+# travis (don't know wich kind of sensor this is... maby binary?)
+- platform: travisci
+  api_key: !secret travis_token
+
 # Cloud
 # cloud:
 

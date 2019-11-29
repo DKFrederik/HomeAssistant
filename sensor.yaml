@@ -17,10 +17,6 @@
     - mediumClouds
     - highClouds
     - dewpointTemperature
-
-  # travis
-- platform: travisci
-  api_key: !secret travis_token
       
   # MQTT extracting Wavin current temperatur from all the topics   
 - platform: mqtt
