@@ -37,12 +37,11 @@ Stue:
     - media_player.chromecastultra4028
     - climate.stue_2
     - climate.stue
-    - media_player.4k_uhd_razor_slim_led_tv_powered_by_androidtm
     - media_player.philipstv
     - camera.stue
-    - media_player.googlehome2415
     - sensor.stue_temperature
     - sensor.stue_temperature_2
+    - media_player.stuen
 
 Bryggers:
   name: Bryggers
@@ -67,6 +66,7 @@ Køkken:
     - light.under_koekkenbordet
     - climate.kokkenvarme
     - sensor.kokkenbatt
+    - media_player.googlehome4494
   
 Gang:
   name: Gang
@@ -173,4 +173,11 @@ Garage:
   entities:
     - light.garage3
     - light.garage4
+
+Loft:
+  name: Loft
+  view: yes
+  entities:
+    - switch.sonoff_1000989db8
+    - switch.sonoff_1000986a15
     
