@@ -106,6 +106,10 @@
         - name: Switches_on_off
           entities:
              - switch.kaffemaskine
+             # Sophies loftlys / Julelys
+             - switch.sonoff_1000986a15
+             # Loftlys
+             - switch.sonoff_1000989db8
           states:
             - state: 'on'
               class: 'switch-on'
