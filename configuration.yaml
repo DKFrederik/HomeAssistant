@@ -99,7 +99,7 @@ tts:
 # Enable google to speak
   - platform: google_translate
     language: 'da'
-    base_url: base_url_for_text_to speak
+    base_url: !secret base_url_for_text_to speak
 
 # Kamera
 ffmpeg:
