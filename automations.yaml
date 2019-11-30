@@ -203,11 +203,15 @@
   action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         volume_level: '0.5'
     - service: tts.google_cloud_say
       data:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         message: "..... Fordøren er blevet åbnet! "
         cache: true
 
@@ -219,11 +223,15 @@
   action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         volume_level: '0.5'
     - service: tts.google_cloud_say
       data:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         message: "..... Bryggersdøren er blevet åbnet! "
         cache: true
 
@@ -235,11 +243,15 @@
   action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         volume_level: '0.5'
     - service: tts.google_cloud_say
       data:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         message: "..... Terrassedøren i forhaven er blevet åbnet! "
         cache: true
 
@@ -251,11 +263,15 @@
   action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         volume_level: '0.5'
     - service: tts.google_cloud_say
       data:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         message: "..... Terrassedøren i baghaven er blevet åbnet! "
         cache: true
 
@@ -267,10 +283,14 @@
   action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         volume_level: '0.5'
     - service: tts.google_cloud_say
       data:
-        entity_id: media_player.stuen
+        entity_id: 
+          - media_player.stuen
+          - media_player.googlehome4494
         message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true
