@@ -1,5 +1,5 @@
-- id: Livingroom normal
-  name: Livingroom normal
+# - id: Livingroom normal
+- name: Livingroom normal
   entities:
     light.stue_1:
       state: on
@@ -10,8 +10,8 @@
       transition: 2
       brightness_pct: 100
 
-- id: Livingroom dim
-  name: Livingroom dim
+# - id: Livingroom dim
+- name: Livingroom dim
   entities:
     light.stue_1:
       state: on
@@ -22,8 +22,8 @@
       transition: 2
       brightness_pct: 30
 
-- id: BadevaerelseDag
-  name: BadevaerelseDag
+# - id: BadevaerelseDag
+- name: BadevaerelseDag
   entities:
       light.badevaerelse_2:
         state: on
@@ -34,8 +34,8 @@
         transition: 2
         brightness_pct: 100
 
-- id: BadevaerelseNat
-  name: BadevaerelseNat
+# - id: BadevaerelseNat
+- name: BadevaerelseNat
   entities:
     light.badevaerelse_2:
       state: on
@@ -46,16 +46,16 @@
       transition: 2
       brightness_pct: 10
 
-- id: SovevaerelseDag
-  name: SovevaerelseDag
+# - id: SovevaerelseDag
+- name: SovevaerelseDag
   entities:
       light.sovevaerelse_2:
         state: on
         transition: 2
         brightness_pct: 100
 
-- id: SovevaerelseNat
-  name: SovevaerelseNat
+# - id: SovevaerelseNat
+- name: SovevaerelseNat
   entities:
     light.sovevaerelse_2:
       state: on

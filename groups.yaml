@@ -9,7 +9,6 @@ default_view:
     - group.all_lights
     # - updater.updater
 
-
 Varme:
   name: Varme
   view: yes

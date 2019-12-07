@@ -23,7 +23,7 @@ system_health:
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
-
+    
 # If you change the name of your floorplan.svg file, change it here too.
 panel_custom:
   - name: floorplan
@@ -31,7 +31,7 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan 
     config: !include floorplan.yaml
-    
+
 # Enables configuration UI
 config:
 #include Gruoups
@@ -46,17 +46,20 @@ scene: !include scene.yaml
 cloud: !include cloud.yaml
 #include sensor
 sensor: !include sensor.yaml
+# Customization file
+#customize: !include customize.yaml
+  
+# Configure a default setup of Home Assistant (frontend, api, etc)
+#default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-
+ 
+# Text to speech
+tts:
+  - platform: google_translate
+  
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -97,9 +100,9 @@ tts:
     gain: 0.0
 
 # Enable google to speak
-  - platform: google_translate
-    language: 'da'
-    base_url: !secret base_url_for_text_to speak
+  # - platform: google_translate
+  #   language: 'da'
+  #   base_url: !secret base_url_for_text_to speak
 
 # Kamera
 ffmpeg:
@@ -139,7 +142,7 @@ sonoff:
   api_region: 'eu' #(optional)
   entity_prefix: True #(optional)
   debug: False #(optional)
-
+  
 #MQTT 
 mqtt:
   discovery: false
@@ -149,7 +152,7 @@ mqtt:
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
-
+  
 #Philips Hue
 hue:
   bridges:
@@ -366,4 +369,3 @@ sensor wavinBattery6:
     unit_of_measurement: "%"
     device_class: battery
     qos: 0
-
