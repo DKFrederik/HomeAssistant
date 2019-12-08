@@ -29,17 +29,17 @@
       # minutes: 5
     # platform: numeric_state
 
-# Notifikation om update til Home Assistant
-- alias: Update Available Notification
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.updater
-      from: 'off'
-      to: 'on'
-  action:
-    - service: notify.notify
-      data_template:
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+# # Notifikation om update til Home Assistant
+# - alias: Update Available Notification
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.updater
+#       from: 'off'
+#       to: 'on'
+#   action:
+#     - service: notify.notify
+#       data_template:
+#         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
 # Tænd lys om natten
 - alias: 'under_koekkenbordet On'
@@ -194,7 +194,7 @@
         entity_id: 
           - switch.sonoff_1000986a15
 
-# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber! Husk at åbne adgang til google device i UFW på server!)
+# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber! Husk at åbne adgang fra server til google device i UFW på server!)
 - alias: FordoerAabnerTTS
   trigger:
     - platform: state

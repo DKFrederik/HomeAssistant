@@ -56,9 +56,9 @@ sensor: !include sensor.yaml
 # http:
 #   base_url: example.duckdns.org:8123
  
-# Text to speech
-tts:
-  - platform: google_translate
+# # Text to speech
+# tts:
+#   - platform: google_translate
   
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
