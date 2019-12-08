@@ -51,11 +51,6 @@ scene: !include scene.yaml
 cloud: !include cloud.yaml
 #include sensor
 sensor: !include sensor.yaml
-# Customization file
-#customize: !include customize.yaml
-  
-# Configure a default setup of Home Assistant (frontend, api, etc)
-#default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -90,9 +85,6 @@ sun:
 # travis (don't know wich kind of sensor this is... maby binary?)
 - platform: travisci
   api_key: !secret travis_token
-
-# Cloud
-# cloud:
 
 # Example configuration.yaml entry
 vacuum:
