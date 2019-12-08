@@ -52,6 +52,7 @@ Bryggers:
     - binary_sensor.indgangsdor
     - climate.bryggersvarme
     - sensor.bryggersbatt
+    - vacuum.roomba
 
 Køkken:
   name: Køkken
