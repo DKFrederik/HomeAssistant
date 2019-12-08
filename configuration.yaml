@@ -15,6 +15,11 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
+# added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
+logger:
+  default: info
+  logs:
+    roomba: warning
 
 #System Health
 system_health:
