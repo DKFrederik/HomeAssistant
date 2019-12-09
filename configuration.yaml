@@ -156,7 +156,11 @@ mqtt:
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
-  
+
+# Ikea gateway
+tradfri:
+  host: 192.168.1.12
+
 #Philips Hue
 hue:
   bridges:
