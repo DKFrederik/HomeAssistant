@@ -117,7 +117,7 @@
   trigger:
     - platform: state
       entity_id: 
-        - light.color_temperature_light_1
+        - light.badevaerelse_1
         - light.badevaerelse_2
       to: 'on'
       from: 'off'
@@ -133,7 +133,7 @@
   trigger:
     - platform: state
       entity_id: 
-        - light.color_temperature_light_1
+        - light.badevaerelse_1
         - light.badevaerelse_2
       to: 'on'
       from: 'off'
