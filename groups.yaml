@@ -53,6 +53,7 @@ Bryggers:
     - climate.bryggersvarme
     - sensor.bryggersbatt
     - vacuum.roomba
+    - weather.aeblevangen_36
 
 Køkken:
   name: Køkken
