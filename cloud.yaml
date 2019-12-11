@@ -1,16 +1,16 @@
 google_actions:
   filter:
     include_entities:
-      - media_player.Stuen
+      - media_player.stuen
       - media_player.googlehome4494
-  entity_config:
-      media_player.Stuen:
-        name: Google Home Stuen
-        aliases:
-         - Stuen
-        room: Stue
-      media_player.googlehome4494:
-        name: Google mini koekken
-        aliases:
-         - Køkken
-        room: Stue
+  # entity_config:
+  #     media_player.stuen:
+  #       name: Google Home Stuen
+  #       aliases:
+  #        - Stuen
+  #       room: Stue
+  #     media_player.googlehome4494:
+  #       name: Google mini koekken
+  #       aliases:
+  #        - Køkken
+  #       room: Stue

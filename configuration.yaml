@@ -97,9 +97,9 @@ tts:
     gain: 0.0
 
 # Enable google to speak
-  - platform: google_translate
-    language: 'da'
-    base_url: !secret base_url_for_text_to speak
+  # - platform: google_translate
+  #   language: 'da'
+  #   base_url: !secret base_url_for_text_to speak
 
 # Kamera
 ffmpeg:
