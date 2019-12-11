@@ -66,8 +66,8 @@
              - light.garage4
              # køkken
              - light.under_koekkenbordet
-             - light.kokken_1
-             - light.kokken_2
+             - light.koekken_1
+             - light.koekken_2
              - light.spisebord
              # Stue
              - light.stue_1
@@ -79,18 +79,18 @@
              # Soveværelse
              - light.sovevaerelse
              # Tristans værelse
-             - light.tristans_vaerelse
+             - light.tristan_1
              - light.hue_ambiance_candle_1
              # Badeværelse
              - light.badevaerelse
              - light.badevaerelse_1
              - light.badevaerelse_2
              ##Legestue 1
-             - light.legestue1
+             - light.legestue_1
              ##Legestue 2
-             - light.legestue2
+             - light.legestue_2
              ##Legestue 3
-             - light.legestue3
+             - light.legestue_3
              # Kontor lys
              - switch.sonoff_1000319a9b
           states:
