@@ -25,3 +25,9 @@ home-assistant_v2.db
 .uuid
 Credentials/GoogleTTS-820b4febd6c5.json
 Credentials/GoogleTTS-5ac8260b4b3c.json
+automations_original.yaml
+configuration_original.yaml
+groups_original.yaml
+scenes_original.yaml
+scripts_original.yaml
+secrets_original.yaml
