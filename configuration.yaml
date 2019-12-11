@@ -15,6 +15,11 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
+# added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
+logger:
+  default: info
+  logs:
+    roomba: warning
 
 #System Health
 system_health:
@@ -23,7 +28,7 @@ system_health:
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
-
+    
 # If you change the name of your floorplan.svg file, change it here too.
 panel_custom:
   - name: floorplan
@@ -31,7 +36,7 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan 
     config: !include floorplan.yaml
-    
+
 # Enables configuration UI
 config:
 #include Gruoups
@@ -50,13 +55,11 @@ sensor: !include sensor.yaml
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-
+ 
+# # Text to speech
+# tts:
+#   - platform: google_translate
+  
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -83,8 +86,12 @@ sun:
 - platform: travisci
   api_key: !secret travis_token
 
-# Cloud
-# cloud:
+# Example configuration.yaml entry
+vacuum:
+  - platform: roomba
+    host: !secret roomba_host
+    username: !secret roomba_username
+    password: !secret roomba_password
 
 tts:
   - platform: google_cloud
@@ -139,7 +146,7 @@ sonoff:
   api_region: 'eu' #(optional)
   entity_prefix: True #(optional)
   debug: False #(optional)
-
+  
 #MQTT 
 mqtt:
   discovery: false
@@ -149,6 +156,10 @@ mqtt:
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
+
+# Ikea gateway
+tradfri:
+  host: 192.168.1.12
 
 #Philips Hue
 hue:
@@ -366,4 +377,3 @@ sensor wavinBattery6:
     unit_of_measurement: "%"
     device_class: battery
     qos: 0
-

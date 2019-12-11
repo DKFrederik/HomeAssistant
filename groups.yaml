@@ -52,6 +52,8 @@ Bryggers:
     - binary_sensor.indgangsdor
     - climate.bryggersvarme
     - sensor.bryggersbatt
+    - vacuum.roomba
+    - weather.aeblevangen_36
 
 Køkken:
   name: Køkken

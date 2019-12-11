@@ -29,7 +29,7 @@
         state: on
         transition: 2
         brightness_pct: 100
-      light.color_temperature_light_1:
+      light.badevaerelse_1:
         state: on
         transition: 2
         brightness_pct: 100
@@ -41,7 +41,7 @@
       state: on
       transition: 2
       brightness_pct: 10
-    light.color_temperature_light_1:
+    light.badevaerelse_1:
       state: on
       transition: 2
       brightness_pct: 10

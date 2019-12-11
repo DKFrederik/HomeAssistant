@@ -83,8 +83,8 @@
              - light.hue_ambiance_candle_1
              # Badeværelse
              - light.badevaerelse
+             - light.badevaerelse_1
              - light.badevaerelse_2
-             - light.color_temperature_light_1
              ##Legestue 1
              - light.legestue1
              ##Legestue 2

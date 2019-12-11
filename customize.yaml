@@ -58,8 +58,8 @@ binary_sensor.floorplan:
       - light.tristans_vaerelse
       # badeværelse 
       - light.badevaerelse
+      - light.badevaerelse_1
       - light.badevaerelse_2
-      - light.color_temperature_light_1
       # legestue
       - light.legestue1
       - light.legestue2
