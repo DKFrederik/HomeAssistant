@@ -3,11 +3,9 @@
   entities:
     light.stue_1:
       state: on
-      transition: 2
       brightness: 255
     light.stue_2:
       state: on
-      transition: 2
       brightness: 255
 
 # - id: Livingroom dim
@@ -15,11 +13,9 @@
   entities:
     light.stue_1:
       state: on
-      transition: 2
       brightness: 40
     light.stue_2:
       state: on
-      transition: 2
       brightness: 40
 
 # - id: BadevaerelseDag
@@ -27,11 +23,9 @@
   entities:
       light.badevaerelse_2:
         state: on
-        transition: 2
         brightness: 255
       light.badevaerelse_1:
         state: on
-        transition: 2
         brightness: 255
 
 # - id: BadevaerelseNat
@@ -39,33 +33,27 @@
   entities:
     light.badevaerelse_2:
       state: on
-      transition: 2
       brightness: 30
     light.badevaerelse_1:
       state: on
-      transition: 2
       brightness: 30
 
 - name: GangDag
   entities:
       light.gang_2:
         state: on
-        transition: 2
         brightness: 255
       light.gang_1:
         state: on
-        transition: 2
         brightness: 255
 
 - name: GangNat
   entities:
     light.gang_2:
       state: on
-      transition: 2
       brightness: 30
     light.gang_1:
       state: on
-      transition: 2
       brightness: 30
 
 - name: GangOff
@@ -80,7 +68,6 @@
   entities:
       light.sovevaerelse_2:
         state: on
-        transition: 2
         brightness: 255
 
 # - id: SovevaerelseNat
@@ -88,6 +75,5 @@
   entities:
     light.sovevaerelse_2:
       state: on
-      transition: 2
       brightness: 255
 
