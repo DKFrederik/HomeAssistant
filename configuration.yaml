@@ -28,13 +28,13 @@ system_health:
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
-    
+
 # If you change the name of your floorplan.svg file, change it here too.
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
     sidebar_icon: mdi:home
-    url_path: floorplan 
+    url_path: floorplan
     config: !include floorplan.yaml
 
 # Enables configuration UI
@@ -55,11 +55,11 @@ sensor: !include sensor.yaml
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
- 
+
 # # Text to speech
 # tts:
 #   - platform: google_translate
-  
+
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -135,7 +135,7 @@ ffmpeg:
       # - overlay
       # - torch
       # - whitebalance_lock
-      # - video_recording  
+      # - video_recording
 
 #Sonoff
 sonoff:
@@ -146,8 +146,8 @@ sonoff:
   api_region: 'eu' #(optional)
   entity_prefix: True #(optional)
   debug: False #(optional)
-  
-#MQTT 
+
+#MQTT
 mqtt:
   discovery: false
   discovery_prefix: homeassistant
@@ -159,7 +159,7 @@ mqtt:
 
 # Ikea gateway
 tradfri:
-  host: 192.168.1.12
+  host: !secret Ikea_gateway
 
 #Philips Hue
 hue:
@@ -168,7 +168,7 @@ hue:
       allow_unreachable: true
       allow_hue_groups: true
 
-#Led strips 
+#Led strips
 light:
   - platform: flux_led
     devices:
@@ -193,7 +193,7 @@ device_tracker:
     username: !secret tado_username
     password: !secret tado_password
     home_id: 255063
-  - platform: nmap_tracker 
+  - platform: nmap_tracker
     #Witch devices to track
     hosts:
        #Frederik
@@ -202,11 +202,11 @@ device_tracker:
        - !secret trineMobilNmap
        #Sophie
        - !secret sophieMobilNmap
-    #How many seconds between scans 
+    #How many seconds between scans
     home_interval: 10
     #How long (in seconds) before a device is considered not home. This helps prevent false readings
     consider_home: 180
-    #Find and track new devices 
+    #Find and track new devices
     new_device_defaults:
       track_new_devices: true
 
@@ -282,7 +282,7 @@ climate wavinAhc9000_3:
     payload_available: "True"
     payload_not_available: "False"
     qos: 0
-    
+
 sensor wavinBattery3:
   - platform: mqtt
     state_topic: "heat/floor807D3A790941/2/battery"
@@ -310,7 +310,7 @@ climate wavinAhc9000_4:
     payload_available: "True"
     payload_not_available: "False"
     qos: 0
-    
+
 sensor wavinBattery4:
   - platform: mqtt
     state_topic: "heat/floor807D3A790941/3/battery"
@@ -338,7 +338,7 @@ climate wavinAhc9000_5:
     payload_available: "True"
     payload_not_available: "False"
     qos: 0
-    
+
 sensor wavinBattery5:
   - platform: mqtt
     state_topic: "heat/floor807D3A790941/4/battery"
@@ -366,7 +366,7 @@ climate wavinAhc9000_6:
     payload_available: "True"
     payload_not_available: "False"
     qos: 0
-    
+
 sensor wavinBattery6:
   - platform: mqtt
     state_topic: "heat/floor807D3A790941/5/battery"

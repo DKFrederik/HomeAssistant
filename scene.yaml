@@ -46,6 +46,28 @@
       transition: 2
       brightness_pct: 10
 
+- name: GangDag
+  entities:
+      light.gang_2:
+        state: on
+        transition: 2
+        brightness_pct: 100
+      light.gang_1:
+        state: on
+        transition: 2
+        brightness_pct: 100
+
+- name: GangNat
+  entities:
+    light.gang_2:
+      state: on
+      transition: 2
+      brightness_pct: 10
+    light.gang_1:
+      state: on
+      transition: 2
+      brightness_pct: 10
+
 # - id: SovevaerelseDag
 - name: SovevaerelseDag
   entities:

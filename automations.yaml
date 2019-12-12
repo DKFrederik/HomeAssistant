@@ -1,280 +1,311 @@
-# - action:
-  # - alias: ''
-    # data:
-      # entity_id: switch.security_camera_video_recording
-    # service: switch.turn_on
-  # alias: 'Camera: Turn on camera on motion when nobody is home.'
-  # # condition:
-  # # - condition: state
-    # # entity_id: group.family_group
-    # # state: not_home
-  # # id: '1517323546560'
-  # trigger:
-  # - above: '350'
-    # entity_id: sensor.security_camera_motion
-    # platform: numeric_state
-
-# - action:
-  # - alias: ''
-    # data:
-      # entity_id: switch.security_camera_video_recording
-    # service: switch.turn_off
-  # alias: 'Camera: Turn off when no motion detected'
-  # condition: []
-  # id: '1517323600118'
-  # trigger:
-  # - below: '350'
-    # entity_id: sensor.security_camera_motion
-    # for:
-      # minutes: 5
-    # platform: numeric_state
-
-# # Notifikation om update til Home Assistant
-# - alias: Update Available Notification
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.updater
-#       from: 'off'
-#       to: 'on'
-#   action:
-#     - service: notify.notify
-#       data_template:
-#         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
-
-# Tænd lys om natten
-- alias: 'under_koekkenbordet On'
+- alias: under_koekkenbordet On
   trigger:
     platform: sun
     event: sunset
+    offset: "-00:30:00"
   action:
-    - service: light.turn_on
-      data:
-        entity_id: light.under_koekkenbordet
-        
-- alias: 'under_koekkenbordet Off'
-  trigger:
-    platform: sun
-    event: sunrise
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.under_koekkenbordet
-        
-- alias: 'Garage On'
+    service: light.turn_on
+    entity_id: light.under_koekkenbordet
+
+- alias: under_koekkenbordet Off
   trigger:
     platform: sun
     event: sunset
+    offset: "00:00:00"
   action:
-    - service: light.turn_on
-      data:
-        entity_id: 
-          - light.garage3
-          - light.garage4
-        brightness: 100
-        
-- alias: 'Garage Off'
+    service: light.turn_off
+    entity_id: light.under_koekkenbordet
+
+- alias: Julelys tænd
   trigger:
     platform: sun
-    event: sunrise
+    event: sunset
+    offset: "-00:30:00"
   action:
-    - service: light.turn_off
-      data:
+    service: switch.turn_on
+    entity_id: switch.sonoff_1000986a15
+
+- alias: Julelys sluk
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "00:00:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000986a15
+
+- alias: Garage tænd
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    service: light.turn_on
+    entity_id: 
         entity_id: 
-          - light.garage3
-          - light.garage4
+    entity_id: 
+      - light.garage3
+      - light.garage4
 
-# Dim lys om aftenen/natten når der afspilles på chromecast
-- alias: "Media player paused/stopped"
+- alias: Garage sluk
   trigger:
-    - platform: state
-      entity_id: media_player.chromecast_ultra
-      from: 'playing'
-      to: 'idle'
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+    platform: sun
+    event: sunset
+    offset: "00:00:00"
   action:
-      service: scene.turn_on
-      entity_id: scene.livingroom_normal
+    service: light.turn_off
+    entity_id:
+        entity_id: 
+    entity_id:
+      - light.garage3
+      - light.garage4
 
-- alias: "Media player playing"
+- alias: Media player paused/stopped
   trigger:
-    - platform: state
-      entity_id: media_player.chromecast_ultra
-      to: 'playing'
-      from: 'idle'
+  - platform: state
+    entity_id: media_player.chromecast_ultra
+    from: playing
+    to: idle
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
   action:
-      service: scene.turn_on
-      entity_id: scene.livingroom_dim
+    service: scene.turn_on
+    entity_id: scene.livingroom_normal
 
-# Dim lys om natten
-- alias: "BadevaerelseDag"
+- alias: Media player playing
   trigger:
-    - platform: state
+  - platform: state
+    entity_id: media_player.chromecast_ultra
+    to: playing
+    from: idle
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: scene.turn_on
+    entity_id: scene.livingroom_dim
+
+- alias: BadevaerelseDag
+  trigger:
+  - platform: state
+    entity_id:
       entity_id: 
-        - light.badevaerelse_1
-        - light.badevaerelse_2
-      to: 'on'
-      from: 'off'
+    entity_id:
+    - light.badevaerelse_1
+    - light.badevaerelse_2
+    to: 'on'
+    from: 'off'
   condition:
-    - condition: time
-      after: '06:00:01'
-      before: '18:59:59'
+  - condition: time
+    after: 06:00:01
+    before: '18:59:59'
   action:
-      service: scene.turn_on
-      entity_id: scene.BadevaerelseDag
+    service: scene.turn_on
+    entity_id: scene.BadevaerelseDag
 
-- alias: "BadevaerelseNat"
+- alias: BadevaerelseNat
   trigger:
-    - platform: state
+  - platform: state
+    entity_id:
       entity_id: 
-        - light.badevaerelse_1
-        - light.badevaerelse_2
-      to: 'on'
-      from: 'off'
+    entity_id:
+    - light.badevaerelse_1
+    - light.badevaerelse_2
+    to: 'on'
+    from: 'off'
   condition:
-    - condition: time
-      after: '19:00:00'
-      before: '06:00:00'
+  - condition: time
+    after: '19:00:00'
+    before: 06:00:00
   action:
-      service: scene.turn_on
-      entity_id: scene.BadevaerelseNat
+    service: scene.turn_on
+    entity_id: scene.BadevaerelseNat
 
-- alias: "SovevaerelseDag"
+- alias: SovevaerelseDag
   trigger:
-    - platform: state
-      entity_id: light.sovevaerelse_2
-      to: 'on'
-      from: 'off'
+  - platform: state
+    entity_id: light.sovevaerelse_2
+    to: 'on'
+    from: 'off'
   condition:
-    - condition: time
-      after: '06:00:01'
-      before: '18:59:59'
+  - condition: time
+    after: 06:00:01
+    before: '18:59:59'
   action:
-      service: scene.turn_on
-      entity_id: scene.SovevaerelseDag
+    service: scene.turn_on
+    entity_id: scene.SovevaerelseDag
 
-- alias: "SovevaerelseNat"
+- alias: SovevaerelseNat
   trigger:
-    - platform: state
-      entity_id: light.sovevaerelse_2
-      to: 'on'
-      from: 'off'
+  - platform: state
+    entity_id: light.sovevaerelse_2
+    to: 'on'
+    from: 'off'
   condition:
-    - condition: time
-      after: '19:00:00'
-      before: '06:00:00'
+  - condition: time
+    after: '19:00:00'
+    before: 06:00:00
   action:
-      service: scene.turn_on
-      entity_id: scene.SovevaerelseNat
+    service: scene.turn_on
+    entity_id: scene.SovevaerelseNat
 
-# Julelys
-- alias: 'Julelys On'
+
   trigger:
-    platform: sun
-    event: sunset
+  - platform: state
+    entity_id: switch.sonoff_1000319a9b
+    to: 'on'
   action:
-    - service: switch.turn_on
-      data:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: all
+      volume_level: '0.5'
+  - service: tts.google_cloud_say
+    data:
+      entity_id: all
+      message: '..... Vinduet på kontoret er blevet åbnet! '
+      cache: true
+  id: 5dffc02540f84ad780975cc8d137bdb1
+
+- alias: Turn on gang light when there is movement at daytime
+  trigger:
+    platform: state
+    entity_id: binary_sensor.gang_sensor_motion
+    to: 'on'
+  condition:
+  - condition: time
+    after: 06:00:01
+    before: '18:59:59'
+  action:
+    service: scene.turn_on
+    entity_id: scene.GangDag
+
+- alias: Turn on gang light when there is movement at nighttime
+  trigger:
+    platform: state
+    entity_id: binary_sensor.gang_sensor_motion
+    to: 'on'
+  condition:
+  - condition: time
+    after: '19:00:00'
+    before: 06:00:00
+  action:
+    service: scene.turn_on
+    entity_id: scene.GangDag
+
+- alias: Turn off gang light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.gang_sensor_motion
+    to: 'off'
+    for:
+      minutes: 1
+  action:
+    service: light.turn_off
+    entity_id: 
         entity_id: 
-          - switch.sonoff_1000986a15
-        
-- alias: 'Julelys Off'
-  trigger:
-    platform: sun
-    event: sunrise
-  action:
-    - service: switch.turn_off
-      data:
-        entity_id: 
-          - switch.sonoff_1000986a15
+    entity_id: 
+      - light.gang_1
+      - light.gang_2
 
-# TTS (Kan bruge tts.google_translate_say når tts.google_cloud_say abbonoment udløber! Husk at åbne adgang fra server til google device i UFW på server!)
 - alias: FordoerAabnerTTS
   trigger:
-    - platform: state
-      entity_id: binary_sensor.fordoren
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.fordoren
+    to: 'on'
   action:
-    - service: media_player.volume_set
-      data_template:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        volume_level: '0.5'
-    - service: tts.google_cloud_say
-      data:
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      volume_level: '0.5'
+  - service: tts.google_cloud_say
+    data:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        message: "..... Fordøren er blevet åbnet! "
-        cache: true
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      message: '..... Fordøren er blevet åbnet! '
+      cache: true
 
 - alias: IndgangsdorAabnerTTS
   trigger:
-    - platform: state
-      entity_id: binary_sensor.indgangsdor
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.indgangsdor
+    to: 'on'
   action:
-    - service: media_player.volume_set
-      data_template:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        volume_level: '0.5'
-    - service: tts.google_cloud_say
-      data:
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      volume_level: '0.5'
+  - service: tts.google_cloud_say
+    data:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        message: "..... Bryggersdøren er blevet åbnet! "
-        cache: true
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      message: '..... Bryggersdøren er blevet åbnet! '
+      cache: true
 
 - alias: terrassedoerForhaveAabnerTTS
   trigger:
-    - platform: state
-      entity_id: binary_sensor.terrassedor_forhave
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.terrassedor_forhave
+    to: 'on'
   action:
-    - service: media_player.volume_set
-      data_template:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        volume_level: '0.5'
-    - service: tts.google_cloud_say
-      data:
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      volume_level: '0.5'
+  - service: tts.google_cloud_say
+    data:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        message: "..... Terrassedøren i forhaven er blevet åbnet! "
-        cache: true
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      message: '..... Terrassedøren i forhaven er blevet åbnet! '
+      cache: true
 
 - alias: terrassedoerBaghaveAabnerTTS
   trigger:
-    - platform: state
-      entity_id: binary_sensor.terrassedor_baghave
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.terrassedor_baghave
+    to: 'on'
   action:
-    - service: media_player.volume_set
-      data_template:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        volume_level: '0.5'
-    - service: tts.google_cloud_say
-      data:
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      volume_level: '0.5'
+  - service: tts.google_cloud_say
+    data:
+      entity_id:
         entity_id: 
-          - media_player.stuen
-          - media_player.googlehome4494
-        message: "..... Terrassedøren i baghaven er blevet åbnet! "
-        cache: true
-
+      entity_id:
+      - media_player.stuen
+      - media_player.googlehome4494
+      message: '..... Terrassedøren i baghaven er blevet åbnet! '
+      cache: true
+      
 - alias: KontorVindueAabnerTTS
   trigger:
     - platform: state
