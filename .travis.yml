@@ -2,13 +2,14 @@
 language: python
 python:
   # - "3.6"
-  - "3.7.3"
+  #- "3.7.3"
+  - "3.7.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev
   #Remove sonoff (custom_components) as its not working with travis.
   - sed -e '/sonoff/,+2d' < configuration.yaml > configuration.yaml
 install:
-  - pip3 install homeassistant
+  - pip3.7 install homeassistant
 script:
   - hass -c . --script check_config
