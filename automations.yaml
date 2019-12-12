@@ -42,8 +42,6 @@
   action:
     service: light.turn_on
     entity_id: 
-        entity_id: 
-    entity_id: 
       - light.garage3
       - light.garage4
 
@@ -54,8 +52,6 @@
     offset: "00:00:00"
   action:
     service: light.turn_off
-    entity_id:
-        entity_id: 
     entity_id:
       - light.garage3
       - light.garage4
@@ -92,8 +88,6 @@
   trigger:
   - platform: state
     entity_id:
-      entity_id: 
-    entity_id:
     - light.badevaerelse_1
     - light.badevaerelse_2
     to: 'on'
@@ -109,8 +103,6 @@
 - alias: BadevaerelseNat
   trigger:
   - platform: state
-    entity_id:
-      entity_id: 
     entity_id:
     - light.badevaerelse_1
     - light.badevaerelse_2
@@ -152,23 +144,6 @@
     service: scene.turn_on
     entity_id: scene.SovevaerelseNat
 
-
-  trigger:
-  - platform: state
-    entity_id: switch.sonoff_1000319a9b
-    to: 'on'
-  action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id: all
-      volume_level: '0.5'
-  - service: tts.google_cloud_say
-    data:
-      entity_id: all
-      message: '..... Vinduet på kontoret er blevet åbnet! '
-      cache: true
-  id: 5dffc02540f84ad780975cc8d137bdb1
-
 - alias: Turn on gang light when there is movement at daytime
   trigger:
     platform: state
@@ -205,8 +180,6 @@
   action:
     service: light.turn_off
     entity_id: 
-        entity_id: 
-    entity_id: 
       - light.gang_1
       - light.gang_2
 
@@ -219,15 +192,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id:
-        entity_id: 
-      entity_id:
       - media_player.stuen
       - media_player.googlehome4494
       volume_level: '0.5'
   - service: tts.google_cloud_say
     data:
-      entity_id:
-        entity_id: 
       entity_id:
       - media_player.stuen
       - media_player.googlehome4494
@@ -243,15 +212,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id:
-        entity_id: 
-      entity_id:
       - media_player.stuen
       - media_player.googlehome4494
       volume_level: '0.5'
   - service: tts.google_cloud_say
     data:
-      entity_id:
-        entity_id: 
       entity_id:
       - media_player.stuen
       - media_player.googlehome4494
@@ -267,15 +232,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id:
-        entity_id: 
-      entity_id:
       - media_player.stuen
       - media_player.googlehome4494
       volume_level: '0.5'
   - service: tts.google_cloud_say
     data:
-      entity_id:
-        entity_id: 
       entity_id:
       - media_player.stuen
       - media_player.googlehome4494
@@ -291,15 +252,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id:
-        entity_id: 
-      entity_id:
       - media_player.stuen
       - media_player.googlehome4494
       volume_level: '0.5'
   - service: tts.google_cloud_say
     data:
-      entity_id:
-        entity_id: 
       entity_id:
       - media_player.stuen
       - media_player.googlehome4494
