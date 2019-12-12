@@ -168,7 +168,7 @@
     before: 06:00:00
   action:
     service: scene.turn_on
-    entity_id: scene.GangDag
+    entity_id: scene.GangNat
 
 - alias: Turn off gang light 1 minutes after last movement
   trigger:

@@ -68,6 +68,13 @@
       transition: 2
       brightness_pct: 10
 
+- name: GangOff
+  entities:
+    light.gang_2:
+      state: off
+    light.gang_1:
+      state: off
+
 # - id: SovevaerelseDag
 - name: SovevaerelseDag
   entities:
