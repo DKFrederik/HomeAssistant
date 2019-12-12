@@ -176,7 +176,8 @@
     entity_id: binary_sensor.gang_sensor_motion
     to: 'off'
     for:
-      minutes: 1
+      # minutes: 1
+      seconds: 15
   action:
     service: light.turn_off
     entity_id: 
