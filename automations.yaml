@@ -28,8 +28,8 @@
 - alias: Julelys sluk
   trigger:
     platform: sun
-    event: sunset
-    offset: "00:00:00"
+    event: sunrise
+    offset: "+00:30:00"
   action:
     service: switch.turn_off
     entity_id: switch.sonoff_1000986a15
