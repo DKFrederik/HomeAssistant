@@ -52,9 +52,11 @@ cloud: !include cloud.yaml
 #include sensor
 sensor: !include sensor.yaml
 
+mobile_app:
+
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
-#   base_url: example.duckdns.org:8123
+#   base_url: !secret base_url_for_text_to speak
 
 # # Text to speech
 # tts:
@@ -104,9 +106,11 @@ tts:
     gain: 0.0
 
 # Enable google to speak
-  # - platform: google_translate
-  #   language: 'da'
-  #   base_url: !secret base_url_for_text_to speak
+  - platform: google_translate
+    language: 'da'
+    cache: true
+    cache_dir: /tts
+    base_url: !secret base_url_for_text_to speak
 
 # Kamera
 ffmpeg:

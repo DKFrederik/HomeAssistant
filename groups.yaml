@@ -149,7 +149,7 @@ Badeværelse:
   view: yes
   entities:
     - light.badevaerelse_2
-    - light.color_temperature_light_1
+    - light.badevaerelse_1
     - climate.storwcvarme
     - sensor.storwcbatt
   
