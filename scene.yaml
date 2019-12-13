@@ -18,6 +18,15 @@
       state: on
       brightness: 40
 
+- name: GarageNat
+  entities:
+    light.garage3:
+      state: on
+      brightness: 30
+    light.garage4:
+      state: on
+      brightness: 30
+
 # - id: BadevaerelseDag
 - name: BadevaerelseDag
   entities:
