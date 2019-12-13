@@ -34,28 +34,6 @@
     service: switch.turn_off
     entity_id: switch.sonoff_1000986a15
 
-- alias: Garage tænd
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:30:00"
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.garage3
-      - light.garage4
-
-- alias: Garage sluk
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "00:00:00"
-  action:
-    service: light.turn_off
-    entity_id:
-      - light.garage3
-      - light.garage4
-
 - alias: Media player paused/stopped
   trigger:
   - platform: state
@@ -83,6 +61,26 @@
   action:
     service: scene.turn_on
     entity_id: scene.livingroom_dim
+
+- alias: Garage tænd
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    service: scene.turn_on
+    entity_id: scene.GarageNat
+
+- alias: Garage sluk
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "00:00:00"
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.garage3
+      - light.garage4
 
 - alias: BadevaerelseDag
   trigger:
