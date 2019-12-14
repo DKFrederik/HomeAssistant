@@ -82,33 +82,37 @@
       - light.garage3
       - light.garage4
 
-- alias: Garage without movement
+- alias: Garage when opening door
   trigger:
   - platform: state
     entity_id: binary_sensor.indgangsdor
     from: 'off'
     to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
+  # condition:
+  # - condition: state
+  #   entity_id: sun.sun
+  #   state: below_horizon
   action:
     service: scene.turn_on
-    entity_id: scene.garage_without_opening_the_door
+    entity_id: scene.garage_with_opning_the_door
 
-- alias: Garage with movement
+- alias: Garage when closing door
   trigger:
   - platform: state
     entity_id: binary_sensor.indgangsdor
     to: 'off'
     from: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+  # condition:
+  # - condition: state
+  #   entity_id: sun.sun
+  #   state: below_horizon
   action:
     service: scene.turn_on
-    entity_id: scene.garage_with_opning_the_door
+    entity_id: scene.garage_without_opening_the_door
 
 - alias: BadevaerelseDag
   trigger:
@@ -205,7 +209,7 @@
       minutes: 1
   action:
     service: light.turn_off
-    entity_id: 
+    entity_id:
       - light.gang_1
       - light.gang_2
 
@@ -288,7 +292,7 @@
       - media_player.googlehome4494
       message: '..... Terrassedøren i baghaven er blevet åbnet! '
       cache: true
-      
+
 - alias: KontorVindueAabnerTTS
   trigger:
     - platform: state
