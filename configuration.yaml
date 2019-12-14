@@ -55,8 +55,8 @@ sensor: !include sensor.yaml
 mobile_app:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: !secret base_url_for_text_to speak
+http:
+  base_url: !secret base_url_for_tts
 
 # # Text to speech
 # tts:
@@ -107,9 +107,8 @@ tts:
 
 # Enable google to speak
   - platform: google_translate
-    language: 'da'
+    language: da
     cache: true
-    cache_dir: /tts
     base_url: !secret base_url_for_tts
 
 # Kamera

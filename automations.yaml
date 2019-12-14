@@ -74,13 +74,41 @@
 - alias: Garage sluk
   trigger:
     platform: sun
-    event: sunset
-    offset: "00:00:00"
+    event: sunrise
+    offset: "+00:30:00"
   action:
     service: light.turn_off
     entity_id:
       - light.garage3
       - light.garage4
+
+- alias: Garage without movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.indgangsdor
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: scene.turn_on
+    entity_id: scene.garage_without_opening_the_door
+
+- alias: Garage with movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.indgangsdor
+    to: 'off'
+    from: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: scene.turn_on
+    entity_id: scene.garage_with_opning_the_door
 
 - alias: BadevaerelseDag
   trigger:
@@ -268,18 +296,17 @@
       entity_id: switch.sonoff_1000319a9b
       to: 'on'
   action:
-    # - service: media_player.volume_set
-    #   data_template:
-    #     entity_id:
-    #       - media_player.stuen
-    #       - media_player.googlehome4494
-    #     volume_level: '0.3'
+    - service: media_player.volume_set
+      data_template:
+        entity_id:
+          - media_player.stuen
+          - media_player.googlehome4494
+        volume_level: '0.3'
     - service: tts.google_cloud_say
     #- service: tts.google_translate_say
       data:
-        entity_id:
+        entity_id: media_player.googlehome4494
           # - media_player.stuen
-          - media_player.googlehome4494
         message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true
-        
+

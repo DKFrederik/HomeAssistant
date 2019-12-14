@@ -27,6 +27,25 @@
       state: on
       brightness: 30
 
+- name: garage_without_opening_the_door
+  entities:
+    light.garage3:
+      state: on
+      brightness: 30
+    light.garage4:
+      state: on
+      brightness: 30
+
+# - id: Livingroom dim
+- name: garage_with_opning_the_door
+  entities:
+    light.garage3:
+      state: on
+      brightness: 255
+    light.garage4:
+      state: on
+      brightness: 255
+
 # - id: BadevaerelseDag
 - name: BadevaerelseDag
   entities:

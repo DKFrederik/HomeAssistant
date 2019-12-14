@@ -59,8 +59,8 @@ Køkken:
   name: Køkken
   view: yes
   entities:
-    - light.kokken_1
-    - light.kokken_2
+    - light.koekken_1
+    - light.koekken_2
     - light.spisebord
     - sensor.kokken_temperature
     - switch.kaffemaskine
