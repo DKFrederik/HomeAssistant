@@ -10,6 +10,7 @@ before_install:
   #Remove sonoff (custom_components) as its not working with travis.
   - sed -e '/sonoff/,+2d' < configuration.yaml > configuration.yaml
 install:
+  - pip3.7 install -r requirements.txt
   - pip3.7 install homeassistant
 script:
   - hass -c . --script check_config
