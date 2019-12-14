@@ -268,17 +268,17 @@
       entity_id: switch.sonoff_1000319a9b
       to: 'on'
   action:
-    - service: media_player.volume_set
-      data_template:
-        entity_id:
-          - media_player.stuen
-          - media_player.googlehome4494
-        volume_level: '0.5'
+    # - service: media_player.volume_set
+    #   data_template:
+    #     entity_id:
+    #       - media_player.stuen
+    #       - media_player.googlehome4494
+    #     volume_level: '0.3'
     - service: tts.google_cloud_say
-    # - service: tts.google_translate_say
+    #- service: tts.google_translate_say
       data:
         entity_id:
-          - media_player.stuen
+          # - media_player.stuen
           - media_player.googlehome4494
         message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true

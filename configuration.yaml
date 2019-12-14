@@ -98,7 +98,7 @@ vacuum:
 tts:
   - platform: google_cloud
     key_file: !secret key_file
-    base_url: !secret base_url_for_text_to speak
+    base_url: !secret base_url_for_tts
     language: da-DK
     gender: female
     speed: 1.0
@@ -110,7 +110,7 @@ tts:
     language: 'da'
     cache: true
     cache_dir: /tts
-    base_url: !secret base_url_for_text_to speak
+    base_url: !secret base_url_for_tts
 
 # Kamera
 ffmpeg:
