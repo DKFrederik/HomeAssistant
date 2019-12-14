@@ -1,5 +1,5 @@
 HomeAssistant
-This is my Home Assistant configuration. Password (secrets) are not included. Nor is plex.conf and known devices!
+This is my Home Assistant configuration.
 
 All of my configuration files are tested against the most stable version of home-assistant using [Travis](https://travis-ci.org/DKFrederik/HomeAssistant).
 
