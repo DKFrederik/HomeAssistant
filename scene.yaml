@@ -27,7 +27,7 @@
       state: on
       brightness: 30
 
-- name: garage_without_opening_the_door
+- name: garage_when_door_closes
   entities:
     light.garage3:
       state: on
@@ -37,7 +37,7 @@
       brightness: 30
 
 # - id: Livingroom dim
-- name: garage_with_opning_the_door
+- name: garage_opening_the_door
   entities:
     light.garage3:
       state: on

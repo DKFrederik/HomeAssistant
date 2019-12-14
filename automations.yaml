@@ -1,3 +1,5 @@
+### Nat belysning ###
+
 - alias: under_koekkenbordet On
   trigger:
     platform: sun
@@ -16,6 +18,8 @@
     service: light.turn_off
     entity_id: light.under_koekkenbordet
 
+### Julelys ###
+
 - alias: Julelys tænd
   trigger:
     platform: sun
@@ -33,6 +37,8 @@
   action:
     service: switch.turn_off
     entity_id: switch.sonoff_1000986a15
+
+### Media ###
 
 - alias: Media player paused/stopped
   trigger:
@@ -62,6 +68,8 @@
     service: scene.turn_on
     entity_id: scene.livingroom_dim
 
+### Garage ###
+
 - alias: Garage tænd
   trigger:
     platform: sun
@@ -82,37 +90,39 @@
       - light.garage3
       - light.garage4
 
+# This recipe will turn brightness up to max, in the driveway, when door is open. 
+# But only after sunset and before sunrise
 - alias: Garage when opening door
   trigger:
   - platform: state
     entity_id: binary_sensor.indgangsdor
-    from: 'off'
     to: 'on'
-  # condition:
-  # - condition: state
-  #   entity_id: sun.sun
-  #   state: below_horizon
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
   action:
     service: scene.turn_on
-    entity_id: scene.garage_with_opning_the_door
+    entity_id: scene.garage_opening_the_door
 
+# This recipe will dim back down, the driveway, when three minute has passed after the door has closed. 
+# But only after sunset and before sunrise
 - alias: Garage when closing door
   trigger:
   - platform: state
     entity_id: binary_sensor.indgangsdor
     to: 'off'
-    from: 'on'
     for:
-      hours: 0
       minutes: 3
-      seconds: 0
-  # condition:
-  # - condition: state
-  #   entity_id: sun.sun
-  #   state: below_horizon
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon 
   action:
     service: scene.turn_on
-    entity_id: scene.garage_without_opening_the_door
+    entity_id: scene.garage_when_door_closes
+
+### Badeværelse ###
 
 - alias: BadevaerelseDag
   trigger:
@@ -146,6 +156,8 @@
     service: scene.turn_on
     entity_id: scene.BadevaerelseNat
 
+### Soveværelse ###
+
 - alias: SovevaerelseDag
   trigger:
   - platform: state
@@ -173,6 +185,8 @@
   action:
     service: scene.turn_on
     entity_id: scene.SovevaerelseNat
+
+### Gang ###
 
 - alias: Turn on gang light when there is movement at daytime
   trigger:
@@ -212,6 +226,9 @@
     entity_id:
       - light.gang_1
       - light.gang_2
+
+
+### TTS ###
 
 - alias: FordoerAabnerTTS
   trigger:
@@ -296,8 +313,7 @@
 - alias: KontorVindueAabnerTTS
   trigger:
     - platform: state
-      # entity_id: binary_sensor.kontor
-      entity_id: switch.sonoff_1000319a9b
+      entity_id: binary_sensor.kontor
       to: 'on'
   action:
     - service: media_player.volume_set
@@ -310,7 +326,7 @@
     #- service: tts.google_translate_say
       data:
         entity_id: media_player.googlehome4494
-          # - media_player.stuen
+          - media_player.stuen
         message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true
 
