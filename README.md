@@ -1,21 +1,16 @@
 HomeAssistant
 This is my Home Assistant configuration. Password (secrets) are not included. Nor is plex.conf and known devices!
 
-##Travis
-https://travis-ci.org/DKFrederik/HomeAssistant
+All of my configuration files are tested against the most stable version of home-assistant using [Travis](https://travis-ci.org/DKFrederik/HomeAssistant).
 
-##Florplan 
-https://github.com/pkozul/ha-floorplan 
-https://github.com/pkozul/ha-floorplan/blob/master/README.md
+[Floorplan](https://travis-ci.org/DKFrederik/HomeAssistant)
 
-##Incscape 
-https://inkscape.org/
+[Floorplan HowTO](https://github.com/pkozul/ha-floorplan/blob/master/README.md)
 
-##Incscape tutorial 
-https://github.com/pkozul/ha-floorplan/blob/master/own-floorplan-svg-file-tutorial.md
+[Inkscape](https://inkscape.org/)
 
-##Icons for Incscape 
-https://thenounproject.com/
+[Incscape tutorial](https://github.com/pkozul/ha-floorplan/blob/master/own-floorplan-svg-file-tutorial.md)
 
-##Ideas for later 
-https://www.awesome-ha.com/
+[Icons for Incscape](https://thenounproject.com/)
+
+[Ideas for later](https://www.awesome-ha.com/)
