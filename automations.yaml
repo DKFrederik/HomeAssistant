@@ -12,8 +12,8 @@
 - alias: under_koekkenbordet Off
   trigger:
     platform: sun
-    event: sunset
-    offset: "00:00:00"
+    event: sunrise
+    offset: "00:30:00"
   action:
     service: light.turn_off
     entity_id: light.under_koekkenbordet
