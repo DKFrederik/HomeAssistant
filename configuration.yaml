@@ -21,6 +21,9 @@ logger:
   logs:
     roomba: warning
 
+lovelace:
+  mode: yaml
+
 #System Health
 system_health:
 

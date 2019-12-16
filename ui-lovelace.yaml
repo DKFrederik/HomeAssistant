@@ -1,0 +1,153 @@
+title: My Awesome Home
+views:
+    # View tab title.
+  - title: Example
+    cards:
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Oversigt over batterier i diverse enheder.
+
+      - type: alarm-panel
+        entity: alarm_control_panel.aeblevangen_alarm
+      
+      
+      ### Batteri oversigt ###
+  
+  - icon: mdi:battery-80
+    title: Batteri oversigt
+    cards:
+      - type: glance
+        title: Glance card sample
+        entities: 
+
+        - entity: sensor.bryggersbatt
+          name: Bryggers varme
+
+        - entity: sensor.kokkenbatt
+          name: Køkken varme
+
+        - entity: sensor.gangbatt
+          name: Gang varme
+
+        - entity: sensor.lillewcbatt
+          name: Lille WC varme
+
+        - entity: sensor.storwcbatt
+          name: Stor WC varme
+
+        - entity: sensor.tristansbatt
+          name: Tristan varme
+
+        - entity: sensor.fjernbetjening_tristan
+          name: Tristan remote
+
+        - entity: sensor.fjernbetjening_badevaerelse
+          name: Stor WC remote
+
+        - entity: sensor.fjernbetjening_gang
+          name: Køkken remote
+
+        - entity: sensor.fjernbetjening_garage_1
+          name: Garage remote
+
+        - entity: sensor.fjernbetjening_sovevaerelse
+          name: Soveværelse remote
+
+        - entity: sensor.fjernbetjening_kokken_1
+          name: Køkken 1 remote
+
+        - entity: sensor.fjernbetjening_kokken_2
+          name: Køkken 2 remote
+
+        - entity: sensor.fjernbetjening_legestue_1
+          name: Legestue 1 remote
+
+        - entity: sensor.fjernbetjening_legestue_2
+          name: Legestue 2 remote
+
+        - entity: sensor.fjernbetjening_stue_1
+          name: Stue 1 remote
+
+        - entity: sensor.fjernbetjening_stue_2
+          name: Stue 2 remote
+
+        - entity: sensor.tradlos_bevaegelsessensor_badevaerelse
+          name: Stor WC sensor
+
+        - entity: sensor.tradlos_bevaegelsessensor_gang
+          name: Gang sensor
+
+        - entity: sensor.tradlos_bevaegelsessensor_legestue
+          name: Legestue sensor
+
+  - icon: mdi:ceiling-light
+    title: Lys
+    cards:
+      
+      - type: light
+        entity: light.koekken_1
+        name: Køkken 1
+  
+      - type: light
+        entity: light.koekken_2
+        name: Køkken 2
+
+      - type: light
+        entity: light.badevaerelse_1
+        name: Badeværelse 1
+
+      - type: light
+        entity: light.badevaerelse_2
+        name: badeværelse 2
+
+      - type: light
+        entity: light.gang_1
+        name: Gang 1
+
+      - type: light
+        entity: light.gang_2
+        name: Gang 2
+
+      - type: light
+        entity: light.garage3
+        name: Garage 3
+
+      - type: light
+        entity: light.garage4
+        name: Garage 4
+
+      - type: light
+        entity: light.legestue_1
+        name: Legestue 1
+
+      - type: light
+        entity: light.legestue_2
+        name: Legestue 2
+
+      - type: light
+        entity: light.legestue_3
+        name: Legestue 3
+
+      - type: light
+        entity: light.sovevaerelse_2
+        name: Soveværelse
+
+      - type: light
+        entity: light.stue_1
+        name: Stue 1
+
+      - type: light
+        entity: light.stue_2
+        name: Stue 2
+
+      - type: light
+        entity: light.tristan_1
+        name: Tristan
+
+
+    
+
+        
+          
