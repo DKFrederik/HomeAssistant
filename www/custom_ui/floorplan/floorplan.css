@@ -120,6 +120,16 @@ svg, svg * {
   fill: #59fc38 !important;
 }
 
+/*Outside lighting*/
+
+.outside_lighting-ON {
+  fill: #5ee221 !important;
+}
+
+.outside_lighting-OFF {
+  fill: #161312 !important;
+}
+
 /*binary_sensor_windows*/
 
 .binary_sensor_windows-closed {

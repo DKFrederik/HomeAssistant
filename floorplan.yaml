@@ -106,15 +106,27 @@
         - name: Switches_on_off
           entities:
              - switch.kaffemaskine
+          states:
+            - state: 'on'
+              class: 'switch-on'
+            - state: 'off'
+              class: 'switch-off'
+          action:
+            domain: homeassistant
+            service: toggle
+
+        #Switches with on/off
+        - name: Outside_lighting_on_off
+          entities:
              # Sophies loftlys / Julelys
              - switch.sonoff_1000986a15
              # Loftlys
              - switch.sonoff_1000989db8
           states:
             - state: 'on'
-              class: 'switch-on'
+              class: 'outside_lighting-ON'
             - state: 'off'
-              class: 'switch-off'
+              class: 'outside_lighting-OFF'
           action:
             domain: homeassistant
             service: toggle
