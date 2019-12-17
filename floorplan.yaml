@@ -77,7 +77,7 @@
              - light.gang_1
              - light.gang_2
              # Soveværelse
-             - light.sovevaerelse
+             - light.sovevaerelse_2
              # Tristans værelse
              - light.tristan_1
              - light.hue_ambiance_candle_1

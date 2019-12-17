@@ -87,7 +87,7 @@ Soveværelse:
   view: yes
   entities:
     - climate.sovevaerelse
-    - light.sovevaerelse
+    - light.sovevaerelse_2
     - sensor.sovevaerelse_humidity
 
 Kontor:
@@ -125,11 +125,11 @@ Legestue:
     - binary_sensor.terrassedr_forhave
     - climate.lege_stue
     ##Legestue 1
-    - light.legestue1
+    - light.legestue_1
     ##Legestue 2
-    - light.legestue2
+    - light.legestue_2
     ##Legestue 3
-    - light.legestue3 
+    - light.legestue_3 
 
 Sophies Værelse:
   name: Sophies Værelse
@@ -148,8 +148,8 @@ Badeværelse:
   name: Badeværelse
   view: yes
   entities:
-    - light.badevaerelse_2
     - light.badevaerelse_1
+    - light.badevaerelse_2
     - climate.storwcvarme
     - sensor.storwcbatt
   
