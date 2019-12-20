@@ -21,6 +21,11 @@ logger:
   logs:
     roomba: warning
 
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: !secret base_url_for_tts
+  # api_password: !secret http_Password
+
 lovelace:
   mode: yaml
 
@@ -57,13 +62,16 @@ sensor: !include sensor.yaml
 
 mobile_app:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-http:
-  base_url: !secret base_url_for_tts
-
 # # Text to speech
 # tts:
 #   - platform: google_translate
+
+# Darksky.net
+weather:
+  - platform: darksky
+    api_key: !secret darksky
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
