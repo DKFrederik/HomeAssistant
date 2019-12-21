@@ -59,19 +59,14 @@ scene: !include scene.yaml
 cloud: !include cloud.yaml
 #include sensor
 sensor: !include sensor.yaml
+#include secret
+#secret: !include secrets.yaml
 
 mobile_app:
 
 # # Text to speech
 # tts:
 #   - platform: google_translate
-
-# Darksky.net
-weather:
-  - platform: darksky
-    api_key: !secret darksky
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
@@ -105,6 +100,10 @@ vacuum:
     host: !secret roomba_host
     username: !secret roomba_username
     password: !secret roomba_password
+
+# google:
+#   client_id: !secret 
+#   client_secret: !secret google_client_secret
 
 tts:
   - platform: google_cloud
@@ -216,6 +215,8 @@ device_tracker:
        - !secret trineMobilNmap
        #Sophie
        - !secret sophieMobilNmap
+       #Victoria
+       - !secret victoriaMobilNmap
     #How many seconds between scans
     home_interval: 10
     #How long (in seconds) before a device is considered not home. This helps prevent false readings
