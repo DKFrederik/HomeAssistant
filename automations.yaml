@@ -90,6 +90,27 @@
       - light.garage3
       - light.garage4
 
+### Kommode ###
+
+- alias: Kommode tænd
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    service: scene.turn_on
+    entity_id: scene.KommodeAften
+
+- alias: kommode sluk
+  trigger:
+    platform: time
+    at: "23:30:00"
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.kommode_stue1_lys1
+      - light.kommode_stue1_lys2
+
 # This recipe will turn brightness up to max, in the driveway, when door is open. 
 # But only after sunset and before sunrise
 - alias: Garage when opening door

@@ -68,6 +68,16 @@
       state: on
       brightness: 30
 
+# KommodeAften
+- name: KommodeAften
+  entities:
+    light.kommode_stue1_lys1:
+      state: on
+      brightness: 110
+    light.kommode_stue1_lys2:
+      state: on
+      brightness: 110
+
 # Gang dag
 - name: GangDag
   entities:
