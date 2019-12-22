@@ -3,7 +3,7 @@ This is my Home Assistant configuration.
 
 All of my configuration files are tested against the most stable version of home-assistant using [Travis](https://travis-ci.org/DKFrederik/HomeAssistant).
 
-Now with HADashBoard added! 
+Now with [HADashBoard](https://github.com/DKFrederik/HADashboard) added! 
 
 [Floorplan](https://travis-ci.org/DKFrederik/HomeAssistant)
 
