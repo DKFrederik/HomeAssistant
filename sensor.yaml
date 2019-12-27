@@ -69,8 +69,8 @@
 #==============================
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
-  username: DKFrederik
-  password: 00d61290ff608440a094a8df033094c1be503d5e
+  username: !secret github_username
+  password: !secret github_password
   authentication: basic
   value_template: '{{ value_json.tag_name }}'
   headers:
