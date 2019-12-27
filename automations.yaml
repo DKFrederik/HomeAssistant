@@ -92,7 +92,7 @@
 
 ### Kommode ###
 
-- alias: Kommode tænd
+- alias: Kommode tænd aften
   trigger:
     platform: sun
     event: sunset
