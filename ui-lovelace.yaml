@@ -14,12 +14,13 @@ views:
       
       
       ### Batteri oversigt ###
-  
+
+
   - icon: mdi:battery-80
     title: Batteri oversigt
     cards:
       - type: glance
-        title: Glance card sample
+        title: Batteri oversigt
         entities: 
 
         - entity: sensor.bryggersbatt
@@ -145,9 +146,13 @@ views:
       - type: light
         entity: light.tristan_1
         name: Tristan
-
-
-    
-
         
-          
+  - icon: mdi:cctv
+    title: Kamera
+    cards:
+        # dont know why this throws an error, but it's working!!! 
+      - type: picture-glance
+        title: D-Link 2130
+        entities: 
+        - camera.d_link
+        camera_image: camera.d_link
