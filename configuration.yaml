@@ -122,6 +122,18 @@ tts:
     base_url: !secret base_url_for_tts
 
 # Kamera
+     
+camera:
+#   # - platform: ffmpeg
+#   #   input: http://192.168.1.60:80/video1.mjpg
+  - platform: mjpeg
+    username: !secret camera_username
+    password: !secret camera_password
+    name: D-Link
+    # still_image_url: http://192.168.1.60/?action=snapshot
+    # stream_source: rtsp://192.168.1.60:554/play1.sdp
+    mjpeg_url: !secret camera_url
+
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 
@@ -206,24 +218,25 @@ device_tracker:
     username: !secret tado_username
     password: !secret tado_password
     home_id: 255063
-  - platform: nmap_tracker
-    #Witch devices to track
-    hosts:
-       #Frederik
-       - !secret frederikMobilNmap
-       #Trine
-       - !secret trineMobilNmap
-       #Sophie
-       - !secret sophieMobilNmap
-       #Victoria
-       - !secret victoriaMobilNmap
-    #How many seconds between scans
-    home_interval: 10
-    #How long (in seconds) before a device is considered not home. This helps prevent false readings
-    consider_home: 180
-    #Find and track new devices
-    new_device_defaults:
-      track_new_devices: true
+  
+  # - platform: nmap_tracker
+  #   #Witch devices to track
+  #   hosts:
+  #      #Frederik
+  #      - !secret frederikMobilNmap
+  #      #Trine
+  #      - !secret trineMobilNmap
+  #      #Sophie
+  #      - !secret sophieMobilNmap
+  #      #Victoria
+  #      - !secret victoriaMobilNmap
+  #   #How many seconds between scans
+  #   home_interval: 10
+  #   #How long (in seconds) before a device is considered not home. This helps prevent false readings
+  #   consider_home: 180
+  #   #Find and track new devices
+  #   new_device_defaults:
+  #     track_new_devices: true
 
 #Lille WC
 climate wavinAhc9000_1:
