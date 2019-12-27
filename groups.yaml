@@ -7,7 +7,9 @@ default_view:
     - sun.sun
     # - sensor.yr_symbol
     - group.all_lights
-    # - updater.updater
+    - sensor.Current_Version
+    - sensor.lastest_release
+    - sensor.External_IP
 
 Varme:
   name: Varme
