@@ -56,3 +56,30 @@
 - platform: mqtt
   name: "TristansVarme"
   state_topic: "heat/floor807D3A790941/5/current"
+
+#==============================
+#=== Installed version
+#==============================
+- platform: command_line
+  name: Current Version
+  command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
+#================================
+#==============================
+#=== Lasetes stable version on github
+#==============================
+- platform: rest
+  resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+  username: DKFrederik
+  password: 00d61290ff608440a094a8df033094c1be503d5e
+  authentication: basic
+  value_template: '{{ value_json.tag_name }}'
+  headers:
+    Accept: application/vnd.github.v3+json
+    Content-Type: application/json
+    User-Agent: Home Assistant REST sensor
+  name: Lastest Release
+
+- platform: rest
+  resource: http://ip.jsontest.com
+  name: External IP
+  value_template: '{{ value_json.ip }}'
