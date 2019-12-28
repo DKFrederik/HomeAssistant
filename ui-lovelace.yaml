@@ -156,3 +156,196 @@ views:
         entities: 
         - camera.d_link
         camera_image: camera.d_link
+
+  - icon: mdi:home-edit-outline
+    title: Floorplan
+    panel: true
+    cards:
+      - type: picture-elements
+        image: /local/blueprint.png
+        state_filter:
+          - null
+        elements:
+          
+          # - type: state-badge
+          #   entity: sensor.weather_temperature
+          #   style:
+          #     top: 12%
+          #     left: 32%
+          #     font-size: 17px
+
+          - type: state-label
+            entity: sensor.weather_temperature
+            prefix: "Outside Temp "
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/2
+            style:
+              top: 30%
+              left: 18%
+              font-size: 14px
+
+          - type: state-icon
+            entity: switch.sonoff_1000319a9b
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 67%
+              left: 38%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.sovevaerelse_2
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 67%
+              left: 48%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+          
+          - type: state-icon
+            entity: light.gang_2
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 60%
+              left: 41%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.gang_1
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 50%
+              left: 41%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.tristan_1
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 50%
+              left: 48%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.legestue_1
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 45%
+              left: 56%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.legestue_2
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 45%
+              left: 61%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.legestue_3
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 53%
+              left: 61%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.stue_1
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 38%
+              left: 45.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.stue_2
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 22%
+              left: 45.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.koekken_1
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 34%
+              left: 38%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.koekken_2
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 34%
+              left: 33%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.spisebord
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 24%
+              left: 35%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.garage3
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 43%
+              left: 29%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.garage4
+            #title: Living room light
+            tap_action:
+              action: toggle
+            style:
+              top: 75%
+              left: 27%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
