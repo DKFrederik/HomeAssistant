@@ -4,21 +4,62 @@ views:
   - title: Example
     cards:
         # The markdown card will render markdown text.
-      - type: markdown
-        title: Lovelace
-        content: >
-          Oversigt over batterier i diverse enheder.
+      
 
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
+
+  ### Server oversigt ###
+
+  - icon: mdi:server-network
+    title: Server oversigt
+    columns: 2
+    cards:
+      - type: glance
+        title: External IP
+        entities:
+        
+        - entity: sensor.external_ip
+          name: External IP  
+
+        - entity: sensor.internal_ip
+          name: Internal IP 
       
-      
+      - type: glance
+        title: CPU Temperature
+        entities:
+        
+        - entity: sensor.cpu_temp
+          name: CPU temperature
+
+      - type: glance
+        title: CPU load
+        entities:
+
+        - entity: sensor.processor_use
+          name: Processor usage
+
+        - entity: sensor.load_1m
+          name: Load 1 min.
+
+        - entity: sensor.load_5m
+          name: Load 5 min.
+
+        - entity: sensor.load_15m
+          name: Load 15 min.
+
       ### Batteri oversigt ###
 
 
   - icon: mdi:battery-80
     title: Batteri oversigt
     cards:
+
+      - type: markdown
+        title: Lovelace
+        content: >
+          Oversigt over batterier i diverse enheder.
+
       - type: glance
         title: Batteri oversigt
         entities: 
