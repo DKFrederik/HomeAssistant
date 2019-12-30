@@ -1,15 +1,23 @@
-title: My Awesome Home
+title: !secret HomeAssistantName
 views:
-    # View tab title.
-  - title: Example
+            
+            ################################################################
+            #                                                              #
+            #                         Default View                         #
+            #                                                              #
+            ################################################################
+  
+  - title: Hjem
     cards:
-        # The markdown card will render markdown text.
-      
 
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
 
-  ### Server oversigt ###
+            ################################################################
+            #                                                              #
+            #                         Server View                          #
+            #                                                              #
+            ################################################################
 
   - icon: mdi:server-network
     title: Server oversigt
@@ -48,8 +56,11 @@ views:
         - entity: sensor.load_15m
           name: Load 15 min.
 
-      ### Batteri oversigt ###
-
+            ################################################################
+            #                                                              #
+            #                         Battery View                         #
+            #                                                              #
+            ################################################################
 
   - icon: mdi:battery-80
     title: Batteri oversigt
@@ -124,6 +135,12 @@ views:
         - entity: sensor.tradlos_bevaegelsessensor_legestue
           name: Legestue sensor
 
+            ################################################################
+            #                                                              #
+            #                         Light View                           #
+            #                                                              #
+            ################################################################
+
   - icon: mdi:ceiling-light
     title: Lys
     cards:
@@ -187,16 +204,28 @@ views:
       - type: light
         entity: light.tristan_1
         name: Tristan
-        
+            ################################################################
+            #                                                              #
+            #                           Camera View                        #
+            #                                                              #
+            ################################################################   
   - icon: mdi:cctv
     title: Kamera
     cards:
-        # dont know why this throws an error, but it's working!!! 
       - type: picture-glance
         title: D-Link 2130
+        # Don't know what state_filter does... it can be deleted and work, but throws an error
+        state_filter:
+          - null
         entities: 
         - camera.d_link
         camera_image: camera.d_link
+
+            ################################################################
+            #                                                              #
+            #                         Floorplan View                       #
+            #                                                              #
+            ################################################################
 
   - icon: mdi:home-edit-outline
     title: Floorplan
@@ -207,28 +236,14 @@ views:
         state_filter:
           - null
         elements:
-          
-          # - type: state-badge
-          #   entity: sensor.weather_temperature
-          #   style:
-          #     top: 12%
-          #     left: 32%
-          #     font-size: 17px
 
-          - type: state-label
-            entity: sensor.weather_temperature
-            prefix: "Outside Temp "
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/2
-            style:
-              top: 30%
-              left: 18%
-              font-size: 14px
-
+            ################################################################
+            #                                                              #
+            #                           Light                              #
+            #                                                              #
+            ################################################################
           - type: state-icon
             entity: switch.sonoff_1000319a9b
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -239,7 +254,6 @@ views:
 
           - type: state-icon
             entity: light.sovevaerelse_2
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -250,7 +264,6 @@ views:
           
           - type: state-icon
             entity: light.gang_2
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -261,7 +274,6 @@ views:
 
           - type: state-icon
             entity: light.gang_1
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -272,7 +284,6 @@ views:
 
           - type: state-icon
             entity: light.tristan_1
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -283,7 +294,6 @@ views:
 
           - type: state-icon
             entity: light.legestue_1
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -294,7 +304,6 @@ views:
 
           - type: state-icon
             entity: light.legestue_2
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -305,7 +314,6 @@ views:
 
           - type: state-icon
             entity: light.legestue_3
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -316,7 +324,6 @@ views:
 
           - type: state-icon
             entity: light.stue_1
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -327,7 +334,6 @@ views:
 
           - type: state-icon
             entity: light.stue_2
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -338,7 +344,6 @@ views:
 
           - type: state-icon
             entity: light.koekken_1
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -349,7 +354,6 @@ views:
 
           - type: state-icon
             entity: light.koekken_2
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -360,7 +364,6 @@ views:
 
           - type: state-icon
             entity: light.spisebord
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -371,7 +374,6 @@ views:
 
           - type: state-icon
             entity: light.garage3
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -382,7 +384,6 @@ views:
 
           - type: state-icon
             entity: light.garage4
-            #title: Living room light
             tap_action:
               action: toggle
             style:
@@ -390,3 +391,120 @@ views:
               left: 27%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
+
+            ################################################################
+            #                                                              #
+            #                         Temperature                          #
+            #                                                              #
+            ################################################################
+          
+          - type: state-label
+            entity: sensor.weather_temperature
+            prefix: "Outside Temp "
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/2
+            style:
+              top: 30%
+              left: 18%
+              font-size: 14px          
+
+          - type: state-label
+            entity: sensor.lillewcfordoer
+            style:
+              top: 15%
+              left: 33.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+              
+
+          - type: state-label
+            entity: sensor.bryggersvarme
+            style:
+              top: 50%
+              left: 35%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.kokkenvarme
+            style:
+              top: 28%
+              left: 37%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.storwcvarme
+            style:
+              top: 58%
+              left: 35%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.kontor_temperature
+            style:
+              top: 72%
+              left: 37%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#000000'
+
+          - type: state-label
+            entity: sensor.sovevaerelse_temperature
+            style:
+              top: 62%
+              left: 48%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.tristansvarme
+            style:
+              top: 55%
+              left: 48%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.stue_temperature_2
+            style:
+              top: 30%
+              left: 46.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#000000'
+
+          - type: state-label
+            entity: sensor.lege_stue_temperature
+            style:
+              top: 55%
+              left: 57%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+          
+          - type: state-label
+            entity: sensor.sophies_vaerelse_temperature
+            style:
+              top: 60%
+              left: 71%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
+            entity: sensor.victorias_vaerelse_temperature
+            style:
+              top: 45%
+              left: 71%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
