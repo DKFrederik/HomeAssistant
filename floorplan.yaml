@@ -269,7 +269,8 @@
               return "temp-high";
             '
 
-        - name: LegeStue
+          #(verisure)
+        - name: LegeStue 
           entities:
              -  sensor.lege_stue_temperature
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
