@@ -37,7 +37,12 @@
     - pressure
     - icon
 
-  # MQTT extracting Wavin current temperatur from all the topics
+################################################################
+#                                                              #
+# MQTT extracting Wavin current temperatur from all the topics #
+#                                                              #
+################################################################
+  # 
 - platform: mqtt
   name: "LilleWCFordoer"
   state_topic: "heat/floor807D3A790941/0/current"
@@ -55,7 +60,7 @@
   state_topic: "heat/floor807D3A790941/4/current"
 - platform: mqtt
   name: "TristansVarme"
-  state_topic: "heat/floor807D3A790941/5/current"
+  state_topic: "heat/floor807D3A790941/5/current"            
 
 #==============================
 #=== Installed version
@@ -64,6 +69,7 @@
   name: Current Version
   command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
 #================================
+
 #==============================
 #=== Lasetes stable version on github
 #==============================
