@@ -122,9 +122,7 @@ views:
             #                                                              #
             ################################################################
 
-      - type: entities
-        entities:
-        type: entity-filter
+      - type: entity-filter
         entities:
           - sensor.brother_printer_status
           - sensor.brother_printer_uptime
