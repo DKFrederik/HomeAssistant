@@ -184,3 +184,9 @@ Loft:
     - switch.sonoff_1000989db8
     - switch.sonoff_1000986a15
     
+BadeværelseLys:
+  name: badevaerelselys
+  view: no
+  entities:
+    - light.badevaerelse_1
+    - light.badevaerelse_2
