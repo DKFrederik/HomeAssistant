@@ -21,8 +21,21 @@ views:
 
   - icon: mdi:server-network
     title: Server oversigt
-    columns: 2
-    cards:
+    columns: 3
+    cards:   
+
+            ################################################################
+            #                                                              #
+            #                             Last Boot                        #
+            #                                                              #
+            ################################################################
+
+      - type: glance
+        title: Last Boot
+        entities:
+
+        - entity: sensor.last_boot
+          name: Uptime
 
             ################################################################
             #                                                              #
@@ -47,7 +60,7 @@ views:
             ################################################################
 
       - type: glance
-        title: CPU Temperature
+        title: Temperature
         entities:
         
         - entity: sensor.cpu_temp
@@ -71,6 +84,25 @@ views:
 
             ################################################################
             #                                                              #
+            #                             Disk Usage                       #
+            #                                                              #
+            ################################################################
+      
+      - type: glance
+        title: Disk Usage
+        entities:
+
+        - entity: sensor.disk_use_percent_home
+          name: Disk Usage
+
+        - entity: sensor.disk_use_home
+          name: Disk Usage
+
+        - entity: sensor.disk_free_home
+          name: Disk Free
+
+            ################################################################
+            #                                                              #
             #                    Home Assistant Release                    #
             #                                                              #
             ################################################################
@@ -90,12 +122,8 @@ views:
             #                                                              #
             ################################################################
 
-
-      
       - type: entities
-        # title: Printer
         entities:
-
         type: entity-filter
         entities:
           - sensor.brother_printer_status
@@ -334,6 +362,19 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
+            # icon: mdi:lightbulb
+            entity: group.badevaerelselys
+            tap_action:
+              action: toggle  
+            style:
+              top: 57%
+              left: 36.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+            
+            
+
+          - type: state-icon
             entity: light.gang_1
             tap_action:
               action: toggle
@@ -510,8 +551,8 @@ views:
           - type: state-label
             entity: sensor.storwcvarme
             style:
-              top: 58%
-              left: 35%
+              top: 57%
+              left: 33%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
               color: '#FFFFFF'
