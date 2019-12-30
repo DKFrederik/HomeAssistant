@@ -23,6 +23,13 @@ views:
     title: Server oversigt
     columns: 2
     cards:
+
+            ################################################################
+            #                                                              #
+            #                             IP's                             #
+            #                                                              #
+            ################################################################
+
       - type: glance
         title: External IP
         entities:
@@ -33,6 +40,12 @@ views:
         - entity: sensor.internal_ip
           name: Internal IP 
       
+            ################################################################
+            #                                                              #
+            #                             CPU                              #
+            #                                                              #
+            ################################################################
+
       - type: glance
         title: CPU Temperature
         entities:
@@ -55,6 +68,54 @@ views:
 
         - entity: sensor.load_15m
           name: Load 15 min.
+
+            ################################################################
+            #                                                              #
+            #                    Home Assistant Release                    #
+            #                                                              #
+            ################################################################
+
+      - type: glance
+        title: Home Assistant Release
+        entities:
+
+        - entity: sensor.current_version
+          name: Current Version
+
+        - entity: sensor.lastest_release
+          name: Latest Release
+            ################################################################
+            #                                                              #
+            #                         Printer                              #
+            #                                                              #
+            ################################################################
+
+
+      
+      - type: entities
+        # title: Printer
+        entities:
+
+        type: entity-filter
+        entities:
+          - sensor.brother_printer_status
+          - sensor.brother_printer_uptime
+          - sensor.brother_printer_black_toner_remaining
+          - sensor.brother_printer_cyan_toner_remaining
+          - sensor.brother_printer_magenta_toner_remaining
+          - sensor.brother_printer_yellow_toner_remaining
+          - sensor.brother_printer_belt_unit_remaining_life
+          - sensor.brother_printer_color_counter
+          - sensor.brother_printer_b_w_counter
+          - sensor.brother_printer_fuser_remaining_life
+          - sensor.brother_printer_page_counter
+          - sensor.brother_printer_pf_kit_1_remaining_life
+        state_filter: 
+          - operator: ">="
+            value: "0"          
+        card:
+          type: entities
+          title: Printer
 
             ################################################################
             #                                                              #
@@ -248,7 +309,7 @@ views:
               action: toggle
             style:
               top: 67%
-              left: 38%
+              left: 36%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
@@ -429,6 +490,15 @@ views:
               color: '#FFFFFF'
 
           - type: state-label
+            entity: sensor.gangvarme
+            style:
+              top: 55%
+              left: 41%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              color: '#FFFFFF'
+
+          - type: state-label
             entity: sensor.kokkenvarme
             style:
               top: 28%
@@ -449,8 +519,8 @@ views:
           - type: state-label
             entity: sensor.kontor_temperature
             style:
-              top: 72%
-              left: 37%
+              top: 70%
+              left: 40%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
               color: '#000000'
@@ -485,7 +555,7 @@ views:
           - type: state-label
             entity: sensor.lege_stue_temperature
             style:
-              top: 55%
+              top: 50%
               left: 57%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
@@ -508,3 +578,115 @@ views:
               --iron-icon-height: 42px
               --iron-icon-width: 42px
               color: '#FFFFFF'
+
+            ################################################################
+            #                                                              #
+            #                         Door sensors                         #
+            #                                                              #
+            ################################################################
+
+          - type: state-icon
+            entity: binary_sensor.fordoren
+            style:
+              top: 12%
+              left: 37.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.indgangsdor
+            style:
+              top: 46%
+              left: 31%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.terrassedor_forhave
+            style:
+              top: 41%
+              left: 54.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.terrassedor_baghave
+            style:
+              top: 57%
+              left: 58.5%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.terrassedor_baghave
+            style:
+              top: 75%
+              left: 37%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+            ################################################################
+            #                                                              #
+            #                         Switches                             #
+            #                                                              #
+            ################################################################
+
+          - type: state-icon
+            entity: switch.kaffemaskine
+            tap_action:
+              action: toggle
+            style:
+              top: 41%
+              left: 32%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.under_koekkenbordet
+            tap_action:
+              action: toggle
+            style:
+              top: 41%
+              left: 37%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: switch.sonoff_1000989db8
+            tap_action:
+              action: toggle
+            style:
+              top: 46%
+              left: 38%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              
+          - type: state-label
+            entity: switch.sonoff_1000989db8
+            prefix: "Lofts lys "
+            tap_action:
+              action: toggle
+            style:
+              top: 46%
+              left: 35%
+              font-size: 14px  
+
+          - type: state-icon
+            entity: switch.sonoff_1000986a15
+            tap_action:
+              action: toggle
+            style:
+              top: 30%
+              left: 70%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+              
+          - type: state-label
+            entity: switch.sonoff_1000986a15
+            prefix: "Jule lys "
+            tap_action:
+              action: toggle
+            style:
+              top: 30%
+              left: 67%
+              font-size: 14px
