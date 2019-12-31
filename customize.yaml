@@ -1,3 +1,6 @@
+person.frederik:
+  entity_picture: "/local/pictures/profilbilled.png"
+
 binary_sensor.floorplan:
   custom_ui_state_card: state-card-floorplan
   config:
@@ -101,4 +104,4 @@ binary_sensor.floorplan:
         from_state: 'on'
         to_state: 'off'
         duration: 10
-group.calendar: {}
+

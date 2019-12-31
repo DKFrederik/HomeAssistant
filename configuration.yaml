@@ -59,8 +59,8 @@ scene: !include scene.yaml
 cloud: !include cloud.yaml
 #include sensor
 sensor: !include sensor.yaml
-#include secret
-#secret: !include secrets.yaml
+#include person
+person: !include person.yaml
 
 mobile_app:
 

@@ -1,0 +1,56 @@
+
+frederiks_mobil:
+  hide_if_away: false
+  icon:
+  mac: '791511'
+  name: Frederiks mobil
+  picture: /local/pictures/profilbilled.png
+  track: true
+
+trines_mobil:
+  hide_if_away: false
+  icon:
+  mac: '798684'
+  name: Trines mobil
+  picture: /local/pictures/trine.png
+  track: true
+
+oneplus5tfrederik:
+  hide_if_away: false
+  icon:
+  mac: 94:65:2D:C3:9B:D5
+  name: OnePlus5TFrederik.localdomain
+  picture: /local/pictures/profilbilled.png
+  track: true
+
+oneplus5t_localdomain:
+  hide_if_away: false
+  icon:
+  mac: 94:65:2D:D3:C5:41
+  name: OnePlus5T.localdomain
+  picture: /local/pictures/trine.png
+  track: true
+
+huawei_p20_lite_872df3a11_localdomain:
+  hide_if_away: false
+  icon:
+  mac: F4:BF:80:7B:0C:60
+  name: device_tracker.huawei_p20_lite_872df3a11_localdomain
+  picture: /local/pictures/sophie.png
+  track: true
+
+victorias_mobil:
+  hide_if_away: false
+  icon:
+  mac: EC:9B:F3:91:D0:72
+  name: victorias_mobil
+  picture: /local/pictures/victoria.jpeg
+  track: true
+
+gw_449160311dc9_localdomain:
+  hide_if_away: false
+  icon:
+  mac: 44:91:60:31:1D:C9
+  name: GW-449160311DC9.localdomain
+  picture:
+  track: true
