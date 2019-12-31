@@ -674,7 +674,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: binary_sensor.terrassedor_baghave
+            entity: binary_sensor.kontor
             style:
               top: 75%
               left: 37%
