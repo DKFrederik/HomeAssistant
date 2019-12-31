@@ -339,7 +339,7 @@ views:
               rotate: 
               --iron-icon-height: 35px
               --iron-icon-width: 35px
-              --iron-icon-fill-color: "#377DC1"
+              --iron-icon-fill-color: "#527CB0"
 
             ################################################################
             #                                                              #
