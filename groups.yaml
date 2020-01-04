@@ -32,8 +32,9 @@ Stue:
   name: Stue
   view: yes
   entities:
-    - light.stue_1
-    - light.stue_2
+    - light.stue1
+    - light.stue2
+    - light.test
     - sensor.stue_humidity
     - media_player.chromecastultra4028
     - climate.stue_2
@@ -61,8 +62,8 @@ Køkken:
   name: Køkken
   view: yes
   entities:
-    - light.koekken_1
-    - light.koekken_2
+    - light.koekken1
+    - light.koekken2
     - light.spisebord
     - sensor.kokken_temperature
     - switch.kaffemaskine
@@ -75,8 +76,8 @@ Gang:
   name: Gang
   view: yes
   entities:
-    - light.gang_1
-    - light.gang_2
+    - light.gang1
+    - light.gang2
     - sensor.gang_sensor_1
     - sensor.gang_humidity
     - sensor.gang_temperature
@@ -89,7 +90,7 @@ Soveværelse:
   view: yes
   entities:
     - climate.sovevaerelse
-    - light.sovevaerelse_2
+    - light.sovevaerelse
     - sensor.sovevaerelse_humidity
 
 Kontor:
@@ -127,11 +128,11 @@ Legestue:
     - binary_sensor.terrassedr_forhave
     - climate.lege_stue
     ##Legestue 1
-    - light.legestue_1
+    - light.legestue
     ##Legestue 2
-    - light.legestue_2
+    - light.legestue
     ##Legestue 3
-    - light.legestue_3 
+    - light.legestue 
 
 Sophies Værelse:
   name: Sophies Værelse
@@ -150,8 +151,8 @@ Badeværelse:
   name: Badeværelse
   view: yes
   entities:
-    - light.badevaerelse_1
-    - light.badevaerelse_2
+    - light.badevaerelse
+    - light.badevaerelse
     - climate.storwcvarme
     - sensor.storwcbatt
   
@@ -188,5 +189,5 @@ BadeværelseLys:
   name: badevaerelselys
   view: no
   entities:
-    - light.badevaerelse_1
-    - light.badevaerelse_2
+    - light.badevaerelse
+    - light.badevaerelse

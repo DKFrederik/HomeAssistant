@@ -13,6 +13,9 @@ views:
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
 
+      
+
+
             ################################################################
             #                                                              #
             #                         Server View                          #
@@ -153,13 +156,9 @@ views:
     title: Batteri oversigt
     cards:
 
-      - type: markdown
-        title: Lovelace
-        content: >
-          Oversigt over batterier i diverse enheder.
-
       - type: glance
         title: Batteri oversigt
+        columns: 4
         entities: 
 
         - entity: sensor.bryggersbatt
@@ -180,47 +179,50 @@ views:
         - entity: sensor.tristansbatt
           name: Tristan varme
 
-        - entity: sensor.fjernbetjening_tristan
+        - entity: sensor.tradfri_remote_tristan_battery_level
           name: Tristan remote
 
-        - entity: sensor.fjernbetjening_badevaerelse
+        - entity: sensor.tradfri_remote_badevaerelse_battery_level
           name: Stor WC remote
 
-        - entity: sensor.fjernbetjening_gang
+        - entity: sensor.tradfri_remote_gang_battery_level
           name: Køkken remote
 
-        - entity: sensor.fjernbetjening_garage_1
+        - entity: sensor.tradfri_remote_garage_battery_level
           name: Garage remote
 
-        - entity: sensor.fjernbetjening_sovevaerelse
+        - entity: sensor.tradfri_remote_sovevaerelse_battery_level
           name: Soveværelse remote
 
-        - entity: sensor.fjernbetjening_kokken_1
+        - entity: sensor.tradfri_remote_koekken1_battery_level
           name: Køkken 1 remote
 
-        - entity: sensor.fjernbetjening_kokken_2
+        - entity: sensor.tradfri_remote_koekken2_battery_level
           name: Køkken 2 remote
 
-        - entity: sensor.fjernbetjening_legestue_1
+        - entity: sensor.tradfri_sensor_legestue_battery_level
           name: Legestue 1 remote
 
-        - entity: sensor.fjernbetjening_legestue_2
+        - entity: sensor.tradfri_remote_legestue2_battery_level
           name: Legestue 2 remote
 
-        - entity: sensor.fjernbetjening_stue_1
+        - entity: sensor.tradfri_remote_stue1_battery_level
           name: Stue 1 remote
 
-        - entity: sensor.fjernbetjening_stue_2
+        - entity: sensor.tradfri_remote_stue2_battery_level
           name: Stue 2 remote
 
-        - entity: sensor.tradlos_bevaegelsessensor_badevaerelse
+        - entity: sensor.tradfri_sensor_badevaerelse_battery_level
           name: Stor WC sensor
 
-        - entity: sensor.tradlos_bevaegelsessensor_gang
+        - entity: sensor.tradfri_motion_sensor_gang_battery_level
           name: Gang sensor
 
-        - entity: sensor.tradlos_bevaegelsessensor_legestue
+        - entity: sensor.tradfri_sensor_legestue_battery_level
           name: Legestue sensor
+        
+        - entity: sensor.tradfri_remote_stue_kommode_battery_level
+          name: Komode remote
 
             ################################################################
             #                                                              #
@@ -233,27 +235,27 @@ views:
     cards:
       
       - type: light
-        entity: light.koekken_1
+        entity: light.koekken1
         name: Køkken 1
   
       - type: light
-        entity: light.koekken_2
+        entity: light.koekken2
         name: Køkken 2
 
       - type: light
-        entity: light.badevaerelse_1
+        entity: light.badevaerelse1
         name: Badeværelse 1
 
       - type: light
-        entity: light.badevaerelse_2
+        entity: light.badevaerelse2
         name: badeværelse 2
 
       - type: light
-        entity: light.gang_1
+        entity: light.gang1
         name: Gang 1
 
       - type: light
-        entity: light.gang_2
+        entity: light.gang2
         name: Gang 2
 
       - type: light
@@ -265,32 +267,41 @@ views:
         name: Garage 4
 
       - type: light
-        entity: light.legestue_1
+        entity: light.legestue1
         name: Legestue 1
 
       - type: light
-        entity: light.legestue_2
+        entity: light.legestue2
         name: Legestue 2
 
       - type: light
-        entity: light.legestue_3
+        entity: light.legestue3
         name: Legestue 3
 
       - type: light
-        entity: light.sovevaerelse_2
+        entity: light.sovevaerelse
         name: Soveværelse
 
       - type: light
-        entity: light.stue_1
+        entity: light.stue1
         name: Stue 1
 
       - type: light
-        entity: light.stue_2
+        entity: light.stue2
         name: Stue 2
 
       - type: light
-        entity: light.tristan_1
+        entity: light.tristan1
         name: Tristan
+
+      - type: light
+        entity: light.test
+        name: Komode 1
+
+      - type: light
+        entity: light.kommode_stue1_lys2_2
+        name: Komode 2
+
             ################################################################
             #                                                              #
             #                           Camera View                        #
@@ -357,7 +368,27 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.sovevaerelse_2
+            entity: light.test
+            tap_action:
+              action: toggle
+            style:
+              top: 39%
+              left: 52%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.kommode_stue1_lys2_2
+            tap_action:
+              action: toggle
+            style:
+              top: 33%
+              left: 52%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: light.sovevaerelse
             tap_action:
               action: toggle
             style:
@@ -367,7 +398,7 @@ views:
               --iron-icon-width: 42px
           
           - type: state-icon
-            entity: light.gang_2
+            entity: light.gang2
             tap_action:
               action: toggle
             style:
@@ -377,8 +408,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            # icon: mdi:lightbulb
-            entity: group.badevaerelselys
+            entity: light.badevaerelse
             tap_action:
               action: toggle  
             style:
@@ -386,11 +416,9 @@ views:
               left: 36.5%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
-            
-            
 
           - type: state-icon
-            entity: light.gang_1
+            entity: light.gang1
             tap_action:
               action: toggle
             style:
@@ -400,7 +428,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.tristan_1
+            entity: light.tristan1
             tap_action:
               action: toggle
             style:
@@ -410,7 +438,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.legestue_1
+            entity: light.legestue1
             tap_action:
               action: toggle
             style:
@@ -420,7 +448,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.legestue_2
+            entity: light.legestue2
             tap_action:
               action: toggle
             style:
@@ -430,7 +458,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.legestue_3
+            entity: light.legestue3
             tap_action:
               action: toggle
             style:
@@ -440,7 +468,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.stue_1
+            entity: light.stue1_2
             tap_action:
               action: toggle
             style:
@@ -450,7 +478,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.stue_2
+            entity: light.stue2
             tap_action:
               action: toggle
             style:
@@ -460,7 +488,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.koekken_1
+            entity: light.koekken1
             tap_action:
               action: toggle
             style:
@@ -470,7 +498,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.koekken_2
+            entity: light.koekken2
             tap_action:
               action: toggle
             style:
@@ -724,7 +752,7 @@ views:
               action: toggle
             style:
               top: 46%
-              left: 35%
+              left: 20%
               font-size: 14px  
 
           - type: state-icon
@@ -744,5 +772,5 @@ views:
               action: toggle
             style:
               top: 30%
-              left: 67%
+              left: 65.5%
               font-size: 14px

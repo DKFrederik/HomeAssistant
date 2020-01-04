@@ -56,7 +56,7 @@ script: !include scripts.yaml
 #include Scene
 scene: !include scene.yaml
 #include Cloud
-cloud: !include cloud.yaml
+cloud:
 #include sensor
 sensor: !include sensor.yaml
 #include person
@@ -137,31 +137,6 @@ camera:
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 
-# android_ip_webcam:
-  # - host: 192.168.1.86
-    # port: 8080
-    # sensors:
-      # - audio_connections
-      # - battery_level
-      # - battery_temp
-      # - battery_voltage
-      # - light
-      # - motion
-      # - pressure
-      # - proximity
-      # - sound
-      # - video_connections
-    # switches:
-      # - exposure_lock
-      # - ffc
-      # - focus
-      # - gps_active
-      # - night_vision
-      # - overlay
-      # - torch
-      # - whitebalance_lock
-      # - video_recording
-
 #Sonoff
 sonoff:
   username: !secret sonoff_username
@@ -183,8 +158,8 @@ mqtt:
   password: !secret mqtt_password
 
 # Ikea gateway
-tradfri:
-  host: !secret Ikea_gateway
+# tradfri:
+#   host: !secret Ikea_gateway
 
 #Philips Hue
 hue:
