@@ -35,22 +35,19 @@ Stue:
     - light.stue1
     - light.stue2
     - light.test
+    - light.kommode_stue1_lys2
     - sensor.stue_humidity
     - media_player.chromecastultra4028
-    - climate.stue_2
     - climate.stue
     - media_player.philipstv
     - camera.stue
-    - sensor.stue_temperature
-    - sensor.stue_temperature_2
-    - media_player.stuen
+    - media_player.google_home
 
 Bryggers:
   name: Bryggers
   view: yes
   entities:
     - alarm_control_panel.aeblevangen_alarm
-    - sensor.bryggers_temperature
     - sensor.bryggers_humidity
     - binary_sensor.indgangsdor
     - climate.bryggersvarme
@@ -65,7 +62,6 @@ Køkken:
     - light.koekken1
     - light.koekken2
     - light.spisebord
-    - sensor.kokken_temperature
     - switch.kaffemaskine
     - light.under_koekkenbordet
     - climate.kokkenvarme
@@ -78,9 +74,8 @@ Gang:
   entities:
     - light.gang1
     - light.gang2
-    - sensor.gang_sensor_1
-    - sensor.gang_humidity
-    - sensor.gang_temperature
+    - binary_sensor.tradfri_motion_sensor #(Ikea)
+    - binary_sensor.gang_sensor_motion #(Philips)
     - camera.gang
     - climate.gangvarme
     - sensor.gangbatt
@@ -97,22 +92,18 @@ Kontor:
   name: Kontor
   view: yes
   entities:
-    - sensor.kontor_heating
     - sensor.kontor_humidity
-    - sensor.kontor_overlay
-    - sensor.kontor_tado_mode
     - climate.kontor
     - binary_sensor.kontor
     - switch.computer
     - switch.kontor
-    #- light.kontor_led
     - switch.sonoff_1000319a9b
 
 Tristans Værelse:
   name: Tristans Værelse
   view: yes
   entities:
-    - light.tristans_vaerelse
+    - light.tristan1
     - climate.tristansvarme
     - sensor.tristansbatt
 

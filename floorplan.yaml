@@ -70,25 +70,25 @@
              - light.koekken_2
              - light.spisebord
              # Stue
-             - light.stue_1
-             - light.stue_2
+             - light.stue1
+             - light.stue2
              #- light.kontor_led
              # Gang
-             - light.gang_1
-             - light.gang_2
+             - light.gang1
+             - light.gang2
              # Soveværelse
-             - light.sovevaerelse_2
+             - light.sovevaerelse
              # Tristans værelse
              - light.tristan_1
              - light.hue_ambiance_candle_1
              # Badeværelse
              - light.badevaerelse
-             - light.badevaerelse_1
-             - light.badevaerelse_2
+             - light.badevaerelse1
+             - light.badevaerelse2
              ##Legestue 1
              - light.legestue_1
              ##Legestue 2
-             - light.legestue_2
+             - light.legelight.stue2
              ##Legestue 3
              - light.legestue_3
              # Kontor lys

@@ -1,20 +1,20 @@
 # Livingroom normal
 - name: Livingroom normal
   entities:
-    light.stue_1:
+    light.stue1:
       state: on
       brightness: 255
-    light.stue_2:
+    light.stue2:
       state: on
       brightness: 255
 
 # Livingroom dim
 - name: Livingroom dim
   entities:
-    light.stue_1:
+    light.stue1:
       state: on
       brightness: 40
-    light.stue_2:
+    light.stue2:
       state: on
       brightness: 40
 
@@ -51,72 +51,72 @@
 # Badevaerelse dag
 - name: BadevaerelseDag
   entities:
-      light.badevaerelse_2:
+      light.badevaerelse2:
         state: on
         brightness: 255
-      light.badevaerelse_1:
+      light.badevaerelse1:
         state: on
         brightness: 255
 
 # BadevaerelseNat
 - name: BadevaerelseNat
   entities:
-    light.badevaerelse_2:
+    light.badevaerelse2:
       state: on
       brightness: 30
-    light.badevaerelse_1:
+    light.badevaerelse1:
       state: on
       brightness: 30
 
 # KommodeAften
 - name: KommodeAften
   entities:
-    light.kommode_stue1_lys1:
+    light.test:
       state: on
       brightness: 110
-    light.kommode_stue1_lys2:
+    light.kommode_stue1_lys2_2:
       state: on
       brightness: 110
 
 # Gang dag
 - name: GangDag
   entities:
-      light.gang_2:
+      light.gang2:
         state: on
         brightness: 255
-      light.gang_1:
+      light.gang1:
         state: on
         brightness: 255
 
 # Gang nat
 - name: GangNat
   entities:
-    light.gang_2:
+    light.gang2:
       state: on
       brightness: 30
-    light.gang_1:
+    light.gang1:
       state: on
       brightness: 30
 
 # Gang sluk
 - name: GangOff
   entities:
-    light.gang_2:
+    light.gang2:
       state: off
-    light.gang_1:
+    light.gang1:
       state: off
 
 # Sovevaerelse dag
 - name: SovevaerelseDag
   entities:
-      light.sovevaerelse_2:
+      light.sovevaerelse:
         state: on
         brightness: 255
 
 # Sovevaerelse nat
 - name: SovevaerelseNat
   entities:
-    light.sovevaerelse_2:
+    light.sovevaerelse:
       state: on
       brightness: 255
 

@@ -108,7 +108,7 @@
   action:
     service: light.turn_off
     entity_id:
-      - light.kommode_stue1_lys1
+      - light.test
       - light.kommode_stue1_lys2
 
 # This recipe will turn brightness up to max, in the driveway, when door is open. 
@@ -149,8 +149,8 @@
   trigger:
   - platform: state
     entity_id:
-    - light.badevaerelse_1
-    - light.badevaerelse_2
+    - light.badevaerelse1
+    - light.badevaerelse2
     to: 'on'
     from: 'off'
   condition:
@@ -165,8 +165,8 @@
   trigger:
   - platform: state
     entity_id:
-    - light.badevaerelse_1
-    - light.badevaerelse_2
+    - light.badevaerelse1
+    - light.badevaerelse2
     to: 'on'
     from: 'off'
   condition:
@@ -182,7 +182,7 @@
 - alias: SovevaerelseDag
   trigger:
   - platform: state
-    entity_id: light.sovevaerelse_2
+    entity_id: light.sovevaerelse
     to: 'on'
     from: 'off'
   condition:
@@ -196,7 +196,7 @@
 - alias: SovevaerelseNat
   trigger:
   - platform: state
-    entity_id: light.sovevaerelse_2
+    entity_id: light.sovevaerelse
     to: 'on'
     from: 'off'
   condition:
@@ -245,8 +245,8 @@
   action:
     service: light.turn_off
     entity_id:
-      - light.gang_1
-      - light.gang_2
+      - light.gang1
+      - light.gang2
 
 
 ### TTS ###
