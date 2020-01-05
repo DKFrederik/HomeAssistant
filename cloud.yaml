@@ -1,0 +1,11 @@
+  google_actions:
+    filter:
+      include_entities:
+      exclude_entities:
+        - media_player.chromecast_legestue
+        - media_player.chromecast_stue
+        - media_player.google_home
+        - media_player.hojtalergruppe_stuen
+        - media_player.kokken
+        - media_player.sophies_chromecast
+        - media_player.philipstv
