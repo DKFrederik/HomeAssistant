@@ -224,6 +224,9 @@ views:
         - entity: sensor.tradfri_remote_stue_kommode_battery_level
           name: Komode remote
 
+        - entity: sensor.presence_24_battery_level
+          name: Gang Philips
+
             ################################################################
             #                                                              #
             #                         Light View                           #
