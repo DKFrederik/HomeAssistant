@@ -109,7 +109,7 @@
     service: light.turn_off
     entity_id:
       - light.test
-      - light.kommode_stue1_lys2
+      - light.kommode_stue1_lys2_2
 
 # This recipe will turn brightness up to max, in the driveway, when door is open. 
 # But only after sunset and before sunrise
