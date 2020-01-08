@@ -20,6 +20,12 @@ logger:
   default: info
   logs:
     roomba: warning
+    homeassistant.components.cast: debug
+    homeassistant.components.cast.media_player: debug
+    pychromecast: debug
+    pychromecast.discovery: debug
+    pychromecast.socket_client: debug
+    zeroconf: debug
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
