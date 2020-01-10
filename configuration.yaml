@@ -71,7 +71,7 @@ sensor: !include sensor.yaml
 #include person
 person: !include person.yaml
 
-# mobile_app:
+mobile_app:
 
 # # Text to speech
 # tts:

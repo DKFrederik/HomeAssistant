@@ -371,7 +371,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.test
+            entity: light.kommode_stue1_lys1
             tap_action:
               action: toggle
             style:
@@ -381,7 +381,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.kommode_stue1_lys2_2
+            entity: light.kommode_stue1_lys2
             tap_action:
               action: toggle
             style:
@@ -411,7 +411,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.badevaerelse
+            entity: light.badevaerelse_group
             tap_action:
               action: toggle  
             style:
@@ -471,7 +471,7 @@ views:
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.stue1_2
+            entity: light.stue1
             tap_action:
               action: toggle
             style:
