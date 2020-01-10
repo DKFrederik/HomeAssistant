@@ -27,6 +27,9 @@ logger:
     pychromecast.socket_client: debug
     zeroconf: debug
 
+    hass_nabucasa: debug
+    snitun: debug
+
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   base_url: !secret base_url_for_tts
@@ -68,7 +71,7 @@ sensor: !include sensor.yaml
 #include person
 person: !include person.yaml
 
-mobile_app:
+# mobile_app:
 
 # # Text to speech
 # tts:
