@@ -45,8 +45,8 @@ binary_sensor.floorplan:
        - light.garage4
        # køkken
        - light.under_koekkenbordet
-       - light.koekken_1
-       - light.koekken_2
+       - light.koekken1
+       - light.koekken2
        - light.spisebord
        # Stue
        - light.stue1
@@ -58,18 +58,18 @@ binary_sensor.floorplan:
        # Soveværelse
        - light.sovevaerelse
        # Tristans værelse
-       - light.tristan_1
+       - light.tristan1
        - light.hue_ambiance_candle_1
        # Badeværelse
-       - light.badevaerelse
+       - light.badevaerelse_group
        - light.badevaerelse1
        - light.badevaerelse2
        ##Legestue 1
-       - light.legestue_1
+       - light.legestue1
        ##Legestue 2
-       - light.legelight.stue2
+       - light.legestue2
        ##Legestue 3
-       - light.legestue_3
+       - light.legestue3
        # Kontor lys
        - switch.sonoff_1000319a9b
       states:
