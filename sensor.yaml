@@ -1,4 +1,6 @@
 # Sensors
+
+#check temperature on Phoscon Raspberry pi3b+
 ### Remember to ssh-keygen fron server to Phoscon from within the virtual enviroment (venv) ###
 - platform: command_line
   name: Phoscon CPU Temperature
