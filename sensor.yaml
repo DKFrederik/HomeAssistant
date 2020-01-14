@@ -1,4 +1,11 @@
 # Sensors
+### Remember to ssh-keygen fron server to Phoscon from within the virtual enviroment (venv) ###
+- platform: command_line
+  name: Phoscon CPU Temperature
+  command: ssh "192.168.3.10" "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: ‘{{ value | multiply(0.001) }}’
+
 # Weather
 - platform: yr
   name: Weather
