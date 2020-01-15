@@ -59,6 +59,7 @@ views:
           - sensor.phoscon_cpu_temperature
           - sensor.phoscon_disk_usage
           - sensor.phoscon_disk_free
+          - sensor.phoscon_uptime
         state_filter: 
           - operator: ">="
             value: "0"          

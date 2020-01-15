@@ -1,29 +1,8 @@
 ###############################################################################################################################
-#    check temperature on Phoscon Raspberry pi3b+                                                                             #    
 #                                                                                                                             #
-#    Remember to ssh-keygen and ssh-copy-id from server to Phoscon from within the virtual enviroment (venv)                  #
-#                                                                                                                             #    
-#                                                                                                                             #
-#    Create the homeassistant user on the second RPI, sudo adduser homeassistant                                              #
-#                                                                                                                             #
-#    I generated RSA keys, and copied them from HA to the second RPI, was using this                                          #
-#    site, http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id     #
-#    If i didn’t do this step is asked for password when i try to log on to the Second RPI from HA.                           #
-#                                                                                                                             #
-#    Added this to my sensor.yaml on HA:                                                                                      #
-#                                                                                                                             #
-#  - platform: command_line                                                                                                   #
-#    name: Phoscon CPU Temperature                                                                                            #
-#    command: ssh "Second RPI IP" "cat /sys/class/thermal/thermal_zone0/temp"                                                 #
-#    unit_of_measurement: "°C"                                                                                                #
-#    value_template: '{{ value | multiply(0.001) }}'                                                                          #
+#                                                       Server                                                                #
 #                                                                                                                             #
 ###############################################################################################################################
-- platform: command_line
-  name: Phoscon CPU Temperature
-  command: ssh "192.168.3.10" "cat /sys/class/thermal/thermal_zone0/temp"
-  unit_of_measurement: "°C"
-  value_template: '{{ value | multiply(0.001) }}'
 
 #################################################################################################################
 #                                                                                                               #
@@ -148,6 +127,71 @@
       arg: /home
 
 #################################################################################################################
+#                                                                                                               #
+#                                            External IP of Server                                              #
+#                                                                                                               #
+#################################################################################################################
+
+- platform: rest
+  resource: http://ip.jsontest.com
+  name: External IP
+  value_template: '{{ value_json.ip }}'
+
+#################################################################################################################
+#                                                                                                               #
+#                                           Internal IP of Server                                               #
+#                                                                                                               #
+#################################################################################################################
+- platform: command_line
+  name: internal_ip
+  command: "hostname -I"
+
+#################################################################################################################
+#                                                                                                               #
+#                                             CPU temp of Server                                                #
+#                                                                                                               #
+#################################################################################################################
+- platform: command_line
+  name: CPU Temp
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(2)  }}'
+
+###############################################################################################################################
+#                                                                                                                             #
+#                                             RaspBerry Pi 3b+ (Phoscon)                                                      #
+#                                                                                                                             #
+###############################################################################################################################
+
+
+###############################################################################################################################
+#    check temperature on Phoscon Raspberry pi3b+                                                                             #    
+#                                                                                                                             #
+#    Remember to ssh-keygen and ssh-copy-id from server to Phoscon from within the virtual enviroment (venv)                  #
+#                                                                                                                             #    
+#                                                                                                                             #
+#    Create the homeassistant user on the second RPI, sudo adduser homeassistant                                              #
+#                                                                                                                             #
+#    I generated RSA keys, and copied them from HA to the second RPI, was using this                                          #
+#    site, http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id     #
+#    If i didn’t do this step is asked for password when i try to log on to the Second RPI from HA.                           #
+#                                                                                                                             #
+#    Added this to my sensor.yaml on HA:                                                                                      #
+#                                                                                                                             #
+#  - platform: command_line                                                                                                   #
+#    name: Phoscon CPU Temperature                                                                                            #
+#    command: ssh "Second RPI IP" "cat /sys/class/thermal/thermal_zone0/temp"                                                 #
+#    unit_of_measurement: "°C"                                                                                                #
+#    value_template: '{{ value | multiply(0.001) }}'                                                                          #
+#                                                                                                                             #
+###############################################################################################################################
+- platform: command_line
+  name: Phoscon CPU Temperature
+  command: ssh "192.168.3.10" "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) }}'
+
+#################################################################################################################
 #     First, make sure you can ssh into the remote server without password:                                     #
 #     create a script with the correct username and ip-adress                                                   #
 #                                                                                                               #     
@@ -184,31 +228,13 @@
 
 #################################################################################################################
 #                                                                                                               #
-#                                            External IP of Server                                              #
+#       First take the output of uptime to grep, only show matching characters (-oh) and do regex (-e).         #
+#       Filter on "up" "space" "everything after that".                                                         #
+#       Then go to sed to remove the comma's "4 days," to "4 days",                                             #
+#       and then with awk print the second collumn, and remove the rest of the output.                          #
 #                                                                                                               #
 #################################################################################################################
 
-- platform: rest
-  resource: http://ip.jsontest.com
-  name: External IP
-  value_template: '{{ value_json.ip }}'
-
-#################################################################################################################
-#                                                                                                               #
-#                                           Internal IP of Server                                               #
-#                                                                                                               #
-#################################################################################################################
 - platform: command_line
-  name: internal_ip
-  command: "hostname -I"
-
-#################################################################################################################
-#                                                                                                               #
-#                                             CPU temp of Server                                                #
-#                                                                                                               #
-#################################################################################################################
-- platform: command_line
-  name: CPU Temp
-  command: "cat /sys/class/thermal/thermal_zone0/temp"
-  unit_of_measurement: "°C"
-  value_template: '{{ value | multiply(0.001) | round(2)  }}'
+  name: Phoscon Uptime
+  command: "/home/homeassistant/checkUptime.sh"
