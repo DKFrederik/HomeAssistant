@@ -1,8 +1,6 @@
-# Sensors
-
-#check temperature on Phoscon Raspberry pi3b+
-
 ###############################################################################################################################
+#    check temperature on Phoscon Raspberry pi3b+                                                                             #    
+#                                                                                                                             #
 #    Remember to ssh-keygen and ssh-copy-id from server to Phoscon from within the virtual enviroment (venv)                  #
 #                                                                                                                             #    
 #                                                                                                                             #
@@ -27,7 +25,11 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) }}'
 
-# Weather
+#################################################################################################################
+#                                                                                                               #
+#                                                   YR                                                          #
+#                                                                                                               #
+#################################################################################################################
 - platform: yr
   name: Weather
   forecast: 24
@@ -45,6 +47,12 @@
     - mediumClouds
     - highClouds
     - dewpointTemperature
+
+#################################################################################################################
+#                                                                                                               #
+#                                                Darksky                                                        #
+#                                                                                                               #
+#################################################################################################################
 
 - platform: darksky
   api_key: !secret darksky
@@ -65,11 +73,11 @@
     - pressure
     - icon
 
-################################################################
-#                                                              #
-# MQTT extracting Wavin current temperatur from all the topics #
-#                                                              #
-################################################################
+#################################################################################################################
+#                                                                                                               #
+#                     MQTT extracting Wavin current temperatur from all the topics                              #
+#                                                                                                               #
+#################################################################################################################
   # 
 - platform: mqtt
   name: "LilleWCFordoer"
@@ -90,17 +98,21 @@
   name: "TristansVarme"
   state_topic: "heat/floor807D3A790941/5/current"            
 
-#==============================
-#=== Installed version
-#==============================
+#################################################################################################################
+#                                                                                                               #
+#                                            INstalled version                                                  #
+#                                                                                                               #
+#################################################################################################################
 - platform: command_line
   name: Current Version
   command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
 #================================
 
-#==============================
-#=== Lasetes stable version on github
-#==============================
+#################################################################################################################
+#                                                                                                               #
+#                                       Lasetes stable version on github                                        #
+#                                                                                                               #
+#################################################################################################################
 - platform: rest
   resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
   username: !secret github_username
@@ -113,16 +125,11 @@
     User-Agent: Home Assistant REST sensor
   name: Lastest Release
 
-- platform: rest
-  resource: http://ip.jsontest.com
-  name: External IP
-  value_template: '{{ value_json.ip }}'
-
-####################################################
-#                                                  #
-#                 SYSTEM MONITOR                   #
-#                                                  #
-####################################################
+#################################################################################################################
+#                                                                                                               #
+#                                               SYSTEM MONITOR                                                  #
+#                                                                                                               #
+#################################################################################################################
 
 #https://home-assistant.io/components/sensor.systemmonitor/
 - platform: systemmonitor
@@ -140,19 +147,68 @@
     - type: disk_use
       arg: /home
 
+#################################################################################################################
+#     First, make sure you can ssh into the remote server without password:                                     #
+#     create a script with the correct username and ip-adress                                                   #
+#                                                                                                               #     
+#     eg. pico chechPhosconDiskUsage.sh                                                                         #
+#     Then paste this text:                                                                                     #
+#                                                                                                               #
+#     #!/bin/sh                                                                                                 #
+#     ssh homeassistant@192.168.3.10 "df -lh --output=used / | tail -n 1"                                       #
+#                                                                                                               #
+#     make it executable: chmod 755                                                                             #
+#                                                                                                               #
+#################################################################################################################
+- platform: command_line
+  name: Phoscon disk usage
+  command: "/home/homeassistant/checkPhosconDiskUsage.sh"
+
+#################################################################################################################
+#     First, make sure you can ssh into the remote server without password:                                     #
+#     create a script with the correct username and ip-adress                                                   #
+#                                                                                                               #     
+#     eg. pico chechPhosconDiskFree.sh                                                                          #
+#     Then paste this text:                                                                                     #
+#                                                                                                               #
+#     #!/bin/sh                                                                                                 #
+#     ssh homeassistant@192.168.3.10 "df -lh --output=avail / | tail -n 1"                                      #
+#                                                                                                               #
+#     make it executable: chmod 755                                                                             #
+#                                                                                                               #
+#################################################################################################################
+
+- platform: command_line
+  name: Phoscon disk free
+  command: "/home/homeassistant/checkPhosconDiskFree.sh"
+
+#################################################################################################################
+#                                                                                                               #
+#                                            External IP of Server                                              #
+#                                                                                                               #
+#################################################################################################################
+
+- platform: rest
+  resource: http://ip.jsontest.com
+  name: External IP
+  value_template: '{{ value_json.ip }}'
+
+#################################################################################################################
+#                                                                                                               #
+#                                           Internal IP of Server                                               #
+#                                                                                                               #
+#################################################################################################################
 - platform: command_line
   name: internal_ip
   command: "hostname -I"
 
-# CPU Temp
+#################################################################################################################
+#                                                                                                               #
+#                                             CPU temp of Server                                                #
+#                                                                                                               #
+#################################################################################################################
 - platform: command_line
   name: CPU Temp
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(2)  }}'
-
-####################################################
-#                                                  #
-#            END OF CONFIGURATION FILE             #
-#                                                  #
-####################################################

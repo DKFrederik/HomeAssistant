@@ -23,67 +23,30 @@ views:
             ################################################################
 
   - icon: mdi:server-network
+    type: horizontal-stack
     title: Server oversigt
-    columns: 3
+    columns: 4
     cards:   
 
-            ################################################################
-            #                                                              #
-            #                             Last Boot                        #
-            #                                                              #
-            ################################################################
-
-      - type: glance
-        title: Last Boot
+      - type: entity-filter
         entities:
-
-        - entity: sensor.last_boot
-          name: Uptime
-
-            ################################################################
-            #                                                              #
-            #                             IP's                             #
-            #                                                              #
-            ################################################################
-
-      - type: glance
-        title: External IP
-        entities:
-        
-        - entity: sensor.external_ip
-          name: External IP  
-
-        - entity: sensor.internal_ip
-          name: Internal IP 
-      
-            ################################################################
-            #                                                              #
-            #                             CPU                              #
-            #                                                              #
-            ################################################################
-
-      - type: glance
-        title: Temperature
-        entities:
-        
-        - entity: sensor.cpu_temp
-          name: CPU temperature
-
-      - type: glance
-        title: CPU load
-        entities:
-
-        - entity: sensor.processor_use
-          name: Processor usage
-
-        - entity: sensor.load_1m
-          name: Load 1 min.
-
-        - entity: sensor.load_5m
-          name: Load 5 min.
-
-        - entity: sensor.load_15m
-          name: Load 15 min.
+          - sensor.external_ip
+          - sensor.internal_ip
+          - sensor.last_boot
+          - sensor.cpu_temp
+          - sensor.processor_use
+          - sensor.load_1m
+          - sensor.load_5m
+          - sensor.load_15m
+          - sensor.disk_free_home
+          - sensor.disk_use_home
+          - sensor.disk_use_percent_home
+        state_filter: 
+          - operator: ">="
+            value: "0"
+        card:
+          type: entities
+          title: Server
 
             ################################################################
             #                                                              #
@@ -91,47 +54,18 @@ views:
             #                                                              #
             ################################################################
 
-      - type: glance
-        title: Phoscon Raspberry pi 3b+
+      - type: entity-filter
         entities:
+          - sensor.phoscon_cpu_temperature
+          - sensor.phoscon_disk_usage
+          - sensor.phoscon_disk_free
+        state_filter: 
+          - operator: ">="
+            value: "0"          
+        card:
+          type: entities
+          title: Raspberry pi 3b+ (Phoscon)
 
-        - entity: sensor.phoscon_cpu_temperature
-          name: Phoscon Temperature
-
-            ################################################################
-            #                                                              #
-            #                             Disk Usage                       #
-            #                                                              #
-            ################################################################
-      
-      - type: glance
-        title: Disk Usage
-        entities:
-
-        - entity: sensor.disk_use_percent_home
-          name: Disk Usage
-
-        - entity: sensor.disk_use_home
-          name: Disk Usage
-
-        - entity: sensor.disk_free_home
-          name: Disk Free
-
-            ################################################################
-            #                                                              #
-            #                    Home Assistant Release                    #
-            #                                                              #
-            ################################################################
-
-      - type: glance
-        title: Home Assistant Release
-        entities:
-
-        - entity: sensor.current_version
-          name: Current Version
-
-        - entity: sensor.lastest_release
-          name: Latest Release
             ################################################################
             #                                                              #
             #                         Printer                              #
@@ -158,6 +92,25 @@ views:
         card:
           type: entities
           title: Printer
+
+            ################################################################
+            #                                                              #
+            #                    Home Assistant Release                    #
+            #                                                              #
+            ################################################################
+
+      - type: vertical-stack
+        cards:
+
+        - type: glance
+          title: Home Assistant Release
+          entities:
+
+          - entity: sensor.current_version
+            name: Current Version
+
+          - entity: sensor.lastest_release
+            name: Latest Release
 
             ################################################################
             #                                                              #
@@ -199,7 +152,7 @@ views:
           name: Stor WC remote
 
         - entity: sensor.tradfri_remote_gang_battery_level
-          name: Køkken remote
+          name: Gang trådfri sensor
 
         - entity: sensor.tradfri_remote_garage_battery_level
           name: Garage remote
@@ -234,10 +187,10 @@ views:
         - entity: sensor.tradfri_sensor_legestue_battery_level
           name: Legestue sensor
         
-        - entity: sensor.tradfri_remote_stue_kommode_battery_level
+        - entity: sensor.tradfri_remote_kommode_battery_level
           name: Komode remote
 
-        - entity: sensor.presence_24_battery_level
+        - entity: sensor.sensor_gang_philips_battery_level
           name: Gang Philips
 
             ################################################################
