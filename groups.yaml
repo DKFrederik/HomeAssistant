@@ -11,6 +11,12 @@ default_view:
     - sensor.lastest_release
     - sensor.External_IP
 
+### To see floorplan on states page as a card ###
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
+
 Varme:
   name: Varme
   view: yes

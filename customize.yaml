@@ -1,6 +1,7 @@
 person.frederik:
   entity_picture: "/local/pictures/profilbilled.png"
 
+### sensor added to see floorplan as a crad on states page. (placeholder for the sensor) ###
 binary_sensor.floorplan:
   custom_ui_state_card: state-card-floorplan
   config:
