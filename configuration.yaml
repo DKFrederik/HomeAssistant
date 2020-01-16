@@ -213,6 +213,11 @@ device_tracker:
     password: !secret tado_password
     home_id: 255063
 
+binary_sensor:
+  - platform: mqtt
+    state_topic: dummy/floorplan/sensor
+    name: Floorplan
+
 #Lille WC
 climate wavinAhc9000_1:
   - platform: mqtt
