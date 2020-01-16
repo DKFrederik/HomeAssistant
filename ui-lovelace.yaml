@@ -412,32 +412,22 @@ views:
               --iron-icon-width: 42px
           
           - type: state-icon
-            entity: light.gang2
+            entity: light.gang_group_2
             tap_action:
               action: toggle
             style:
-              top: 60%
+              top: 55%
               left: 41%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
           - type: state-icon
-            entity: light.badevaerelse_group
+            entity: light.badevaerelse_group_2
             tap_action:
               action: toggle  
             style:
               top: 57%
               left: 36.5%
-              --iron-icon-height: 42px
-              --iron-icon-width: 42px
-
-          - type: state-icon
-            entity: light.gang1
-            tap_action:
-              action: toggle
-            style:
-              top: 50%
-              left: 41%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
@@ -590,7 +580,7 @@ views:
           - type: state-label
             entity: sensor.gangvarme
             style:
-              top: 55%
+              top: 58%
               left: 41%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
@@ -609,7 +599,7 @@ views:
             entity: sensor.storwcvarme
             style:
               top: 57%
-              left: 33%
+              left: 34%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
               color: '#FFFFFF'
