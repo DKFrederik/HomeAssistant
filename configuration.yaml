@@ -1,4 +1,14 @@
 homeassistant:
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/24
+        - 192.168.2.0/24
+        - 192.168.3.0/24
+        - 192.168.4.0/24
+        - 192.168.5.0/24
+        - 192.168.6.0/24
+        - 192.168.100.0/24
   # packages: !include_dir_named packages
   whitelist_external_dirs:
     - /tmp
@@ -20,15 +30,15 @@ logger:
   default: info
   logs:
     roomba: warning
-    homeassistant.components.cast: debug
-    homeassistant.components.cast.media_player: debug
-    pychromecast: debug
-    pychromecast.discovery: debug
-    pychromecast.socket_client: debug
-    zeroconf: debug
+    #homeassistant.components.cast: debug
+    #homeassistant.components.cast.media_player: debug
+    #pychromecast: debug
+    #pychromecast.discovery: debug
+    #pychromecast.socket_client: debug
+    #zeroconf: debug
 
-    hass_nabucasa: debug
-    snitun: debug
+    #hass_nabucasa: debug
+    #snitun: debug
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
