@@ -1,4 +1,9 @@
 title: !secret HomeAssistantName
+
+resources:
+  - url: /local/js/now-playing-card.js
+    type: js
+
 views:
             
             ################################################################
@@ -152,7 +157,7 @@ views:
         - entity: sensor.tradfri_remote_badevaerelse_battery_level
           name: Stor WC remote
 
-        - entity: sensor.tradfri_remote_gang_battery_level
+        - entity: sensor.tradfri_sensor_gang_battery_level
           name: Gang trådfri sensor
 
         - entity: sensor.tradfri_remote_garage_battery_level
@@ -181,9 +186,6 @@ views:
 
         - entity: sensor.tradfri_sensor_badevaerelse_battery_level
           name: Stor WC sensor
-
-        - entity: sensor.tradfri_motion_sensor_gang_battery_level
-          name: Gang sensor
 
         - entity: sensor.tradfri_sensor_legestue_battery_level
           name: Legestue sensor
@@ -265,11 +267,11 @@ views:
         name: Tristan
 
       - type: light
-        entity: light.test
+        entity: light.kommode_stue1_lys1
         name: Komode 1
 
       - type: light
-        entity: light.kommode_stue1_lys2_2
+        entity: light.kommode_stue1_lys2
         name: Komode 2
 
             ################################################################
@@ -299,11 +301,53 @@ views:
     title: Floorplan
     panel: true
     cards:
+
+
       - type: picture-elements
         image: /local/blueprint.png
         state_filter:
           - null
         elements:
+
+            ################################################################
+            #                                                              #
+            #                        Now Playing                           #
+            #                                                              #
+            ################################################################
+
+          ### Stue ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.chromecast_stue 
+            style:
+              width: 10%
+              top: 12%
+              left: 48%
+              transform: rotate(90deg) rotateX(39deg) 
+
+          #### Legestue ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.chromecast_legestue
+            style:
+              width: 8%
+              top: 52%
+              left: 57%
+              transform: rotateX(124deg) rotateY(180deg) 
+
+          #### Sophie ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.sophies_chromecast
+            style:
+              width: 10%
+              top: 65%
+              left: 70%
+
+          #### bryggers ###
+          - type: "custom:now-playing-poster"
+            entity: camera.d_link
+            style:
+              width: 10%
+              top: 70%
+              left: 10%
 
             ################################################################
             #                                                              #
