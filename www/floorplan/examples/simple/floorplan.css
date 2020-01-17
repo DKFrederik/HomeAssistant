@@ -1,0 +1,198 @@
+/* SVG shapes */
+
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+}
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #03A9F4 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss */
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap info */
+
+.info-text {
+  fill: #31708f !important;
+}
+
+.info-background, .info-text-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+  stroke: #bce8f1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+.warning-background, .warning-text-background  {
+  fill: #fcf8e3 !important;
+  fill-opacity: 1 !important;
+  stroke: #faebcc !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #3c763d !important;
+}
+
+.alarm-armed {
+  fill: #8a6d3b !important;
+}
+
+/* Camera */
+
+.camera-idle {
+/*  fill: #B9CEF7 !important; */
+  fill: #6FAECE !important;
+}
+
+/* TV */
+
+.tv-off {
+  fill: #C3B7F4 !important;
+}
+
+.tv-on {
+  fill: #F8D2B9 !important;
+}
+
+/* Light */
+
+.light-off {
+  fill: rgb(33, 39, 33) !important;
+}
+
+.light-on {
+  fill: rgb(231, 174, 136) !important;
+}
+
+/*binary_sensor_doors*/
+
+.binary_sensor_doors-closed {
+  fill: #fc3939 !important;
+}
+
+.binary_sensor_doors-open {
+  fill: #59fc38 !important;
+}
+
+/*Outside lighting*/
+
+.outside_lighting-ON {
+  fill: #5ee221 !important;
+}
+
+.outside_lighting-OFF {
+  fill: #161312 !important;
+}
+
+/*binary_sensor_windows*/
+
+.binary_sensor_windows-closed {
+  fill: #fc3939 !important;
+}
+
+.binary_sensor_windows-open {
+  fill: #59fc38 !important;
+}
+
+/* Switch kaffemaskine */
+
+.switch-off {
+  fill: #fc3939 !important;
+}
+
+.switch-on {
+  fill: #0eb324 !important;
+}
+
+/* Doorbell */
+
+.doorbell-off {
+  fill: #C3B7F4 !important;
+}
+
+.doorbell-on {
+  fill: #F8D2B9 !important;
+}
+
+/* Temperature sensor */
+
+.temp-very-low-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-below-average-background {
+  fill: #dcefe8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-average-background {
+  fill: #cbeebe !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-very-high-background {
+  fill: #ec6d18 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-high {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+}
+
+/* Media player */
+
+.squeezebox-off {
+  fill: #8AA8A7 !important;
+}
+
+.squeezebox-on {
+  fill: #2baaa6 !important;
+}

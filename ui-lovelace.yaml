@@ -3,6 +3,8 @@ title: !secret HomeAssistantName
 resources:
   - url: /local/js/now-playing-card.js
     type: js
+  - url: /local/floorplan/floorplan-card.js?v=1.1.14
+    type: module
 
 views:
             
