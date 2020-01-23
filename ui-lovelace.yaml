@@ -195,6 +195,9 @@ views:
         - entity: sensor.sensor_gang_philips_battery_level
           name: Gang Philips
 
+        - entity: sensor.tradfri_remote_koekken_spisebord_battery_level
+          name: Spisebord
+
             ################################################################
             #                                                              #
             #                         Light View                           #
