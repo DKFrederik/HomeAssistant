@@ -2,8 +2,8 @@ default_view:
   name: Hjem
   view: no
   entities:
-    - device_tracker.frederiks_mobil
-    - device_tracker.trines_mobil
+    - device_tracker.oneplus_a5010
+    - device_tracker.oneplus_a5010_2
     - sun.sun
     # - sensor.yr_symbol
     - group.all_lights
