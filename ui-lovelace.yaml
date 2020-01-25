@@ -276,6 +276,10 @@ views:
         entity: light.kommode_stue1_lys2
         name: Komode 2
 
+      - type: light
+        entity: light.spisebord
+        name: Spisebord
+
             ################################################################
             #                                                              #
             #                           Camera View                        #
