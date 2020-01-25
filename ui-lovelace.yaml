@@ -119,6 +119,22 @@ views:
 
             ################################################################
             #                                                              #
+            #                         Security                             #
+            #                                                              #
+            ################################################################
+
+      - type: vertical-stack
+        cards:
+
+        - type: glance
+          title: Alarm og sikkerhed
+          entities:
+          
+          - entity: binary_sensor.verisure_ethernet_status
+            name: Internet status til Alarm
+
+            ################################################################
+            #                                                              #
             #                         Battery View                         #
             #                                                              #
             ################################################################
