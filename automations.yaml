@@ -357,6 +357,19 @@
 #                                                                                                               #
 #################################################################################################################
 
+### kontor ###
+
+- alias: 'kontorToggle'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_kontor
+      event: 1002
+  action:
+    service: switch.toggle
+    entity_id: switch.sonoff_1000319a9b
 ### Stue1 ###
 
 - alias: 'stue1Toggle'
@@ -365,7 +378,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_garage
+      id: tradfri_remote_stue1
       event: 1002
   action:
     service: light.toggle
@@ -377,7 +390,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_garage
+      id: tradfri_remote_stue1
       event: 5002
   action:
     service: light.toggle
@@ -391,7 +404,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_garage
+      id: tradfri_remote_stue1
       event: 2002
   action:
     service: light.toggle
@@ -405,7 +418,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_garage
+      id: tradfri_remote_stue1
       event: 3002
   action:
     service: light.toggle
