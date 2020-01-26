@@ -133,7 +133,7 @@
 #################################################################################################################
 
 - platform: rest
-  resource: http://ip.jsontest.com
+  resource: https://api.ipify.org?format=json
   name: External IP
   value_template: '{{ value_json.ip }}'
 
@@ -200,12 +200,16 @@
 #                                                                                                               #
 #     #!/bin/sh                                                                                                 #
 #     ssh homeassistant@192.168.3.10 "df -lh --output=used / | tail -n 1"                                       #
+#     Then go to sed to remove the "G" to show only the numbered value,                                         #
+#     then put in unit_of_measurement: and value_template in this funcktion                                     #
 #                                                                                                               #
 #     make it executable: chmod 755                                                                             #
 #                                                                                                               #
 #################################################################################################################
 - platform: command_line
   name: Phoscon disk usage
+  unit_of_measurement: "GiB"
+  value_template: '{{ value | multiply(0.001) }}'
   command: "/home/homeassistant/checkPhosconDiskUsage.sh"
 
 #################################################################################################################
@@ -217,7 +221,9 @@
 #                                                                                                               #
 #     #!/bin/sh                                                                                                 #
 #     ssh homeassistant@192.168.3.10 "df -lh --output=avail / | tail -n 1"                                      #
-#                                                                                                               #
+#     Then go to sed to remove the "G" to show only the numbered value,                                         #
+#     then put in unit_of_measurement: and value_template in this funcktion                                     #
+#                                                                                                               #                                                                                                          #                                                                                                               #
 #     make it executable: chmod 755                                                                             #
 #                                                                                                               #
 #################################################################################################################
@@ -225,6 +231,8 @@
 - platform: command_line
   name: Phoscon disk free
   command: "/home/homeassistant/checkPhosconDiskFree.sh"
+  unit_of_measurement: "GiB"
+  value_template: '{{ value | multiply(0.001) }}'
 
 #################################################################################################################
 #                                                                                                               #
