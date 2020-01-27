@@ -5,6 +5,8 @@ resources:
     type: js
   - url: /local/floorplan/floorplan-card.js?v=1.1.14
     type: module
+  - url: /local/vacuum/xiaomi-vacuum-card.js?v=3.0.1
+    type: module
 
 views:
             
@@ -19,6 +21,12 @@ views:
 
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
+        
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.roomba
+        vendor: roomba
+        image: /local/pictures/vacuum.png
+          
 
             ################################################################
             #                                                              #
