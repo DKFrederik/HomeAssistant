@@ -199,7 +199,7 @@
 #     Then paste this text:                                                                                     #
 #                                                                                                               #
 #     #!/bin/sh                                                                                                 #
-#     ssh homeassistant@192.168.3.10 "df -lh --output=used / | tail -n 1"                                       #
+#     ssh homeassistant@192.168.3.10 "df -lh --output=used / | tail -n 1 | sed 's/,//g'"                        #
 #     Then go to sed to remove the "G" to show only the numbered value,                                         #
 #     then put in unit_of_measurement: and value_template in this funcktion                                     #
 #                                                                                                               #
@@ -220,7 +220,7 @@
 #     Then paste this text:                                                                                     #
 #                                                                                                               #
 #     #!/bin/sh                                                                                                 #
-#     ssh homeassistant@192.168.3.10 "df -lh --output=avail / | tail -n 1"                                      #
+#     ssh homeassistant@192.168.3.10 "df -lh --output=avail / | tail -n 1 | sed 's/,//g'"                       #
 #     Then go to sed to remove the "G" to show only the numbered value,                                         #
 #     then put in unit_of_measurement: and value_template in this funcktion                                     #
 #                                                                                                               #                                                                                                          #                                                                                                               #
@@ -232,7 +232,7 @@
   name: Phoscon disk free
   command: "/home/homeassistant/checkPhosconDiskFree.sh"
   unit_of_measurement: "GiB"
-  value_template: '{{ value | multiply(0.001) }}'
+  value_template: '{{ value }}'
 
 #################################################################################################################
 #                                                                                                               #
@@ -250,3 +250,5 @@
 - platform: command_line
   name: Phoscon Uptime
   command: "/home/homeassistant/checkUptime.sh"
+  unit_of_measurement: ""
+  value_template: '{{ value | multiply(0.001) }}'
