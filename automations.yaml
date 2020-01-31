@@ -471,3 +471,105 @@
         brightness: >
           {% set bri = state_attr('light.spisebord', 'brightness') | int %}
           {{ [bri-30, 0] | max }}
+
+#### TEST ####
+- alias: 'nightMode'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 1002
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.kommode_stue1_lys1
+      - light.kommode_stue1_lys2
+      - light.gang1
+      - light.gang2
+      - light.koekken1
+      - light.koekken2
+      - light.stue1
+      - light.stue2
+
+- alias: 'nightMode'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 5002
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.kommode_stue1_lys1
+      - light.kommode_stue1_lys2
+      - light.badevaerelse1
+      - light.badevaerelse2
+      - light.gang1
+      - light.gang2
+      - light.hue_ambiance_candle_1
+      - light.koekken1
+      - light.koekken2
+      - light.legestue1
+      - light.legestue2
+      - light.legestue3
+      - light.sovevaerelse
+      - light.spisebord
+      - light.stue1
+      - light.stue2
+      - light.tristan1
+
+- alias: 'Increase light brightness'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 2001
+  action:
+    - service: deconz.configure
+      data:
+        entity: light.gang1
+        field: "/action"
+        data: {"bri_inc":254, "transitiontime":35}
+
+- alias: 'Decrease light brightness'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 3001
+  action:
+    - service: deconz.configure
+      data:
+        entity: light.gang1
+        field: "/action"
+        data: {"bri_inc":-254, "transitiontime":35}
+
+- alias: 'Stop brightness change from dimmer'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tradfri_remote_legestue2
+        event: 2003
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tradfri_remote_legestue2
+        event: 3003
+  action:
+    - service: deconz.configure
+      data:
+        entity: light.gang1 
+        field: "/action"
+        data: {"bri_inc":0}
+
+

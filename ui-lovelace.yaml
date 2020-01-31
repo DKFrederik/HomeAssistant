@@ -180,9 +180,6 @@ views:
         - entity: sensor.tradfri_remote_badevaerelse_battery_level
           name: Stor WC remote
 
-        - entity: sensor.tradfri_sensor_gang_battery_level
-          name: Gang trådfri sensor
-
         - entity: sensor.tradfri_remote_garage_battery_level
           name: Garage remote
 

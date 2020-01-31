@@ -1,5 +1,7 @@
-person.frederik:
+person.frederik_kristian_pedersen:
   entity_picture: "/local/pictures/profilbilled.png"
+person.trine_2:
+  entity_picture: "/local/pictures/trine.png"
 
 ### sensor added to see floorplan as a crad on states page. (placeholder for the sensor) ###
 binary_sensor.floorplan:

@@ -159,9 +159,15 @@
             };
 
             const services = {
-                start: 'start',
+                //not irobot service state
+                //start: 'start',
+                //Irobot service state
+                start: 'turn_on',
                 pause: 'pause',
-                stop: 'stop',
+                //not irobot service state
+                //stop: 'stop',
+                //Irobot service state
+                stop: 'turn_off',
                 locate: 'locate',
                 return: 'return_to_base',
                 spot: 'clean_spot',
