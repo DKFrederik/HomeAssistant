@@ -473,6 +473,33 @@
           {{ [bri-30, 0] | max }}
 
 #### TEST ####
+
+- alias: 'kontorOn (test remote)'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 2002
+  action:
+    service: switch.turn_on
+    entity_id: 
+      - switch.sonoff_1000319a9b
+
+- alias: 'KontorOff (test remote)'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_legestue2
+      event: 3002
+  action:
+    service: switch.turn_off
+    entity_id: 
+      - switch.sonoff_1000319a9b
+
 - alias: 'nightMode'
   initial_state: 'on'
   trigger:
@@ -493,7 +520,7 @@
       - light.stue1
       - light.stue2
 
-- alias: 'nightMode'
+- alias: 'nightModeOff'
   initial_state: 'on'
   trigger:
     platform: event
@@ -521,55 +548,4 @@
       - light.stue1
       - light.stue2
       - light.tristan1
-
-- alias: 'Increase light brightness'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 2001
-  action:
-    - service: deconz.configure
-      data:
-        entity: light.gang1
-        field: "/action"
-        data: {"bri_inc":254, "transitiontime":35}
-
-- alias: 'Decrease light brightness'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 3001
-  action:
-    - service: deconz.configure
-      data:
-        entity: light.gang1
-        field: "/action"
-        data: {"bri_inc":-254, "transitiontime":35}
-
-- alias: 'Stop brightness change from dimmer'
-  initial_state: 'on'
-  trigger:
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: tradfri_remote_legestue2
-        event: 2003
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: tradfri_remote_legestue2
-        event: 3003
-  action:
-    - service: deconz.configure
-      data:
-        entity: light.gang1 
-        field: "/action"
-        data: {"bri_inc":0}
-
 
