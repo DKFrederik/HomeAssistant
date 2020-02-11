@@ -428,7 +428,7 @@
 
 ### Spisebord ###
 
-- alias: 'spisebordToggle'
+- alias: 'spisebordOn'
   initial_state: 'on'
   trigger:
     platform: event
@@ -437,9 +437,52 @@
       id: tradfri_remote_spisebord
       event: 1002
   action:
-    service: light.toggle
+    service: light.turn_on
     entity_id: light.spisebord
 
+- alias: 'spisebordOff'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_spisebord
+      event: 5002
+  action:
+    service: light.turn_off
+    entity_id: light.spisebord
+
+- alias: 'allKoekkenOn'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_spisebord
+      event: 1001
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.spisebord
+      - light.koekken1
+      - light.koekken2
+
+- alias: 'allKoekkenOff'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_spisebord
+      event: 5001
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.spisebord
+      - light.koekken1
+      - light.koekken2
+
+### Dim ###
 - alias: 'Increase brightness of spisebord from dimmer'
   initial_state: 'on'
   trigger:
@@ -471,6 +514,9 @@
         brightness: >
           {% set bri = state_attr('light.spisebord', 'brightness') | int %}
           {{ [bri-30, 0] | max }}
+
+
+
 
 #### TEST ####
 
@@ -548,4 +594,3 @@
       - light.stue1
       - light.stue2
       - light.tristan1
-
