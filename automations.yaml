@@ -370,9 +370,10 @@
   action:
     service: switch.toggle
     entity_id: switch.sonoff_1000319a9b
+
 ### Stue1 ###
 
-- alias: 'stue1Toggle'
+- alias: 'stue1On'
   initial_state: 'on'
   trigger:
     platform: event
@@ -381,10 +382,10 @@
       id: tradfri_remote_stue1
       event: 1002
   action:
-    service: light.toggle
+    service: light.turn_on
     entity_id: light.stue1
 
-- alias: 'stue1Toggle'
+- alias: 'stue1Off'
   initial_state: 'on'
   trigger:
     platform: event
@@ -393,12 +394,12 @@
       id: tradfri_remote_stue1
       event: 5002
   action:
-    service: light.toggle
+    service: light.turn_off
     entity_id: light.stue1
 
 ### kommode ###
 
-- alias: 'kommodeToggle'
+- alias: 'kommodeOn'
   initial_state: 'on'
   trigger:
     platform: event
@@ -407,12 +408,12 @@
       id: tradfri_remote_stue1
       event: 2002
   action:
-    service: light.toggle
+    service: light.turn_on
     entity_id: 
       - light.kommode_stue1_lys1
       - light.kommode_stue1_lys2
 
-- alias: 'kommodeToggle'
+- alias: 'kommodeOff'
   initial_state: 'on'
   trigger:
     platform: event
@@ -421,7 +422,7 @@
       id: tradfri_remote_stue1
       event: 3002
   action:
-    service: light.toggle
+    service: light.turn_off
     entity_id: 
       - light.kommode_stue1_lys1
       - light.kommode_stue1_lys2
