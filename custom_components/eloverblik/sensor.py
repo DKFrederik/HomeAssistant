@@ -1,34 +1,42 @@
-"""Platform for sensor integration."""
+"""Platform for Eloverblik sensor integration."""
 import logging
 from homeassistant.const import ENERGY_KILO_WATT_HOUR
 from homeassistant.helpers.entity import Entity
-from datetime import timedelta
 from pyeloverblik.eloverblik import Eloverblik
-from homeassistant.util import Throttle
+from pyeloverblik.models import TimeSeries
+
 _LOGGER = logging.getLogger(__name__)
-DOMAIN = 'eloverblik'
-MIN_TIME_BETWEEN_UPDATES = timedelta(minutes=60)
+from .const import DOMAIN
+
+
+
 async def async_setup_entry(hass, config, async_add_entities):
     """Set up the sensor platform."""
     eloverblik = hass.data[DOMAIN][config.entry_id]
-    metering_point = config.data['metering_point']
 
-    async_add_entities([EloverblikEnergy(eloverblik, metering_point)])
+    sensors = []
+    sensors.append(EloverblikEnergy("Eloverblik Energy Total", 'total', eloverblik))
+    for x in range(1, 24):
+        sensors.append(EloverblikEnergy(f"Eloverblik Energy {x-1}-{x}", 'hour', eloverblik, x))
+    async_add_entities(sensors)
 
 
 class EloverblikEnergy(Entity):
     """Representation of a Sensor."""
 
-    def __init__(self, eloverblik, metering_point):
+    def __init__(self, name, sensor_type, client, hour=None):
         """Initialize the sensor."""
         self._state = None
-        self._eloverblik = eloverblik
-        self._metering_point = metering_point
+        self._data_date = None
+        self._data = client
+        self._hour = hour
+        self._name = name
+        self._sensor_type = sensor_type
 
     @property
     def name(self):
         """Return the name of the sensor."""
-        return 'Eloverblik energy yesterday'
+        return self._name
 
     @property
     def state(self):
@@ -36,25 +44,27 @@ class EloverblikEnergy(Entity):
         return self._state
 
     @property
+    def device_state_attributes(self):
+        """Return state attributes."""
+        attributes = dict()
+        attributes['Metering date'] = self._data_date
+        
+        return attributes
+
+    @property
     def unit_of_measurement(self):
         """Return the unit of measurement."""
         return ENERGY_KILO_WATT_HOUR
 
-    @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
         """Fetch new state data for the sensor.
         This is the only method that should fetch new data for Home Assistant.
         """
-        """Use the data from Danfoss Air API."""
-        _LOGGER.debug("Fetching data from Danfoss Air CCM module")
+        self._data.update()        
 
-        usage = self._eloverblik.getYesterDayNiceFormat(self._metering_point)
-        
+        self._data_date = self._data.get_data_date()
 
-        _LOGGER.debug("Done fetching data from Danfoss Air CCM module")
-        total = 0
-        for value in usage.values():
-            total += float(value)
-
-
-        self._state = total
+        if self._sensor_type == 'total':
+            self._state = self._data.get_total_day()
+        else:
+            self._state = self._data.get_usage_hour(self._hour)
