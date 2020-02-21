@@ -549,77 +549,77 @@
 
 #### TEST ####
 
-- alias: 'kontorOn (test remote)'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 2002
-  action:
-    service: switch.turn_on
-    entity_id: 
-      - switch.sonoff_1000319a9b
+# - alias: 'kontorOn (test remote)'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_legestue2
+#       event: 2002
+#   action:
+#     service: switch.turn_on
+#     entity_id: 
+#       - switch.sonoff_1000319a9b
 
-- alias: 'KontorOff (test remote)'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 3002
-  action:
-    service: switch.turn_off
-    entity_id: 
-      - switch.sonoff_1000319a9b
+# - alias: 'KontorOff (test remote)'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_legestue2
+#       event: 3002
+#   action:
+#     service: switch.turn_off
+#     entity_id: 
+#       - switch.sonoff_1000319a9b
 
-- alias: 'nightMode'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 1002
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.kommode_stue1_lys1
-      - light.kommode_stue1_lys2
-      - light.gang1
-      - light.gang2
-      - light.koekken1
-      - light.koekken2
-      - light.stue1
-      - light.stue2
+# - alias: 'nightMode'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_legestue2
+#       event: 1002
+#   action:
+#     service: light.turn_on
+#     entity_id: 
+#       - light.kommode_stue1_lys1
+#       - light.kommode_stue1_lys2
+#       - light.gang1
+#       - light.gang2
+#       - light.koekken1
+#       - light.koekken2
+#       - light.stue1
+#       - light.stue2
 
-- alias: 'nightModeOff'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_legestue2
-      event: 5002
-  action:
-    service: light.turn_off
-    entity_id: 
-      - light.kommode_stue1_lys1
-      - light.kommode_stue1_lys2
-      - light.badevaerelse1
-      - light.badevaerelse2
-      - light.gang1
-      - light.gang2
-      - light.hue_ambiance_candle_1
-      - light.koekken1
-      - light.koekken2
-      - light.legestue1
-      - light.legestue2
-      - light.legestue3
-      - light.sovevaerelse
-      - light.spisebord
-      - light.stue1
-      - light.stue2
-      - light.tristan1
+# - alias: 'nightModeOff'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_legestue2
+#       event: 5002
+#   action:
+#     service: light.turn_off
+#     entity_id: 
+#       - light.kommode_stue1_lys1
+#       - light.kommode_stue1_lys2
+#       - light.badevaerelse1
+#       - light.badevaerelse2
+#       - light.gang1
+#       - light.gang2
+#       - light.hue_ambiance_candle_1
+#       - light.koekken1
+#       - light.koekken2
+#       - light.legestue1
+#       - light.legestue2
+#       - light.legestue3
+#       - light.sovevaerelse
+#       - light.spisebord
+#       - light.stue1
+#       - light.stue2
+#       - light.tristan1
