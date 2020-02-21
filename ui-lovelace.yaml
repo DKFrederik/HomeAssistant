@@ -367,13 +367,13 @@ views:
               top: 65%
               left: 70%
 
-          #### bryggers ###
+          ### Victoria ###
           - type: "custom:now-playing-poster"
-            entity: camera.d_link
+            entity: media_player.chromecastkontor
             style:
               width: 10%
-              top: 70%
-              left: 10%
+              top: 44%
+              left: 73%
 
             ################################################################
             #                                                              #
