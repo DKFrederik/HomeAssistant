@@ -373,87 +373,87 @@
 
 ### Stue1 ###
 
-- alias: 'stue1On'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 1002
-  action:
-    service: light.turn_on
-    entity_id: light.stue1
+# - alias: 'stue1On'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 1002
+#   action:
+#     service: light.turn_on
+#     entity_id: light.stue1
 
-- alias: 'stue1Off'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 5002
-  action:
-    service: light.turn_off
-    entity_id: light.stue1
+# - alias: 'stue1Off'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 5002
+#   action:
+#     service: light.turn_off
+#     entity_id: light.stue1
 
-- alias: 'stue1AndStue2On'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 1001
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.stue1
-      - light.stue2
+# - alias: 'stue1AndStue2On'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 4001
+#   action:
+#     service: light.turn_on
+#     entity_id: 
+#       - light.stue1
+#       - light.stue2
 
-- alias: 'stue1AndStue2Off'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 5001
-  action:
-    service: light.turn_off
-    entity_id: 
-      - light.stue1
-      - light.stue2
+# - alias: 'stue1AndStue2Off'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 5001
+#   action:
+#     service: light.turn_off
+#     entity_id: 
+#       - light.stue1
+#       - light.stue2
 
 ### kommode ###
 
-- alias: 'kommodeOn'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 2002
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.kommode_stue1_lys1
-      - light.kommode_stue1_lys2
+# - alias: 'kommodeOn'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 2002
+#   action:
+#     service: light.turn_on
+#     entity_id: 
+#       - light.kommode_stue1_lys1
+#       - light.kommode_stue1_lys2
 
-- alias: 'kommodeOff'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_stue1
-      event: 3002
-  action:
-    service: light.turn_off
-    entity_id: 
-      - light.kommode_stue1_lys1
-      - light.kommode_stue1_lys2
+# - alias: 'kommodeOff'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_stue1
+#       event: 3002
+#   action:
+#     service: light.turn_off
+#     entity_id: 
+#       - light.kommode_stue1_lys1
+#       - light.kommode_stue1_lys2
 
 ### Spisebord ###
 
