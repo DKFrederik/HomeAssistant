@@ -340,8 +340,7 @@
     - service: media_player.volume_set
       data_template:
         entity_id:
-          - media_player.stuen
-          - media_player.googlehome4494
+          - media_player.google_home
         volume_level: '0.3'
     # - service: tts.google_cloud_say
     - service: tts.google_translate_say
