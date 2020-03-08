@@ -19,6 +19,44 @@ views:
   - title: Hjem
     cards:
 
+      - type: glance
+        show_icon: true
+        show_name: true
+        show_state: true
+        entities:
+          - entity: sensor.denmark_coronavirus_confirmed
+            icon: 'mdi:emoticon-neutral-outline'
+            name: Confirmed
+          - entity: sensor.denmark_coronavirus_current
+            icon: 'mdi:emoticon-frown-outline'
+            name: Current
+          - entity: sensor.denmark_coronavirus_recovered
+            icon: 'mdi:emoticon-happy-outline'
+            name: Recovered
+          - entity: sensor.denmark_coronavirus_deaths
+            icon: 'mdi:emoticon-dead-outline'
+            name: Deaths
+        title: Corona i Danmark
+
+      - type: glance
+        show_icon: true
+        show_name: true
+        show_state: true
+        entities:
+          - entity: sensor.worldwide_coronavirus_confirmed
+            icon: 'mdi:emoticon-neutral-outline'
+            name: Confirmed
+          - entity: sensor.worldwide_coronavirus_current
+            icon: 'mdi:emoticon-frown-outline'
+            name: Current
+          - entity: sensor.worldwide_coronavirus_recovered
+            icon: 'mdi:emoticon-happy-outline'
+            name: Recovered
+          - entity: sensor.worldwide_coronavirus_deaths
+            icon: 'mdi:emoticon-dead-outline'
+            name: Deaths
+        title: Corona World Wide
+
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
         
@@ -631,7 +669,7 @@ views:
               color: '#FFFFFF'
 
           - type: state-label
-            entity: sensor.kontor_temperature
+            entity: sensor.kontor_temperature_2
             style:
               top: 70%
               left: 40%
@@ -658,7 +696,7 @@ views:
               color: '#FFFFFF'
 
           - type: state-label
-            entity: sensor.stue_temperature_2
+            entity: sensor.stue_temperature_3
             style:
               top: 30%
               left: 46.5%
@@ -667,7 +705,7 @@ views:
               color: '#000000'
 
           - type: state-label
-            entity: sensor.lege_stue_temperature
+            entity: sensor.lege_stue_temperature_2
             style:
               top: 50%
               left: 57%
@@ -676,7 +714,7 @@ views:
               color: '#FFFFFF'
           
           - type: state-label
-            entity: sensor.sophies_vaerelse_temperature
+            entity: sensor.sophies_vaerelse_temperature_2
             style:
               top: 60%
               left: 71%
@@ -685,7 +723,7 @@ views:
               color: '#FFFFFF'
 
           - type: state-label
-            entity: sensor.victorias_vaerelse_temperature
+            entity: sensor.victorias_vaerelse_temperature_2
             style:
               top: 45%
               left: 71%
@@ -804,3 +842,25 @@ views:
               top: 30%
               left: 65.5%
               font-size: 14px
+
+            ################################################################
+            #                                                              #
+            #                             Bil                              #
+            #                                                              #
+            ################################################################
+
+  - icon: mdi:car-estate
+    title: Bil
+    cards:
+
+      - type: sensor
+        entity: sensor.ingo_diesel
+        name: Ingo
+
+      - type: sensor
+        entity: sensor.cirkel_k_diesel
+        name: Cirkel K
+
+      - type: sensor
+        entity: sensor.ok_diesel
+        name: OK        
