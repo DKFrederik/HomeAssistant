@@ -190,51 +190,65 @@ views:
     cards:
 
       - type: glance
-        title: Batteri oversigt
-        columns: 4
+        title: Batteri Varme Remotes Oversigt
+        columns: 3
         entities: 
 
         - entity: sensor.bryggersbatt
           name: Bryggers varme
 
-        - entity: sensor.kokkenbatt
-          name: Køkken varme
-
         - entity: sensor.gangbatt
           name: Gang varme
+
+        - entity: sensor.kokkenbatt
+          name: Køkken varme
 
         - entity: sensor.lillewcbatt
           name: Lille WC varme
 
-        - entity: sensor.storwcbatt
+        - entity: sensor.sensor_gang_philips_battery_level
+          name: Philips gang motion
+
+        - entity: sensor.sensor_gang_philips_battery_level
           name: Stor WC varme
 
         - entity: sensor.tristansbatt
           name: Tristan varme
 
-        - entity: sensor.tradfri_remote_tristan_battery_level
-          name: Tristan remote
+      - type: glance
+        title: Batteri Lys Oversigt
+        columns: 3
+        entities: 
 
         - entity: sensor.tradfri_remote_badevaerelse_battery_level
-          name: Stor WC remote
+          name: Badeværelse remote
 
+        - entity: sensor.tradfri_remote_gang_battery_level
+          name: Gang remote
+        
         - entity: sensor.tradfri_remote_garage_battery_level
           name: Garage remote
-
-        - entity: sensor.tradfri_remote_sovevaerelse_battery_level
-          name: Soveværelse remote
 
         - entity: sensor.tradfri_remote_koekken1_battery_level
           name: Køkken 1 remote
 
         - entity: sensor.tradfri_remote_koekken2_battery_level
           name: Køkken 2 remote
-
-        - entity: sensor.tradfri_sensor_legestue_battery_level
+        
+        - entity: sensor.tradfri_remote_koekken_spisebord_battery_level
+          name: Spisebord remote
+        
+        - entity: sensor.tradfri_remote_kommode_battery_level
+          name: Kommode remote
+        
+        - entity: sensor.tradfri_remote_legestue1_battery_level
           name: Legestue 1 remote
-
+        
         - entity: sensor.tradfri_remote_legestue2_battery_level
           name: Legestue 2 remote
+
+        - entity: sensor.tradfri_remote_sovevaerelse_battery_level
+          name: Soveværelse remote
 
         - entity: sensor.tradfri_remote_stue1_battery_level
           name: Stue 1 remote
@@ -242,20 +256,8 @@ views:
         - entity: sensor.tradfri_remote_stue2_battery_level
           name: Stue 2 remote
 
-        - entity: sensor.tradfri_sensor_badevaerelse_battery_level
-          name: Stor WC sensor
-
-        - entity: sensor.tradfri_sensor_legestue_battery_level
-          name: Legestue sensor
-        
-        - entity: sensor.tradfri_remote_kommode_battery_level
-          name: Komode remote
-
-        - entity: sensor.sensor_gang_philips_battery_level
-          name: Gang Philips
-
-        - entity: sensor.tradfri_remote_koekken_spisebord_battery_level
-          name: Spisebord
+        - entity: sensor.tradfri_remote_tristan_battery_level
+          name: Tristan remote
 
             ################################################################
             #                                                              #
