@@ -66,8 +66,10 @@ panel_custom:
 
 # Enables configuration UI
 config:
-#include Gruoups
-group: !include groups.yaml
+
+#include Gruoups WHAT TO DO WITH IT NOW THAT GROUPS IS NOT SUPPORTED
+# group: !include groups.yaml
+
 #include Automations
 automation: !include automations.yaml
 #include Scripts
