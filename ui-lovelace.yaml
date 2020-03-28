@@ -404,8 +404,9 @@ views:
             entity: media_player.sophies_chromecast
             style:
               width: 10%
-              top: 65%
-              left: 70%
+              top: 60%
+              left: 73%
+              transform: rotate(90deg)
 
           ### Victoria ###
           - type: "custom:now-playing-poster"
