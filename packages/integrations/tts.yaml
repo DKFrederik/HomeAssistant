@@ -1,0 +1,15 @@
+tts:
+  - platform: google_cloud
+    key_file: !secret key_file
+    base_url: !secret base_url_for_tts
+    language: da-DK
+    gender: female
+    speed: 1.0
+    pitch: 0.0
+    gain: 0.0
+
+# Enable google to speak
+  - platform: google_translate
+    language: da
+    cache: true
+    base_url: !secret base_url_for_tts

@@ -25,7 +25,9 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
-# added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
+  packages: !include_dir_named packages
+
+  # added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
 logger:
   default: info
   logs:
@@ -72,9 +74,10 @@ config:
 
 #include Gruoups WHAT TO DO WITH IT NOW THAT GROUPS IS NOT SUPPORTED
 # group: !include groups.yaml
-
 #include Automations
 automation: !include automations.yaml
+#include Automations
+automation koekken: !include_dir_list automations/koekken
 #include Scripts
 script: !include scripts.yaml
 #include Scene
@@ -86,79 +89,83 @@ sensor: !include sensor.yaml
 #include person
 person: !include person.yaml
 
-mobile_app:
+
+
+# mobile_app:
 
 # # Text to speech
 # tts:
 #   - platform: google_translate
 
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+# updater:
+#   # Optional, allows Home Assistant developers to focus on popular components.
+#   # include_used_components: true
 
-# Discover some devices automatically
-discovery:
+# # Discover some devices automatically
+# discovery:
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# # Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
 
-# Enables support for tracking state changes over time
-history:
+# # Enables support for tracking state changes over time
+# history:
 
-# View all events in a logbook
-logbook:
+# # View all events in a logbook
+# logbook:
 
-# Enables a map showing the location of tracked devices
-map:
+# # Enables a map showing the location of tracked devices
+# map:
 
-# Track the sun
-sun:
+# # Track the sun
+# sun:
 
-# travis (don't know wich kind of sensor this is... maby binary?)
-- platform: travisci
-  api_key: !secret travis_token
 
-# Example configuration.yaml entry
-vacuum:
-  - platform: roomba
-    host: !secret roomba_host
-    username: !secret roomba_username
-    password: !secret roomba_password
+
+# # travis (don't know wich kind of sensor this is... maby binary?)
+# - platform: travisci
+#   api_key: !secret travis_token
+
+# Irobot
+# vacuum:
+#   - platform: roomba
+#     host: !secret roomba_host
+#     username: !secret roomba_username
+#     password: !secret roomba_password
 
 # google:
 #   client_id: !secret 
 #   client_secret: !secret google_client_secret
 
-tts:
-  - platform: google_cloud
-    key_file: !secret key_file
-    base_url: !secret base_url_for_tts
-    language: da-DK
-    gender: female
-    speed: 1.0
-    pitch: 0.0
-    gain: 0.0
+# tts:
+#   - platform: google_cloud
+#     key_file: !secret key_file
+#     base_url: !secret base_url_for_tts
+#     language: da-DK
+#     gender: female
+#     speed: 1.0
+#     pitch: 0.0
+#     gain: 0.0
 
-# Enable google to speak
-  - platform: google_translate
-    language: da
-    cache: true
-    base_url: !secret base_url_for_tts
+# # Enable google to speak
+#   - platform: google_translate
+#     language: da
+#     cache: true
+#     base_url: !secret base_url_for_tts
 
-eloverblik:
+# eloverblik:
   
 
-# Kamera     
-camera:
-#   # - platform: ffmpeg
-#   #   input: http://192.168.1.60:80/video1.mjpg
-  - platform: mjpeg
-    username: !secret camera_username
-    password: !secret camera_password
-    name: D-Link
-    # still_image_url: http://192.168.1.60/?action=snapshot
-    # stream_source: rtsp://192.168.1.60:554/play1.sdp
-    mjpeg_url: !secret camera_url
+# # Kamera     
+# camera:
+# #   # - platform: ffmpeg
+# #   #   input: http://192.168.1.60:80/video1.mjpg
+#   - platform: mjpeg
+#     username: !secret camera_username
+#     password: !secret camera_password
+#     name: D-Link
+#     # still_image_url: http://192.168.1.60/?action=snapshot
+#     # stream_source: rtsp://192.168.1.60:554/play1.sdp
+#     mjpeg_url: !secret camera_url
 
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg

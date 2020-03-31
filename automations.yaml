@@ -1,22 +1,24 @@
 ### Nat belysning ###
 
-- alias: under_koekkenbordet On
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:30:00"
-  action:
-    service: light.turn_on
-    entity_id: light.under_koekkenbordet
+# - alias: under_koekkenbordet On
+#   id: test1
+#   trigger:
+#     platform: sun
+#     event: sunset
+#     offset: "-00:30:00"
+#   action:
+#     service: light.turn_on
+#     entity_id: light.under_koekkenbordet
 
-- alias: under_koekkenbordet Off
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: "+00:30:00"
-  action:
-    service: light.turn_off
-    entity_id: light.under_koekkenbordet
+# - alias: under_koekkenbordet Off
+#   id: test2
+#   trigger:
+#     platform: sun
+#     event: sunrise
+#     offset: "+00:30:00"
+#   action:
+#     service: light.turn_off
+#     entity_id: light.under_koekkenbordet
 
 ### Julelys ###
 
