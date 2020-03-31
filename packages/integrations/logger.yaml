@@ -1,0 +1,14 @@
+# added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
+logger:
+  default: info
+  logs:
+    roomba: warning
+    #homeassistant.components.cast: debug
+    #homeassistant.components.cast.media_player: debug
+    #pychromecast: debug
+    #pychromecast.discovery: debug
+    #pychromecast.socket_client: debug
+    #zeroconf: debug
+
+    #hass_nabucasa: debug
+    #snitun: debug

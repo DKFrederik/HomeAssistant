@@ -1,0 +1,3 @@
+# Set yaml mode or UI mode 
+lovelace:
+  mode: yaml

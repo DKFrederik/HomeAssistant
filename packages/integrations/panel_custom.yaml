@@ -1,0 +1,8 @@
+# If you change the name of your floorplan.svg file, change it here too.
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    #Remember to jump up two directories (../../)
+    config: !include ../../floorplan.yaml

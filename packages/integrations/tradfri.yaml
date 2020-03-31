@@ -1,0 +1,3 @@
+# Ikea gateway
+# tradfri:
+#   host: !secret Ikea_gateway

@@ -1,0 +1,6 @@
+#Tracking who is home or out (not on WiFi)
+device_tracker:
+  - platform: tado
+    username: !secret tado_username
+    password: !secret tado_password
+    home_id: 255063
