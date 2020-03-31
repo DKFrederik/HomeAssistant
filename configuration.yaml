@@ -45,6 +45,9 @@ http:
   base_url: !secret base_url_for_tts
   # api_password: !secret http_Password
 
+# Auto discovery
+#zeroconf:
+
 lovelace:
   mode: yaml
 
