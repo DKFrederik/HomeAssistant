@@ -1,0 +1,9 @@
+alias: Julelys sluk
+id: julelys_sluk
+trigger:
+  platform: sun
+  event: sunrise
+  offset: "+00:30:00"
+action:
+  service: switch.turn_off
+  entity_id: switch.sonoff_1000986a15

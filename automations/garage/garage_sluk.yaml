@@ -1,0 +1,11 @@
+alias: Garage sluk
+id: garage_sluk
+trigger:
+  platform: sun
+  event: sunrise
+  offset: "+00:30:00"
+action:
+  service: light.turn_off
+  entity_id:
+    - light.garage3
+    - light.garage4

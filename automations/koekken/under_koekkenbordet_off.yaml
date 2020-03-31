@@ -1,5 +1,5 @@
 alias: under_koekkenbordet Off
-id: under_koekkenbordet-Off
+id: under_koekkenbordet_Off_2
 trigger:
   platform: sun
   event: sunrise
