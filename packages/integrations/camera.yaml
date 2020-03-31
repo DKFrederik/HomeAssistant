@@ -1,0 +1,11 @@
+# Kamera     
+camera:
+#   # - platform: ffmpeg
+#   #   input: http://192.168.1.60:80/video1.mjpg
+  - platform: mjpeg
+    username: !secret camera_username
+    password: !secret camera_password
+    name: D-Link
+    # still_image_url: http://192.168.1.60/?action=snapshot
+    # stream_source: rtsp://192.168.1.60:554/play1.sdp
+    mjpeg_url: !secret camera_url
