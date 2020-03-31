@@ -118,5 +118,5 @@
   entities:
     light.sovevaerelse:
       state: on
-      brightness: 255
+      brightness: 30
 
