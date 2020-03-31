@@ -26,6 +26,8 @@ config:
 automation: !include automations.yaml
 #include Automations
 automation koekken: !include_dir_list automations/koekken
+automation julelys: !include_dir_list automations/julelys
+automation garage: !include_dir_list automations/garage
 #include Scripts
 script: !include scripts.yaml
 #include Scene
