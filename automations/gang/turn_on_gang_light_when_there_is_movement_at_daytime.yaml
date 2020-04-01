@@ -1,0 +1,13 @@
+alias: Turn on gang light when there is movement at daytime
+id: turn_on_gang_light_when_there_is_movement_at_daytime
+trigger:
+  platform: state
+  entity_id: binary_sensor.gang_sensor_motion
+  to: 'on'
+condition:
+- condition: time
+  after: 06:00:01
+  before: '18:59:59'
+action:
+  service: scene.turn_on
+  entity_id: scene.GangDag

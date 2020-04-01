@@ -1,0 +1,16 @@
+alias: BadevaerelseNat
+id: badevaerelseNat
+trigger:
+- platform: state
+  entity_id:
+  - light.badevaerelse1
+  - light.badevaerelse2
+  to: 'on'
+  from: 'off'
+condition:
+- condition: time
+  after: '19:00:00'
+  before: 06:00:00
+action:
+  service: scene.turn_on
+  entity_id: scene.BadevaerelseNat

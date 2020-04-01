@@ -1,0 +1,13 @@
+alias: Turn off gang light 1 minutes after last movement
+id: turn_off_gang_light_1_minutes_after_last_movement
+trigger:
+  platform: state
+  entity_id: binary_sensor.gang_sensor_motion
+  to: 'off'
+  for:
+    minutes: 1
+action:
+  service: light.turn_off
+  entity_id:
+    - light.gang1
+    - light.gang2

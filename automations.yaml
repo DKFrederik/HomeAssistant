@@ -151,210 +151,221 @@
 
 ### Badeværelse ###
 
-- alias: BadevaerelseDag
-  trigger:
-  - platform: state
-    entity_id:
-    - light.badevaerelse1
-    - light.badevaerelse2
-    to: 'on'
-    from: 'off'
-  condition:
-  - condition: time
-    after: 06:00:01
-    before: '18:59:59'
-  action:
-    service: scene.turn_on
-    entity_id: scene.BadevaerelseDag
+# - alias: BadevaerelseDag
+#   id: badevaerelseDag
+#   trigger:
+#   - platform: state
+#     entity_id:
+#     - light.badevaerelse1
+#     - light.badevaerelse2
+#     to: 'on'
+#     from: 'off'
+#   condition:
+#   - condition: time
+#     after: 06:00:01
+#     before: '18:59:59'
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.BadevaerelseDag
 
-- alias: BadevaerelseNat
-  trigger:
-  - platform: state
-    entity_id:
-    - light.badevaerelse1
-    - light.badevaerelse2
-    to: 'on'
-    from: 'off'
-  condition:
-  - condition: time
-    after: '19:00:00'
-    before: 06:00:00
-  action:
-    service: scene.turn_on
-    entity_id: scene.BadevaerelseNat
+# - alias: BadevaerelseNat
+#   trigger:
+#   - platform: state
+#     entity_id:
+#     - light.badevaerelse1
+#     - light.badevaerelse2
+#     to: 'on'
+#     from: 'off'
+#   condition:
+#   - condition: time
+#     after: '19:00:00'
+#     before: 06:00:00
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.BadevaerelseNat
 
 ### Soveværelse ###
 
-- alias: SovevaerelseDag
-  trigger:
-  - platform: state
-    entity_id: light.sovevaerelse
-    to: 'on'
-    from: 'off'
-  condition:
-  - condition: time
-    after: 06:00:01
-    before: '18:59:59'
-  action:
-    service: scene.turn_on
-    entity_id: scene.SovevaerelseDag
+# - alias: SovevaerelseDag
+#   id: sovevaerelseDag
+#   trigger:
+#   - platform: state
+#     entity_id: light.sovevaerelse
+#     to: 'on'
+#     from: 'off'
+#   condition:
+#   - condition: time
+#     after: 06:00:01
+#     before: '18:59:59'
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.SovevaerelseDag
 
-- alias: SovevaerelseNat
-  trigger:
-  - platform: state
-    entity_id: light.sovevaerelse
-    to: 'on'
-    from: 'off'
-  condition:
-  - condition: time
-    after: '19:00:00'
-    before: 06:00:00
-  action:
-    service: scene.turn_on
-    entity_id: scene.SovevaerelseNat
+# - alias: SovevaerelseNat
+#   id: sovevaerelseNat
+#   trigger:
+#   - platform: state
+#     entity_id: light.sovevaerelse
+#     to: 'on'
+#     from: 'off'
+#   condition:
+#   - condition: time
+#     after: '19:00:00'
+#     before: 06:00:00
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.SovevaerelseNat
 
 ### Gang ###
 
-- alias: Turn on gang light when there is movement at daytime
-  trigger:
-    platform: state
-    entity_id: binary_sensor.gang_sensor_motion
-    to: 'on'
-  condition:
-  - condition: time
-    after: 06:00:01
-    before: '18:59:59'
-  action:
-    service: scene.turn_on
-    entity_id: scene.GangDag
+# - alias: Turn on gang light when there is movement at daytime
+#   id: turn_on_gang_light_when_there_is_movement_at_daytime
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.gang_sensor_motion
+#     to: 'on'
+#   condition:
+#   - condition: time
+#     after: 06:00:01
+#     before: '18:59:59'
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.GangDag
 
-- alias: Turn on gang light when there is movement at nighttime
-  trigger:
-    platform: state
-    entity_id: binary_sensor.gang_sensor_motion
-    to: 'on'
-  condition:
-  - condition: time
-    after: '19:00:00'
-    before: 06:00:00
-  action:
-    service: scene.turn_on
-    entity_id: scene.GangNat
+# - alias: Turn on gang light when there is movement at nighttime
+#   id: turn_on_gang_light_when_there_is_movement_at_nighttime
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.gang_sensor_motion
+#     to: 'on'
+#   condition:
+#   - condition: time
+#     after: '19:00:00'
+#     before: 06:00:00
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.GangNat
 
-- alias: Turn off gang light 1 minutes after last movement
-  trigger:
-    platform: state
-    entity_id: binary_sensor.gang_sensor_motion
-    to: 'off'
-    for:
-      minutes: 1
-  action:
-    service: light.turn_off
-    entity_id:
-      - light.gang1
-      - light.gang2
+# - alias: Turn off gang light 1 minutes after last movement
+#   id: turn_off_gang_light_1_minutes_after_last_movement
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.gang_sensor_motion
+#     to: 'off'
+#     for:
+#       minutes: 1
+#   action:
+#     service: light.turn_off
+#     entity_id:
+#       - light.gang1
+#       - light.gang2
 
 
 ### TTS ###
 
-- alias: FordoerAabnerTTS
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.fordoren
-    to: 'on'
-  action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      volume_level: '0.5'
-  - service: tts.google_translate_say
-    data:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      message: '..... Fordøren er blevet åbnet! '
-      cache: true
+# - alias: FordoerAabnerTTS
+#   id: fordoerAabnerTTS
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.fordoren
+#     to: 'on'
+#   action:
+#   - service: media_player.volume_set
+#     data_template:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       volume_level: '0.5'
+#   - service: tts.google_translate_say
+#     data:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       message: '..... Fordøren er blevet åbnet! '
+#       cache: true
 
-- alias: IndgangsdorAabnerTTS
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.indgangsdor
-    to: 'on'
-  action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      volume_level: '0.5'
-  - service: tts.google_cloud_say
-    data:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      message: '..... Bryggersdøren er blevet åbnet! '
-      cache: true
+# - alias: IndgangsdorAabnerTTS
+#   id: indgangsdorAabnerTTS
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.indgangsdor
+#     to: 'on'
+#   action:
+#   - service: media_player.volume_set
+#     data_template:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       volume_level: '0.5'
+#   - service: tts.google_cloud_say
+#     data:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       message: '..... Bryggersdøren er blevet åbnet! '
+#       cache: true
 
-- alias: terrassedoerForhaveAabnerTTS
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.terrassedor_forhave
-    to: 'on'
-  action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      volume_level: '0.5'
-  - service: tts.google_cloud_say
-    data:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      message: '..... Terrassedøren i forhaven er blevet åbnet! '
-      cache: true
+# - alias: terrassedoerForhaveAabnerTTS
+#   id: terrassedoerForhaveAabnerTTS
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.terrassedor_forhave
+#     to: 'on'
+#   action:
+#   - service: media_player.volume_set
+#     data_template:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       volume_level: '0.5'
+#   - service: tts.google_cloud_say
+#     data:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       message: '..... Terrassedøren i forhaven er blevet åbnet! '
+#       cache: true
 
-- alias: terrassedoerBaghaveAabnerTTS
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.terrassedor_baghave
-    to: 'on'
-  action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      volume_level: '0.5'
-  - service: tts.google_cloud_say
-    data:
-      entity_id:
-      - media_player.stuen
-      - media_player.googlehome4494
-      message: '..... Terrassedøren i baghaven er blevet åbnet! '
-      cache: true
+# - alias: terrassedoerBaghaveAabnerTTS
+#   id: terrassedoerBaghaveAabnerTTS
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.terrassedor_baghave
+#     to: 'on'
+#   action:
+#   - service: media_player.volume_set
+#     data_template:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       volume_level: '0.5'
+#   - service: tts.google_cloud_say
+#     data:
+#       entity_id:
+#       - media_player.stuen
+#       - media_player.googlehome4494
+#       message: '..... Terrassedøren i baghaven er blevet åbnet! '
+#       cache: true
 
-- alias: KontorVindueAabnerTTS
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.kontor
-      to: 'on'
-  action:
-    - service: media_player.volume_set
-      data_template:
-        entity_id:
-          - media_player.google_home
-        volume_level: '0.3'
-    # - service: tts.google_cloud_say
-    - service: tts.google_translate_say
-      data:
-        entity_id: media_player.googlehome4494
-          - media_player.stuen
-        message: "..... Vinduet på kontoret er blevet åbnet! "
-        cache: true
+# - alias: KontorVindueAabnerTTS
+#   id: kontorVindueAabnerTTS
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.kontor
+#       to: 'on'
+#   action:
+#     - service: media_player.volume_set
+#       data_template:
+#         entity_id:
+#           - media_player.google_home
+#         volume_level: '0.3'
+#     # - service: tts.google_cloud_say
+#     - service: tts.google_translate_say
+#       data:
+#         entity_id: media_player.googlehome4494
+#           - media_player.stuen
+#         message: "..... Vinduet på kontoret er blevet åbnet! "
+#         cache: true
 
 ### kontor ###
 
@@ -378,92 +389,98 @@
 
 ### Spisebord ###
 
-- alias: 'spisebordOn'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 1002
-  action:
-    service: light.turn_on
-    entity_id: light.spisebord
+# - alias: 'spisebordOn'
+#   id: spisebordOn
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 1002
+#   action:
+#     service: light.turn_on
+#     entity_id: light.spisebord
 
-- alias: 'spisebordOff'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 5002
-  action:
-    service: light.turn_off
-    entity_id: light.spisebord
+# - alias: 'spisebordOff'
+#   id: spisebordOff
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 5002
+#   action:
+#     service: light.turn_off
+#     entity_id: light.spisebord
 
 ### Dim ###
-- alias: 'Increase brightness of spisebord from dimmer'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 2002
-  action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.spisebord
-        brightness: >
-          {% set bri = state_attr('light.spisebord', 'brightness') | int %}
-          {{ [bri+30, 249] | min }}
+# - alias: 'Increase brightness of spisebord from dimmer'
+#   id: increase_brightness_of_spisebord_from_dimmer
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 2002
+#   action:
+#     - service: light.turn_on
+#       data_template:
+#         entity_id: light.spisebord
+#         brightness: >
+#           {% set bri = state_attr('light.spisebord', 'brightness') | int %}
+#           {{ [bri+30, 249] | min }}
 
-- alias: 'Decrease brightness of spisebord from dimmer'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 3002
-  action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.spisebord
-        brightness: >
-          {% set bri = state_attr('light.spisebord', 'brightness') | int %}
-          {{ [bri-30, 0] | max }}
+# - alias: 'Decrease brightness of spisebord from dimmer'
+#   id: decrease_brightness_of_spisebord_from_dimmer
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 3002
+#   action:
+#     - service: light.turn_on
+#       data_template:
+#         entity_id: light.spisebord
+#         brightness: >
+#           {% set bri = state_attr('light.spisebord', 'brightness') | int %}
+#           {{ [bri-30, 0] | max }}
 
 
 ### Køkken ###
-- alias: 'allKoekkenOn'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 1001
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.spisebord
-      - light.koekken1
-      - light.koekken2
+# - alias: 'allKoekkenOn'
+#   id: allKoekkenOn
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 1001
+#   action:
+#     service: light.turn_on
+#     entity_id: 
+#       - light.spisebord
+#       - light.koekken1
+#       - light.koekken2
 
-- alias: 'allKoekkenOff'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 5001
-  action:
-    service: light.turn_off
-    entity_id: 
-      - light.spisebord
-      - light.koekken1
-      - light.koekken2
+# - alias: 'allKoekkenOff'
+#   id: allKoekkenOff
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_spisebord
+#       event: 5001
+#   action:
+#     service: light.turn_off
+#     entity_id: 
+#       - light.spisebord
+#       - light.koekken1
+#       - light.koekken2
 
