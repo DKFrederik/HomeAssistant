@@ -168,6 +168,31 @@ views:
 
             ################################################################
             #                                                              #
+            #                         Travis                               #
+            #                                                              #
+            ################################################################
+
+      - type: glance
+        show_icon: true
+        show_name: true
+        show_state: true
+        entities:
+          - entity: sensor.dkfrederik_homeassistant_state
+            icon: 'mdi:github-circle'
+            name: Travis state
+          - entity: sensor.dkfrederik_homeassistant_last_build_state
+            icon: 'mdi:github-circle'
+            name: Last build state
+          - entity: sensor.dkfrederik_homeassistant_last_build_started_at
+            icon: 'mdi:timetable'
+            name: Last build started at
+          - entity: sensor.dkfrederik_homeassistant_last_build_id
+            icon: 'mdi:account-card-details'
+            name: Last build id
+        title: Travis 
+
+            ################################################################
+            #                                                              #
             #                         Security                             #
             #                                                              #
             ################################################################
@@ -212,7 +237,7 @@ views:
         - entity: sensor.sensor_gang_philips_battery_level
           name: Philips gang motion
 
-        - entity: sensor.sensor_gang_philips_battery_level
+        - entity: sensor.storwcbatt
           name: Stor WC varme
 
         - entity: sensor.tristansbatt
