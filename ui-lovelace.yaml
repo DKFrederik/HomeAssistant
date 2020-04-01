@@ -7,8 +7,6 @@ resources:
     type: module
   - url: /local/vacuum/xiaomi-vacuum-card.js?v=3.0.1
     type: module
-  - url: /local/mini-graph-card-bundle.js?v=0.9.3
-    type: module
 
 
 views:
@@ -885,9 +883,6 @@ views:
     cards:
 
       - type: history-graph
-        # show_icon: true
-        # show_name: true
-        # show_state: true
         entities:
           - entity: sensor.eloverblik_energy_0_1
             name: 00:00 - 01:00
@@ -935,8 +930,8 @@ views:
             name: 21:00 - 22:00
           - entity: sensor.eloverblik_energy_22_23
             name: 22:00 - 23:00
-          - entity: sensor.eloverblik_energy_23_24
-            name: 23:00 - 24:00
+          # - entity: sensor.eloverblik_energy_23_24
+          #   name: 23:00 - 24:00
           - entity: sensor.eloverblik_energy_total
             icon: 'mdi:emoticon-dead-outline'
             name: Total
@@ -1015,9 +1010,9 @@ views:
       - type: sensor
         entity: sensor.eloverblik_energy_22_23
         name: 22:00 - 23:00
-      - type: sensor
-        entity: sensor.eloverblik_energy_23_24
-        name: 23:00 - 24:00
+      # - type: sensor
+      #   entity: sensor.eloverblik_energy_23_24
+      #   name: 23:00 - 24:00
 
 
             ################################################################

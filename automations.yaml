@@ -44,33 +44,35 @@
 
 ### Media ###
 
-- alias: Media player paused/stopped
-  trigger:
-  - platform: state
-    entity_id: media_player.chromecast_ultra
-    from: playing
-    to: idle
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-    service: scene.turn_on
-    entity_id: scene.livingroom_normal
+# - alias: Media player paused/stopped
+#   id: Media_player_pausedstopped
+#   trigger:
+#   - platform: state
+#     entity_id: media_player.chromecast_ultra
+#     from: playing
+#     to: idle
+#   condition:
+#   - condition: state
+#     entity_id: sun.sun
+#     state: below_horizon
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.livingroom_normal
 
-- alias: Media player playing
-  trigger:
-  - platform: state
-    entity_id: media_player.chromecast_ultra
-    to: playing
-    from: idle
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-    service: scene.turn_on
-    entity_id: scene.livingroom_dim
+# - alias: Media player playing
+#   id: Media_player_playing
+#   trigger:
+#   - platform: state
+#     entity_id: media_player.chromecast_ultra
+#     to: playing
+#     from: idle
+#   condition:
+#   - condition: state
+#     entity_id: sun.sun
+#     state: below_horizon
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.livingroom_dim
 
 ### Garage ###
 
@@ -96,56 +98,56 @@
 
 ### Kommode ###
 
-- alias: Kommode tænd aften
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:30:00"
-  action:
-    service: scene.turn_on
-    entity_id: scene.KommodeAften
+# - alias: Kommode tænd aften
+#   trigger:
+#     platform: sun
+#     event: sunset
+#     offset: "-00:30:00"
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.KommodeAften
 
-- alias: kommode sluk
-  trigger:
-    platform: time
-    at: "23:30:00"
-  action:
-    service: light.turn_off
-    entity_id:
-      - light.kommode_stue1_lys1
-      - light.kommode_stue1_lys2
+# - alias: kommode sluk aften
+#   trigger:
+#     platform: time
+#     at: "23:30:00"
+#   action:
+#     service: light.turn_off
+#     entity_id:
+#       - light.kommode_stue1_lys1
+#       - light.kommode_stue1_lys2
 
-# This recipe will turn brightness up to max, in the driveway, when door is open. 
-# But only after sunset and before sunrise
-- alias: Garage when opening door
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.indgangsdor
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-    service: scene.turn_on
-    entity_id: scene.garage_opening_the_door
+# # This recipe will turn brightness up to max, in the driveway, when door is open. 
+# # But only after sunset and before sunrise
+# - alias: Garage when opening door
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.indgangsdor
+#     to: 'on'
+#   condition:
+#   - condition: state
+#     entity_id: sun.sun
+#     state: below_horizon
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.garage_opening_the_door
 
-# This recipe will dim back down, the driveway, when three minute has passed after the door has closed. 
-# But only after sunset and before sunrise
-- alias: Garage when closing door
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.indgangsdor
-    to: 'off'
-    for:
-      minutes: 3
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon 
-  action:
-    service: scene.turn_on
-    entity_id: scene.garage_when_door_closes
+# # This recipe will dim back down, the driveway, when three minute has passed after the door has closed. 
+# # But only after sunset and before sunrise
+# - alias: Garage when closing door
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.indgangsdor
+#     to: 'off'
+#     for:
+#       minutes: 3
+#   condition:
+#   - condition: state
+#     entity_id: sun.sun
+#     state: below_horizon 
+#   action:
+#     service: scene.turn_on
+#     entity_id: scene.garage_when_door_closes
 
 ### Badeværelse ###
 
@@ -354,109 +356,25 @@
         message: "..... Vinduet på kontoret er blevet åbnet! "
         cache: true
 
+### kontor ###
+
+# - alias: 'kontorToggle'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: deconz_event
+#     event_data:
+#       id: tradfri_remote_kontor
+#       event: 1002
+#   action:
+#     service: switch.toggle
+#     entity_id: switch.sonoff_1000319a9b
+
 #################################################################################################################
 #                                                                                                               #
 #                                                   Deconz                                                      #
 #                                                                                                               #
 #################################################################################################################
-
-### kontor ###
-
-- alias: 'kontorToggle'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_kontor
-      event: 1002
-  action:
-    service: switch.toggle
-    entity_id: switch.sonoff_1000319a9b
-
-### Stue1 ###
-
-# - alias: 'stue1On'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 1002
-#   action:
-#     service: light.turn_on
-#     entity_id: light.stue1
-
-# - alias: 'stue1Off'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 5002
-#   action:
-#     service: light.turn_off
-#     entity_id: light.stue1
-
-# - alias: 'stue1AndStue2On'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 4001
-#   action:
-#     service: light.turn_on
-#     entity_id: 
-#       - light.stue1
-#       - light.stue2
-
-# - alias: 'stue1AndStue2Off'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 5001
-#   action:
-#     service: light.turn_off
-#     entity_id: 
-#       - light.stue1
-#       - light.stue2
-
-### kommode ###
-
-# - alias: 'kommodeOn'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 2002
-#   action:
-#     service: light.turn_on
-#     entity_id: 
-#       - light.kommode_stue1_lys1
-#       - light.kommode_stue1_lys2
-
-# - alias: 'kommodeOff'
-#   initial_state: 'on'
-#   trigger:
-#     platform: event
-#     event_type: deconz_event
-#     event_data:
-#       id: tradfri_remote_stue1
-#       event: 3002
-#   action:
-#     service: light.turn_off
-#     entity_id: 
-#       - light.kommode_stue1_lys1
-#       - light.kommode_stue1_lys2
 
 ### Spisebord ###
 
@@ -483,36 +401,6 @@
   action:
     service: light.turn_off
     entity_id: light.spisebord
-
-- alias: 'allKoekkenOn'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 1001
-  action:
-    service: light.turn_on
-    entity_id: 
-      - light.spisebord
-      - light.koekken1
-      - light.koekken2
-
-- alias: 'allKoekkenOff'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_remote_spisebord
-      event: 5001
-  action:
-    service: light.turn_off
-    entity_id: 
-      - light.spisebord
-      - light.koekken1
-      - light.koekken2
 
 ### Dim ###
 - alias: 'Increase brightness of spisebord from dimmer'
@@ -546,3 +434,36 @@
         brightness: >
           {% set bri = state_attr('light.spisebord', 'brightness') | int %}
           {{ [bri-30, 0] | max }}
+
+
+### Køkken ###
+- alias: 'allKoekkenOn'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_spisebord
+      event: 1001
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.spisebord
+      - light.koekken1
+      - light.koekken2
+
+- alias: 'allKoekkenOff'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_spisebord
+      event: 5001
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.spisebord
+      - light.koekken1
+      - light.koekken2
+

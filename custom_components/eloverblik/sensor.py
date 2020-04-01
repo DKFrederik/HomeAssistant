@@ -16,7 +16,7 @@ async def async_setup_entry(hass, config, async_add_entities):
 
     sensors = []
     sensors.append(EloverblikEnergy("Eloverblik Energy Total", 'total', eloverblik))
-    for x in range(1, 25):
+    for x in range(1, 24):
         sensors.append(EloverblikEnergy(f"Eloverblik Energy {x-1}-{x}", 'hour', eloverblik, x))
     async_add_entities(sensors)
 

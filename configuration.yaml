@@ -28,6 +28,7 @@ automation: !include automations.yaml
 automation koekken: !include_dir_list automations/koekken
 automation julelys: !include_dir_list automations/julelys
 automation garage: !include_dir_list automations/garage
+automation media: !include_dir_list automations/media
 #include Scripts
 script: !include scripts.yaml
 #include Scene

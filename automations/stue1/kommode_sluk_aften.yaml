@@ -1,0 +1,10 @@
+alias: kommode sluk aften
+id: kommode_sluk_aften
+trigger:
+  platform: time
+  at: "23:30:00"
+action:
+  service: light.turn_off
+  entity_id:
+    - light.kommode_stue1_lys1
+    - light.kommode_stue1_lys2
