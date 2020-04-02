@@ -707,7 +707,7 @@ views:
               color: '#000000'
 
           - type: state-label
-            entity: sensor.sovevaerelse_temperature
+            entity: sensor.sovevaerelse_temperature_3
             style:
               top: 62%
               left: 48%
@@ -878,7 +878,7 @@ views:
             #                                                              #
             ################################################################
 
-  - icon: mdi:car-estate
+  - icon: mdi:current-ac
     title: El
     cards:
 
@@ -1017,25 +1017,3 @@ views:
       # -   type: sensor
       #     entity: sensor.eloverblik_energy_23_24
       #     name: 23:00 - 24:00
-
-            ################################################################
-            #                                                              #
-            #                             Bil                              #
-            #                                                              #
-            ################################################################
-
-  - icon: mdi:car-estate
-    title: Bil
-    cards:
-
-      - type: sensor
-        entity: sensor.ingo_diesel
-        name: Ingo
-
-      - type: sensor
-        entity: sensor.cirkel_k_diesel
-        name: Cirkel K
-
-      - type: sensor
-        entity: sensor.ok_diesel
-        name: OK        
