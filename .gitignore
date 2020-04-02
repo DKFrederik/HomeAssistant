@@ -34,3 +34,4 @@ scripts_original.yaml
 secrets_original.yaml
 DoNotCommitToGitub/IRobotRoomba/roombaPasswordAndOtherInfo.png
 *.db-wal
+*.db-shm
