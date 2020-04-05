@@ -4,10 +4,14 @@ trigger:
   platform: state
   entity_id: binary_sensor.sensor_gang_philips
   to: 'on'
-condition:
-- condition: time
-  after: '22:00:00'
-  before: 06:00:00
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-00:30:00"
+# condition:
+# - condition: time
+#   after: '22:00:00'
+#   before: 06:00:00
 action:
   service: scene.turn_on
   entity_id: scene.GangNat
