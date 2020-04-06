@@ -1,5 +1,5 @@
-id: 'Kontor_turn_on_heating_in_office'
-alias: turn on heating in office
+id: Kontor_turn_on_heating_in_office
+alias: Kontor turn on heating in office
 description: turn off heating in office when window closes
 trigger:
 - entity_id: binary_sensor.kontor
