@@ -1,5 +1,5 @@
-alias: Turn on gang light when there is movement at nighttime
-id: turn_on_gang_light_when_there_is_movement_at_nighttime
+alias: Gang Turn on gang light when there is movement at nighttime
+id: Gang_turn_on_gang_light_when_there_is_movement_at_nighttime
 trigger:
   platform: state
   entity_id: binary_sensor.sensor_gang_philips

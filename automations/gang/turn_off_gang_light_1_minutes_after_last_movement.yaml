@@ -1,4 +1,4 @@
-alias: Gang turn of gang light after 1 minute
+alias: Gang turn off gang light after 1 minute
 id: 'Gang_turn_of_gang_light_after_1_minute'
 description: ''
 trigger:
