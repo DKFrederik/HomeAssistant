@@ -1,4 +1,4 @@
-alias: 'Increase brightness of spisebord from dimmer'
+alias: 'Spisebord Increase brightness of spisebord from dimmer'
 id: increase_brightness_of_spisebord_from_dimmer
 initial_state: 'on'
 trigger:

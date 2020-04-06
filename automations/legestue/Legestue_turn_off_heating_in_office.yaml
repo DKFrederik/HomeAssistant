@@ -1,5 +1,5 @@
 id: 'legestue_turn_off_heating_in_office'
-alias: 'turn off heating in office '
+alias: 'Legestue turn off heating in office '
 description: 'turn off heating in office if window opens '
 trigger:
 - entity_id: binary_sensor.terrassedor_baghave, binary_sensor.terrassedor_forhave

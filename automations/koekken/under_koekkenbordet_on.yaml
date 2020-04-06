@@ -1,4 +1,4 @@
-alias: under_koekkenbordet On
+alias:  Koekken under_koekkenbordet On
 id: under_koekkenbordet-On
 trigger:
   platform: sun

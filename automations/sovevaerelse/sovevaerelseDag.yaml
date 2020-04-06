@@ -1,4 +1,4 @@
-alias: SovevaerelseDag
+alias: Sovevaerelse Dag
 id: sovevaerelseDag
 trigger:
 - platform: state

@@ -1,4 +1,4 @@
-alias: SovevaerelseNat
+alias: Sovevaerelse Nat
 id: sovevaerelseNat
 trigger:
 - platform: state

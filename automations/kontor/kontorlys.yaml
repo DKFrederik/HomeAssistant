@@ -1,4 +1,4 @@
-alias: 'kontorToggle'
+alias: 'kontor Toggle'
 id: kontorlys
 initial_state: 'on'
 trigger:

@@ -1,4 +1,4 @@
-alias: 'spisebordOff'
+alias: 'spisebord Off'
 id: spisebordOff
 initial_state: 'on'
 trigger:

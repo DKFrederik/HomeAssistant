@@ -1,4 +1,4 @@
-alias: 'allKoekkenOn'
+alias: 'Koekken allKoekkenOn'
 id: allKoekkenOn
 initial_state: 'on'
 trigger:
