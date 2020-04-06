@@ -1,0 +1,13 @@
+- id: 'Kontor_turn_off_heating_in_office'
+  alias: 'turn off heating in office '
+  description: 'turn off heating in office if window opens '
+  trigger:
+  - entity_id: binary_sensor.kontor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: climate.kontor
+    service: climate.turn_off
