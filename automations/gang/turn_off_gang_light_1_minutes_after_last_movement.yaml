@@ -1,23 +1,14 @@
-alias: Turn off gang light 1 minutes after last movement
-id: turn_off_gang_light_1_minutes_after_last_movement
+alias: Gang turn of gang light after 1 minute
+id: 'Gang_turn_of_gang_light_after_1_minute'
+description: ''
 trigger:
+- entity_id: binary_sensor.sensor_gang_philips
+  from: 'on'
   platform: state
-  entity_id: 
-    - light.gang1
-    - light.gang2
-  from: 'off'
-  to: 'on'
-  for:
-    hours: 0
-    minutes: 01
-    seconds: 0
-condition:
-  condition: state
-  entity_id: binary_sensor.sensor_gang_philips
-  state: 'off'
+  to: 'off'
+condition: []
 action:
+# - delay: 00:00:30 # don't know why, but hue motion sensor defaults to 1 minute "on" state, so the delay is not needed
+- data: {}
+  entity_id: light.gang_group_2
   service: light.turn_off
-  data:
-    entity_id: 
-      - light.gang1
-      - light.gang2
