@@ -26,18 +26,6 @@ config:
 automation: !include automations.yaml
 automation automationDirectory: !include_dir_list automations/
 
-#include Automations
-# automation koekken: !include_dir_list automations/koekken
-# automation julelys: !include_dir_list automations/julelys
-# automation garage: !include_dir_list automations/garage
-# automation media: !include_dir_list automations/media
-# automation kontor: !include_dir_list automations/kontor
-# automation stue1: !include_dir_list automations/stue1
-# automation badevaerelse: !include_dir_list automations/badevaerelse
-# automation sovevaerelse: !include_dir_list automations/sovevaerelse
-# automation gang: !include_dir_list automations/gang
-# automation tts: !include_dir_list automations/tts
-
 #include Scripts
 script: !include scripts.yaml
 #include Scene
