@@ -1,0 +1,13 @@
+id: 'Turn_off_coffemaker_when_alarm_is_set'
+alias: Turn off coffemaker when alarm is set
+description: ''
+trigger:
+- entity_id: alarm_control_panel.aeblevangen_alarm
+  from: disarmed
+  platform: state
+  to: armed
+condition: []
+action:
+- data: {}
+  entity_id: switch.kaffemaskine
+  service: switch.turn_off
