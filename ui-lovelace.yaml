@@ -7,6 +7,8 @@ resources:
     type: module
   - url: /local/vacuum/xiaomi-vacuum-card.js?v=3.0.1
     type: module
+  - url: /hacsfiles/state-attribute-element/state-attribute-element.js
+    type: module
 
 
 views:
@@ -66,23 +68,23 @@ views:
         vendor: roomba
         image: /local/pictures/vacuum.png
 
-      - type: glance
-        show_icon: true
-        show_name: true
-        show_state: true
+      - type: entity-filter
+        id: vaskemaskine
         entities:
-          - entity: sensor.vaskemaskine
-            icon: 'mdi:emoticon-neutral-outline'
-            name: LG Vaskemaskine
-          - entity: binary_sensor.vaskemaskine_wash_completed
-            icon: 'mdi:emoticon-frown-outline'
-            name: Vask færdig?
-          - entity: binary_sensor.vaskemaskine_error_state
-            icon: 'mdi:emoticon-happy-outline'
-            name: Problem?
-        title: Vaskemaskine
+          - sensor.vaskemaskine
+          - binary_sensor.vaskemaskine_wash_completed
+          - binary_sensor.vaskemaskine_error_state
+          - sensor.tid_tilbage
+          - sensor.oprindelig_tid
+          - sensor.hvad_laver_den
+        state_filter: 
+          - operator: ">="
+            value: "0"
+        card:
+          type: entities
+          title: Vaskemaskine
         
-          
+       
 
             ################################################################
             #                                                              #

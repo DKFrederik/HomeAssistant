@@ -248,7 +248,7 @@
 #       #!/bin/sh                                                                                               #
 #       ssh homeassistant@192.168.3.10 uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2 }'           #
 #                                                                                                               #
-#       First ssh into Raspberry pi 3b+ (phoscon)                                                               # 
+#       First ssh into Raspberry pi 3b+ (phoscon)                                                               #
 #       Then take the output of uptime to grep, only show matching characters (-oh) and do regex (-e).          #
 #       Filter on "up" "space" "everything after that".                                                         #
 #       Then go to sed to remove the comma's "4 days," to "4 days",                                             #
@@ -261,3 +261,26 @@
   command: "/home/homeassistant/checkUptime.sh"
   unit_of_measurement: ""
   value_template: '{{ value | multiply(0.001) }}'
+
+
+#################################################################################################################
+#                                                                                                               #
+#                                             Vaskemaskine                                                      #       
+#                                                                                                               #
+#################################################################################################################
+
+- platform: template
+  sensors: 
+    tid_tilbage:
+      value_template: '{{ states.sensor.vaskemaskine.attributes.remain_time }}'
+
+- platform: template
+  sensors: 
+    hvad_laver_den:
+      value_template: '{{ states.sensor.vaskemaskine.attributes.run_state }}'
+
+- platform: template
+  sensors: 
+    oprindelig_tid:
+      value_template: '{{ states.sensor.vaskemaskine.attributes.initial_time }}'
+
