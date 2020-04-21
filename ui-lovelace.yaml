@@ -65,6 +65,23 @@ views:
         entity: vacuum.roomba
         vendor: roomba
         image: /local/pictures/vacuum.png
+
+      - type: glance
+        show_icon: true
+        show_name: true
+        show_state: true
+        entities:
+          - entity: sensor.vaskemaskine
+            icon: 'mdi:emoticon-neutral-outline'
+            name: LG Vaskemaskine
+          - entity: binary_sensor.vaskemaskine_wash_completed
+            icon: 'mdi:emoticon-frown-outline'
+            name: Vask færdig?
+          - entity: binary_sensor.vaskemaskine_error_state
+            icon: 'mdi:emoticon-happy-outline'
+            name: Problem?
+        title: Vaskemaskine
+        
           
 
             ################################################################
