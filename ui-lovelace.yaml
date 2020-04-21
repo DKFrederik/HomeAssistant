@@ -22,44 +22,6 @@ views:
   - title: Hjem
     cards:
 
-      - type: glance
-        show_icon: true
-        show_name: true
-        show_state: true
-        entities:
-          - entity: sensor.denmark_coronavirus_confirmed
-            icon: 'mdi:emoticon-neutral-outline'
-            name: Confirmed
-          - entity: sensor.denmark_coronavirus_current
-            icon: 'mdi:emoticon-frown-outline'
-            name: Current
-          - entity: sensor.denmark_coronavirus_recovered
-            icon: 'mdi:emoticon-happy-outline'
-            name: Recovered
-          - entity: sensor.denmark_coronavirus_deaths
-            icon: 'mdi:emoticon-dead-outline'
-            name: Deaths
-        title: Corona i Danmark
-
-      - type: glance
-        show_icon: true
-        show_name: true
-        show_state: true
-        entities:
-          - entity: sensor.worldwide_coronavirus_confirmed
-            icon: 'mdi:emoticon-neutral-outline'
-            name: Confirmed
-          - entity: sensor.worldwide_coronavirus_current
-            icon: 'mdi:emoticon-frown-outline'
-            name: Current
-          - entity: sensor.worldwide_coronavirus_recovered
-            icon: 'mdi:emoticon-happy-outline'
-            name: Recovered
-          - entity: sensor.worldwide_coronavirus_deaths
-            icon: 'mdi:emoticon-dead-outline'
-            name: Deaths
-        title: Corona World Wide
-
       - type: alarm-panel
         entity: alarm_control_panel.aeblevangen_alarm
         
