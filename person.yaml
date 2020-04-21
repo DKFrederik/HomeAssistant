@@ -1,0 +1,9 @@
+# - name: Frederik
+#   id: frederik
+#   device_trackers: 
+#     - device_tracker.sm_g986b
+
+# - name: Trine
+#   id: trine
+#   device_trackers:
+#     - device_tracker.oneplus_a5010_2
