@@ -259,7 +259,7 @@
         
         - name: Kontor
           entities:
-             -  sensor.kontor_temperature
+             -  sensor.kontor_temperature_2
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
@@ -275,7 +275,7 @@
           #(verisure)
         - name: LegeStue 
           entities:
-             -  sensor.lege_stue_temperature
+             -  sensor.lege_stue_temperature_2
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
@@ -290,7 +290,7 @@
 
         - name: Sophie
           entities:
-             -  sensor.sophies_vaerelse_temperature
+             -  sensor.sophies_vaerelse_temperature_2
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
@@ -305,7 +305,7 @@
 
         - name: Victoria
           entities:
-             -  sensor.victorias_vaerelse_temperature
+             -  sensor.victorias_vaerelse_temperature_2
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
@@ -335,7 +335,7 @@
             
         - name: Stuen (Tado)
           entities:
-             -  sensor.stue_temperature_2
+             -  sensor.stue_temperature_3
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
