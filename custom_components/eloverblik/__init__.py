@@ -1,6 +1,7 @@
 """The Eloverblik integration."""
 import asyncio
 import logging
+import sys
 
 import voluptuous as vol
 from homeassistant.util import Throttle
@@ -80,17 +81,26 @@ class HassEloverblik:
 
     def get_data_date(self):
         if self._data != None:
-            return self._data.data_date
+            return self._data.data_date.date().strftime('%Y-%m-%d')
         else:
             return None
 
+    def get_metering_point(self):
+        return self._metering_point
+
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
-        _LOGGER.debug("Fetching data from Danfoss Air CCM module")
+        _LOGGER.debug("Fetching data from Eloverblik")
 
-        data = self._client.get_yesterday_parsed(self._metering_point)
-        if data.status == 200:
-            self._data = data
+        try: 
+            data = self._client.get_latest(self._metering_point)
+            if data.status == 200:
+                self._data = data
+            else:
+                _LOGGER.warn(f"Error from eloverblik: {data.status} - {data.detailed_status}")
+        except: 
+            e = sys.exc_info()[0]
+            _LOGGER.warn(f"Exception: {e}")
 
-        _LOGGER.debug("Done fetching data from Danfoss Air CCM module")
+        _LOGGER.debug("Done fetching data from Eloverblik")
 
