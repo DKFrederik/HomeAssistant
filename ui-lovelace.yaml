@@ -9,6 +9,8 @@ resources:
     type: module
   - url: /hacsfiles/state-attribute-element/state-attribute-element.js
     type: module
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    type: module
 
 
 views:
@@ -863,60 +865,40 @@ views:
     title: El
     cards:
 
-      - type: history-graph
+      - type: custom:mini-graph-card
+        name: Eloverblik
+        icon: mdi:current-ac
         entities:
-          - entity: sensor.eloverblik_energy_0_1
-            name: 00:00 - 01:00
-          - entity: sensor.eloverblik_energy_1_2
-            name: 01:00 - 02:00
-          - entity: sensor.eloverblik_energy_2_3
-            name: 02:00 - 03:00
-          - entity: sensor.eloverblik_energy_3_4
-            name: 03:00 - 04:00
-          - entity: sensor.eloverblik_energy_4_5
-            name: 04:00 - 05:00
-          - entity: sensor.eloverblik_energy_5_6
-            name: 05:00 - 06:00
-          - entity: sensor.eloverblik_energy_6_7
-            name: 06:00 - 07:00
-          - entity: sensor.eloverblik_energy_7_8
-            name: 07:00 - 08:00
-          - entity: sensor.eloverblik_energy_8_9
-            name: 08:00 - 09:00
-          - entity: sensor.eloverblik_energy_9_10
-            name: 09:00 - 10:00
-          - entity: sensor.eloverblik_energy_10_11
-            name: 10:00 - 11:00
-          - entity: sensor.eloverblik_energy_11_12
-            name: 11:00 - 12:00
-          - entity: sensor.eloverblik_energy_12_13
-            name: 12:00 - 13:00
-          - entity: sensor.eloverblik_energy_13_14
-            name: 13:00 - 14:00
-          - entity: sensor.eloverblik_energy_14_15
-            name: 14:00 - 15:00
-          - entity: sensor.eloverblik_energy_15_16
-            name: 15:00 - 16:00
-          - entity: sensor.eloverblik_energy_16_17
-            name: 16:00 - 17:00
-          - entity: sensor.eloverblik_energy_17_18
-            name: 17:00 - 18:00
-          - entity: sensor.eloverblik_energy_18_19
-            name: 18:00 - 19:00
-          - entity: sensor.eloverblik_energy_19_20
-            name: 19:00 - 20:00
-          - entity: sensor.eloverblik_energy_20_21
-            name: 20:00 - 21:00
-          - entity: sensor.eloverblik_energy_21_22
-            name: 21:00 - 22:00
-          - entity: sensor.eloverblik_energy_22_23
-            name: 22:00 - 23:00
-          # - entity: sensor.eloverblik_energy_23_24
-          #   name: 23:00 - 24:00
           - entity: sensor.eloverblik_energy_total
-            icon: 'mdi:emoticon-dead-outline'
-            name: Total
-        title: El overblik
+            # name: TOTAL
+          - sensor.eloverblik_energy_0_1
+          - sensor.eloverblik_energy_1_2
+          - sensor.eloverblik_energy_2_3
+          - sensor.eloverblik_energy_3_4
+          - sensor.eloverblik_energy_4_5
+          - sensor.eloverblik_energy_5_6
+          - sensor.eloverblik_energy_6_7
+          - sensor.eloverblik_energy_7_8
+          - sensor.eloverblik_energy_8_9
+          - sensor.eloverblik_energy_9_10
+          - sensor.eloverblik_energy_10_11
+          - sensor.eloverblik_energy_11_12
+          - sensor.eloverblik_energy_12_13
+          - sensor.eloverblik_energy_13_14
+          - sensor.eloverblik_energy_14_15
+          - sensor.eloverblik_energy_15_16
+          - sensor.eloverblik_energy_16_17
+          - sensor.eloverblik_energy_17_18
+          - sensor.eloverblik_energy_18_19
+          - sensor.eloverblik_energy_19_20
+          - sensor.eloverblik_energy_20_21
+          - sensor.eloverblik_energy_21_22
+          - sensor.eloverblik_energy_22_23
+        show:
+          graph: bar
+
+
+      
 
       - type: glance
         title: eloverblik time for time
