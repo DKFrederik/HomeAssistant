@@ -273,14 +273,33 @@
   sensors: 
     tid_tilbage:
       value_template: '{{ states.sensor.vaskemaskine.attributes.remain_time }}'
+      icon_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            mdi:timelapse
+          {% else %}
+            mdi:timelapse
+          {% endif %}
 
 - platform: template
   sensors: 
     hvad_laver_den:
       value_template: '{{ states.sensor.vaskemaskine.attributes.run_state }}'
+      icon_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            mdi:timelapse
+          {% else %}
+            mdi:timelapse
+          {% endif %}
 
 - platform: template
   sensors: 
     oprindelig_tid:
       value_template: '{{ states.sensor.vaskemaskine.attributes.initial_time }}'
+      icon_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            mdi:timelapse
+          {% else %}
+            mdi:timelapse
+          {% endif %}
+
 
