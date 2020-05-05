@@ -757,13 +757,13 @@ views:
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
-          - type: state-icon
-            entity: binary_sensor.indgangsdor
-            style:
-              top: 46%
-              left: 31%
-              --iron-icon-height: 42px
-              --iron-icon-width: 42px
+          # - type: state-icon
+          #   entity: binary_sensor.indgangsdor
+          #   style:
+          #     top: 47%
+          #     left: 31%
+          #     --iron-icon-height: 42px
+          #     --iron-icon-width: 42px
 
           - type: state-icon
             entity: binary_sensor.terrassedor_forhave
@@ -786,6 +786,38 @@ views:
             style:
               top: 75%
               left: 37%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.openclose_30
+            style:
+              top: 33%
+              left: 73%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+            
+          - type: state-icon
+            entity: binary_sensor.openclose_23
+            style:
+              top: 29%
+              left: 53%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+          
+          - type: state-icon
+            entity: binary_sensor.openclose_28
+            style:
+              top: 46%
+              left: 31%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
+          - type: state-icon
+            entity: binary_sensor.openclose_31
+            style:
+              top: 38%
+              left: 77%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
