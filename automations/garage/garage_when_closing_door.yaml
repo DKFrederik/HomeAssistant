@@ -4,7 +4,7 @@ alias: Garage when closing door
 id: Garage_when_closing_door
 trigger:
 - platform: state
-  entity_id: binary_sensor.indgangsdor
+  entity_id: binary_sensor.openclose_28
   to: 'off'
   for:
     minutes: 3
