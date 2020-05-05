@@ -1,0 +1,13 @@
+id: 'sophie_turn_off_heating_in_sophies_room'
+alias: 'sophie turn off heating in sophies room '
+description: 'turn off heating in victorias room if window opens '
+trigger:
+- entity_id: binary_sensor.openclose_32
+  from: 'off'
+  platform: state
+  to: 'on'
+condition: []
+action:
+- data: {}
+  entity_id: climate.sophies_vaerelse
+  service: climate.turn_off

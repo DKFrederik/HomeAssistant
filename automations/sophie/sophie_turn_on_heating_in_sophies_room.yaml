@@ -1,0 +1,14 @@
+id: 'sophie_turn_on_heating_in_sophies_room'
+alias: sophie turn on heating in sophies room
+description: turn off heating in victorias room when window closes
+trigger:
+- entity_id: binary_sensor.openclose_32
+  from: 'on'
+  platform: state
+  to: 'off'
+condition: []
+action:
+- data:
+    hvac_mode: auto
+  entity_id: climate.sophies_vaerelse
+  service: climate.set_hvac_mode
