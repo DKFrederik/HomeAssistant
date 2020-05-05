@@ -821,6 +821,14 @@ views:
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
+          - type: state-icon
+            entity: binary_sensor.openclose_32
+            style:
+              top: 65%
+              left: 73%
+              --iron-icon-height: 42px
+              --iron-icon-width: 42px
+
             ################################################################
             #                                                              #
             #                         Switches                             #
