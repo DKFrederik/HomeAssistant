@@ -1,0 +1,14 @@
+id: 'legestue_turn_on_heating_in_office'
+alias: Legestue turn on heating in office
+description: turn off heating in office when window closes
+trigger:
+- entity_id: binary_sensor.openclose_23
+  from: 'on'
+  platform: state
+  to: 'off'
+condition: []
+action:
+- data:
+    hvac_mode: auto
+  entity_id: climate.stue
+  service: climate.set_hvac_mode

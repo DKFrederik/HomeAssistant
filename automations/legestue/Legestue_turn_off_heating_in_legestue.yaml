@@ -1,0 +1,13 @@
+id: 'legestue_turn_off_heating_in_legestue'
+alias: 'Legestue turn off heating in legestue '
+description: 'turn off heating in legestue if window opens '
+trigger:
+- entity_id: binary_sensor.terrassedor_baghave, binary_sensor.terrassedor_forhave
+  from: 'off'
+  platform: state
+  to: 'on'
+condition: []
+action:
+- data: {}
+  entity_id: climate.lege_stue
+  service: climate.turn_off
