@@ -1,5 +1,5 @@
-id: 'legestue_turn_off_heating_in_legestue'
-alias: 'Legestue turn off heating in legestue '
+id: 'stue_turn_off_heating_in_stue'
+alias: 'stue turn off heating in stue '
 description: 'turn off heating in legestue if window opens '
 trigger:
 - entity_id: binary_sensor.openclose_23

@@ -1,5 +1,5 @@
-id: 'legestue_turn_on_heating_in_office'
-alias: Legestue turn on heating in office
+id: 'stue_turn_on_heating_in_stue'
+alias: stue turn on heating in stue
 description: turn off heating in office when window closes
 trigger:
 - entity_id: binary_sensor.openclose_23
