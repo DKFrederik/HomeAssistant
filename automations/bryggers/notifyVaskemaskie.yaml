@@ -1,0 +1,16 @@
+id: '1588629574285'
+alias: Notify when washer finnish
+description: ''
+trigger:
+- entity_id: binary_sensor.vaskemaskine_wash_completed
+  from: 'off'
+  platform: state
+  to: 'on'
+condition: []
+action:
+- data:
+    message: Vaskemaskinen er færdig.... tøm den!!!
+  service: notify.mobile_app_frederiksamsungs20ultra
+- data:
+    message: Vaskemaskinen er færdig.... tøm den!!!
+  service: notify.mobile_app_sm_g986b

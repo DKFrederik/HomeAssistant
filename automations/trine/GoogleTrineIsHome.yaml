@@ -1,0 +1,13 @@
+id: 'Trine is home google'
+alias: Notify when Trine returns home
+description: ''
+trigger:
+- entity_id: person.trine
+  from: 'not_home'
+  platform: state
+  to: 'home'
+condition: []
+action:
+- data:
+    message: Trine er hjemme!!!
+  service: media_player.google_home
