@@ -1,0 +1,14 @@
+# ARMED AWAY TRIGGER
+- id: alarm_trigger_away
+  alias: Trigger Alarm While Armed Away
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.openclose_30, binary_sensor.openclose_31 #Victorias vindue 1 og 2 Xaoimi
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: 'alarm_control_panel.aeblevangen_alarm'
+      state: armed_away
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.aeblevangen_alarm
