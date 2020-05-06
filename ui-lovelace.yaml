@@ -291,6 +291,23 @@ views:
         - entity: sensor.sensor_gang_philips_battery_level
           name: Philips gang motion
 
+      - type: glance
+        title: Batteri sensor Oversigt
+        columns: 3
+        entities: 
+
+        - entity: sensor.sm_g986b_battery_level
+          name: Frederiks mobil
+
+        - entity: sensor.sm_g986b_battery_level_2
+          name: Trines mobil
+
+        - entity: sensor.ane_lx1_battery_level
+          name: Sophies mobil
+
+        - entity: sensor.vi oneplus_a5010_battery_level
+          name: Victoria mobil
+
             ################################################################
             #                                                              #
             #                         Light View                           #
