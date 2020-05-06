@@ -1,4 +1,4 @@
-alias: kommode sluk aften
+alias: stue kommode sluk aften
 id: kommode_sluk_aften
 trigger:
   platform: time

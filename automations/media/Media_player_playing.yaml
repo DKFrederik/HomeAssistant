@@ -1,4 +1,4 @@
-alias: Media player playing
+alias: stue media player playing
 id: Media_player_playing
 trigger:
 - platform: state

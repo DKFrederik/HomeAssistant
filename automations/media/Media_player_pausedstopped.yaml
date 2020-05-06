@@ -1,4 +1,4 @@
-alias: Media player paused/stopped
+alias: stue media player paused/stopped
 id: Media_player_pausedstopped
 trigger:
 - platform: state

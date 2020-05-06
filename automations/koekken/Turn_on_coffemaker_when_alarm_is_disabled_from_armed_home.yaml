@@ -1,5 +1,5 @@
 id: 'Turn_on_coffemaker_when_alarm_is_disabled_from_armed_home'
-alias: Turn_on_coffemaker_when_alarm_is_disabled_from_armed_home
+alias: kaffemaskine turn_on_coffemaker_when_alarm_is_disabled_from_armed_home
 description: ''
 trigger:
 - entity_id: alarm_control_panel.aeblevangen_alarm

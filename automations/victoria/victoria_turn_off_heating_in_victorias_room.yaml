@@ -1,5 +1,5 @@
-id: 'victorias_turn_off_heating_in_victorias_room'
-alias: 'victorias turn off heating in victorias room '
+id: 'victoria_turn_off_heating_in_victorias_room'
+alias: 'victoria turn off heating in victorias room '
 description: 'turn off heating in victorias room if window opens '
 trigger:
 - entity_id: binary_sensor.openclose_30, binary_sensor.openclose_31

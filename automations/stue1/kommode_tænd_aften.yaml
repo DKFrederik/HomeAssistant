@@ -1,4 +1,4 @@
-alias: Kommode tænd aften
+alias: stue kommode tænd aften
 id: Kommode_tænd_aften
 trigger:
   platform: sun

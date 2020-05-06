@@ -1,4 +1,4 @@
-alias: 'spisebord Off'
+alias: 'koekken spisebord Off'
 id: spisebordOff
 initial_state: 'on'
 trigger:

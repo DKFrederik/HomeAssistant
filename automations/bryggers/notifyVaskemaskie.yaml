@@ -1,5 +1,5 @@
 id: '1588629574285'
-alias: Notify when washer finnish
+alias: Vaskemaskine Notify when washer finnish
 description: ''
 trigger:
 - entity_id: binary_sensor.vaskemaskine_wash_completed
