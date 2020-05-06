@@ -8,6 +8,10 @@ trigger:
   to: 'home'
 condition: []
 action:
-- data:
-    message: Trine er hjemme!!!
-  service: media_player.google_home
+- service: tts.google_cloud_say
+  data:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    message: '..... Trine er hjemme! '
+    cache: true
