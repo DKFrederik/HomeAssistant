@@ -268,6 +268,29 @@ views:
         - entity: sensor.tradfri_remote_tristan_battery_level
           name: Tristan remote
 
+      - type: glance
+        title: Batteri sensor Oversigt
+        columns: 3
+        entities: 
+
+        - entity: sensor.openclose_28_battery_level
+          name: Bryggers dør Xaomi
+
+        - entity: sensor.openclose_30_battery_level
+          name: Victoria vindue 1
+
+        - entity: sensor.openclose_31_battery_level
+          name: Victoria vindue 2
+
+        - entity: sensor.openclose_32_battery_level
+          name: Sophie vindue 2
+
+        - entity: sensor.openclose_23_battery_level
+          name: Stor terrassedør
+
+        - entity: sensor.sensor_gang_philips_battery_level
+          name: Philips gang motion
+
             ################################################################
             #                                                              #
             #                         Light View                           #
