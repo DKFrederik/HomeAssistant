@@ -305,7 +305,7 @@ views:
         - entity: sensor.ane_lx1_battery_level
           name: Sophies mobil
 
-        - entity: sensor.vi oneplus_a5010_battery_level
+        - entity: sensor.oneplus_a5010_battery_level
           name: Victoria mobil
 
             ################################################################
