@@ -1,0 +1,17 @@
+id: 'Sophie is home google'
+alias: Sophie google notify when Sophie returns home
+description: ''
+trigger:
+- entity_id: person.sophie
+  from: 'not_home'
+  platform: state
+  to: 'home'
+condition: []
+action:
+- service: tts.google_cloud_say
+  data:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    message: '..... Sophie er hjemme! '
+    cache: true

@@ -1,0 +1,23 @@
+id: 'Sophie_er_i_klubben'
+alias: Sophie er i klubben
+description: ''
+trigger:
+- entity_id: device_tracker.ane_lx1
+  event: enter
+  platform: zone
+  zone: zone.klubben
+condition: []
+action:
+- service: media_player.volume_set
+  data_template:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    volume_level: '0.8'
+- service: tts.google_cloud_say
+  data:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    message: '..... sophie er i klubben'
+    cache: true
