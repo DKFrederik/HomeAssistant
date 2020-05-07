@@ -120,3 +120,40 @@
       state: on
       brightness: 30
 
+# turn off all lights 
+- name: SlukAltLys
+  entities:
+    light.badevaerelse1:
+      state: off
+    light.badevaerelse2:
+      state: off
+    light.gang1:
+      state: off
+    light.gang2:
+      state: off
+    light.hue_ambiance_candle_1:
+      state: off
+    light.koekken1:
+      state: off
+    light.koekken2:
+      state: off
+    light.kommode_stue1_lys1:
+      state: off
+    light.kommode_stue1_lys2:
+      state: off
+    light.legestue1:
+      state: off
+    light.legestue2:
+      state: off
+    light.legestue3:
+      state: off
+    light.sovevaerelse:
+      state: off
+    light.spisebord:
+      state: off
+    light.stue1:
+      state: off
+    light.stue2:
+      state: off
+    light.tristan1:
+      state: off
