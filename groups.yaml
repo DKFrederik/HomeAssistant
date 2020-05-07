@@ -2,189 +2,189 @@ default_view:
   name: Hjem
   view: no
   entities:
-    - device_tracker.oneplus_a5010
-    - device_tracker.oneplus_a5010_2
-    - sun.sun
-    # - sensor.yr_symbol
-    - group.all_lights
-    - sensor.Current_Version
-    - sensor.lastest_release
-    - sensor.External_IP
+#     - device_tracker.oneplus_a5010
+#     - device_tracker.oneplus_a5010_2
+#     - sun.sun
+#     # - sensor.yr_symbol
+#     - group.all_lights
+#     - sensor.Current_Version
+#     - sensor.lastest_release
+#     - sensor.External_IP
 
-### To see floorplan on states page as a card ###
-zones:
-  name: Zones
-  entities:
-    - binary_sensor.floorplan
+# ### To see floorplan on states page as a card ###
+# zones:
+#   name: Zones
+#   entities:
+#     - binary_sensor.floorplan
 
-Varme:
-  name: Varme
-  view: yes
-  entities:
-    - climate.bryggersvarme
-    - climate.gangvarme
-    - climate.kokkenvarme
-    - climate.kontor
-    - climate.lege_stue
-    - climate.lillewcvarme
-    - climate.sophies_vaerelse
-    - climate.sovevaerelse
-    - climate.storwcvarme
-    - climate.stue
-    - climate.tristansvarme
-    - climate.victorias_vaerelse
+# Varme:
+#   name: Varme
+#   view: yes
+#   entities:
+#     - climate.bryggersvarme
+#     - climate.gangvarme
+#     - climate.kokkenvarme
+#     - climate.kontor
+#     - climate.lege_stue
+#     - climate.lillewcvarme
+#     - climate.sophies_vaerelse
+#     - climate.sovevaerelse
+#     - climate.storwcvarme
+#     - climate.stue
+#     - climate.tristansvarme
+#     - climate.victorias_vaerelse
     
-Stue:
-  name: Stue
-  view: yes
-  entities:
-    - light.stue1
-    - light.stue2
-    - light.test
-    - light.kommode_stue1_lys2
-    - sensor.stue_humidity
-    - media_player.chromecastultra4028
-    - climate.stue
-    - media_player.philipstv
-    - camera.stue
-    - media_player.google_home
+# Stue:
+#   name: Stue
+#   view: yes
+#   entities:
+#     - light.stue1
+#     - light.stue2
+#     - light.test
+#     - light.kommode_stue1_lys2
+#     - sensor.stue_humidity
+#     - media_player.chromecastultra4028
+#     - climate.stue
+#     - media_player.philipstv
+#     - camera.stue
+#     - media_player.google_home
 
-Bryggers:
-  name: Bryggers
-  view: yes
-  entities:
-    - alarm_control_panel.aeblevangen_alarm
-    - sensor.bryggers_humidity
-    - binary_sensor.indgangsdor
-    - climate.bryggersvarme
-    - sensor.bryggersbatt
-    - vacuum.roomba
-    - weather.aeblevangen_36
+# Bryggers:
+#   name: Bryggers
+#   view: yes
+#   entities:
+#     - alarm_control_panel.aeblevangen_alarm
+#     - sensor.bryggers_humidity
+#     - binary_sensor.indgangsdor
+#     - climate.bryggersvarme
+#     - sensor.bryggersbatt
+#     - vacuum.roomba
+#     - weather.aeblevangen_36
 
-Køkken:
-  name: Køkken
-  view: yes
-  entities:
-    - light.koekken1
-    - light.koekken2
-    - light.spisebord
-    - switch.kaffemaskine
-    - light.under_koekkenbordet
-    - climate.kokkenvarme
-    - sensor.kokkenbatt
-    - media_player.googlehome4494
+# Køkken:
+#   name: Køkken
+#   view: yes
+#   entities:
+#     - light.koekken1
+#     - light.koekken2
+#     - light.spisebord
+#     - switch.kaffemaskine
+#     - light.under_koekkenbordet
+#     - climate.kokkenvarme
+#     - sensor.kokkenbatt
+#     - media_player.googlehome4494
   
-Gang:
-  name: Gang
-  view: yes
-  entities:
-    - light.gang1
-    - light.gang2
-    - binary_sensor.tradfri_motion_sensor #(Ikea)
-    - binary_sensor.gang_sensor_motion #(Philips)
-    - camera.gang
-    - climate.gangvarme
-    - sensor.gangbatt
+# Gang:
+#   name: Gang
+#   view: yes
+#   entities:
+#     - light.gang1
+#     - light.gang2
+#     - binary_sensor.tradfri_motion_sensor #(Ikea)
+#     - binary_sensor.gang_sensor_motion #(Philips)
+#     - camera.gang
+#     - climate.gangvarme
+#     - sensor.gangbatt
 
-Soveværelse:
-  name: Soveværelse
-  view: yes
-  entities:
-    - climate.sovevaerelse
-    - light.sovevaerelse
-    - sensor.sovevaerelse_humidity
+# Soveværelse:
+#   name: Soveværelse
+#   view: yes
+#   entities:
+#     - climate.sovevaerelse
+#     - light.sovevaerelse
+#     - sensor.sovevaerelse_humidity
 
-Kontor:
-  name: Kontor
-  view: yes
-  entities:
-    - sensor.kontor_humidity
-    - climate.kontor
-    - binary_sensor.kontor
-    - switch.computer
-    - switch.kontor
-    - switch.sonoff_1000319a9b
+# Kontor:
+#   name: Kontor
+#   view: yes
+#   entities:
+#     - sensor.kontor_humidity
+#     - climate.kontor
+#     - binary_sensor.kontor
+#     - switch.computer
+#     - switch.kontor
+#     - switch.sonoff_1000319a9b
 
-Tristans Værelse:
-  name: Tristans Værelse
-  view: yes
-  entities:
-    - light.tristan1
-    - climate.tristansvarme
-    - sensor.tristansbatt
+# Tristans Værelse:
+#   name: Tristans Værelse
+#   view: yes
+#   entities:
+#     - light.tristan1
+#     - climate.tristansvarme
+#     - sensor.tristansbatt
 
-Legestue:
-  name: Lege Stue
-  view: yes
-  entities:
-    - media_player.legerum
-    - camera.alrum_brn
-    - sensor.alrum_brn_humidity
-    - sensor.alrum_brn_temperature
-    - binary_sensor.terrassedr_baghave
-    - binary_sensor.terrassedr_forhave
-    - climate.lege_stue
-    ##Legestue 1
-    - light.legestue
-    ##Legestue 2
-    - light.legestue
-    ##Legestue 3
-    - light.legestue 
+# Legestue:
+#   name: Lege Stue
+#   view: yes
+#   entities:
+#     - media_player.legerum
+#     - camera.alrum_brn
+#     - sensor.alrum_brn_humidity
+#     - sensor.alrum_brn_temperature
+#     - binary_sensor.terrassedr_baghave
+#     - binary_sensor.terrassedr_forhave
+#     - climate.lege_stue
+#     ##Legestue 1
+#     - light.legestue
+#     ##Legestue 2
+#     - light.legestue
+#     ##Legestue 3
+#     - light.legestue 
 
-Sophies Værelse:
-  name: Sophies Værelse
-  view: yes
-  entities:
-    - media_player.sophies_chromecast
-    - climate.sophies_vaerelse
+# Sophies Værelse:
+#   name: Sophies Værelse
+#   view: yes
+#   entities:
+#     - media_player.sophies_chromecast
+#     - climate.sophies_vaerelse
 
-Victorias Værelse:
-  name: Victorias Værelse
-  view: yes
-  entities:
-    - climate.victorias_vaerelse
+# Victorias Værelse:
+#   name: Victorias Værelse
+#   view: yes
+#   entities:
+#     - climate.victorias_vaerelse
 
-Badeværelse:
-  name: Badeværelse
-  view: yes
-  entities:
-    - light.badevaerelse
-    - light.badevaerelse
-    - climate.storwcvarme
-    - sensor.storwcbatt
+# Badeværelse:
+#   name: Badeværelse
+#   view: yes
+#   entities:
+#     - light.badevaerelse
+#     - light.badevaerelse
+#     - climate.storwcvarme
+#     - sensor.storwcbatt
   
-Toilet:
-  name: Toilet
-  view: yes
-  entities:
-    - climate.lillewcfordoervarme
-    - sensor.lillewcbatt
+# Toilet:
+#   name: Toilet
+#   view: yes
+#   entities:
+#     - climate.lillewcfordoervarme
+#     - sensor.lillewcbatt
   
-Fordørrdør:
-  name: Fordør
-  view: yes
-  entities:
-    - binary_sensor.fordoren
-    - climate.lillewcfordoervarme
-    - sensor.lillewcbatt
+# Fordørrdør:
+#   name: Fordør
+#   view: yes
+#   entities:
+#     - binary_sensor.fordoren
+#     - climate.lillewcfordoervarme
+#     - sensor.lillewcbatt
     
-Garage:
-  name: Garage
-  view: yes
-  entities:
-    - light.garage3
-    - light.garage4
+# Garage:
+#   name: Garage
+#   view: yes
+#   entities:
+#     - light.garage3
+#     - light.garage4
 
-Loft:
-  name: Loft
-  view: yes
-  entities:
-    - switch.sonoff_1000989db8
-    - switch.sonoff_1000986a15
+# Loft:
+#   name: Loft
+#   view: yes
+#   entities:
+#     - switch.sonoff_1000989db8
+#     - switch.sonoff_1000986a15
     
-BadeværelseLys:
-  name: badevaerelselys
-  view: no
-  entities:
-    - light.badevaerelse
-    - light.badevaerelse
+# BadeværelseLys:
+#   name: badevaerelselys
+#   view: no
+#   entities:
+#     - light.badevaerelse
+#     - light.badevaerelse
