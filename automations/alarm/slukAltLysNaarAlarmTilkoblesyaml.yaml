@@ -1,0 +1,11 @@
+id: 'Alarm_Sluk_Alt_Lys_Naar_Alarm_Tilkobles'
+alias: Alarm Sluk Alt Lys Naar Alarm Tilkobles
+description: ''
+trigger:
+- entity_id: alarm_control_panel.aeblevangen_alarm
+  from: disarmed
+  platform: state
+  to: armed_away
+condition: []
+action:
+- scene: scene.slukaltlys
