@@ -1,5 +1,5 @@
 id: 'Trine is home google'
-alias: trine notify when Trine returns home
+alias: trine google notify when Trine returns home
 description: ''
 trigger:
 - entity_id: person.trine
