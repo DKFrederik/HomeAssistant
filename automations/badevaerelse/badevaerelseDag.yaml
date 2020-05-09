@@ -1,12 +1,15 @@
 alias: BadevaerelseDag
 id: badevaerelseDag
 trigger:
-- platform: state
-  entity_id:
-  - light.badevaerelse1
-  - light.badevaerelse2
+  platform: state
+  entity_id: binary_sensor.tradfri_sensor_badevaerelse
   to: 'on'
-  from: 'off'
+# - platform: state
+#   entity_id:
+#   - light.badevaerelse1
+#   - light.badevaerelse2
+#   to: 'on'
+#   from: 'off'
 condition:
 - condition: state
   entity_id: sun.sun

@@ -1,0 +1,14 @@
+alias: Badevaerelse turn off badevaerelse light after 6 minute
+id: 'Badevaerelse_turn_of_badevaerelse_light_after_6_minute'
+description: ''
+trigger:
+- entity_id: binary_sensor.tradfri_sensor_badevaerelse
+  from: 'on'
+  platform: state
+  to: 'off'
+condition: []
+action:
+- delay: 00:04:00
+- data: {}
+  entity_id: light.badevaerelse_group_2
+  service: light.turn_off
