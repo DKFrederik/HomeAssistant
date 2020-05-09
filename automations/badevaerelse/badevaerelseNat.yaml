@@ -8,9 +8,9 @@ trigger:
   to: 'on'
   from: 'off'
 condition:
-- condition: time
-  after: '19:00:00'
-  before: 06:00:00
+- condition: state
+  entity_id: sun.sun
+  state: 'below_horizon'
 action:
   service: scene.turn_on
   entity_id: scene.BadevaerelseNat
