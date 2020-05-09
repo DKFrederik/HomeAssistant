@@ -1,0 +1,21 @@
+alias: Victoria Vindue2AabnerTTS
+id: VictoriaVindue2AabnerTTS
+trigger:
+  - platform: state
+    entity_id: binary_sensor.openclose_31
+    to: 'on'
+action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - media_player.google_home
+      - media_player.kokken
+      volume_level: '0.7'
+  # - service: tts.google_cloud_say
+  - service: tts.google_cloud_say
+    data:
+      entity_id: 
+      - media_player.google_home
+      - media_player.kokken
+      message: "..... Vinduet på Victorias værelse er blevet åbnet! "
+      cache: true

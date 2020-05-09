@@ -1,0 +1,20 @@
+alias: Vaskemaskine faerdigTTS
+id: Vaskemaskine_faerdigTTS
+trigger:
+- platform: state
+  entity_id: binary_sensor.vaskemaskine_wash_completed
+  to: 'on'
+action:
+- service: media_player.volume_set
+  data_template:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    volume_level: '0.8'
+- service: tts.google_cloud_say
+  data:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    message: '..... Vaskemaskinen er færdig'
+    cache: true

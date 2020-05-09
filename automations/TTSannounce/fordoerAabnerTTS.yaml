@@ -1,0 +1,20 @@
+alias: fordoer fordoerAabnerTTS
+id: fordoerAabnerTTS
+trigger:
+- platform: state
+  entity_id: binary_sensor.fordoren
+  to: 'on'
+action:
+- service: media_player.volume_set
+  data_template:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    volume_level: '0.5'
+- service: tts.google_cloud_say
+  data:
+    entity_id:
+    - media_player.google_home
+    - media_player.kokken
+    message: '..... Fordøren er blevet åbnet! '
+    cache: true
