@@ -1,0 +1,12 @@
+alias: 'gang Off'
+id: gangOff
+initial_state: 'on'
+trigger:
+  platform: event
+  event_type: deconz_event
+  event_data:
+    id: light.gang_group_2
+    event: 5002
+action:
+  service: light.turn_off
+  entity_id: light.gang_group_2
