@@ -1,0 +1,16 @@
+alias: 'legestue decrease brightness of legestue from remote 2'
+id: decrease_brightness_of_legestue_from_remote_2
+initial_state: 'on'
+trigger:
+  platform: event
+  event_type: deconz_event
+  event_data:
+    id: tradfri_remote_legestue2
+    event: 3001
+action:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.legestue_group_2
+      brightness: >
+        {% set bri = state_attr('light.legestue_group_2', 'brightness') | int %}
+        {{ [bri-30, 0] | max }}
