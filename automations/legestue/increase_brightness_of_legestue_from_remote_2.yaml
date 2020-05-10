@@ -6,7 +6,7 @@ trigger:
   event_type: deconz_event
   event_data:
     id: tradfri_remote_legestue2
-    event: 2002
+    event: 2001
 action:
   - service: light.turn_on
     data_template:
