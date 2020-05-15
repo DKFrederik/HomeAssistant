@@ -562,8 +562,8 @@ views:
             tap_action:
               action: toggle
             style:
-              top: 45%
-              left: 56%
+              top: 53%
+              left: 61%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
@@ -573,7 +573,7 @@ views:
               action: toggle
             style:
               top: 45%
-              left: 61%
+              left: 56%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
 
@@ -582,7 +582,7 @@ views:
             tap_action:
               action: toggle
             style:
-              top: 53%
+              top: 45%
               left: 61%
               --iron-icon-height: 42px
               --iron-icon-width: 42px
