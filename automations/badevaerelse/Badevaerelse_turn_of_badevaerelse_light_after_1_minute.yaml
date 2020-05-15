@@ -8,7 +8,7 @@ trigger:
   to: 'off'
 condition: []
 action:
-- delay: 00:04:00
+- delay: 00:06:00
 - data: {}
   entity_id: light.badevaerelse_group_2
   service: light.turn_off
