@@ -18,6 +18,9 @@ homeassistant:
   #Include integrations in packages folder!
   packages: !include_dir_named packages
 
+# used for ESPhome
+api:
+
 # Enables configuration UI
 config:
 #include Gruoups WHAT TO DO WITH IT NOW THAT GROUPS IS NOT SUPPORTED
