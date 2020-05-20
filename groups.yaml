@@ -102,7 +102,7 @@ default_view:
 #     - climate.kontor
 #     - binary_sensor.kontor
 #     - switch.computer
-#     - switch.kontor
+#     - switch.printer
 #     - switch.sonoff_1000319a9b
 
 # Tristans Værelse:

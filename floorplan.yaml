@@ -140,7 +140,7 @@
              - switch.computer
              #Switch kontor should not be switchable when it's connected to EdgeRouterPoE. 
              #Can be moved to "Switches_on_off" whenever it's not connected to EdgeRouterPoE by uncommiting "toggle". 
-             - switch.kontor
+             - switch.printer
           states:
             - state: 'on'
               class: 'switch-on'
