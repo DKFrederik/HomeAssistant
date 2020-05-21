@@ -1,4 +1,4 @@
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-http:
-  base_url: !secret base_url_for_tts
-  # api_password: !secret http_Password
+# http:
+#   base_url: !secret base_url_for_tts
+#   # api_password: !secret http_Password
