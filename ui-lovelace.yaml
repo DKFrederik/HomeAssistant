@@ -407,6 +407,17 @@ views:
         - camera.d_link
         camera_image: camera.d_link
 
+      - type: picture-glance
+        title: ESP
+        # Don't know what state_filter does... it can be deleted and work, but throws an error
+        state_filter:
+          - null
+        entities: 
+        - camera.espdoorbell_camera
+        camera_image: camera.espdoorbell_camera
+# /api/camera_proxy/camera.espdoorbell_camera?token=29595e06a9fa3b6906f158c6472ac15bf145ef6770a0ff72181c5619c54fc301
+# camera.d_link
+
             ################################################################
             #                                                              #
             #                         Floorplan View                       #
@@ -430,40 +441,40 @@ views:
           #                                                              #
           ################################################################
 
-          ### Stue ###
-          - type: "custom:now-playing-poster"
-            entity: media_player.chromecast_stue 
-            style:
-              width: 10%
-              top: 12%
-              left: 48%
-              transform: rotate(90deg) rotateX(39deg) 
+          # ### Stue ###
+          # - type: "custom:now-playing-poster"
+          #   entity: media_player.chromecast_stue 
+          #   style:
+          #     width: 10%
+          #     top: 12%
+          #     left: 48%
+          #     transform: rotate(90deg) rotateX(39deg) 
 
-          #### Legestue ###
-          - type: "custom:now-playing-poster"
-            entity: media_player.chromecast_legestue
-            style:
-              width: 8%
-              top: 52%
-              left: 57%
-              transform: rotateX(124deg) rotateY(180deg) 
+          # #### Legestue ###
+          # - type: "custom:now-playing-poster"
+          #   entity: media_player.chromecast_legestue
+          #   style:
+          #     width: 8%
+          #     top: 52%
+          #     left: 57%
+          #     transform: rotateX(124deg) rotateY(180deg) 
 
-          #### Sophie ###
-          - type: "custom:now-playing-poster"
-            entity: media_player.sophies_chromecast
-            style:
-              width: 10%
-              top: 60%
-              left: 73%
-              transform: rotate(90deg)
+          # #### Sophie ###
+          # - type: "custom:now-playing-poster"
+          #   entity: media_player.sophies_chromecast
+          #   style:
+          #     width: 10%
+          #     top: 60%
+          #     left: 73%
+          #     transform: rotate(90deg)
 
-          ### Victoria ###
-          - type: "custom:now-playing-poster"
-            entity: media_player.chromecastkontor
-            style:
-              width: 10%
-              top: 44%
-              left: 73%
+          # ### Victoria ###
+          # - type: "custom:now-playing-poster"
+          #   entity: media_player.chromecastkontor
+          #   style:
+          #     width: 10%
+          #     top: 44%
+          #     left: 73%
 
             ################################################################
             #                                                              #
@@ -480,7 +491,7 @@ views:
               rotate: 
               --iron-icon-height: 35px
               --iron-icon-width: 35px
-              --iron-icon-fill-color: "#527CB0"
+              --iron-icon-fill-color: "#527CB0"              
 
             ################################################################
             #                                                              #
