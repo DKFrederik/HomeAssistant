@@ -68,23 +68,47 @@
 #################################################################################################################
   # 
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: lillewcfordørvarmeID
   name: "LilleWCFordoer"
   state_topic: "heat/floor807D3A790941/0/current"
+  #Added for graph view
+  unit_of_measurement: °C
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: bryggersvarmeID
   name: "BryggersVarme"
   state_topic: "heat/floor807D3A790941/1/current"
+  #Added for graph view
+  unit_of_measurement: °C
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: køkkenvarmeID
   name: "KøkkenVarme"
   state_topic: "heat/floor807D3A790941/2/current"
+  #Added for graph view
+  unit_of_measurement: °C
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: storwcvarmeID
   name: "StorWCVarme"
   state_topic: "heat/floor807D3A790941/3/current"
+  #Added for graph view
+  unit_of_measurement: °C
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: gangvarmeID
   name: "GangVarme"
   state_topic: "heat/floor807D3A790941/4/current"
+  #Added for graph view
+  unit_of_measurement: °C
 - platform: mqtt
+  #Added for unique id so icons can be added from the UI
+  unique_id: tristansvarmeID
   name: "TristansVarme"
-  state_topic: "heat/floor807D3A790941/5/current"            
+  state_topic: "heat/floor807D3A790941/5/current"
+  #Added for graph view
+  unit_of_measurement: °C
 
 #################################################################################################################
 #                                                                                                               #
