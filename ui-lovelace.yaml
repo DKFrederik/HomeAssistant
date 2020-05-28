@@ -399,6 +399,7 @@ views:
     title: Kamera
     cards:
       - type: picture-glance
+        id: CameraD-Link 2130
         title: D-Link 2130
         # Don't know what state_filter does... it can be deleted and work, but throws an error
         state_filter:
@@ -408,6 +409,7 @@ views:
         camera_image: camera.d_link
 
       - type: picture-glance
+        id: CameraESPDoorBellBryggers
         title: ESP
         # Don't know what state_filter does... it can be deleted and work, but throws an error
         state_filter:
@@ -415,8 +417,7 @@ views:
         entities: 
         - camera.espdoorbell_camera
         camera_image: camera.espdoorbell_camera
-# /api/camera_proxy/camera.espdoorbell_camera?token=29595e06a9fa3b6906f158c6472ac15bf145ef6770a0ff72181c5619c54fc301
-# camera.d_link
+      
 
             ################################################################
             #                                                              #
