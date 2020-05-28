@@ -2,3 +2,6 @@ binary_sensor:
   - platform: mqtt
     state_topic: dummy/floorplan/sensor
     name: Floorplan
+
+  - platform: iss
+    
