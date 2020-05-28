@@ -4,4 +4,5 @@ binary_sensor:
     name: Floorplan
 
   - platform: iss
+    # show_on_map: true ##This makes the ISS show on Home Assistant map
     
