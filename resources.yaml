@@ -1,0 +1,11 @@
+# resources:
+# - url: /local/js/now-playing-card.js
+#   type: js
+# - url: /local/floorplan/floorplan-card.js?v=1.1.14
+#   type: module
+# - url: /local/vacuum/xiaomi-vacuum-card.js?v=3.0.1
+#   type: module
+# - url: /hacsfiles/state-attribute-element/state-attribute-element.js
+#   type: module
+# - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+#   type: module
