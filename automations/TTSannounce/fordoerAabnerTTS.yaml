@@ -8,13 +8,13 @@ action:
 - service: media_player.volume_set
   data_template:
     entity_id:
-    - media_player.google_home
+    # - media_player.google_home
     - media_player.kokken
-    volume_level: '0.5'
+    volume_level: '0.7'
 - service: tts.google_cloud_say
   data:
     entity_id:
-    - media_player.google_home
+    # - media_player.google_home
     - media_player.kokken
     message: '..... Fordøren er blevet åbnet! '
     cache: true
