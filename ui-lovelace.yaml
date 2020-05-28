@@ -292,7 +292,7 @@ views:
           name: Philips gang motion
 
       - type: glance
-        title: Batteri sensor Oversigt
+        title: Batteri Mobil Oversigt
         columns: 3
         entities: 
 
