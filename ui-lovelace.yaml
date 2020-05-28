@@ -441,40 +441,40 @@ views:
           #                                                              #
           ################################################################
 
-          # ### Stue ###
-          # - type: "custom:now-playing-poster"
-          #   entity: media_player.chromecast_stue 
-          #   style:
-          #     width: 10%
-          #     top: 12%
-          #     left: 48%
-          #     transform: rotate(90deg) rotateX(39deg) 
+          ### Stue ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.chromecast_stue 
+            style:
+              width: 10%
+              top: 12%
+              left: 48%
+              transform: rotate(90deg) rotateX(39deg) 
 
-          # #### Legestue ###
-          # - type: "custom:now-playing-poster"
-          #   entity: media_player.chromecast_legestue
-          #   style:
-          #     width: 8%
-          #     top: 52%
-          #     left: 57%
-          #     transform: rotateX(124deg) rotateY(180deg) 
+          #### Legestue ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.chromecast_legestue
+            style:
+              width: 8%
+              top: 52%
+              left: 57%
+              transform: rotateX(124deg) rotateY(180deg) 
 
-          # #### Sophie ###
-          # - type: "custom:now-playing-poster"
-          #   entity: media_player.sophies_chromecast
-          #   style:
-          #     width: 10%
-          #     top: 60%
-          #     left: 73%
-          #     transform: rotate(90deg)
+          #### Sophie ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.sophies_chromecast
+            style:
+              width: 10%
+              top: 60%
+              left: 73%
+              transform: rotate(90deg)
 
-          # ### Victoria ###
-          # - type: "custom:now-playing-poster"
-          #   entity: media_player.chromecastkontor
-          #   style:
-          #     width: 10%
-          #     top: 44%
-          #     left: 73%
+          ### Victoria ###
+          - type: "custom:now-playing-poster"
+            entity: media_player.chromecastkontor
+            style:
+              width: 10%
+              top: 44%
+              left: 73%
 
             ################################################################
             #                                                              #
