@@ -11,7 +11,10 @@ resources:
     type: module
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
-
+  - url: /local/community/lovelace-darksky-card/lovelace-darksky-card.js?v=7.1
+    type: module
+  - url: local/community/rejseplanen-card/rejseplanen-card.js
+    type: js
 
 views:
             
