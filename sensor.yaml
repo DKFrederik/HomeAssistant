@@ -3,6 +3,17 @@
 #                                                   Travis                                                      #
 #                                                                                                               #
 #################################################################################################################
+
+- platform: rejseplanen
+  name: hinbaervej
+  stop_id: '851089102'
+  route: 'Bus 15'
+
+#################################################################################################################
+#                                                                                                               #
+#                                                   Travis                                                      #
+#                                                                                                               #
+#################################################################################################################
 # travis (don't know wich kind of sensor this is... maby binary?)
 - platform: travisci
   api_key: !secret github_token
@@ -42,24 +53,59 @@
 #                                                                                                               #
 #################################################################################################################
 
+# - platform: darksky
+#   api_key: !secret darksky
+#   name: Weather
+#   units: si
+#   forecast: 1
+#   monitored_conditions:
+#     - temperature
+#     - apparent_temperature
+#     # - temperature_min
+#     # - temperature_max
+#     - humidity
+#     - precip_probability
+#     - precip_intensity
+#     - precip_type
+#     - wind_speed
+#     - wind_bearing
+#     - pressure
+#     - icon
+
 - platform: darksky
   api_key: !secret darksky
-  name: Weather
-  units: si
-  forecast: 1
+  forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
   monitored_conditions:
-    - temperature
-    - apparent_temperature
-    # - temperature_min
-    # - temperature_max
+    - icon
+    - summary
+    - nearest_storm_distance
+    - nearest_storm_bearing
     - humidity
-    - precip_probability
-    - precip_intensity
-    - precip_type
+    - temperature
+    - temperature_high
+    - temperature_low
+    - apparent_temperature
+    - apparent_temperature_high
+    - apparent_temperature_low
     - wind_speed
     - wind_bearing
+    - precip_type
+    - precip_probability
+    - precip_accumulation
+    - precip_intensity
+    - precip_intensity_max
+    - uv_index
+    - daily_summary
     - pressure
-    - icon
+    - visibility
+  scan_interval:
+    minutes: 5
 
 #################################################################################################################
 #                                                                                                               #
