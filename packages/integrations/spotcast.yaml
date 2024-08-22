@@ -1,0 +1,17 @@
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+  country: DK #optional, added in 3.6.24
+  accounts:
+    frederik:
+      sp_dc: !secret sp_dc
+      sp_key: !secret sp_key
+    trine_pedersen:
+      sp_dc: !secret trine_sp_dc
+      sp_key: !secret trine_sp_key
+    sophie:
+      sp_dc: !secret sophie_sp_dc
+      sp_key: !secret sophie_sp_key
+    victoria:
+      sp_dc: !secret victoria_sp_dc
+      sp_key: !secret victoria_sp_key

@@ -1,0 +1,24 @@
+phones:
+  name: Phones
+  entities:
+    #- device_tracker.frederik_iphone_frederik
+    #- device_tracker.trine_iphone
+    #- device_tracker.sophie_iphone
+    #- device_tracker.victorias_iphone
+
+family:
+  name: family
+  icon: mdi:home-heart
+  entities:
+    - person.frederik_kristian_pedersen
+    - person.trine_haase_pedersen
+    - person.sophie_haase_pedersen
+    - person.victoria_haase_pedersen
+
+
+# gang_group:
+#   name: gang_group
+#   icon: mdi:ceiling-light
+#   entities:
+#     - light.gang1_lys
+#     - light.gang2_lys

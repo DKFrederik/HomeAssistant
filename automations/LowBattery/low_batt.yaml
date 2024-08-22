@@ -1,0 +1,11 @@
+id: '1689381382250'
+alias: Low battery level detection & notification for all battery sensors
+description: ''
+use_blueprint:
+  path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+  input:
+    threshold: 10
+    actions:
+    - service: notify.mobile_app_frederik_iphone_15_pro
+      data:
+        message: skift batteri {{sensors}}

@@ -1,0 +1,5 @@
+# Maby this should be deleted? Lets leave it to see if UI can handle sensors at a time later on! 
+sensor: !include ../../sensor.yaml # UI controled sensor file ../../ to go 2 folders up to get to the root of the config directory
+
+# Remember this below should be !include_dir_list when splitting up to sub directories!!
+sensor SensorDirectory: !include_dir_merge_list ../../sensor/ # ../../ to go 2 folders up to get to the root of the config directory

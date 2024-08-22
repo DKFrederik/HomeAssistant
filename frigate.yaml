@@ -1,0 +1,133 @@
+mqtt:
+<<<<<<< HEAD
+  enabled: false
+
+#cameras:
+#  name_of_your_camera: # <------ Name the camera
+#    enabled: true
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://10.0.10.10:554/rtsp # <----- The stream you want to use for detection
+#          roles:
+#            - detect
+#    detect:
+#      enabled: false # <---- disable detection until you have a working camera feed
+#      width: 1280
+#      height: 720
+#version: 0.14
+=======
+  enabled: true
+  host: 10.45.2.20
+  port: 1883
+  topic_prefix: homeassistant/sensor/frigate
+  user: frederik
+  password: 35120oe102fk
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+
+cameras:
+  skur: # <------ Name the camera
+    ffmpeg:
+      inputs:
+<<<<<<< HEAD
+        - path: rtsp://admin:35120oe102fK!@192.168.1.71:554/Streaming/channels/101
+=======
+        - path: rtsp://admin:35120oe102fK!@10.45.5.71:554/Streaming/channels/101
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+          roles:
+            - detect
+#            - rtmp
+#    rtmp:
+#      enabled: False # <-- RTMP should be disabled if your stream is not H264
+    detect:
+      width: 1280 # <---- update for your camera's resolution
+      height: 720 # <---- update for your camera's resolution
+    record:
+      enabled: true # <-- retains recordings for 10 days on default
+    snapshots:
+      enabled: true # <-- retains snapshots for 10 days on default
+<<<<<<< HEAD
+=======
+    objects:
+      track:
+        - person
+        - bicycle
+        - car
+        - motorcycle
+        - cat
+        - dog
+        - suitcase
+        - skateboard
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+
+  garage: # <------ Name the camera
+    ffmpeg:
+      inputs:
+<<<<<<< HEAD
+        - path: rtsp://admin:35120oe102fK!@192.168.1.72:554/Streaming/channels/101
+=======
+        - path: rtsp://admin:35120oe102fK!@10.45.5.72:554/Streaming/channels/101
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+          roles:
+            - detect
+#            - rtmp
+#    rtmp:
+#      enabled: False # <-- RTMP should be disabled if your stream is not H264
+    detect:
+      width: 1280 # <---- update for your camera's resolution
+      height: 720 # <---- update for your camera's resolution
+    record:
+      enabled: true # <-- retains recordings for 10 days on default
+    snapshots:
+      enabled: true # <-- retains snapshots for 10 days on default      
+<<<<<<< HEAD
+
+=======
+    objects:
+      track:
+        - person
+        - bicycle
+        - car
+        - motorcycle
+        - cat
+        - dog
+        - suitcase
+        - skateboard
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+
+  baghave: # <------ Name the camera
+    ffmpeg:
+      inputs:
+<<<<<<< HEAD
+        - path: rtsp://admin:35120oe102fK!@192.168.1.75:554/Streaming/channels/101
+=======
+        - path: rtsp://admin:35120oe102fK!@10.45.5.75:554/Streaming/channels/101
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+          roles:
+            - detect
+#            - rtmp
+#    rtmp:
+#      enabled: False # <-- RTMP should be disabled if your stream is not H264
+    detect:
+      width: 1280 # <---- update for your camera's resolution
+      height: 720 # <---- update for your camera's resolution
+    record:
+      enabled: true # <-- retains recordings for 10 days on default
+    snapshots:
+      enabled: true # <-- retains snapshots for 10 days on default
+<<<<<<< HEAD
+=======
+    objects:
+      track:
+        - person
+        - bicycle
+        - car
+        - motorcycle
+        - cat
+        - dog
+        - suitcase
+        - skateboard
+    motion:
+      mask: 
+        0.248,0,0.243,0.201,0.208,0.216,0.209,0.263,0.47,0.201,0.483,0.187,0.508,0.183,0.521,0.201,0.543,0.162,0.649,0.165,0.694,0.251,1,0.305,0.998,0.001
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+version: 0.14

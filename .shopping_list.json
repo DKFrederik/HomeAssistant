@@ -1,0 +1,183 @@
+[
+  {
+    "name": "Mælk",
+    "id": "4edecbb325034b4a823474ec7ac6815c",
+    "complete": true
+  },
+  {
+    "name": "Pålæg",
+    "id": "61333729602745b3b3b6585fba9d59c6",
+    "complete": true
+  },
+  {
+    "name": "Franskbrød",
+    "id": "85b9ad9df5964ffc9d695a3bd5c63176",
+    "complete": true
+  },
+  {
+    "name": "Rugbrød",
+    "id": "4c6e83e89d2c4cb4a2f86d708de66a38",
+    "complete": false
+  },
+  {
+    "name": "Smør",
+    "id": "eecc4304f4874d6e97f9f81da78b3e20",
+    "complete": true
+  },
+  {
+    "name": "Kaffe - Hele bønner",
+    "id": "bd3ce5a4593845cb8443b3821a0d4826",
+    "complete": true
+  },
+  {
+    "name": "Noget til aftensmad",
+    "id": "4fc4297b5edb47959e868f2e86957f84",
+    "complete": true
+  },
+  {
+    "name": "Cigaretter",
+    "id": "99adc00a6fc846109d60835d89d4398d",
+    "complete": true
+  },
+  {
+    "name": "pomfritter ",
+    "id": "b27def208b5449a88b44a5d53da8fe61",
+    "complete": true
+  },
+  {
+    "name": "Leverpostej ",
+    "id": "92e2ea0db2c64e7cb5061e399027e44f",
+    "complete": true
+  },
+  {
+    "name": "Nuggets",
+    "id": "7bb9523bc64d4b17ab67ff5a3d26076b",
+    "complete": true
+  },
+  {
+    "name": "Rejer (mange) ",
+    "id": "85241ab72104462f8ed80d0de0163a6a",
+    "complete": true
+  },
+  {
+    "name": "Mayonnaise (den ægte) ",
+    "id": "92852b38a16a4ae38a24ea6b17cd7415",
+    "complete": true
+  },
+  {
+    "name": "Italiensk salat ",
+    "id": "4489c23fa37a4286b3cb51b8b241eee5",
+    "complete": true
+  },
+  {
+    "name": "Bacon ",
+    "id": "ab53a2194fc845e189e58b7abb024a52",
+    "complete": true
+  },
+  {
+    "name": "Champion ",
+    "id": "122afe14e84e40e8b3adaa92c653cd30",
+    "complete": true
+  },
+  {
+    "name": "Fiskefilet",
+    "id": "b2c52afb421640059d74a416f05c41be",
+    "complete": true
+  },
+  {
+    "name": "Mælk",
+    "id": "ae59e881eb2b482daf5dcfb3505dc02e",
+    "complete": true
+  },
+  {
+    "name": "toastbrød",
+    "id": "4a7afae91ba84dc696d5f7e6dc47c524",
+    "complete": true
+  },
+  {
+    "name": "brød til pigernes madpakker",
+    "id": "e748edac87074feda4e303edf31419fd",
+    "complete": true
+  },
+  {
+    "name": "noget nem aftensmad ",
+    "id": "b79ede2a231a49f9a6bdd46f1beeb90e",
+    "complete": true
+  },
+  {
+    "name": "Toiletpapir",
+    "id": "9aa22226f9f84d8f8f198a79b20808d8",
+    "complete": true
+  },
+  {
+    "name": "Pepsi Max ",
+    "id": "a11f4a721bc944be8a4277df889e0c6f",
+    "complete": true
+  },
+  {
+    "name": "Sukker",
+    "id": "3a4ba13e92db465396eba313da5a12d8",
+<<<<<<< HEAD
+    "complete": false
+=======
+    "complete": true
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+  },
+  {
+    "name": "creme fraiche 1,5 dl ",
+    "id": "669d6aa5c4244797ace11ea74845c614",
+<<<<<<< HEAD
+    "complete": false
+=======
+    "complete": true
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+  },
+  {
+    "name": "toastbrød (Rema100 eller noget som ligner) ",
+    "id": "abe5c76b0bfb4b9d8ab406eb5e7132e6",
+<<<<<<< HEAD
+    "complete": false
+=======
+    "complete": true
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+  },
+  {
+    "name": "Mælk",
+    "id": "0596fac585b241fe9a896dc3b9fb86b2",
+<<<<<<< HEAD
+    "complete": false
+=======
+    "complete": true
+  },
+  {
+    "name": "Margarine",
+    "id": "d05a611cde3f4cb5b2c5d28d362405ca",
+    "complete": true
+  },
+  {
+    "name": "skyllemiddel",
+    "id": "40fbdc93b1c245eb8096ff8161d4b325",
+    "complete": true
+  },
+  {
+    "name": "Toiletrens",
+    "id": "4886ffbda22d4c22a5604a99be9348eb",
+    "complete": true
+  },
+  {
+    "name": "chili nødder ",
+    "id": "a2776ec491d5466383b8ad618f441fc0",
+    "complete": false
+  },
+  {
+    "name": "pålæg",
+    "id": "890c3c6c0dae4b93b3ceac54d8822001",
+    "complete": true
+  },
+  {
+    "name": "rugbrød",
+    "id": "cb29238963e446c592811db3f381a4e9",
+    "complete": true
+>>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+  }
+]

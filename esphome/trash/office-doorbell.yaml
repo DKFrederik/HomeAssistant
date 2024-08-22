@@ -1,0 +1,31 @@
+esphome:
+  name: office-doorbell
+  friendly_name: Office Doorbell
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "Dow1lliceyQ34Jo/zT6RTj6YAbr917NbcaHm0Ctea5A="
+
+ota:
+  password: "cfd5cccf6c0e8142dc25f8002689b1e7"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Office-Doorbell Fallback Hotspot"
+    password: "q6A3IlTRc5E9"
+
+captive_portal:
+    

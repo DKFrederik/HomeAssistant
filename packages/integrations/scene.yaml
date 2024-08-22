@@ -1,0 +1,2 @@
+scene sceneUI: !include ../../scenes.yaml # UI controled scenes file # ../../ to go 2 folders up to get to the root of the config directory
+scene: !include_dir_merge_list ../../scenes/ # ../../ to go 2 folders up to get to the root of the config directory

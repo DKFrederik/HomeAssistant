@@ -1,0 +1,42 @@
+#───────────────────────────────────────────────────────────────────────────────
+# Description:
+#───────────────────────────────────────────────────────────────────────────────
+# Custom card to control Roborock robot vacuum
+#
+#───────────────────────────────────────────────────────────────────────────────
+# Custom components required:
+#───────────────────────────────────────────────────────────────────────────────
+# - xiaomi-vacuum-card: https://github.com/benct/lovelace-xiaomi-vacuum-card
+
+type: custom:xiaomi-vacuum-card
+entity: vacuum.xiaomi_vacuum_cleaner
+name: false
+vendor: xiaomi
+image: /local/assets/vacuum.png
+attributes:
+  main_brush:
+    label: "Main: "
+    unit: " t"
+  side_brush:
+    label: "Side: "
+    unit: " t"
+  filter:
+    label: "Filter: "
+    unit: " t"
+  sensor:
+    label: "Sensors: "
+    unit: " t"
+buttons:
+  start:
+    show: true
+  stop:
+    show: true
+  pause:
+    show: true
+  locate:
+    show: false
+  spot:
+    show: false
+  return:
+    show: true
+    label: Return to dock

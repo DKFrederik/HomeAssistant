@@ -1,0 +1,49 @@
+#───────────────────────────────────────────────────────────────────────────────
+# Description:
+#───────────────────────────────────────────────────────────────────────────────
+# Card to display battery SoC
+#
+#───────────────────────────────────────────────────────────────────────────────
+# Custom components required:
+#───────────────────────────────────────────────────────────────────────────────
+# - custom:bar-card - https://github.com/custom-cards/bar-card
+
+type: custom:bar-card
+#title: Batterier
+height: 20px
+width: 70%
+#stack: horizontal
+#direction: up
+entity_row: true
+animation:
+  state: "on"
+  speed: 5
+positions:
+  icon: "off"
+  indicator: "off"
+  name: outside
+  value: inside
+severity:
+  - color: Red
+    from: 0
+    to: 20
+  - color: Orange
+    from: 21
+    to: 49
+  - color: Yellow
+    from: 50
+    to: 60
+  - color: LawnGreen
+    from: 61
+    to: 74
+  - color: Green
+    from: 75
+    to: 100
+
+entities:
+  - entity: sensor.solarman_deye_battery_soc
+    name: Hus
+  - entity: sensor.car_battery_1
+    name: "Bil #1"
+  - entity: sensor.car_battery_2
+    name: "Bil #2"

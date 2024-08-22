@@ -1,0 +1,17 @@
+# This recipe will dim back down, the driveway, when three minute has passed after the door has closed. 
+# But only after sunset and before sunrise
+alias: Garage when closing door
+id: Garage_when_closing_door
+trigger:
+- platform: state
+  entity_id: binary_sensor.bryggersdor_abner
+  to: 'off'
+  for:
+    minutes: 3
+condition:
+- condition: state
+  entity_id: sun.sun
+  state: below_horizon 
+action:
+  service: scene.turn_on
+  entity_id: scene.garage_when_door_closes

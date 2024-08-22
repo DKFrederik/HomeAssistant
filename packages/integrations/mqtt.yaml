@@ -1,0 +1,87 @@
+mqtt:
+  sensor:
+#################################################################################################################
+#                                                                                                               #
+#                     MQTT extracting Wavin current temperatur from all the topics                              #
+#                                                                                                               #
+#################################################################################################################
+
+  - state_topic: "heat/floor807D3A790941/0/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: lillewcfordørvarmeID
+    name: "LilleWCFordoer"
+    #Added for graph view
+    unit_of_measurement: °C
+  - state_topic: "heat/floor807D3A790941/1/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: bryggersvarmeID
+    name: "BryggersVarme"
+    #Added for graph view
+    unit_of_measurement: °C
+  - state_topic: "heat/floor807D3A790941/2/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: køkkenvarmeID
+    name: "KøkkenVarme"
+    #Added for graph view
+    unit_of_measurement: °C
+  - state_topic: "heat/floor807D3A790941/3/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: storwcvarmeID
+    name: "StorWCVarme"
+    #Added for graph view
+    unit_of_measurement: °C
+  - state_topic: "heat/floor807D3A790941/4/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: gangvarmeID
+    name: "GangVarme"
+    #Added for graph view
+    unit_of_measurement: °C
+  - state_topic: "heat/floor807D3A790941/5/current"
+    #Added for unique id so icons can be added from the UI
+    unique_id: tristansvarmeID
+    name: "TristansVarme"
+    #Added for graph view
+    unit_of_measurement: °C
+
+################################################################################################################
+#                                                                                                              #
+#                    MQTT extracting Wavin remaning Battery from all the topics                                #
+#                                                                                                              #
+################################################################################################################
+
+  - state_topic: "heat/floor807D3A790941/0/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: lillewcfordørvarmeBatteri
+    name: "LilleWCFordoerBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"
+  - state_topic: "heat/floor807D3A790941/1/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: bryggersvarmeBatteri
+    name: "BryggersVarmeBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"
+  - state_topic: "heat/floor807D3A790941/2/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: køkkenvarmeBatteri
+    name: "KøkkenVarmeBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"
+  - state_topic: "heat/floor807D3A790941/3/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: storwcvarmeBatteri
+    name: "StorWCVarmeBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"
+  - state_topic: "heat/floor807D3A790941/4/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: gangvarmeBatteri
+    name: "GangVarmeBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"
+  - state_topic: "heat/floor807D3A790941/5/battery"
+    #Added for unique id so icons can be added from the UI
+    unique_id: tristansvarmeBatteri
+    name: "TristansVarmeBatteri"
+    #Added for graph view
+    unit_of_measurement: "%"    

@@ -1,0 +1,9 @@
+alias:  Koekken under_koekkenbordet On
+id: under_koekkenbordet-On
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-00:30:00"
+action:
+  service: light.turn_on
+  entity_id: light.controller_rgb_ir_b788e5

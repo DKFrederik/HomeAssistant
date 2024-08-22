@@ -1,0 +1,14 @@
+alias: Sovevaerelse Nat
+id: sovevaerelseNat
+trigger:
+- platform: state
+  entity_id: light.sovevaerelse
+  to: 'on'
+  from: 'off'
+condition:
+- condition: time
+  after: '19:00:00'
+  before: 06:00:00
+action:
+  service: scene.turn_on
+  entity_id: scene.SovevaerelseNat

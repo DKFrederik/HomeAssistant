@@ -1,0 +1,62 @@
+#───────────────────────────────────────────────────────────────────────────────
+# Description:
+#───────────────────────────────────────────────────────────────────────────────
+# Custom:button-card with name and link to today's receipe
+#
+# Data is collected by a node-RED flow from a custom-developed website
+#
+#───────────────────────────────────────────────────────────────────────────────
+# Custom components required:
+#───────────────────────────────────────────────────────────────────────────────
+# - custom:button-card: https://github.com/thomasloven/lovelace-auto-entities
+
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Dagens ret
+    state_display: "[[[ return entity.attributes.name; ]]]"
+    entity: sensor.mealie_mealplan_day0
+    show_entity_picture: false
+    show_state: true
+    show_name: true
+    show_image: false
+    show_label: false
+    show_icon: false
+    styles:
+      card:
+        - background-image: >-
+            [[[ return "url(http://[HA_IP_adresse]:9925/api/media/recipes/"
+            +entity.attributes.id +
+            "/images/original.webp)"; ]]]
+        - background-size: cover
+        - height: 180px
+      grid:
+        - grid-template-areas: '"n" "l" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr 5fr 1fr
+      name:
+        - background-color: rgba(0, 0,0, 0.3)
+        - padding-left: 35px
+        - width: 100%
+        - line-height: 40px
+        - text-align: left
+        - display: inline-block
+        - vertical-align: middle
+      state:
+        - background-color: rgba(0, 0,0, 0.3)
+        - padding-left: 35px
+        - width: 100%
+        - line-height: 40px
+        - text-align: left
+        - display: inline-block
+        - vertical-align: middle
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        command: popup
+        title: Dagens ret
+        hide_header: false
+        large: true
+        card:
+          type: iframe
+          url: '[[[ return "http://[HA_IP_adresse]:9925/recipe/" + entity.attributes.slug ]]]'

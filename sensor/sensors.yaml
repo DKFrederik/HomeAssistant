@@ -1,0 +1,95 @@
+#################################################################################################################
+#                                                                                                               #
+#                                           Eloverblik                                                          #
+#                        Take the date from one of the "Eloverblik" sensors                                     #
+#                                                                                                               #
+#################################################################################################################
+
+#husk date/time domain godtager ikke længere unit_of_measurement: 'date' i en template. 
+- platform: template
+  sensors:
+    eloverbliktildato:
+      unique_id: "Eloverbliktildato"
+      friendly_name: "Eloverbliktildato"
+      value_template: "{{ state_attr('sensor.eloverblik_energy_0_1', 'metering_date') }}"
+
+################################################################################################################
+#                                                                                                              #
+#                                                Heat                                                          #
+#                                                                                                              #
+################################################################################################################
+
+
+
+################################################################################################################
+#                                                                                                              #
+#                                              Weather                                                         #
+#                                                                                                              #
+################################################################################################################
+
+    weather_temperature:
+      friendly_name: Temperature Outside
+      value_template: '{{ states.weather.forecast_aeblevangen_36.attributes.temperature }}'
+      unit_of_measurement: °C
+      unique_id: xxxx1
+
+################################################################################################################
+#                                                                                                              #
+#                                            Electricity                                                       #
+#                                                                                                              #
+################################################################################################################
+
+
+
+################################################################################################################
+#                                                                                                              #
+#                    Solar - Adding West and East solar production into one sensor                             #
+#                                                                                                              #
+################################################################################################################
+
+- platform: template
+  sensors:
+   total_solar_power:
+     #state_class: total_increasing
+     device_class: power
+     value_template: >-
+       {{ [ states('sensor.tpj4cf806p_generated_energy_today'),
+            states('sensor.rfhbcfe0pf_generated_energy_today') ]
+            | map('float') | sum }}
+    #  availability: >
+    #    {{ not 'unavailable' in 
+    #       [ states('sensor.tpj4cf806p_generated_energy_today'), 
+    #         states('sensor.rfhbcfe0pf_generated_energy_today') ] }}
+     friendly_name: TotalSolarPower
+     unit_of_measurement: kWh
+     #state_class: total_increasing
+     unique_id: kn4356654kj36n453lk6345lm645yugfdsiogbs
+      
+- platform: template
+  sensors:
+      sol_total_outpu_lige_nu:
+          friendly_name: "Energi lige nu (total)"
+          unit_of_measurement: 'W'
+          value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float }}'
+
+- platform: template
+  sensors:
+      hvad_bruger_huset_lige_nu:
+          friendly_name: "Energi huset bruger lige nu"
+          unit_of_measurement: 'W'
+          value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float - states("sensor.tpj4cf806p_export_to_grid") | float - states("sensor.tpj4cf806p_battery_discharging_w") | float }}'
+
+- platform: template
+  sensors:
+      vestsiden_har_lavet_i_dag:
+          friendly_name: "Vestsiden har lavet i dag"
+          unit_of_measurement: 'kW'
+          value_template: '{{ states("sensor.tpj4cf806p_solar_pv1_energy_today") | float + states("sensor.tpj4cf806p_solar_pv2_energy_today") | float }}'
+
+################################################################################################################
+#                                                                                                              #
+#                    changing wall plug sensors to be enabled in energy dashboard                              #
+#                                                                                                              #
+################################################################################################################
+
+

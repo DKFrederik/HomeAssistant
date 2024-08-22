@@ -1,0 +1,3 @@
+# added to stop Roomba from show status every second. (remember to follow up on this in the future, to see if it have been fixed!)
+logger:
+  default: info

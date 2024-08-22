@@ -1,0 +1,16 @@
+alias: nogen_er_hjemme
+id: '16355416358686'
+trigger: 
+  - platform: numeric_state
+    entity_id: zone.home
+    above: 0
+action:
+  - condition: or
+    conditions:
+      - condition: sun
+        before: sunrise 
+      - condition: sun
+        after: sunset
+  - service: scene.turn_on
+    target:
+      entity_id: scene.TaendLysNaaAlarmFrakolbles

@@ -1,0 +1,11 @@
+alias: Terrasse sluk
+id: terrasse_sluk
+trigger:
+  platform: sun
+  event: sunrise
+  offset: "+00:30:00"
+action:
+  service: light.turn_off
+  entity_id:
+    - light.terrasseforhave_lys
+    - light.terrassebaghave_lys

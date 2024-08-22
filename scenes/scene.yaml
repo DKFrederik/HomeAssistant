@@ -1,0 +1,188 @@
+# To be split out in subfolders allready created!!! 
+
+# Livingroom normal
+- name: Livingroom normal
+  entities:
+    light.stuesofa:
+      state: on
+      brightness: 255
+    light.stuespisebord:
+      state: on
+      brightness: 255
+
+# Livingroom dim
+- name: Livingroom dim
+  entities:
+    light.stuesofa:
+      state: on
+      brightness: 40
+    light.stuespisebord:
+      state: on
+      brightness: 40
+
+# Garage Night
+- name: GarageNat
+  entities:
+    light.garage_group:
+      state: on
+      brightness: 20
+
+# Garage when bryggers door closes 
+- name: garage_when_door_closes
+  entities:
+    light.garage_group:
+      state: on
+      brightness: 20
+
+# Livingroom dim
+- name: garage_opening_the_door
+  entities:
+    light.garage_group:
+      state: on
+      brightness: 255
+
+# Badevaerelse dag
+- name: badevaerelsedag
+  entities:
+      light.badevaerelse_group:
+        state: on
+        brightness: 255
+
+# BadevaerelseNat
+- name: BadevaerelseNat
+  entities:
+    light.badevaerelse_group:
+      state: on
+      brightness: 30
+
+# KomodeAften
+- name: KomodeAften
+  entities:
+    light.komode1:
+      state: on
+      brightness: 110
+    light.komode2:
+      state: on
+      brightness: 110
+
+# Gang dag
+- name: GangDag
+  entities:
+      light.gang_group:
+        state: on
+        brightness: 255
+
+# Gang nat
+- name: GangNat
+  entities:
+    light.gang_group:
+      state: on
+      brightness: 30
+
+# Gang sluk
+- name: GangOff
+  entities:
+    light.gang_group:
+      state: off
+
+# Sovevaerelse dag
+- name: SovevaerelseDag
+  entities:
+      light.sovevaerelse_lys:
+        state: on
+        brightness: 255
+
+# Sovevaerelse nat
+- name: SovevaerelseNat
+  entities:
+    light.sovevaerelse_lys:
+      state: on
+      brightness: 30
+
+# turn off all lights 
+- name: SlukAltLysUntagetUdelysOgUnderKoekkenbordet
+  id: Sluk alt lys untaget udelys og "under køkkenbordet"
+  entities:
+    light.badevaerelse1_lys:
+      state: off
+    light.badevaerelse2_lys_2:
+      state: off
+    light.gang1_lys:
+      state: off
+    light.gang2_lys:
+      state: off
+    light.hue_ambiance_candle_1:
+      state: off
+    light.koekken1_lys:
+      state: off
+    light.koekken2_lys:
+      state: off
+    light.kommode1_lys_2:
+      state: off
+    light.kommode2_lys:
+      state: off
+    light.legestue1_lys:
+      state: off
+    light.legestue2_lys:
+      state: off
+    light.legestue3_lys:
+      state: off
+    light.sovevaerelse_lys:
+      state: off
+    light.tristan1_lys:
+      state: off
+    light.spisebord_lys:
+      state: off
+    light.stuespisebord_lys:
+      state: off
+    switch.sonoff_1000989db8:
+      state: off
+    switch.sonoff_1000319a9b:
+      state: off
+    light.stuesofa_lys:
+      state: off
+    switch.sonoff_1000986a15:
+      state: off
+    light.victoria_over_skrivebord_lys:
+      state: off
+    light.victoria_over_seng_lys:
+      state: off
+    light.sophie_over_seng_lys:
+      state: off
+    light.sophie_over_skrivebord_lys:
+      state: off
+
+# turn on some lights 
+- name: TaendLysNaaAlarmFrakolbles
+  id: 123456
+  entities:
+    light.gang1_lys:
+      state: on
+    light.gang2_lys:
+      state: on
+    light.koekken1_lys:
+      state: on
+    light.koekken2_lys:
+      state: on
+    light.stuespisebord_lys:
+      state: on
+    light.stuesofa_lys:
+      state: on
+    light.kommode1_lys_2:
+      state: on
+    light.kommode2_lys:
+      state: on
+    
+# Terrasse Baghave Night
+- name: terrasseBaghaveNat
+  entities:
+    light.terrassebaghave:
+      state: on
+      brightness: 20
+
+# Terrasse Forhave Night
+- name: terrasseForhaveNat
+  entities:
+    light.terrasseforhave_lys:
+      state: on
+      brightness: 20

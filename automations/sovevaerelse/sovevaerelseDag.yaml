@@ -1,0 +1,14 @@
+alias: Sovevaerelse Dag
+id: sovevaerelseDag
+trigger:
+- platform: state
+  entity_id: light.sovevaerelse
+  to: 'on'
+  from: 'off'
+condition:
+- condition: time
+  after: 06:00:01
+  before: '18:59:59'
+action:
+  service: scene.turn_on
+  entity_id: scene.SovevaerelseDag

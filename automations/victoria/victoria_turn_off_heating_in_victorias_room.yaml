@@ -1,0 +1,13 @@
+id: 'victoria_turn_off_heating_in_victorias_room'
+alias: 'victoria turn off heating in victorias room '
+description: 'turn off heating in victorias room if window opens '
+trigger:
+- entity_id: binary_sensor.victoriavindue1_abner
+  from: 'off'
+  platform: state
+  to: 'on'
+condition: []
+action:
+- data: {}
+  entity_id: climate.victorias_vaerelse
+  service: climate.turn_off

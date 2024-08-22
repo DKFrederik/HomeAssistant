@@ -1,0 +1,297 @@
+################################################################################
+###                   Custom button card styling templates                   ###
+################################################################################
+
+#───────────────────────────────────────────────────────────────────────────────
+# Button-card template for sidebar buttons used in custom Energy dashboard view
+#───────────────────────────────────────────────────────────────────────────────
+sidebar_button:
+  color_type: card
+  styles:
+    card:
+      - background-color: var(--card-background-color)
+      - color: var(--primary-foreground-color)
+      - border-radius: 10px
+      - width: 100px
+      - height: 100px
+      - border: 2px solid var(--paper-item-icon-active-color)
+
+#───────────────────────────────────────────────────────────────────────────────
+# Button card for header button
+#───────────────────────────────────────────────────────────────────────────────
+header_button2:
+  layout: vertical
+  show_state: false
+  show_icon: false
+  color_type: label-card
+  color: var(--paper-listbox-color)
+  styles:
+    card:
+      - padding: 10px 15px
+      #- background-color: var(--paper-item-icon-active-color)
+      - background-color: var(--primary-color)
+    name:
+      - text-transform: uppercase
+      - color: var(--primary-background-color)
+      - justify-self: center
+      - font-weight: bold
+
+#───────────────────────────────────────────────────────────────────────────────
+# Custom button card with weather and solar forecast
+#───────────────────────────────────────────────────────────────────────────────
+custom_weather_forecast_card:
+  color_type: icon
+  show_state: true
+  show_label: true
+  layout: icon_name_state2nd
+  styles:
+    card:
+      - height: 53px
+    name:
+      - justify-self: start
+      - font-size: 12px
+      - font-weight: bold
+    state:
+      - justify-self: start
+      - font-size: 12px
+    label:
+      - justify-self: start
+      - font-size: 12px
+
+#───────────────────────────────────────────────────────────────────────────────
+# Custom button card with similar appearance as the standard sensor card
+#───────────────────────────────────────────────────────────────────────────────
+custom_sensor_card:
+  color_type: card
+  show_name: true
+  show_label: true
+  show_icon: false
+  show_state: false
+  label: >
+    [[[
+      var a = entity.state;
+      var floatValue = parseFloat(a.replace(/, /, '.'));
+      return floatValue.toFixed(1).toString().replace('.',',');
+    ]]]
+  custom_fields:
+    postfix: >
+      [[[return '°C']]]
+  state:
+    - operator: ">"
+      value: 25
+      styles:
+        card:
+          - background-color: "rgb(255,100,50)"
+        name:
+          - color: var(--card-background-color)
+        custom_fields:
+          postfix:
+            - color: var(--card-background-color)
+    - operator: ">"
+      value: 24
+      styles:
+        card:
+          - background-color: orange
+        name:
+          - color: var(--card-background-color)
+        custom_fields:
+          postfix:
+            - color: var(--card-background-color)
+    - operator: "<"
+      value: 20
+      styles:
+        card:
+          - background-color: red
+        name:
+          - color: var(--card-background-color)
+        custom_fields:
+          postfix:
+            - color: var(--card-background-color)
+    - operator: "<"
+      value: 21.5
+      styles:
+        card:
+          - background-color: orange
+        name:
+          - color: var(--card-background-color)
+        custom_fields:
+          postfix:
+            - color: var(--card-background-color)
+  styles:
+    card:
+      - background-color: var(--card-background-color)
+      - color: var(--primary-foreground-color)
+    grid:
+      - grid-template-areas: '"n" "l" "i" "s"'
+      - grid-template-rows: min-content 1fr min-content min-content
+      - grid-template-columns: 1fr
+    name:
+      - justify-self: start
+      - padding-left: 16px
+      - padding-top: 5px # 10px
+      - padding-bottom: 5px
+      - font-size: 16px
+      - font-weight: 500
+      - color: var(--paper-item-icon-active-color)
+    label:
+      - justify-self: start
+      - padding-left: 16px
+      - font-size: 28px
+    custom_fields:
+      postfix:
+        - color: var(--paper-item-icon-active-color)
+        - position: absolute
+        - left: 56%
+        - top: 65%
+        - font-size: 16px
+      vent:
+        - position: absolute
+        - left: 70%
+        - top: 10%
+      openings:
+        - position: absolute
+        - left: 85%
+        - top: 10%
+
+#───────────────────────────────────────────────────────────────────────────────
+# Custom button card for Sonos speaker selection
+#───────────────────────────────────────────────────────────────────────────────
+speaker_button:
+  color_type: card
+  show_state: false
+  show_name: true
+  show_label: true
+  layout: icon_name_state2nd
+  label: >-
+    [[[ if (entity.attributes.media_artist !=undefined) 
+          return entity.attributes.media_artist + " - " + entity.attributes.media_title 
+      else 
+          return entity.attributes.media_title ]]]
+  custom_fields:
+    status: >
+      [[[ 
+        if (entity.state=='playing')
+          return '<img src=/local/assets/music_playing.gif>';
+      ]]]
+  styles:
+    custom_fields:
+      status:
+        - margin-top: -100px
+        - left: 60%
+        - top: 0%
+        - background-size: cover
+    grid:
+      - grid-template-areas: '"i n" "i l"'
+      - grid-template-columns: 100px 1fr
+    card:
+      - background-color: var(--card-background-color)
+      - color: var(--primary-foreground-color)
+      - height: 65px
+      - background-image: '[[[ return "url(" + entity.attributes.entity_picture + ")"; ]]]'
+      - background-size: cover
+      - background-position: center
+    icon:
+      - justify-self: start
+      - align-self: start
+    name:
+      - font-weight: bold
+      - font-size: 24px
+      - justify-self: start
+      - align-self: left
+      - margin-bottom: 0px
+    label:
+      - font-size: 18px
+      - color: white
+      - align-self: middle
+      - justify-self: start
+    img_cell:
+      - align-self: start
+      - justify-self: start
+      - margin-top: -5px
+      - margin-bottom: 0px
+      - height: 30px
+
+#───────────────────────────────────────────────────────────────────────────────
+# Custom button card for Media-player
+#───────────────────────────────────────────────────────────────────────────────
+now_playing_button:
+  color_type: card
+  show_state: false
+  show_name: false
+  show_label: true
+  icon: mdi:play
+  show_icon: true
+  state:
+    - value: "paused"
+      icon: mdi:play
+    - value: "playing"
+      icon: mdi:pause
+  label: >-
+    [[[ if (entity.attributes.media_artist !=undefined) 
+          return entity.attributes.media_artist + " - " + entity.attributes.media_title
+      else 
+          return entity.attributes.media_title ]]]
+  styles:
+    grid:
+      - grid-template-areas: '"l" "i" "n"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr 5fr 1fr
+    card:
+      - background-color: var(--card-background-color)
+      - color: var(--primary-foreground-color)
+      - height: 160px
+      - background-image: '[[[ return "url(" + entity.attributes.entity_picture + ")"; ]]]'
+      - background-size: cover
+      - background-position: center
+    icon:
+      - color: rgba(255, 255, 255, 0.3)
+      - margin-top: 20px
+    label:
+      - font-size: 14px
+      - color: white
+      - justify-self: start
+      - background-color: rgba(0, 0,0, 0.3)
+      - padding-left: 20px
+      - margin-top: -10px
+      - width: 100%
+      - line-height: 40px
+      - text-align: left
+      - display: inline-block
+      - vertical-align: top
+
+#───────────────────────────────────────────────────────────────────────────────
+# Custom button card for Recipe display
+#───────────────────────────────────────────────────────────────────────────────
+recipe_button:
+  entity: sensor.todays_recipe
+  show_entity_picture: false
+  show_state: true
+  show_name: true
+  show_image: false
+  show_label: false
+  show_icon: false
+  styles:
+    card:
+      - background-size: cover
+      - background-position: center
+      - height: 177px
+    grid:
+      - grid-template-areas: '"n" "l" "s"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr 5fr 1fr
+    name:
+      - background-color: rgba(0, 0,0, 0.3)
+      - padding-left: 35px
+      - width: 100%
+      - line-height: 40px
+      - text-align: left
+      - display: inline-block
+      - vertical-align: middle
+    state:
+      - background-color: rgba(0, 0,0, 0.3)
+      - padding-left: 35px
+      - width: 100%
+      - line-height: 40px
+      - text-align: left
+      - display: inline-block
+      - vertical-align: middle

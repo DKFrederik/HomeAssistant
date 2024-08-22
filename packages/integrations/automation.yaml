@@ -1,0 +1,2 @@
+automation: !include ../../automations.yaml # UI contoled automation file # ../../ to go 2 folders up to get to the root of the config directory
+automation automationDirectory: !include_dir_list ../../automations/ # ../../ to go 2 folders up to get to the root of the config directory and include automation directory

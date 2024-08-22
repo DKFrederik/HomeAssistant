@@ -1,0 +1,15 @@
+# This recipe will turn brightness up to max, in the driveway, when door is open. 
+# But only after sunset and before sunrise
+alias: Garage when opening door
+id: Garage_when_opening_door
+trigger:
+- platform: state
+  entity_id: binary_sensor.bryggersdor_abner
+  to: 'on'
+condition:
+- condition: state
+  entity_id: sun.sun
+  state: below_horizon
+action:
+  service: scene.turn_on
+  entity_id: scene.garage_opening_the_door

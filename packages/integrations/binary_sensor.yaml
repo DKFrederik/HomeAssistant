@@ -1,0 +1,49 @@
+# binary_sensor:
+
+# #################################################################################################################
+# #                                                                                                               #
+# #                                 MQTT extracting Wavin current walve position                                  #
+# #                                                                                                               #
+# #################################################################################################################
+
+# # lille WC
+# - platform: mqtt
+#   name: lillewc_ventil
+#   state_topic: "heat/floor807D3A790941/0/output"
+#   payload_on: "on"
+#   payload_off: "off"
+
+# # Bryggers
+# - platform: mqtt
+#   name: bryggersvarme_ventil
+#   state_topic: "heat/floor807D3A790941/1/output"
+#   payload_on: "on"
+#   payload_off: "off"
+
+# # Køkken
+# - platform: mqtt
+#   name: køkkenvarme_ventil
+#   state_topic: "heat/floor807D3A790941/2/output"
+#   payload_on: "on"
+#   payload_off: "off"
+
+# # Stor WC
+# - platform: mqtt
+#   name: storwcvarme_ventil
+#   state_topic: "heat/floor807D3A790941/3/output"
+#   payload_on: "on"
+#   payload_off: "off"
+
+# # Gang
+# - platform: mqtt
+#   name: gangvarme_ventil
+#   state_topic: "heat/floor807D3A790941/4/output"
+#   payload_on: "on"
+#   payload_off: "off"
+
+# # Tristan
+# - platform: mqtt
+#   name: tristanvarme_ventil
+#   state_topic: "heat/floor807D3A790941/5/output"
+#   payload_on: "on"
+#   payload_off: "off"

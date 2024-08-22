@@ -1,0 +1,5 @@
+#media_extractor:
+#  default_query: best
+#  customize:
+#    media_player.achromecast_kokken:
+#      playlist: bestaudio[ext=m3u]

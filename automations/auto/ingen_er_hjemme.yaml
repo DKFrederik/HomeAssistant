@@ -1,0 +1,10 @@
+alias: ingen_er_hjemme
+id: '16355416316486'
+trigger: 
+  - platform: numeric_state
+    entity_id: zone.home
+    below: 1
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.SlukAltLysUntagetUdelysOgUnderKoekkenbordet

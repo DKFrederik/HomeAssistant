@@ -1,0 +1,97 @@
+# Product found here: https://www.aliexpress.com/item/32968683765.html
+
+substitutions:
+  devicename: espdoorbell
+  friendly_name: ESPDoorbell
+  
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp32dev
+
+wifi:
+  ssid: "IoT"
+  password: "FWCRzgVzsh"
+
+# Enable captive portal
+captive_portal:
+
+web_server:
+  port: 80
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Password for over-the-air updating of ESPHome firmware
+ota:
+  - platform: esphome
+ 
+i2c:
+  sda: 21
+  scl: 22
+
+# Comment out if you have a font file in place, otherwise it won't compile
+font:
+  - file: "/config/esphome/fonts/presstart.ttf"
+    id: roboto
+    size: 14
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    rotation: 180
+    address: 0x3C
+    lambda: |-
+      it.print(0, 10, id(roboto), "Velkommen!");
+
+esp32_camera:
+  name: $friendly_name Camera
+  external_clock:
+    pin: 32
+    frequency: 20MHz
+  i2c_pins:
+    sda: 13
+    scl: 12
+  data_pins:
+    - 5
+    - 14
+    - 4
+    - 15
+    - 18
+    - 23
+    - 36
+    - 39
+  vsync_pin: 27
+  href_pin: 25
+  pixel_clock_pin: 19
+  resolution: 640x480 # Can be higher, I think, but this has a pretty good framerate
+  jpeg_quality: 10
+  vertical_flip: true
+  horizontal_mirror: false
+
+binary_sensor:
+  - platform: gpio
+    pin: 33
+    name: $friendly_name Motion
+    device_class: motion
+    filters:
+      - delayed_off: 1s
+  - platform: gpio
+    pin: 
+      number: 34
+      inverted: true
+    name: $friendly_name Button
+    filters:
+      - delayed_off: 50ms
+  - platform: status
+    name: $friendly_name Status
+
+sensor:
+  - platform: wifi_signal
+    name: $friendly_name WiFi Signal
+    update_interval: 10s
+  - platform: uptime
+    name: $friendly_name Uptime

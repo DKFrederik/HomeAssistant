@@ -1,0 +1,1 @@
+script: !include ../../scripts.yaml # UI controled # ../../ to go 2 folders up to get to the root of the config directory
