@@ -34,6 +34,7 @@ home-assistant_v2.db
 .uuid
 *.db-wal
 *.db-shm
+zigbee.db
 .sonoff.json
 notebooks/bokeh-examples
 notebooks/home-assistant
