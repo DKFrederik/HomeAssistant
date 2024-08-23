@@ -1,12 +1,11 @@
 # Product found here: https://www.aliexpress.com/item/32968683765.html
 
-#substitutions:
-#  devicename: espdoorbell
-#  friendly_name: ESPDoorbell
+substitutions:
+  devicename: espdoorbell
+  friendly_name: ESPDoorbell
   
 esphome:
-#  name: $devicename
-  name: espdoorbell
+  name: $devicename
   platform: ESP32
   board: esp32dev
 
@@ -96,3 +95,5 @@ sensor:
     update_interval: 10s
   - platform: uptime
     name: $friendly_name Uptime
+
+    
