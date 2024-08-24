@@ -1,0 +1,32 @@
+esphome:
+  name: slimmelezerlocal
+  friendly_name: slimmelezer.local
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "pUEkPFuXJslaxppHh0l/Yx+ucHgYSefc4NHihW77oYY="
+
+ota:
+  - platform: esphome
+    password: "c13158925dcfd42617a92ab1f3344358"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Slimmelezerlocal"
+    password: "dexIgeR1yTY9"
+
+captive_portal:
+    

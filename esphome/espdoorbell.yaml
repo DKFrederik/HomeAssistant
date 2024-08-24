@@ -1,18 +1,24 @@
 # Product found here: https://www.aliexpress.com/item/32968683765.html
 
-#substitutions:
-#  devicename: espdoorbell
-#  friendly_name: ESPDoorbell
+substitutions:
+  devicename: espdoorbell
+  friendly_name: ESPDoorbell
   
 esphome:
-#  name: $devicename
-  name: espdoorbell
+  name: $devicename
   platform: ESP32
   board: esp32dev
 
 wifi:
   ssid: "IoT"
   password: "FWCRzgVzsh"
+  manual_ip:
+    # Set this to the IP of the ESP
+    static_ip: 10.45.3.12
+    # Set this to the IP address of the router. Often ends with .1
+    gateway: 10.45.3.1
+    # The subnet of the network. 255.255.255.0 works for most home networks.
+    subnet: 255.255.255.0
 
 # Enable captive portal
 captive_portal:
@@ -96,3 +102,4 @@ sensor:
     update_interval: 10s
   - platform: uptime
     name: $friendly_name Uptime
+    

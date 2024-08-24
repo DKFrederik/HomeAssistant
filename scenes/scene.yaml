@@ -32,7 +32,7 @@
   entities:
     light.garage_group:
       state: on
-      brightness: 60
+      brightness: 80
 
 # Livingroom dim
 - name: garage_opening_the_door
