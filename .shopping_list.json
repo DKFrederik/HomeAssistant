@@ -17,7 +17,7 @@
   {
     "name": "Rugbrød",
     "id": "4c6e83e89d2c4cb4a2f86d708de66a38",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Smør",
@@ -117,36 +117,21 @@
   {
     "name": "Sukker",
     "id": "3a4ba13e92db465396eba313da5a12d8",
-<<<<<<< HEAD
-    "complete": false
-=======
     "complete": true
->>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
   },
   {
     "name": "creme fraiche 1,5 dl ",
     "id": "669d6aa5c4244797ace11ea74845c614",
-<<<<<<< HEAD
-    "complete": false
-=======
     "complete": true
->>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
   },
   {
     "name": "toastbrød (Rema100 eller noget som ligner) ",
     "id": "abe5c76b0bfb4b9d8ab406eb5e7132e6",
-<<<<<<< HEAD
-    "complete": false
-=======
     "complete": true
->>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
   },
   {
     "name": "Mælk",
     "id": "0596fac585b241fe9a896dc3b9fb86b2",
-<<<<<<< HEAD
-    "complete": false
-=======
     "complete": true
   },
   {
@@ -167,7 +152,7 @@
   {
     "name": "chili nødder ",
     "id": "a2776ec491d5466383b8ad618f441fc0",
-    "complete": false
+    "complete": true
   },
   {
     "name": "pålæg",
@@ -178,6 +163,45 @@
     "name": "rugbrød",
     "id": "cb29238963e446c592811db3f381a4e9",
     "complete": true
->>>>>>> 416db32191a69a710df492152220e1b2d8214bfc
+  },
+  {
+    "name": "Sukker",
+    "id": "69eca64b2c404ea692b3bd53a5799fa8",
+    "complete": true
+  },
+  {
+    "name": "Toiletpapir ",
+    "id": "264fa2b062ae41b9b0d7c8cc525bae53",
+    "complete": true
+  },
+  {
+    "name": "skinkestrimler",
+    "id": "f30aa669770446c8b6a6ead4d758c49e",
+    "complete": true
+  },
+  {
+    "name": "fløde",
+    "id": "22b38e9381b04af39ecdded868a430a0",
+    "complete": true
+  },
+  {
+    "name": "makriner",
+    "id": "6d4e02959a9742cbad4f5565bf262cb6",
+    "complete": true
+  },
+  {
+    "name": "Skyllemiddel ",
+    "id": "a0d01a9966f44ca9abe243d76755d3e2",
+    "complete": true
+  },
+  {
+    "name": "Kærgården",
+    "id": "3bd2f3b677c84cec8f399554f7fb023c",
+    "complete": true
+  },
+  {
+    "name": "Sukker ",
+    "id": "aa295944ec4f4ce3954919d1e00032ba",
+    "complete": true
   }
 ]
