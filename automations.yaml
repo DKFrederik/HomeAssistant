@@ -79,7 +79,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_tristan_iphone
+  - action: notify.mobile_app_tristan_iphone_se
     data:
       message: Mor er kommet hjem
 - id: '2697148849715'
@@ -118,7 +118,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_tristan_iphone
+  - action: notify.mobile_app_tristan_iphone_se
     data:
       message: Far er kommet hjem
 - id: '2697148849415'
@@ -131,9 +131,9 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
-      message: Frederik er kommet hjem
+      message: Frederik den eneste ene og smukkest i verden er kommet hjem
 - id: '26971488489515'
   alias: Frederik er kommet hjem - Sophie
   description: ''
@@ -170,7 +170,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
       message: Sophie er kommet hjem
 - id: '3697148849615'
@@ -196,7 +196,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_tristan_iphone
+  - action: notify.mobile_app_tristan_iphone_se
     data:
       message: Sophie er kommet hjem
 - id: '4697148849415'
@@ -222,7 +222,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
       message: Victoria er kommet hjem
 - id: '4697148849615'
@@ -248,7 +248,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_tristan_iphone
+  - action: notify.mobile_app_tristan_iphone_se
     data:
       message: Victoria er kommet hjem
 - id: '5697148849415'
@@ -274,7 +274,7 @@
     from: not_home
     to: home
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
       message: Tristan er kommet hjem
 - id: '5697148849615'
@@ -461,13 +461,13 @@
     event: enter
   condition: []
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
-      message: 'Husk at købe disse vare '
-      title: Tryk her for at se hvad du skal huske og købe
       data:
-        clickAction: /indkøbsliste
+        clickAction: /Huskelister
         url: /todo?entity_id=todo.indkobsliste
+      title: Tryk her
+      message: Husk og købe disse vare
   mode: single
 - id: '1722349301296'
   alias: 'Trine - Husk at købe '
@@ -491,12 +491,12 @@
     event: enter
   condition: []
   action:
-  - service: notify.mobile_app_iphone_14_pro_trine
+  - action: notify.mobile_app_trine_iphone_14_pro
     data:
       data:
         clickAction: /Huskelister
         url: /todo?entity_id=todo.indkobsliste
-      message: 'Husk at købe disse varer '
+      message: Husk og købe disse vare
       title: Tryk her
   mode: single
 - id: '1722420118953'

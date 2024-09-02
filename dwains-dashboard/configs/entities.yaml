@@ -1,0 +1,180 @@
+button.koekken2_identify:
+  hidden: true
+button.koekken1_identify:
+  hidden: true
+button.stuesofa_identify:
+  hidden: true
+button.tradfri_remote_stuesofa_identify_2:
+  hidden: true
+button.stuespisebord_identify:
+  hidden: true
+button.kommode1_identify_2:
+  hidden: true
+button.kommode2_identify:
+  hidden: true
+button.stuespisebord_schneider_electric_lk_switch_identify:
+  hidden: true
+button.stor_terrassedor_identify:
+  hidden: true
+button.storstue_vedstordor_repeater_identify:
+  hidden: true
+button.range_extender_stor_stue_ikea_blinds_identify:
+  hidden: true
+button.stue_vindue_lille_identify:
+  hidden: true
+button.tradfri_open_close_switch_lille_vindue_identify:
+  hidden: true
+number.stue_bass:
+  hidden: true
+number.stue_balance:
+  hidden: true
+number.stue_treble:
+  hidden: true
+number.stuesofa_farvetemperatur_ved_opstart:
+  hidden: true
+number.stuesofa_stromniveau_ved_opstart:
+  hidden: true
+number.stuesofa_taend_sluk_overgangstid:
+  hidden: true
+number.stuesofa_taendings_niveau:
+  hidden: true
+number.stuespisebord_farvetemperatur_ved_opstart:
+  hidden: true
+number.stuespisebord_stromniveau_ved_opstart:
+  hidden: true
+number.stuespisebord_taend_sluk_overgangstid:
+  hidden: true
+number.stuespisebord_taendings_niveau:
+  hidden: true
+number.kommode1_farvetemperatur_ved_opstart:
+  hidden: true
+number.kommode1_stromniveau_ved_opstart:
+  hidden: true
+number.kommode1_taend_sluk_overgangstid:
+  hidden: true
+number.kommode1_taendings_niveau:
+  hidden: true
+number.kommode2_taend_sluk_overgangstid:
+  hidden: true
+number.kommode2_taendings_niveau:
+  hidden: true
+number.kommode2_stromniveau_ved_opstart:
+  hidden: true
+number.kommode2_farvetemperatur_ved_opstart:
+  hidden: true
+select.stuesofa_opstartsadfaerd:
+  hidden: true
+select.stuespisebord_opstartsadfaerd:
+  hidden: true
+select.kommode1_opstartsadfaerd:
+  hidden: true
+select.kommode2_opstartsadfaerd:
+  hidden: true
+select.storstue_vedstordor_repeater_opstartsadfaerd:
+  hidden: true
+switch.stue_crossfade:
+  hidden: true
+switch.stue_loudness:
+  hidden: true
+switch.stue_vindue_lille_omvendt:
+  hidden: true
+switch.opholdsstue_night_mode:
+  hidden: true
+update.range_extender_stor_stue_ikea_blinds_firmware:
+  hidden: true
+update.stue_vindue_lille_firmware:
+  hidden: true
+update.tradfri_open_close_switch_lille_vindue_firmware:
+  hidden: true
+update.kommode1_firmware_2:
+  hidden: true
+update.kommode2_firmware:
+  hidden: true
+update.stuespisebord_schneider_electric_lk_switch_firmware:
+  hidden: true
+update.storstue_vedstordor_repeater_firmware:
+  hidden: true
+update.stuespisebord_firmware:
+  hidden: true
+update.tradfri_remote_stuesofa_firmware_2:
+  hidden: true
+update.stuesofa_firmware:
+  hidden: true
+switch.opholdsstue_continuous_monitoring:
+  hidden: true
+binary_sensor.stue_microphone:
+  sort_order: 6
+binary_sensor.stor_terrassedor_abner:
+  sort_order: 5
+cover.stue_vindue_lille_gardin_port:
+  sort_order: 1
+fan.opholdsstue:
+  sort_order: 4
+light.stuesofa_lys:
+  sort_order: 10
+light.stuespisebord_lys:
+  sort_order: 7
+light.kommode1_lys_2:
+  sort_order: 9
+light.kommode2_lys:
+  sort_order: 8
+light.stuespisebord_schneider_electric_lk_switch_lys:
+  sort_order: 2
+light.stuespisebord_schneider_electric_lk_switch_lys_2:
+  sort_order: 3
+media_player.stue:
+  sort_order: 13
+media_player.stue_2:
+  sort_order: 14
+media_player.samsung_q70_series_65:
+  sort_order: 15
+media_player.tv_samsung_q70_series_65:
+  sort_order: 14
+  hidden: true
+remote.stue_2:
+  sort_order: 17
+remote.samsung_q70_series_65:
+  sort_order: 16
+  hidden: true
+select.tv_stuen_power_on_behavior:
+  sort_order: 17
+  hidden: true
+sensor.tv_stuen_current:
+  sort_order: 24
+sensor.tv_stuen_power:
+  sort_order: 28
+sensor.tv_stuen_voltage:
+  sort_order: 21
+sensor.tradfri_remote_stuesofa_batteri_2:
+  sort_order: 29
+sensor.stor_terrassedor_batteri:
+  sort_order: 30
+sensor.stor_terrassedor_enhedens_temperatur:
+  sort_order: 26
+sensor.stue_vindue_lille_batteri:
+  sort_order: 25
+sensor.stue_vindue_lille_window_covering_type:
+  sort_order: 18
+  hidden: true
+sensor.tradfri_open_close_switch_lille_vindue_batteri:
+  sort_order: 23
+sensor.opholdsstue_humidity:
+  sort_order: 31
+switch.storstue_vedstordor_repeater_kontakt:
+  sort_order: 20
+sensor.opholdsstue_temperature:
+  sort_order: 27
+sensor.opholdsstue_volatile_organic_compounds_index:
+  sort_order: 16
+sensor.opholdsstue_pm_2_5:
+  sort_order: 32
+sensor.opholdsstue_pm_10:
+  sort_order: 22
+sensor.opholdsstue_nitrogen_dioxide_index:
+  sort_order: 12
+sensor.opholdsstue_carbon_filter_life:
+  sort_order: 33
+sensor.opholdsstue_hepa_filter_life:
+  sort_order: 34
+switch.tv_stuen_socket_1:
+  sort_order: 19
