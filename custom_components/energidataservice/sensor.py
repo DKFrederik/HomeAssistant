@@ -12,6 +12,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_API_KEY, CONF_EMAIL, CONF_NAME
@@ -19,7 +20,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
-from homeassistant.helpers.template import Template, attach
+from homeassistant.helpers.template import Template
 from homeassistant.util import dt as dt_utils
 from homeassistant.util import slugify as util_slugify
 from jinja2 import pass_context
@@ -138,17 +139,19 @@ def _setup(hass, config: ConfigEntry, add_devices):
         device_class=SensorDeviceClass.MONETARY,
         icon="mdi:flash",
         name=config.data.get(CONF_NAME),
-        state_class=None,
+        state_class=SensorStateClass.TOTAL,
+        last_reset=None,
     )
     sens = EnergidataserviceSensor(config, hass, region, this_sensor)
     add_devices([sens])
 
     co2_sensor = SensorEntityDescription(
         key="EnergiDataService_co2",
-        device_class=None,
+        device_class=SensorDeviceClass.CO2,
         icon="mdi:molecule-co2",
         name=config.data.get(CONF_NAME) + " CO2",
-        state_class=None,
+        state_class=SensorStateClass.TOTAL,
+        last_reset=None,
     )
     sens = EnergidataserviceCO2Sensor(config, hass, region, co2_sensor)
     add_devices([sens])
@@ -392,8 +395,6 @@ class EnergidataserviceSensor(SensorEntity):
         else:
             if self._cost_template.template in ("", None):
                 self._cost_template = cv.template(DEFAULT_TEMPLATE)
-
-        attach(self._hass, self._cost_template)
 
     async def validate_data(self) -> None:
         """Validate sensor data."""

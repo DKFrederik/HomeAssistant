@@ -82,7 +82,7 @@ class APIConnector:
         self.next_retry_delay = RETRY_MINUTES
         self.retry_count = 0
 
-        self._client = async_get_clientsession(hass, False)
+        self._client = async_get_clientsession(hass)
         self._region = RegionHandler(
             (entry.options.get(CONF_AREA) or entry.data.get(CONF_AREA)) or "FIXED"
         )
@@ -287,6 +287,7 @@ class APIConnector:
 
     async def async_get_tariffs(self) -> None:
         """Get tariff data."""
+
         if self.tariff:
             tariff_endpoint = await self.tariffs.get_endpoint(self._region.region)
             tariff_module = await self.hass.async_add_executor_job(
@@ -302,7 +303,12 @@ class APIConnector:
             )
 
             self.tariff_connector = tariff
+
             self.tariff_data = await tariff.async_get_tariffs()
+
+            if self.tariff_data["status"] != 200:
+                retry_update(self, self.async_get_tariffs)
+
 
     @property
     def tomorrow_valid(self) -> bool:

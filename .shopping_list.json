@@ -218,5 +218,55 @@
     "name": "fløde",
     "id": "606c213ea4b149c399b108622bf5d856",
     "complete": true
+  },
+  {
+    "name": "IS",
+    "id": "30fa19f7a0434e4c8f81109016475789",
+    "complete": true
+  },
+  {
+    "name": "IS",
+    "id": "fe570fcaceb94aaa92a950de6b0af421",
+    "complete": true
+  },
+  {
+    "name": "Salt til opvaskemaskinen ",
+    "id": "6a7f93f3731b48d5b4beaa4cd7b79d3a",
+    "complete": true
+  },
+  {
+    "name": "Toast brød",
+    "id": "5a81bd0e429c4ebba2f8b6cdfe6df0dc",
+    "complete": true
+  },
+  {
+    "name": "rugbrød",
+    "id": "6e135700a09a435fac99c691a5465fdf",
+    "complete": true
+  },
+  {
+    "name": "Rødkål",
+    "id": "53ace47a43d24eb0b1940296b2554351",
+    "complete": true
+  },
+  {
+    "name": "salt chips",
+    "id": "eda289a34ce742f4834607f40eef7a40",
+    "complete": true
+  },
+  {
+    "name": "burgerboller ",
+    "id": "94ad0e83523642da9c648ae1f8e42239",
+    "complete": true
+  },
+  {
+    "name": "Skinkestrimler",
+    "id": "3637559d9d0c4bca8b4e2854829997bb",
+    "complete": false
+  },
+  {
+    "name": "Tandpasta Tristan ",
+    "id": "05a0f9ac4cff4644b2a94966018c1b8e",
+    "complete": false
   }
 ]
