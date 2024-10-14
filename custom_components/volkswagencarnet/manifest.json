@@ -1,0 +1,22 @@
+{
+    "domain": "volkswagencarnet",
+    "name": "Volkswagen Connect",
+    "after_dependencies": [
+        "http"
+    ],
+    "codeowners": [
+        "@robinostlund"
+    ],
+    "config_flow": true,
+    "dependencies": [],
+    "documentation": "https://github.com/robinostlund/homeassistant-volkswagencarnet",
+    "import_executor": true,
+    "integration_type": "hub",
+    "iot_class": "cloud_polling",
+    "issue_tracker": "https://github.com/robinostlund/homeassistant-volkswagencarnet/issues",
+    "requirements": [
+        "pytz",
+        "volkswagencarnet==5.0.2"
+    ],
+    "version": "v5.0.3"
+}

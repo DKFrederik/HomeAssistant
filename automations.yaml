@@ -1352,3 +1352,31 @@
       button_right_long_loop: true
       button_up_long_loop: true
       button_down_long_loop: true
+- id: '1727648335717'
+  alias: Legestue - sluk TV efter kl 2200
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id: c9e17d5fef2b455565f01cf5cb1c3a72
+  mode: single
+- id: '1727648397425'
+  alias: Legestue - tænd TV efter kl 0600
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition: []
+  action:
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      device_id: c9e17d5fef2b455565f01cf5cb1c3a72
+  mode: single
