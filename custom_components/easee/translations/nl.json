@@ -44,7 +44,8 @@
       "resume": "Laden hervatten",
       "start": "Start laden",
       "stop": "Stop laden",
-      "toggle": "Laden omschakelen"
+      "toggle": "Laden omschakelen",
+      "update_firmware": "Firmware updaten"
     },
     "condition_type": {
       "authenticating": "{entity_name} is bezig met authenticeren",
@@ -294,7 +295,8 @@
       "title": "Verouderde service gebruikt: {deprecation}"
     },
     "numeric_deprecation": {
-      "description": "Het gebruik van numerieke waarden voor {argument} is verouderd en zal in de toekomst worden verwijderd. Pas je automatiseringen en scripts z.s.m. aan om gebruik te maken van strings {recommendation}"
+      "description": "Het gebruik van numerieke waarden voor {argument} is verouderd en zal in de toekomst worden verwijderd. Pas je automatiseringen en scripts z.s.m. aan om gebruik te maken van strings {recommendation}",
+      "title": "Gebruik van getal voor {} in service call\n"
     }
   },
   "options": {
@@ -337,6 +339,12 @@
         "update_firmware": "Firmware updaten"
       }
     },
+    "phase_mode": {
+      "options": {
+        "1_phase": "1 fase modus",
+        "3_phase": "3 fase modus"
+      }
+    },
     "weekday": {
       "options": {
         "friday": "Vrijdag",
@@ -367,6 +375,9 @@
     "set_basic_charge_plan": {
       "description": "Standaard laadschema instellen",
       "fields": {
+        "current": {
+          "name": "Maximale stroom"
+        },
         "device_id": {
           "description": "Selecteer apparaat om te gebruiken",
           "name": "Doelapparaat"
@@ -390,6 +401,7 @@
       "description": "Selecteer wie er mag laden",
       "fields": {
         "access_level": {
+          "description": "Selecteer toegang tot laden",
           "name": "Toegang"
         },
         "device_id": {
@@ -423,7 +435,8 @@
           "description": "Selecteer een van de laders in het circuit die moet worden aangestuurd.",
           "name": "Doelapparaat"
         }
-      }
+      },
+      "name": "Selecteer maximum output voor de lader"
     },
     "set_charging_cost": {
       "description": "Stel de laadkosten in per kWh voor de opladerlocatie",
@@ -437,6 +450,7 @@
           "name": "Munteenheid"
         },
         "device_id": {
+          "description": "Selecteer welke lader gebruikt dient te worden.",
           "name": "Doelapparaat"
         },
         "vat": {
@@ -463,6 +477,9 @@
         "device_id": {
           "description": "Selecteer een van de laders in het circuit die moet worden aangestuurd.",
           "name": "Doelapparaat"
+        },
+        "time_to_live": {
+          "name": "Selecteer tijd tot standby"
         }
       },
       "name": "Stel de dynamische limiet van het circuit in"
@@ -511,9 +528,23 @@
       },
       "name": "Offline limiet stroomcircuit instellen"
     },
+    "set_load_balancing": {
+      "fields": {
+        "current": {
+          "name": "Stroom"
+        },
+        "enable": {
+          "description": "Load balancing inschakelen",
+          "name": "Inschakelen"
+        }
+      }
+    },
     "set_weekly_charge_plan": {
       "description": "Wekelijks laadschema instellen",
       "fields": {
+        "current": {
+          "name": "Maximale stroom"
+        },
         "day": {
           "description": "Weekdag voor dit schema",
           "name": "Weekdag"

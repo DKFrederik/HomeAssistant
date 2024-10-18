@@ -15,17 +15,20 @@ from .regions import REGIONS
 
 _LOGGER = logging.getLogger(__name__)
 
-BASE_URL = (
-    "https://www.nordpoolgroup.com/api/marketdata/page/10?currency=EUR&endDate=%s"
-)
+# BASE_URL = (
+#     "https://www.nordpoolgroup.com/api/marketdata/page/10?currency=EUR&endDate=%s"
+# )
+
+BASE_URL = "https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?currency=EUR&date={}&market=DayAhead&deliveryArea={}"
 
 SOURCE_NAME = "Nord Pool"
 
 DEFAULT_CURRENCY = "EUR"
 
 TIMEZONE = pytz.timezone("Europe/Stockholm")
+CO2REGIONS = []
 
-__all__ = ["REGIONS", "Connector", "DEFAULT_CURRENCY"]
+__all__ = ["REGIONS", "Connector", "DEFAULT_CURRENCY", "CO2REGIONS"]
 
 
 def prepare_data(indata, date, tz) -> list:  # pylint: disable=invalid-name
@@ -49,7 +52,7 @@ class Connector:
     ) -> None:
         """Init API connection to Nordpool Group."""
         self.config = config
-        self.regionhandler = map_region(regionhandler)
+        self.regionhandler = regionhandler
         self.client = client
         self._result = {}
         self._tz = tz
@@ -75,12 +78,18 @@ class Connector:
 
         self._result = raw
 
-        _LOGGER.debug("Response for %s:", self.regionhandler.region)
+        _LOGGER.debug("Dataset for %s:", self.regionhandler.region)
         _LOGGER.debug(self._result)
 
     async def _fetch(self, enddate: datetime) -> str:
         """Fetch data from API."""
-        url = BASE_URL % enddate.strftime("%d-%m-%Y")
+        if self.regionhandler.api_region:
+            region = self.regionhandler.api_region
+        else:
+            region = self.regionhandler.region
+
+        url = BASE_URL.format(enddate.strftime("%Y-%m-%d"), region)
+
         _LOGGER.debug(
             "Request URL for %s via Nordpool: %s",
             (self.regionhandler.api_region or self.regionhandler.region),
@@ -97,8 +106,10 @@ class Connector:
         elif resp.status == 200:
             res = await resp.json()
             _LOGGER.debug("Response for %s:", self.regionhandler.region)
-            _LOGGER.debug(self._result)
+            _LOGGER.debug(res)
             return res
+        elif resp.status == 204:
+            return {}
         elif resp.status == 500:
             _LOGGER.warning("Server blocked request")
         else:
@@ -109,57 +120,25 @@ class Connector:
         """Parse json response."""
         # Timezone for data from Nord Pool Group are "Europe/Stockholm"
 
-        if "data" not in data:
+        if not "multiAreaEntries" in data:
             return []
-
-        # All relevant data is in data['data']
-        data = data["data"]
-
-        region_data = []
 
         if self.regionhandler.api_region:
             region = self.regionhandler.api_region
         else:
             region = self.regionhandler.region
 
-        # Loop through response rows
-        for row in data["Rows"]:
-            start_hour = datetime.isoformat(
-                TIMEZONE.localize(datetime.fromisoformat(row["StartTime"])).astimezone(
-                    dt_util.UTC
-                )
+        region_data = []
+
+        for entry in data["multiAreaEntries"]:
+            start_hour = entry["deliveryStart"]
+            value = entry["entryPerArea"][region]
+            region_data.append(
+                {
+                    "HourUTC": start_hour,
+                    "SpotPriceEUR": value,
+                }
             )
-
-            # Loop through columns
-            for col in row["Columns"]:
-                name = col["Name"]
-                # If areas is defined and name isn't in areas, skip column
-                if region and name not in region:
-                    continue
-
-                # Check if we already have this hour in dict
-                known = False
-                for _i, val in enumerate(
-                    region_data
-                ):  # pylint: disable=unused-variable
-                    if start_hour == val["HourUTC"]:
-                        known = True
-                        break
-
-                if known:
-                    # We already have this hour in dict, skip to next
-                    continue
-
-                value = self._conv_to_float(col["Value"])
-                if isinstance(value, type(None)):
-                    continue
-
-                region_data.append(
-                    {
-                        "HourUTC": start_hour,
-                        "SpotPriceEUR": value,
-                    }
-                )
 
         return region_data
 

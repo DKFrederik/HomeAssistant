@@ -1,8 +1,6 @@
 """Define valid zones for Nord Pool."""
 
 REGIONS = {
-    "DK1",
-    "DK2",
     "SE1",
     "SE2",
     "SE3",
