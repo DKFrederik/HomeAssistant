@@ -39,14 +39,6 @@
 #                                                                                                              #
 ################################################################################################################
 
-
-
-################################################################################################################
-#                                                                                                              #
-#                    Solar - Adding West and East solar production into one sensor                             #
-#                                                                                                              #
-################################################################################################################
-
 - platform: template
   sensors:
    total_solar_power:
@@ -64,7 +56,7 @@
      unit_of_measurement: kWh
      #state_class: total_increasing
      unique_id: kn4356654kj36n453lk6345lm645yugfdsiogbs
-      
+
 - platform: template
   sensors:
       sol_total_outpu_lige_nu:
@@ -78,6 +70,19 @@
           friendly_name: "Energi huset bruger lige nu"
           unit_of_measurement: 'W'
           value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float - states("sensor.tpj4cf806p_export_to_grid") | float - states("sensor.tpj4cf806p_battery_discharging_w") | float }}'
+
+- platform: template
+  sensors:
+      hvad_bruger_huset_lige_nu_slimmelezer:
+          friendly_name: "Energi huset bruger lige nu fra slimmelezer"
+          unit_of_measurement: 'W'
+          value_template: '{{ states("sensor.sensor.power_consumed") | float }}'
+
+################################################################################################################
+#                                                                                                              #
+#                    Solar - Adding West and East solar production into one sensor                             #
+#                                                                                                              #
+################################################################################################################
 
 - platform: template
   sensors:
