@@ -64,19 +64,20 @@
           unit_of_measurement: 'W'
           value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float }}'
 
-- platform: template
-  sensors:
-      hvad_bruger_huset_lige_nu:
-          friendly_name: "Energi huset bruger lige nu"
-          unit_of_measurement: 'W'
-          value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float - states("sensor.tpj4cf806p_export_to_grid") | float - states("sensor.tpj4cf806p_battery_discharging_w") | float }}'
+# - platform: template
+#   sensors:
+#       hvad_bruger_huset_lige_nu:
+#           friendly_name: "Energi huset bruger lige nu"
+#           unit_of_measurement: 'W'
+#           value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float - states("sensor.tpj4cf806p_export_to_grid") | float - states("sensor.tpj4cf806p_battery_discharging_w") | float }}'
 
-- platform: template
-  sensors:
-      hvad_bruger_huset_lige_nu_slimmelezer:
-          friendly_name: "Energi huset bruger lige nu fra slimmelezer"
-          unit_of_measurement: 'W'
-          value_template: '{{ states("sensor.sensor.power_consumed") | float }}'
+
+# - platform: template
+#   sensors:
+#       hvad_bruger_huset_lige_nu_slimmelezer:
+#           friendly_name: "Energi huset bruger lige nu fra slimmelezer"
+#           unit_of_measurement: 'W'
+#           value_template: '{{ states("sensor.sensor.power_consumed") | float }}'
 
 ################################################################################################################
 #                                                                                                              #
