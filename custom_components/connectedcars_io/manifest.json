@@ -1,0 +1,18 @@
+{
+  "domain": "connectedcars_io",
+  "name": "Connectedcars.io (Min Volkswagen)",
+  "codeowners": [
+    "@jnxxx"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/jnxxx/homeassistant-connectedcars_io/",
+  "homekit": {},
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/jnxxx/homeassistant-connectedcars_io/issues",
+  "requirements": [],
+  "ssdp": [],
+  "version": "1.1.3",
+  "zeroconf": []
+}
