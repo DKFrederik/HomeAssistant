@@ -1,0 +1,136 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Integration med samme navn eksisterer allerede"
+        },
+        "error": {
+            "too_many_requests": "Too many requests to the API - try again in 15 minutes"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "name": "Navn til integrationen",
+                    "company": "El leverandør"
+                }
+            }
+        }
+    },
+    "options": {
+        "abort": {
+            "already_configured": "Integration med samme navn eksisterer allerede"
+        },
+        "error": {
+            "too_many_requests": "Too many requests to the API - try again in 15 minutes"
+        },
+        "step": {
+            "init": {
+                "data": {
+                    "name": "Navn til integrationen",
+                    "company": "El leverandør"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "current_price_vat": {
+                "name": "Aktuel inkl. moms",
+                "state_attributes": {
+                    "prices": {
+                        "name": "Priser i dag"
+                    }
+                }
+            },
+            "current_price_ex_vat": {
+                "name": "Aktuel ekskl. moms",
+                "state_attributes": {
+                    "prices": {
+                        "name": "Priser i dag"
+                    }
+                }
+            },
+            "spotprice_vat": {
+                "name": "Spotpris inkl. moms"
+            },
+            "spotprice_ex_vat": {
+                "name": "Spotpris ekskl. moms"
+            },
+            "electricity_tax_vat": {
+                "name": "Elafgift inkl. moms"
+            },
+            "electricity_tax_ex_vat": {
+                "name": "Elafgift ekskl. moms"
+            },
+            "today_min_vat": {
+                "name": "Minimum pris resten af dagen inkl. moms",
+                "state_attributes": {
+                    "at": {
+                        "name": "Tidspunkt"
+                    }
+                }
+            },
+            "today_min_ex_vat": {
+                "name": "Minimum pris resten af dagen ekskl. moms",
+                "state_attributes": {
+                    "at": {
+                        "name": "Tidspunkt"
+                    }
+                }
+            },
+            "today_max_vat": {
+                "name": "Maximum pris resten af dagen inkl. moms",
+                "state_attributes": {
+                    "at": {
+                        "name": "Tidspunkt"
+                    }
+                }
+            },
+            "today_max_ex_vat": {
+                "name": "Maximum pris resten af dagen ekskl. moms",
+                "state_attributes": {
+                    "at": {
+                        "name": "Tidspunkt"
+                    }
+                }
+            },
+            "today_mean_vat": {
+                "name": "Gennemsnits pris resten af dagen inkl. moms"
+            },
+            "today_mean_ex_vat": {
+                "name": "Gennemsnits pris resten af dagen ekskl. moms"
+            }
+        },
+        "binary_sensor": {
+            "tomorrow_available_vat": {
+                "name": "Priser for i morgen inkl. moms",
+                "state": {
+                    "on": "Klar",
+                    "off": "Endnu ikke klar"
+                },
+                "state_attributes": {
+                    "available_at": {
+                        "name": "Forventes klar"
+                    },
+                    "prices": {
+                        "name": "Priser for i morgen"
+                    }
+                }
+            },
+            "tomorrow_available_ex_vat": {
+                "name": "Priser for i morgen ekskl. moms",
+                "state": {
+                    "on": "Klar",
+                    "off": "Endnu ikke klar"
+                },
+                "state_attributes": {
+                    "available_at": {
+                        "name": "Forventes klar"
+                    },
+                    "prices": {
+                        "name": "Priser for i morgen"
+                    }
+                }
+            }
+        }
+    }
+}
