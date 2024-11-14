@@ -1,0 +1,7 @@
+zha:
+  zigpy_config:
+    ota:
+      otau_directory: /config/zigpy_ota
+      ikea_provider: true
+      ledvance_provider: true
+      thirdreality_provider: true
