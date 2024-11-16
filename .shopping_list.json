@@ -303,5 +303,30 @@
     "name": "balsam",
     "id": "c3ba8b6d663745bda18c25c297b07006",
     "complete": true
+  },
+  {
+    "name": "Sække ",
+    "id": "ca543d8727224626b67006948e035040",
+    "complete": true
+  },
+  {
+    "name": "skyllemiddel",
+    "id": "5f0af70e063e4428a90d60e921232dbf",
+    "complete": true
+  },
+  {
+    "name": "Remoulade",
+    "id": "17b2e1f6b0e34bbd91a27612effb0205",
+    "complete": false
+  },
+  {
+    "name": "Ketchup",
+    "id": "6f5bfbf4a46a4101aa74279b9d6baae6",
+    "complete": false
+  },
+  {
+    "name": "pølser",
+    "id": "2566d48f36b54a78ba19c73a60f6ee52",
+    "complete": false
   }
 ]
