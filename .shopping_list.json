@@ -317,16 +317,21 @@
   {
     "name": "Remoulade",
     "id": "17b2e1f6b0e34bbd91a27612effb0205",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Ketchup",
     "id": "6f5bfbf4a46a4101aa74279b9d6baae6",
-    "complete": false
+    "complete": true
   },
   {
     "name": "pølser",
     "id": "2566d48f36b54a78ba19c73a60f6ee52",
+    "complete": true
+  },
+  {
+    "name": "Salt",
+    "id": "cd52c11367a04f688696b1f6311e87d6",
     "complete": false
   }
 ]
