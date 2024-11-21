@@ -27,7 +27,7 @@
   {
     "name": "Kaffe - Hele bønner",
     "id": "bd3ce5a4593845cb8443b3821a0d4826",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Noget til aftensmad",
@@ -225,11 +225,6 @@
     "complete": true
   },
   {
-    "name": "IS",
-    "id": "fe570fcaceb94aaa92a950de6b0af421",
-    "complete": true
-  },
-  {
     "name": "Salt til opvaskemaskinen ",
     "id": "6a7f93f3731b48d5b4beaa4cd7b79d3a",
     "complete": true
@@ -332,6 +327,11 @@
   {
     "name": "Salt",
     "id": "cd52c11367a04f688696b1f6311e87d6",
+    "complete": true
+  },
+  {
+    "name": "knapcelle batterier 2032 (MANGE!!)",
+    "id": "9d20d48760b2494ea4bd65b37da4a43b",
     "complete": false
   }
 ]

@@ -183,6 +183,6 @@
 # Terrasse Forhave Night
 - name: terrasseForhaveNat
   entities:
-    light.terrasseforhave_lys:
+    light.terrasseforhave_group:
       state: on
       brightness: 20
