@@ -8,7 +8,6 @@ import logging
 from random import random
 from sys import getrefcount
 
-from async_timeout import timeout
 from pyeasee import (
     Charger,
     ChargerSchedule,
@@ -40,6 +39,7 @@ from homeassistant.helpers.event import (
 from homeassistant.util import dt as dt_util
 
 from .binary_sensor import ChargerBinarySensor, EqualizerBinarySensor
+from .button import ChargerButton
 from .const import (
     CONF_MONITORED_SITES,
     DOMAIN,
@@ -58,14 +58,16 @@ from .const import (
 )
 from .entity import convert_units_funcs
 from .sensor import ChargerSensor, EqualizerSensor
-from .switch import ChargerSwitch
+from .switch import ChargerSwitch, EqualizerSwitch
 
 ENTITY_TYPES = {
     "sensor": ChargerSensor,
     "binary_sensor": ChargerBinarySensor,
+    "button": ChargerButton,
     "switch": ChargerSwitch,
     "eq_sensor": EqualizerSensor,
     "eq_binary_sensor": EqualizerBinarySensor,
+    "eq_switch": EqualizerSwitch,
 }
 _LOGGER = logging.getLogger(__name__)
 
@@ -442,10 +444,12 @@ class Controller:
         self.equalizers: list[Equalizer] = []
         self.equalizers_data: list[ProductData] = []
         self.binary_sensor_entities = []
+        self.button_entities = []
         self.switch_entities = []
         self.sensor_entities = []
         self.equalizer_sensor_entities = []
         self.equalizer_binary_sensor_entities = []
+        self.equalizer_switch_entities = []
         self.diagnostics = {}
         self.trackers = []
         self.monitored_sites = None
@@ -478,7 +482,7 @@ class Controller:
         )
 
         try:
-            with timeout(TIMEOUT):
+            async with asyncio.timeout(TIMEOUT):
                 await self.easee.connect()
         except TimeoutError as err:
             _LOGGER.debug("Connection to easee login timed out")
@@ -597,6 +601,7 @@ class Controller:
             + self.binary_sensor_entities
             + self.equalizer_sensor_entities
             + self.equalizer_binary_sensor_entities
+            + self.equalizer_switch_entities
         )
 
         for entity in all_entities:
@@ -857,13 +862,17 @@ class Controller:
         """Get binary sensor entities."""
         return self.binary_sensor_entities + self.equalizer_binary_sensor_entities
 
+    def get_button_entities(self):
+        """Get button entities."""
+        return self.button_entities
+
     def get_sensor_entities(self):
         """Get sensor entities."""
         return self.sensor_entities + self.equalizer_sensor_entities
 
     def get_switch_entities(self):
         """Return switch_entities."""
-        return self.switch_entities
+        return self.switch_entities + self.equalizer_switch_entities
 
     def _create_entity(
         self,
@@ -908,11 +917,17 @@ class Controller:
         elif object_type == "binary_sensor":
             self.binary_sensor_entities.append(entity)
 
+        elif object_type == "button":
+            self.button_entities.append(entity)
+
         elif object_type == "eq_sensor":
             self.equalizer_sensor_entities.append(entity)
 
         elif object_type == "eq_binary_sensor":
             self.equalizer_binary_sensor_entities.append(entity)
+
+        elif object_type == "eq_switch":
+            self.equalizer_switch_entities.append(entity)
 
         return entity
 
@@ -920,8 +935,10 @@ class Controller:
         self.sensor_entities = []
         self.switch_entities = []
         self.binary_sensor_entities = []
+        self.button_entities = []
         self.equalizer_sensor_entities = []
         self.equalizer_binary_sensor_entities = []
+        self.equalizer_switch_entities = []
 
         all_easee_entities = {**MANDATORY_EASEE_ENTITIES, **OPTIONAL_EASEE_ENTITIES}
 

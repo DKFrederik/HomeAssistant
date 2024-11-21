@@ -17,13 +17,13 @@ from homeassistant.helpers.entity import EntityCategory
 
 DOMAIN = "easee"
 TIMEOUT = 30
-VERSION = "0.9.64"
+VERSION = "0.9.65"
 MIN_HA_VERSION = "2024.8.0"
 CONF_MONITORED_SITES = "monitored_sites"
 MANUFACTURER = "Easee"
 MODEL_EQUALIZER = "Equalizer"
 MODEL_CHARGING_ROBOT = "Charging Robot"
-PLATFORMS = [Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
+PLATFORMS = [Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
 LISTENER_FN_CLOSE = "update_listener_close_fn"
 EASEE_PRODUCT_CODES = {
     1: "Easee Home",
@@ -645,7 +645,7 @@ OPTIONAL_EASEE_ENTITIES = {
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "basic_schedule": {
-        "type": "binary_sensor",
+        "type": "switch",
         "key": "schedule.isEnabled",
         "attrs": [
             "schedule.isEnabled",
@@ -659,11 +659,12 @@ OPTIONAL_EASEE_ENTITIES = {
         "device_class": None,
         "translation_key": "basic_schedule",
         "state_func": lambda schedule: bool(schedule.isEnabled) or False,
+        "switch_func": "enable_basic_charge_plan",
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "weekly_schedule": {
-        "type": "binary_sensor",
+        "type": "switch",
         "key": "weekly_schedule.isEnabled",
         "attrs": [
             "weekly_schedule.isEnabled",
@@ -694,6 +695,7 @@ OPTIONAL_EASEE_ENTITIES = {
         "translation_key": "weekly_schedule",
         "device_class": None,
         "state_func": lambda weekly_schedule: bool(weekly_schedule.isEnabled) or False,
+        "switch_func": "enable_weekly_charge_plan",
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -724,6 +726,16 @@ OPTIONAL_EASEE_ENTITIES = {
         "state_class": SensorStateClass.MEASUREMENT,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
+    },
+    "override_schedule": {
+        "type": "button",
+        "key": "",
+        "attrs": [],
+        "units": None,
+        "convert_units_func": None,
+        "device_class": None,
+        "switch_func": "override_schedule",
+        "translation_key": "override_schedule",
     },
 }
 
@@ -906,9 +918,10 @@ EASEE_EQ_ENTITIES = {
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "surplus": {
-        "type": "eq_binary_sensor",
+        "type": "eq_switch",
         "key": "config.surplusChargingMode",
         "state_func": lambda config: bool(config["surplusChargingMode"] == 1),
+        "switch_func": "set_load_balancing",
         "attrs": [
             "config.surplusChargingCurrent",
         ],
