@@ -1380,3 +1380,37 @@
     target:
       device_id: c9e17d5fef2b455565f01cf5cb1c3a72
   mode: single
+- id: '1732225226668'
+  alias: køkken - Tænd oplad køkken tablet
+  description: Oplad når batt er under 20% og stop ved 80%
+  triggers:
+  - type: battery_level
+    device_id: ee7cf9964ce029a273174f29a54bf28a
+    entity_id: e2c97d07b78c16580cb42c064b509abc
+    domain: sensor
+    trigger: device
+    below: 20
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 81a2c32bbe91e39290fbcacf52ccd4a9
+    entity_id: b2cff15df8018b8b51edd20e2281d662
+    domain: switch
+  mode: single
+- id: '1732225348766'
+  alias: køkken - sluk oplder til køkken tablet
+  description: Sluk oplader til køkken tablet når batt er 80%
+  triggers:
+  - type: battery_level
+    device_id: ee7cf9964ce029a273174f29a54bf28a
+    entity_id: e2c97d07b78c16580cb42c064b509abc
+    domain: sensor
+    trigger: device
+    above: 80
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 81a2c32bbe91e39290fbcacf52ccd4a9
+    entity_id: b2cff15df8018b8b51edd20e2281d662
+    domain: switch
+  mode: single
