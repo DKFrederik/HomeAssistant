@@ -720,7 +720,7 @@
     path: lsismeiro/ikea_e1524_e1810.yaml
     input:
       integration: ZHA
-      controller_device: 01d00ded65b5f8691e9caa2ff6c4755d
+      controller_device: a2ed98a88577d6bc247ad3ccb0b19119
       helper_last_controller_event: input_text.stuesofa_helper_last_controller_event
       action_button_up_long:
       - device_id: 34b5b982e0f996b027cf180b27228d04
