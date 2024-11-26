@@ -2,7 +2,7 @@
   {
     "name": "Mælk",
     "id": "4edecbb325034b4a823474ec7ac6815c",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Pålæg",
@@ -27,7 +27,7 @@
   {
     "name": "Kaffe - Hele bønner",
     "id": "bd3ce5a4593845cb8443b3821a0d4826",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Noget til aftensmad",
@@ -117,7 +117,7 @@
   {
     "name": "Sukker",
     "id": "3a4ba13e92db465396eba313da5a12d8",
-    "complete": true
+    "complete": false
   },
   {
     "name": "creme fraiche 1,5 dl ",
@@ -207,7 +207,7 @@
   {
     "name": "Mel",
     "id": "adfb312cec484f0989d7f045e7e8b7de",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Ris",
@@ -332,6 +332,16 @@
   {
     "name": "knapcelle batterier 2032 (MANGE!!)",
     "id": "9d20d48760b2494ea4bd65b37da4a43b",
+    "complete": true
+  },
+  {
+    "name": "Mellemlægspapir",
+    "id": "fe455ba967014cd1b8310a064ac5946c",
+    "complete": false
+  },
+  {
+    "name": "Grød ris ",
+    "id": "a09e1629165f4552858f804c257b0fe8",
     "complete": false
   }
 ]
