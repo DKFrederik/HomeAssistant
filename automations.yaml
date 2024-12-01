@@ -1,32 +1,32 @@
 - id: '1697148780977'
   alias: Stue åben lille vindue gardin
   description: ''
-  trigger:
+  triggers:
   - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: open
-  condition: []
-  action:
-  - service: cover.open_cover
-    data: {}
+    trigger: device
+  conditions: []
+  actions:
+  - data: {}
+    action: cover.open_cover
     target:
       device_id: e7a3970603bbf5f1e64e13b435e134ef
   mode: single
 - id: '1697148849703'
   alias: stue luk lille vindue gardin
   description: ''
-  trigger:
+  triggers:
   - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: close
-  condition: []
-  action:
-  - service: cover.close_cover
-    data: {}
+    trigger: device
+  conditions: []
+  actions:
+  - data: {}
+    action: cover.close_cover
     target:
       device_id: e7a3970603bbf5f1e64e13b435e134ef
   mode: single
