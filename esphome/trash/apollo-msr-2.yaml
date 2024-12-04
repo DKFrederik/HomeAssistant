@@ -1,0 +1,32 @@
+esphome:
+  name: apollo-msr-2
+  friendly_name: Apollo MSR-2
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "ipk8qEtwWqkHIKOOtqQQjUKJDAuGlyDp7oVW+lYyah4="
+
+ota:
+  - platform: esphome
+    password: "9afb121d3621f669a8085085cf946d31"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Apollo-Msr-2 Fallback Hotspot"
+    password: "9EOMESqqEtBf"
+
+captive_portal:
+    
