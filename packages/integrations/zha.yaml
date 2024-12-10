@@ -2,7 +2,9 @@ zha:
   zigpy_config:
     ota:
       otau_directory: /config/zigpy_ota
-      ikea_provider: true                           # Auto update Ikea devices
-      ledvance_provider: true                       # Auto update Ledvance devices
-      thirdreality_provider: true                   # Auto update thirdality devices
+      ikea_provider: true                           # Auto update IKEA (Trådfri/Tradfri) devices
+      ledvance_provider: true                       # Auto update LEDVANCE/OSRAM devices
       sonoff_provider: true                         # Auto update sonoff devices
+      thirdreality_provider: true                   # Auto update ThirdReality (3reality) devices
+      inovelli_provider: true                       # Auto update Inovelli devices
+      salus_provider: true                          # Auto update SALUS/Computime devices
