@@ -74,7 +74,7 @@ esp32_camera:
   vsync_pin: 27
   href_pin: 25
   pixel_clock_pin: 19
-  resolution: 640x480 # Can be higher, I think, but this has a pretty good framerate
+  resolution: 640X480 # Can be higher, I think, but this has a pretty good framerate
   jpeg_quality: 10
   vertical_flip: true
   horizontal_mirror: false

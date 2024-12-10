@@ -5,3 +5,4 @@ zha:
       ikea_provider: true
       ledvance_provider: true
       thirdreality_provider: true
+      sonoff_provider: true                        # Auto update sonoff devices
