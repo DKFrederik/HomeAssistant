@@ -5,6 +5,6 @@ zha:
       ikea_provider: true                           # Auto update IKEA (Trådfri/Tradfri) devices
       ledvance_provider: true                       # Auto update LEDVANCE/OSRAM devices
       sonoff_provider: true                         # Auto update sonoff devices
-      thirdreality_provider: true                   # Auto update ThirdReality (3reality) devices
-      inovelli_provider: true                       # Auto update Inovelli devices
-      salus_provider: true                          # Auto update SALUS/Computime devices
+      thirdreality_provider: false                   # Auto update ThirdReality (3reality) devices
+      inovelli_provider: false                       # Auto update Inovelli devices
+      salus_provider: false                          # Auto update SALUS/Computime devices
