@@ -117,7 +117,7 @@
   {
     "name": "Sukker",
     "id": "3a4ba13e92db465396eba313da5a12d8",
-    "complete": false
+    "complete": true
   },
   {
     "name": "creme fraiche 1,5 dl ",
@@ -207,7 +207,7 @@
   {
     "name": "Mel",
     "id": "adfb312cec484f0989d7f045e7e8b7de",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Ris",
@@ -352,6 +352,6 @@
   {
     "name": "opvasketabs ",
     "id": "0661ddeac18840bf8b86360f544c727c",
-    "complete": false
+    "complete": true
   }
 ]
