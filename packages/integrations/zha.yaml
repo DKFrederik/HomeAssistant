@@ -2,7 +2,11 @@ zha:
   zigpy_config:
     ota:
       otau_directory: /config/zigpy_ota
+<<<<<<< HEAD
       extra_providers: [{'type': 'ikea'},{'type': 'ledvance_provider'},{'type': 'sonoff_provider'}]
+=======
+      extra_providers: [{'type': 'ikea'},{'type': 'sonoff_provider'}]
+>>>>>>> 7621ea66777497cbd8f69dd3fe02dc243aed0c92
       #ikea_provider: true                           # Auto update IKEA (Trådfri/Tradfri) devices
       #ledvance_provider: true                       # Auto update LEDVANCE/OSRAM devices
       #sonoff_provider: true                         # Auto update sonoff devices

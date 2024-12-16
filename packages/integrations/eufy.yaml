@@ -1,9 +1,0 @@
-# eufy:
-#   username: !secret eufy_email
-#   password: !secret eufy_password
-
-# devices:
-# - address: 192.168.4.100
-#   access_token: m132-3FwRrC_11HrPCUkQw
-#   type: T1012
-#   name: Kamera Stue

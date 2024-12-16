@@ -1414,47 +1414,37 @@
     entity_id: b2cff15df8018b8b51edd20e2281d662
     domain: switch
   mode: single
-- id: '1733804883813'
-  alias: Stuesofa tænd lys efter solnedgang når pressent er aktiv
+- id: '1734300247349'
+  alias: Stuen - Sluk lille lampe når stuesofa slukker
   description: ''
   triggers:
-  - type: occupied
-    device_id: b6f31aec849f1b55464482669e0a8d6f
-    entity_id: 88f3744654a7d4c6eba4fbfc473a703b
-    domain: binary_sensor
-    trigger: device
-  conditions:
-  - condition: sun
-    before: sunrise
-    after: sunset
-  actions:
-  - type: turn_on
+  - type: turned_off
     device_id: 34b5b982e0f996b027cf180b27228d04
     entity_id: 00c278c7e2637066184e694885458262
     domain: light
-  mode: single
-- id: '1733805049122'
-  alias: stuesofa sluk lys hvis ingen pressent er aktiv i 30 minutter
-  description: ''
-  triggers:
-  - type: not_occupied
-    device_id: b6f31aec849f1b55464482669e0a8d6f
-    entity_id: 88f3744654a7d4c6eba4fbfc473a703b
-    domain: binary_sensor
     trigger: device
-    for:
-      hours: 0
-      minutes: 3
-      seconds: 0
-  conditions:
-  - condition: sun
-    before: sunrise
-    after: sunset
+  conditions: []
   actions:
   - type: turn_off
+    device_id: 97fa7024552e0b30df6473be1129dadd
+    entity_id: 62a0859166b131d5a113460522ec7cf4
+    domain: switch
+  mode: single
+- id: '1734300289457'
+  alias: Stuen - Tænd lille lampe når stuesofa tænder
+  description: ''
+  triggers:
+  - type: turned_on
     device_id: 34b5b982e0f996b027cf180b27228d04
     entity_id: 00c278c7e2637066184e694885458262
     domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 97fa7024552e0b30df6473be1129dadd
+    entity_id: 62a0859166b131d5a113460522ec7cf4
+    domain: switch
   mode: single
 - id: '1734222859007'
   alias: 'Stue - Tænd for lille lampe ved tv når loft lys "stuesofa" tænder '
