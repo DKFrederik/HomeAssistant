@@ -4,9 +4,9 @@
       - trigger: event
         event_type: deconz_event
         event_data:
-          id: remote_control_1
+          id: tradfri_remote_test
           event: 2002
     actions:
       - action: light.toggle
         target:
-          entity_id: light.lamp
+          entity_id: light.baghave
