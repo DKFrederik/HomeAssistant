@@ -502,14 +502,14 @@
 - id: '1722420118953'
   alias: Baghave tænd/sluk
   description: ''
-  trigger:
+  triggers:
   - device_id: b5bd40ebf3e250463f5231af1a3e7aec
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: dim_up
-  condition: []
-  action:
+    trigger: device
+  conditions: []
+  actions:
   - type: toggle
     device_id: b15e53728be37e4ae307509b4bbed905
     entity_id: a269c14988dc21806f5ec4064c5eb9b4

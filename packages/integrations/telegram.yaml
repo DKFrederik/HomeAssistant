@@ -1,6 +1,0 @@
-# # Example configuration.yaml entry for the Telegram Bot
-# telegram_bot:
-#   - platform: polling
-#     api_key: 6521282748:AAGrDsMKD8laJDsUxhebIx22dXYzzOyhmB4
-#     allowed_chat_ids:
-#       - 6866411143 # example: 123456789 for the chat_id of a user
