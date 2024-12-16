@@ -1,0 +1,12 @@
+- alias: "'Toggle baghave from remote test'"
+    initial_state: "on"
+    triggers:
+      - trigger: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 2002
+    actions:
+      - action: light.toggle
+        target:
+          entity_id: light.lamp
