@@ -3,7 +3,7 @@
   description: ''
   triggers:
   - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
-    domain: zha
+    domain: deconz
     type: remote_button_short_press
     subtype: open
     trigger: device
@@ -19,7 +19,7 @@
   description: ''
   triggers:
   - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
-    domain: zha
+    domain: deconz
     type: remote_button_short_press
     subtype: close
     trigger: device
@@ -386,39 +386,39 @@
 - id: '1721779087759'
   alias: Stue stor terrassedør åbnet TTS
   description: resume playing after TTS
-  trigger:
+  triggers:
   - type: opened
-    platform: device
     device_id: 3b71e11b51fa44389b96f86d03f07692
-    entity_id: 5a8a744c3d661405bf6429fbf3f63423
+    entity_id: c09dcd2007eb746a94b12f397f155f5a
     domain: binary_sensor
-  condition: []
-  action:
-  - service: tts.cloud_say
-    metadata: {}
+    trigger: device
+  conditions: []
+  actions:
+  - metadata: {}
     data:
       entity_id: media_player.aben_lukke
       message: Terrassedøren i stuen er blevet åbnet
       language: da-DK
+    action: tts.cloud_say
   mode: single
 - id: '1721779415086'
   alias: 'Bryggers døren er blevet åbnet '
   description: resume playing after TTS
-  trigger:
+  triggers:
   - type: opened
-    platform: device
     device_id: fbdccd24e03ffc66c22b8fe9767c9889
-    entity_id: 31ca6e95c3ad299774c91655050236d9
+    entity_id: cdaa7e29c83160b5a3848c45f6147a08
     domain: binary_sensor
-  condition: []
-  action:
-  - service: tts.cloud_say
-    metadata: {}
+    trigger: device
+  conditions: []
+  actions:
+  - metadata: {}
     data:
       cache: true
       entity_id: media_player.aben_lukke
       message: Bryggersdøren er blevet åbnet
       language: da-DK
+    action: tts.cloud_say
   mode: single
 - id: '1722303039761'
   alias: Frederik Husk at købe
@@ -504,7 +504,7 @@
   description: ''
   triggers:
   - device_id: b5bd40ebf3e250463f5231af1a3e7aec
-    domain: zha
+    domain: deconz
     type: remote_button_short_press
     subtype: dim_up
     trigger: device
@@ -514,378 +514,6 @@
     device_id: b15e53728be37e4ae307509b4bbed905
     entity_id: a269c14988dc21806f5ec4064c5eb9b4
     domain: light
-  mode: single
-- id: '1722468456632'
-  alias: Soveværelse Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 7aee29e82f52408bc57e32a69292df4c
-      action_button_center_short:
-      - type: toggle
-        device_id: 31319864a0d7fe6fcd7944b41ec9b1a8
-        entity_id: 4c45d66da1f1d0edc39a53d71674b280
-        domain: light
-      helper_last_controller_event: input_text.sovevaerelse_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 31319864a0d7fe6fcd7944b41ec9b1a8
-        domain: light
-        entity_id: 4c45d66da1f1d0edc39a53d71674b280
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 31319864a0d7fe6fcd7944b41ec9b1a8
-        domain: light
-        entity_id: 4c45d66da1f1d0edc39a53d71674b280
-        type: brightness_decrease
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722470682098'
-  alias: Køkken - remote 2 - lys 2 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: fd0103054a3e85561781246ad00ec3c9
-      helper_last_controller_event: input_text.kokken_2_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        domain: light
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        domain: light
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722470852212'
-  alias: Køkken - remote 2 - lys 1 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: fd0103054a3e85561781246ad00ec3c9
-      helper_last_controller_event: input_text.kokken_2_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 76b40770d47c5015e647968c4e83261c
-        domain: light
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 76b40770d47c5015e647968c4e83261c
-        domain: light
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 76b40770d47c5015e647968c4e83261c
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722471199049'
-  alias: Køkken - remote 1 - lys 1 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 20f1e084cd2f3116358f1f5e6a80785c
-      helper_last_controller_event: input_text.kokken_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 76b40770d47c5015e647968c4e83261c
-        domain: light
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 76b40770d47c5015e647968c4e83261c
-        domain: light
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 76b40770d47c5015e647968c4e83261c
-        entity_id: 6f22dba83e46fbe8099290c252bb809b
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722471336435'
-  alias: Køkken - remote 1 - lys 2 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 20f1e084cd2f3116358f1f5e6a80785c
-      helper_last_controller_event: input_text.kokken_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        domain: light
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        domain: light
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 96c73bbfdd238662340b0a5f3ba9f5fc
-        entity_id: 19be9a61c7f36ec617f0ab6a4700e73b
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722471914857'
-  alias: StueSofa Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: a2ed98a88577d6bc247ad3ccb0b19119
-      helper_last_controller_event: input_text.stuesofa_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 34b5b982e0f996b027cf180b27228d04
-        domain: light
-        entity_id: 00c278c7e2637066184e694885458262
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 34b5b982e0f996b027cf180b27228d04
-        domain: light
-        entity_id: 00c278c7e2637066184e694885458262
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 34b5b982e0f996b027cf180b27228d04
-        entity_id: 00c278c7e2637066184e694885458262
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722511798936'
-  alias: Legestue - remote 2 - lys 2 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      controller_device: fc46a19b29042dd1bcb3cb29ae0d0caf
-      helper_last_controller_event: input_text.legestue_2_helper_last_controller_event
-      action_button_up_long:
-      - type: turn_off
-        device_id: 5b9062b45d8009288537120f86c9c9f6
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        domain: light
-      action_button_down_long:
-      - device_id: 5b9062b45d8009288537120f86c9c9f6
-        domain: light
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 5b9062b45d8009288537120f86c9c9f6
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-      integration: ZHA
-- id: '1722511920721'
-  alias: Legestue - remote 2 - lys 1 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      controller_device: fc46a19b29042dd1bcb3cb29ae0d0caf
-      helper_last_controller_event: input_text.legestue_2_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 471ba80cc77faefb735ccd494007a8ae
-        domain: light
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 471ba80cc77faefb735ccd494007a8ae
-        domain: light
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 471ba80cc77faefb735ccd494007a8ae
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-      integration: ZHA
-- id: '1722512196609'
-  alias: Legestue - remote 1 - lys 1 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      controller_device: fa720f779f7b72ba62b8796016f32c87
-      helper_last_controller_event: input_text.legestue_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 471ba80cc77faefb735ccd494007a8ae
-        domain: light
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 471ba80cc77faefb735ccd494007a8ae
-        domain: light
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 471ba80cc77faefb735ccd494007a8ae
-        entity_id: 0a35a683162d89a6294b38aceb91397e
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-      integration: ZHA
-- id: '1722512312176'
-  alias: Legestue - remote 1 - lys 2 - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: fa720f779f7b72ba62b8796016f32c87
-      helper_last_controller_event: input_text.legestue_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: 5b9062b45d8009288537120f86c9c9f6
-        domain: light
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: 5b9062b45d8009288537120f86c9c9f6
-        domain: light
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: 5b9062b45d8009288537120f86c9c9f6
-        entity_id: 4bbff11a75a5702f09a70738f350becf
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722513418706'
-  alias: Tristan Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 6181ea59024008c0e909a47ee2a31612
-      helper_last_controller_event: input_text.tristan_1_helper_last_controller_event
-      action_button_up_long:
-      - device_id: cd3d4b0f18102995a9a0563274c8a2c7
-        domain: light
-        entity_id: 778260802b9bbac76fee5d947a7d518f
-        type: brightness_increase
-      action_button_down_long:
-      - device_id: cd3d4b0f18102995a9a0563274c8a2c7
-        domain: light
-        entity_id: 778260802b9bbac76fee5d947a7d518f
-        type: brightness_decrease
-      action_button_center_short:
-      - type: toggle
-        device_id: cd3d4b0f18102995a9a0563274c8a2c7
-        entity_id: 778260802b9bbac76fee5d947a7d518f
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1722518115521'
-  alias: Victoria Tænd - Over skrivebord
-  description: ''
-  trigger:
-  - device_id: 159a52fd8b49f80683be1551d3df768c
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - type: turn_on
-    device_id: 0ea613f5524d7e14d5bd013273986156
-    entity_id: ecb8cf3afe187265afe8392bf1103a86
-    domain: light
-  mode: single
-- id: '1722518166393'
-  alias: Victoria sluk - Over skrivebord
-  description: ''
-  trigger:
-  - device_id: 159a52fd8b49f80683be1551d3df768c
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
-  condition: []
-  action:
-  - type: turn_off
-    device_id: 0ea613f5524d7e14d5bd013273986156
-    entity_id: ecb8cf3afe187265afe8392bf1103a86
-    domain: light
-  mode: single
-- id: '1722518215049'
-  alias: Victoria skru ned - Over skrivebord
-  description: ''
-  trigger:
-  - device_id: 159a52fd8b49f80683be1551d3df768c
-    domain: zha
-    platform: device
-    type: remote_button_long_press
-    subtype: dim_down
-  condition: []
-  action:
-  - device_id: 0ea613f5524d7e14d5bd013273986156
-    domain: light
-    entity_id: ecb8cf3afe187265afe8392bf1103a86
-    type: brightness_decrease
-  mode: single
-- id: '1722518265898'
-  alias: Victoria skru op - Over skrivebord
-  description: ''
-  trigger:
-  - device_id: 159a52fd8b49f80683be1551d3df768c
-    domain: zha
-    platform: device
-    type: remote_button_long_press
-    subtype: dim_up
-  condition: []
-  action:
-  - device_id: 0ea613f5524d7e14d5bd013273986156
-    domain: light
-    entity_id: ecb8cf3afe187265afe8392bf1103a86
-    type: brightness_increase
   mode: single
 - id: '1722632708446'
   alias: Sophie - Over Skrivebord - Tænd/sluk/skru op og ned
@@ -905,270 +533,6 @@
       remote: cffb04466beb286dbf83a2d889fb92a3
       light:
         device_id: dcd8efa4c4f2b0b26b25634fa2d773f0
-- id: '1722963022070'
-  alias: Soveværelse - Vindue åbner
-  description: ''
-  trigger:
-  - type: opened
-    platform: device
-    device_id: 3f4d7cbbc42d8bd60f93475391489198
-    entity_id: dfbb9b68e1f17fe03587955fbe1f3c3a
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: climate.turn_off
-    metadata: {}
-    data: {}
-    target:
-      device_id: 547da8a34695f82651d4b68935710d1d
-  mode: single
-- id: '1722963069788'
-  alias: Soveværelse - lukker
-  description: ''
-  trigger:
-  - type: not_opened
-    platform: device
-    device_id: 3f4d7cbbc42d8bd60f93475391489198
-    entity_id: dfbb9b68e1f17fe03587955fbe1f3c3a
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: climate.set_hvac_mode
-    metadata: {}
-    data:
-      hvac_mode: auto
-    target:
-      device_id: 547da8a34695f82651d4b68935710d1d
-  mode: single
-- id: '1722963750691'
-  alias: Kontor - Vindue lukket
-  description: ''
-  trigger:
-  - type: not_opened
-    platform: device
-    device_id: b7047e6b640c3f9100d4430613a93aa1
-    entity_id: d1aacc67fddb6dc67ca57db7c74773e8
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: climate.set_hvac_mode
-    metadata: {}
-    data:
-      hvac_mode: auto
-    target:
-      device_id: 70031b73bebd812285d08297d6d4cd38
-  mode: single
-- id: '1722963804083'
-  alias: Kontor - Vindue åbnet
-  description: ''
-  trigger:
-  - type: opened
-    platform: device
-    device_id: b7047e6b640c3f9100d4430613a93aa1
-    entity_id: d1aacc67fddb6dc67ca57db7c74773e8
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: climate.turn_off
-    metadata: {}
-    data: {}
-    target:
-      device_id: 70031b73bebd812285d08297d6d4cd38
-  mode: single
-- id: '1723295315638'
-  alias: Victoria tænd - Over seng
-  description: ''
-  trigger:
-  - device_id: c17035e7dcd0c097910500a8d84319ef
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - type: turn_on
-    device_id: 3c203eff4a000ea5ce899b0020119cd4
-    entity_id: 2cfc884429993926bf3ce7da8d282819
-    domain: light
-  mode: single
-- id: '1723295340364'
-  alias: Victoria sluk - Over seng
-  description: ''
-  trigger:
-  - device_id: c17035e7dcd0c097910500a8d84319ef
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
-  condition: []
-  action:
-  - type: turn_off
-    device_id: 3c203eff4a000ea5ce899b0020119cd4
-    entity_id: 2cfc884429993926bf3ce7da8d282819
-    domain: light
-  mode: single
-- id: '1723295364069'
-  alias: Victoria skru ned - Over seng
-  description: ''
-  trigger:
-  - device_id: c17035e7dcd0c097910500a8d84319ef
-    domain: zha
-    platform: device
-    type: remote_button_long_press
-    subtype: dim_down
-  condition: []
-  action:
-  - device_id: 3c203eff4a000ea5ce899b0020119cd4
-    domain: light
-    entity_id: 2cfc884429993926bf3ce7da8d282819
-    type: brightness_decrease
-  mode: single
-- id: '1723295388684'
-  alias: Victoria skru op - Over seng
-  description: ''
-  trigger:
-  - device_id: c17035e7dcd0c097910500a8d84319ef
-    domain: zha
-    platform: device
-    type: remote_button_long_press
-    subtype: dim_up
-  condition: []
-  action:
-  - device_id: 3c203eff4a000ea5ce899b0020119cd4
-    domain: light
-    entity_id: 2cfc884429993926bf3ce7da8d282819
-    type: brightness_increase
-  mode: single
-- id: '1723310541459'
-  alias: 'Kontor remote test - lys 1 - Tænd/sluk/skru op og ned '
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: b5bd40ebf3e250463f5231af1a3e7aec
-      helper_last_controller_event: input_text.kontor_helper_last_controller_event
-      action_button_up_short: []
-      action_button_up_long: []
-      action_button_right_short:
-      - type: turn_off
-        device_id: e4a92af0b7081af113db22a97ef51b2a
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        domain: light
-      action_button_right_long:
-      - device_id: e4a92af0b7081af113db22a97ef51b2a
-        domain: light
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        type: brightness_decrease
-      action_button_left_long:
-      - device_id: e4a92af0b7081af113db22a97ef51b2a
-        domain: light
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        type: brightness_increase
-      action_button_left_short:
-      - type: turn_on
-        device_id: e4a92af0b7081af113db22a97ef51b2a
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1723311087438'
-  alias: Kontor - remote test - lys 1 - Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: b5bd40ebf3e250463f5231af1a3e7aec
-      helper_last_controller_event: input_text.kontor_2_helper_last_controller_event
-      action_button_up_short: []
-      action_button_up_long: []
-      action_button_right_short:
-      - type: turn_off
-        device_id: 7db1106a203cea86b069a7b31c25cd2c
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        domain: light
-      action_button_right_long:
-      - device_id: 7db1106a203cea86b069a7b31c25cd2c
-        domain: light
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        type: brightness_decrease
-      action_button_left_long:
-      - device_id: 7db1106a203cea86b069a7b31c25cd2c
-        domain: light
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        type: brightness_increase
-      action_button_left_short:
-      - type: turn_on
-        device_id: 7db1106a203cea86b069a7b31c25cd2c
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        domain: light
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1723311671752'
-  alias: Kontor - Remote ved dør - lys 1 - Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 8ac4e35ede5ea5849bfd1ca01079445f
-      helper_last_controller_event: input_text.kontor_helper_last_controller_event
-      action_button_up_short: []
-      action_button_up_long:
-      - device_id: e4a92af0b7081af113db22a97ef51b2a
-        domain: light
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        type: brightness_increase
-      action_button_down_short: []
-      action_button_center_short:
-      - type: toggle
-        device_id: e4a92af0b7081af113db22a97ef51b2a
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        domain: light
-      action_button_down_long:
-      - device_id: e4a92af0b7081af113db22a97ef51b2a
-        domain: light
-        entity_id: 79d6732eb253d950752a050bc2f88bce
-        type: brightness_decrease
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
-- id: '1723311764108'
-  alias: Kontor - Remote ved dør - lys 2 - Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: lsismeiro/ikea_e1524_e1810.yaml
-    input:
-      integration: ZHA
-      controller_device: 8ac4e35ede5ea5849bfd1ca01079445f
-      helper_last_controller_event: input_text.kontor_2_helper_last_controller_event
-      action_button_up_short: []
-      action_button_up_long:
-      - device_id: 7db1106a203cea86b069a7b31c25cd2c
-        domain: light
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        type: brightness_increase
-      action_button_down_short: []
-      action_button_center_short:
-      - type: toggle
-        device_id: 7db1106a203cea86b069a7b31c25cd2c
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        domain: light
-      action_button_down_long:
-      - device_id: 7db1106a203cea86b069a7b31c25cd2c
-        domain: light
-        entity_id: d3feb2bf5a796de4cd70e3e04afc977e
-        type: brightness_decrease
-      button_left_long_loop: true
-      button_right_long_loop: true
-      button_up_long_loop: true
-      button_down_long_loop: true
 - id: '1727648335717'
   alias: Legestue - sluk TV efter kl 2200
   description: ''
@@ -1197,79 +561,13 @@
     target:
       device_id: c9e17d5fef2b455565f01cf5cb1c3a72
   mode: single
-- id: '1732225226668'
-  alias: køkken - Tænd oplad køkken tablet
-  description: Oplad når batt er under 20% og stop ved 80%
-  triggers:
-  - type: battery_level
-    device_id: ee7cf9964ce029a273174f29a54bf28a
-    entity_id: e2c97d07b78c16580cb42c064b509abc
-    domain: sensor
-    trigger: device
-    below: 20
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 81a2c32bbe91e39290fbcacf52ccd4a9
-    entity_id: b2cff15df8018b8b51edd20e2281d662
-    domain: switch
-  mode: single
-- id: '1732225348766'
-  alias: køkken - sluk oplder til køkken tablet
-  description: Sluk oplader til køkken tablet når batt er 80%
-  triggers:
-  - type: battery_level
-    device_id: ee7cf9964ce029a273174f29a54bf28a
-    entity_id: e2c97d07b78c16580cb42c064b509abc
-    domain: sensor
-    trigger: device
-    above: 80
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 81a2c32bbe91e39290fbcacf52ccd4a9
-    entity_id: b2cff15df8018b8b51edd20e2281d662
-    domain: switch
-  mode: single
-- id: '1734300247349'
-  alias: Stuen - Sluk lille lampe når stuesofa slukker
-  description: ''
-  triggers:
-  - type: turned_off
-    device_id: 34b5b982e0f996b027cf180b27228d04
-    entity_id: 00c278c7e2637066184e694885458262
-    domain: light
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 97fa7024552e0b30df6473be1129dadd
-    entity_id: 62a0859166b131d5a113460522ec7cf4
-    domain: switch
-  mode: single
-- id: '1734300289457'
-  alias: Stuen - Tænd lille lampe når stuesofa tænder
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: 34b5b982e0f996b027cf180b27228d04
-    entity_id: 00c278c7e2637066184e694885458262
-    domain: light
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 97fa7024552e0b30df6473be1129dadd
-    entity_id: 62a0859166b131d5a113460522ec7cf4
-    domain: switch
-  mode: single
 - id: '1734222859007'
   alias: 'Stue - Tænd for lille lampe ved tv når loft lys "stuesofa" tænder '
   description: ''
   triggers:
   - type: turned_on
-    device_id: 34b5b982e0f996b027cf180b27228d04
-    entity_id: 00c278c7e2637066184e694885458262
+    device_id: 04bb7f2a1f6a2eae765a35c2019b9de3
+    entity_id: 8a374da779d4b3ce0bb66a5cfae5c00d
     domain: light
     trigger: device
   conditions: []
@@ -1284,8 +582,8 @@
   description: ''
   triggers:
   - type: turned_off
-    device_id: 34b5b982e0f996b027cf180b27228d04
-    entity_id: 00c278c7e2637066184e694885458262
+    device_id: 04bb7f2a1f6a2eae765a35c2019b9de3
+    entity_id: 8a374da779d4b3ce0bb66a5cfae5c00d
     domain: light
     trigger: device
   conditions: []
@@ -1294,4 +592,40 @@
     device_id: 97fa7024552e0b30df6473be1129dadd
     entity_id: 62a0859166b131d5a113460522ec7cf4
     domain: switch
+  mode: single
+- id: '1734341373895'
+  alias: Badeværelse tænd ved bevægelse
+  description: ''
+  triggers:
+  - type: motion
+    device_id: d0b3dbb82dac60d2d9a67c99386aab18
+    entity_id: 91a5e1eb590bb914befdbd6e74252be3
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 7ec13f88de45d69f4b66b5aed4d9438e
+    entity_id: ce1e259313c5ac2ba1e60d11e7f230d4
+    domain: light
+  mode: single
+- id: '1734341436311'
+  alias: Badeværelse sluk ved ingen bevægelse
+  description: ''
+  triggers:
+  - type: no_motion
+    device_id: d0b3dbb82dac60d2d9a67c99386aab18
+    entity_id: 91a5e1eb590bb914befdbd6e74252be3
+    domain: binary_sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 7ec13f88de45d69f4b66b5aed4d9438e
+    entity_id: ce1e259313c5ac2ba1e60d11e7f230d4
+    domain: light
   mode: single

@@ -1,4 +1,4 @@
-alias: "'Toggle køkken spisebord from remote'"
+alias: "'Køkken spisebord toggle from remote'"
 triggers:
   - trigger: event
     event_type: deconz_event
