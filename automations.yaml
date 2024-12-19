@@ -629,3 +629,67 @@
     target:
       device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
+- id: '1734597133659'
+  alias: Victoria - Sluk lys over skrivebord
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: ee80491d05cdc82c945f934c9d10959c
+    type: action
+    subtype: 'on'
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 06be6bef03a012d7624afd861b571b1c
+    entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+    domain: light
+  mode: single
+- id: '1734597244090'
+  alias: Victoria - Tænd lys over skrivebord
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: ee80491d05cdc82c945f934c9d10959c
+    type: action
+    subtype: 'on'
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 06be6bef03a012d7624afd861b571b1c
+    entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+    domain: light
+  mode: single
+- id: '1734598816455'
+  alias: Victoria - Sluk lys over seng
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: dada718125fa62aec93f4ab10de045ea
+    type: action
+    subtype: 'off'
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+    entity_id: 330393822a88b56289a8ee40681dbe15
+    domain: light
+  mode: single
+- id: '1734598856287'
+  alias: Victoria - Tænd lys over seng
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: dada718125fa62aec93f4ab10de045ea
+    type: action
+    subtype: 'on'
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+    entity_id: 330393822a88b56289a8ee40681dbe15
+    domain: light
+  mode: single

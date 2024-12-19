@@ -44,4 +44,22 @@ device_options:
   legacy: false
 devices:
   '0x84ba20fffeca7c33':
-    friendly_name: Kontor_Vindue
+    friendly_name: Kontor_Sensor_Vindue
+  '0x842e14fffe757602':
+    friendly_name: Stue_Repeater_ved_stor_dør
+  '0x588e81fffeafee9e':
+    friendly_name: Legestue_Repeater_legestue
+  '0x6c5cb1fffe609906':
+    friendly_name: Victoria_Light_over_skrivebord
+  '0x6c5cb1fffe5223d6':
+    friendly_name: Victoria_Light_over_seng
+  '0xa49e69fffe203a70':
+    friendly_name: Victoria_remote_over_skrivebord
+  '0x3425b4fffe9a6087':
+    friendly_name: Victoria_remote_over_seng
+groups:
+  '1':
+    friendly_name: Victoria_lys
+    devices:
+      - 0x6c5cb1fffe609906/1
+      - 0x6c5cb1fffe5223d6/1
