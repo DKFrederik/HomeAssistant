@@ -1,0 +1,13 @@
+[2024-12-19 07:01:32] info: 	z2m: Logging to console, file (filename: log.log)
+[2024-12-19 07:01:32] info: 	z2m: Starting Zigbee2MQTT version 1.42.0 (commit #unknown)
+[2024-12-19 07:01:32] info: 	z2m: Starting zigbee-herdsman (2.1.9)
+[2024-12-19 07:01:32] info: 	zh:adapter: Starting mdns discovery for coordinator: slzb-06
+[2024-12-19 07:01:34] error: 	z2m: Error while starting zigbee-herdsman
+[2024-12-19 07:01:34] error: 	z2m: Failed to start zigbee
+[2024-12-19 07:01:34] error: 	z2m: Check https://www.zigbee2mqtt.io/guide/installation/20_zigbee2mqtt-fails-to-start.html for possible solutions
+[2024-12-19 07:01:34] error: 	z2m: Exiting...
+[2024-12-19 07:01:34] error: 	z2m: Error: Coordinator [slzb-06] not found after timeout of 2000ms!
+    at /app/node_modules/zigbee-herdsman/src/adapter/adapter.ts:166:32
+    at Timeout._onTimeout (/app/node_modules/bonjour-service/src/index.ts:67:26)
+    at listOnTimeout (node:internal/timers:573:17)
+    at processTimers (node:internal/timers:514:7)

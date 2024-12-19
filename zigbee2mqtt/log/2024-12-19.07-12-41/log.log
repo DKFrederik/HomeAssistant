@@ -1,0 +1,10 @@
+[2024-12-19 07:12:41] info: 	z2m: Logging to console, file (filename: log.log)
+[2024-12-19 07:12:41] info: 	z2m: Starting Zigbee2MQTT version 1.42.0 (commit #unknown)
+[2024-12-19 07:12:41] info: 	z2m: Starting zigbee-herdsman (2.1.9)
+[2024-12-19 07:12:41] error: 	zh:zstack:znp: Failed to determine if path is valid: 'Error: ENOENT: no such file or directory, lstat '/app/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0''
+[2024-12-19 07:12:41] info: 	zh:zstack:znp: Opening SerialPort with {"path":"usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0","baudRate":115200,"rtscts":false,"autoOpen":false}
+[2024-12-19 07:12:41] error: 	z2m: Error while starting zigbee-herdsman
+[2024-12-19 07:12:41] error: 	z2m: Failed to start zigbee
+[2024-12-19 07:12:41] error: 	z2m: Check https://www.zigbee2mqtt.io/guide/installation/20_zigbee2mqtt-fails-to-start.html for possible solutions
+[2024-12-19 07:12:41] error: 	z2m: Exiting...
+[2024-12-19 07:12:41] error: 	z2m: Error: Error: No such file or directory, cannot open usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0

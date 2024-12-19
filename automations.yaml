@@ -593,39 +593,39 @@
     entity_id: 62a0859166b131d5a113460522ec7cf4
     domain: switch
   mode: single
-- id: '1734341373895'
-  alias: Badeværelse tænd ved bevægelse
-  description: ''
+- id: '1734593887463'
+  alias: Kontor - vindue åben
+  description: Luk Radiator når vinduet åbnes
   triggers:
-  - type: motion
-    device_id: d0b3dbb82dac60d2d9a67c99386aab18
-    entity_id: 91a5e1eb590bb914befdbd6e74252be3
+  - type: opened
+    device_id: 6685d2781c1b97e3227e8ddb4f0a9387
+    entity_id: 723e8118874603457d5746b52aa633f1
     domain: binary_sensor
     trigger: device
   conditions: []
   actions:
-  - type: turn_on
-    device_id: 7ec13f88de45d69f4b66b5aed4d9438e
-    entity_id: ce1e259313c5ac2ba1e60d11e7f230d4
-    domain: light
+  - action: climate.set_hvac_mode
+    metadata: {}
+    data:
+      hvac_mode: 'off'
+    target:
+      device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
-- id: '1734341436311'
-  alias: Badeværelse sluk ved ingen bevægelse
-  description: ''
+- id: '1734593961335'
+  alias: Kontor - vindue åben
+  description: Sæt Radiator til auto når vinduet Lukkes
   triggers:
-  - type: no_motion
-    device_id: d0b3dbb82dac60d2d9a67c99386aab18
-    entity_id: 91a5e1eb590bb914befdbd6e74252be3
+  - type: not_opened
+    device_id: 6685d2781c1b97e3227e8ddb4f0a9387
+    entity_id: 723e8118874603457d5746b52aa633f1
     domain: binary_sensor
     trigger: device
-    for:
-      hours: 0
-      minutes: 15
-      seconds: 0
   conditions: []
   actions:
-  - type: turn_off
-    device_id: 7ec13f88de45d69f4b66b5aed4d9438e
-    entity_id: ce1e259313c5ac2ba1e60d11e7f230d4
-    domain: light
+  - action: climate.set_hvac_mode
+    metadata: {}
+    data:
+      hvac_mode: auto
+    target:
+      device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
