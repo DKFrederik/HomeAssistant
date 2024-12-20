@@ -14,7 +14,7 @@
         "brightness": 129
     },
     "0x84ba20fffeca7c33": {
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "linkquality": 208
@@ -196,11 +196,11 @@
         "linkquality": 156
     },
     "0x187a3efffe8924e7": {
-        "current": 1.59,
-        "power": 350.41,
+        "current": 1.68,
+        "power": 381.01,
         "voltage": 233,
         "state": "ON",
-        "energy": 4.21,
+        "energy": 4.24,
         "power_on_behavior": "on",
         "linkquality": 152
     },

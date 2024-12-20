@@ -45,3 +45,4 @@ home-assistant_v2_old.db
 home-assistant_v2.*
 *~* 
 zigbee2mqtt/log/*
+zigbee2mqtt/state.json
