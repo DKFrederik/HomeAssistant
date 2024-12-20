@@ -57,9 +57,43 @@ devices:
     friendly_name: Victoria_remote_over_skrivebord
   '0x3425b4fffe9a6087':
     friendly_name: Victoria_remote_over_seng
+  '0x842e14fffe63a757':
+    friendly_name: Sophie_Repeater_sophie
+  '0x842e14fffe6c9453':
+    friendly_name: Victoria_Repeater_victoria
+  '0x84fd27fffe60e528':
+    friendly_name: Stue_Repeater_lille_gardin
+  '0x842e14fffe6c9aa0':
+    friendly_name: Køkken_repeater_køkken
+  '0x5c0272fffe8b7ba4':
+    friendly_name: Kontor_repeater_kontor
+  '0x842e14fffe6cb841':
+    friendly_name: Lillegang_repeater_lillegang
+  '0x84ba20fffec7da2e':
+    friendly_name: Soveværelse_Sensor_Vindue
+  '0x90fd9ffffe898295':
+    friendly_name: Gang_light_gang1
+  '0x90fd9ffffe86c8fb':
+    friendly_name: Gang_light_gang2
+  '0x881a14fffea9f089':
+    friendly_name: Kontor_light_kontor1
+  '0x881a14fffea9f02d':
+    friendly_name: Kontor_light_kontor2
+  '0x90fd9ffffe8ce6e0':
+    friendly_name: Kontor_remote_kontorTest
 groups:
   '1':
     friendly_name: Victoria_lys
     devices:
       - 0x6c5cb1fffe609906/1
       - 0x6c5cb1fffe5223d6/1
+  '2':
+    friendly_name: gang.group
+    devices:
+      - 0x90fd9ffffe898295/1
+      - 0x90fd9ffffe86c8fb/1
+  '3':
+    friendly_name: kontor_group
+    devices:
+      - 0x881a14fffea9f089/1
+      - 0x881a14fffea9f02d/1

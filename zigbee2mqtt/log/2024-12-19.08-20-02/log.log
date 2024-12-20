@@ -842,3 +842,14 @@
 [2024-12-19 10:06:03] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Victoria_lys', payload '{"state":"ON"}'
 [2024-12-19 10:06:03] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Victoria_Light_over_seng', payload '{"color_mode":"xy","color_options":null,"linkquality":112,"power_on_behavior":null,"state":"ON","update":{"installed_version":65554,"latest_version":65554,"state":"idle"},"update_available":false}'
 [2024-12-19 10:12:35] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":true,"linkquality":232,"tamper":false}'
+[2024-12-19 10:22:35] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":true,"linkquality":228,"tamper":false}'
+[2024-12-19 10:32:35] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":true,"linkquality":220,"tamper":false}'
+[2024-12-19 10:36:11] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":false,"linkquality":220,"tamper":false}'
+[2024-12-19 10:42:35] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":false,"linkquality":196,"tamper":false}'
+[2024-12-19 10:52:35] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/Kontor_Sensor_Vindue', payload '{"battery_low":false,"contact":false,"linkquality":180,"tamper":false}'
+[2024-12-19 10:54:23] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"offline"}'
+[2024-12-19 10:54:23] info: 	z2m: Disconnecting from MQTT server
+[2024-12-19 10:54:23] info: 	z2m: Stopping zigbee-herdsman...
+[2024-12-19 10:54:24] info: 	zh:controller: Wrote coordinator backup to '/config/zigbee2mqtt/coordinator_backup.json'
+[2024-12-19 10:54:24] info: 	z2m: Stopped zigbee-herdsman
+[2024-12-19 10:54:24] info: 	z2m: Stopped Zigbee2MQTT

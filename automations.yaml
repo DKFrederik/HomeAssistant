@@ -499,22 +499,6 @@
       message: Husk og købe disse vare
       title: Tryk her
   mode: single
-- id: '1722420118953'
-  alias: Baghave tænd/sluk
-  description: ''
-  triggers:
-  - device_id: b5bd40ebf3e250463f5231af1a3e7aec
-    domain: deconz
-    type: remote_button_short_press
-    subtype: dim_up
-    trigger: device
-  conditions: []
-  actions:
-  - type: toggle
-    device_id: b15e53728be37e4ae307509b4bbed905
-    entity_id: a269c14988dc21806f5ec4064c5eb9b4
-    domain: light
-  mode: single
 - id: '1722632708446'
   alias: Sophie - Over Skrivebord - Tænd/sluk/skru op og ned
   description: ''
@@ -692,4 +676,52 @@
     device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
     entity_id: 330393822a88b56289a8ee40681dbe15
     domain: light
+  mode: single
+- id: '1734680525144'
+  alias: Kontor - Tænd lys
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: arrow_left_click
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: fd90a586a8931bbd1473e8b512253b43
+    entity_id: edcd586a475c35e5ada40fdc6fa6dd7e
+    domain: light
+  mode: single
+- id: '1734680554585'
+  alias: Kontor - Sluk lys
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: arrow_right_click
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: fd90a586a8931bbd1473e8b512253b43
+    entity_id: edcd586a475c35e5ada40fdc6fa6dd7e
+    domain: light
+  mode: single
+- id: '1734680599895'
+  alias: Baghave - Tænd/sluk
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: brightness_up_click
+    trigger: device
+  conditions: []
+  actions:
+  - type: toggle
+    device_id: b15e53728be37e4ae307509b4bbed905
+    entity_id: ed48ca70f647f9eac01ebbefb009c1cd
+    domain: switch
   mode: single
