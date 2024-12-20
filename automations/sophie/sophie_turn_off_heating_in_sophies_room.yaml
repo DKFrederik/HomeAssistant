@@ -1,15 +1,16 @@
-id: 'sophie_turn_off_heating_in_sophies_room'
-alias: 'sophie turn off heating in sophies room '
-description: 'turn off heating in victorias room if window opens '
-trigger:
-- entity_id: 
-    - binary_sensor.sophievindue1_abner
-    - binary_sensor.sophievindue2_abner
-  from: 'off'
-  platform: state
-  to: 'on'
-condition: []
-action:
-- data: {}
-  entity_id: climate.sophies_vaerelse
-  service: climate.turn_off
+# id: 'sophie_turn_off_heating_in_sophies_room'
+# alias: 'sophie turn off heating in sophies room '
+# description: 'turn off heating in victorias room if window opens '
+# trigger:
+# #Husk Vinduer skal tilføjes i gruppen
+# - entity_id:
+#     - binary_sensor.sophie_sensor_sophievindue1_contact
+#     - binary_sensor.sophie_sensor_sophievindue2_contact
+#   from: 'off'
+#   platform: state
+#   to: 'on'
+# condition: []
+# action:
+# - data: {}
+#   entity_id: climate.sophies_vaerelse
+#   service: climate.turn_off

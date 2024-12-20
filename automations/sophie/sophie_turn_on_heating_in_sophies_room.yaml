@@ -1,14 +1,56 @@
-id: 'sophie_turn_on_heating_in_sophies_room'
-alias: sophie turn on heating in sophies room
-description: turn off heating in victorias room when window closes
+# id: 'sophie_turn_on_heating_in_sophies_room'
+# alias: sophie turn on heating in sophies room
+# description: turn off heating in victorias room when window closes
+# trigger:
+# - entity_id: binary_sensor.sophievindue1_abner
+#   from: 'on'
+#   platform: state
+#   to: 'off'
+# condition: []
+# action:
+# - data:
+#     hvac_mode: auto
+#   entity_id: climate.sophies_vaerelse
+#   service: climate.set_hvac_mode
+
+
+id: 'climate_control_for_two_windows_in_Sophies_room'
+alias: sophie turn on heating in sophies room in Sophie's room
+description: Turn off heating when either window is open and turn it back on when both windows are closed
 trigger:
-- entity_id: binary_sensor.sophievindue1_abner
-  from: 'on'
-  platform: state
-  to: 'off'
+  - platform: state
+    entity_id:
+      - binary_sensor.sophie_sensor_sophievindue1_contact
+      - binary_sensor.sophie_sensor_sophievindue2_contact
 condition: []
 action:
-- data:
-    hvac_mode: auto
-  entity_id: climate.sophies_vaerelse
-  service: climate.set_hvac_mode
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: binary_sensor.sophie_sensor_sophievindue1_contact
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sophie_sensor_sophievindue2_contact
+                state: 'on'
+        sequence:
+          - service: climate.turn_off
+            target:
+              entity_id: climate.sophies_vaerelse
+      - conditions:
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: binary_sensor.sophie_sensor_sophievindue1_contact
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.sophie_sensor_sophievindue2_contact
+                state: 'off'
+        sequence:
+          - service: climate.set_hvac_mode
+            target:
+              entity_id: climate.sophies_vaerelse
+            data:
+              hvac_mode: auto
+mode: single

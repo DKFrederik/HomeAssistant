@@ -707,3 +707,59 @@
     entity_id: ed48ca70f647f9eac01ebbefb009c1cd
     domain: switch
   mode: single
+- id: '1734690378274'
+  alias: Legestue - Tænd lys hvis der er nogen i lokalet
+  description: ''
+  triggers:
+  - type: occupied
+    device_id: ba17a19135747d5845be2b562754905b
+    entity_id: 322a2c0112b2f673c85db15150579961
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 5ecf82ff9e7d1da79dbe356104e19255
+    entity_id: 44886775e0d071482e986140b153298b
+    domain: light
+  mode: single
+- id: '1734690419544'
+  alias: Legestue - Sluk lys hvis der ikke er nogen i lokalet
+  description: ''
+  triggers:
+  - type: not_occupied
+    device_id: ba17a19135747d5845be2b562754905b
+    entity_id: 322a2c0112b2f673c85db15150579961
+    domain: binary_sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 5ecf82ff9e7d1da79dbe356104e19255
+    entity_id: 44886775e0d071482e986140b153298b
+    domain: light
+  mode: single
+- id: '1734723395587'
+  alias: Kontor - toggle lys - remote ved dør
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 197235b096292559bf7a47ff677f2008
+    type: action
+    subtype: toggle
+    trigger: device
+  conditions: []
+  actions:
+  - type: toggle
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: toggle
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    domain: light
+  mode: single

@@ -85,6 +85,14 @@ devices:
     friendly_name: Kontor_switch_computer
   '0x90fd9ffffe15ceaf':
     friendly_name: ' Kontor_remote_kontorVedDør'
+  '0x00158d00047dd58a':
+    friendly_name: Stue_sensor_storVindue
+  '0x00158d00045cd936':
+    friendly_name: Sophie_sensor_sophieVindue1
+  '0x00158d00045cf07e':
+    friendly_name: Sophie_sensor_sophieVindue2
+  '0x00158d00047db9c4':
+    friendly_name: Victoria_sensor_victoriaVindue1
 groups:
   '1':
     friendly_name: Victoria_lys
