@@ -499,24 +499,6 @@
       message: Husk og købe disse vare
       title: Tryk her
   mode: single
-- id: '1722632708446'
-  alias: Sophie - Over Skrivebord - Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: poolcactus/zha-ikea-tradfri-on-off-switch-incl-dimmer.yaml
-    input:
-      remote: 6f3a31e6229bef05fc6f54a4be47e0f2
-      light:
-        device_id: e659d2f909a0febbf86d7274a75cac2f
-- id: '1722633011461'
-  alias: Sophie - over seng - Tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: poolcactus/zha-ikea-tradfri-on-off-switch-incl-dimmer.yaml
-    input:
-      remote: cffb04466beb286dbf83a2d889fb92a3
-      light:
-        device_id: dcd8efa4c4f2b0b26b25634fa2d773f0
 - id: '1727648335717'
   alias: Legestue - sluk TV efter kl 2200
   description: ''

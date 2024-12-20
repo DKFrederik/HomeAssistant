@@ -81,6 +81,10 @@ devices:
     friendly_name: Kontor_light_kontor2
   '0x90fd9ffffe8ce6e0':
     friendly_name: Kontor_remote_kontorTest
+  '0x187a3efffe8924e7':
+    friendly_name: Kontor_switch_computer
+  '0x90fd9ffffe15ceaf':
+    friendly_name: ' Kontor_remote_kontorVedDør'
 groups:
   '1':
     friendly_name: Victoria_lys
