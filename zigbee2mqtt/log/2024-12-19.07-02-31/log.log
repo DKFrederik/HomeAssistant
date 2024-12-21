@@ -1,9 +1,0 @@
-[2024-12-19 07:02:31] info: 	z2m: Logging to console, file (filename: log.log)
-[2024-12-19 07:02:31] info: 	z2m: Starting Zigbee2MQTT version 1.42.0 (commit #unknown)
-[2024-12-19 07:02:31] info: 	z2m: Starting zigbee-herdsman (2.1.9)
-[2024-12-19 07:02:31] info: 	zh:zstack:znp: Opening SerialPort with {"path":"/dev/ttyUSB0","baudRate":115200,"rtscts":false,"autoOpen":false}
-[2024-12-19 07:02:31] error: 	z2m: Error while starting zigbee-herdsman
-[2024-12-19 07:02:31] error: 	z2m: Failed to start zigbee
-[2024-12-19 07:02:31] error: 	z2m: Check https://www.zigbee2mqtt.io/guide/installation/20_zigbee2mqtt-fails-to-start.html for possible solutions
-[2024-12-19 07:02:31] error: 	z2m: Exiting...
-[2024-12-19 07:02:31] error: 	z2m: Error: Error: I/O error, cannot open /dev/ttyUSB0
