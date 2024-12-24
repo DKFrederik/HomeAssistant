@@ -1,25 +1,5 @@
 # To be split out in subfolders allready created!!! 
 
-# Livingroom normal
-# - name: Livingroom normal
-#   entities:
-#     light.stuesofa:
-#       state: on
-#       brightness: 255
-#     light.stuespisebord:
-#       state: on
-#       brightness: 255
-
-# Livingroom dim
-# - name: Livingroom dim
-#   entities:
-#     light.stuesofa:
-#       state: on
-#       brightness: 40
-#     light.stuespisebord:
-#       state: on
-#       brightness: 40
-
 # Garage Night
 - name: GarageNat
   entities:
@@ -55,16 +35,6 @@
       state: on
       brightness: 30
 
-# KomodeAften
-# - name: KomodeAften
-#   entities:
-#     light.komode1:
-#       state: on
-#       brightness: 110
-#     light.komode2:
-#       state: on
-#       brightness: 110
-
 # Gang dag
 - name: GangDag
   entities:
@@ -79,23 +49,17 @@
       state: on
       brightness: 30
 
-# Gang sluk
-# - name: GangOff
-#   entities:
-#     light.gang_group:
-#       state: off
-
 # Sovevaerelse dag
 - name: SovevaerelseDag
   entities:
-      light.sovevaerelse_lys:
+      light.sovevaerelse_light_sovevaerelse:
         state: on
         brightness: 255
 
 # Sovevaerelse nat
 - name: SovevaerelseNat
   entities:
-    light.sovevaerelse_lys:
+    light.sovevaerelse_light_sovevaerelse:
       state: on
       brightness: 30
 
@@ -103,47 +67,47 @@
 - name: SlukAltLysUntagetUdelysOgUnderKoekkenbordet
   id: Sluk alt lys untaget udelys og "under køkkenbordet"
   entities:
-    light.badevaerelse1_lys:
+    light.badevaerelse_light_badevaerelse1:
       state: off
-    light.badevaerelse2_lys_2:
+    light.badevaerelse_light_badevaerelse2:
       state: off
-    light.gang1_lys:
+    light.gang_light_gang1:
       state: off
-    light.gang2_lys:
+    light.gang_light_gang2:
       state: off
     light.hue_ambiance_candle_1:
       state: off
-    light.koekken1_lys:
+    light.kokken_light_kokken1:
       state: off
-    light.koekken2_lys:
+    light.kokken_light_kokken2:
       state: off
-    light.kommode1_lys_2:
+    light.stue_light_kommode1:
       state: off
-    light.kommode2_lys:
+    light.stue_light_kommode2:
       state: off
-    light.legestue1_lys:
+    light.legestue_light_legestue1:
       state: off
-    light.legestue2_lys:
+    light.legestue_light_legestue2:
       state: off
-    light.legestue3_lys:
+#    light.legestue_light_legestue3:
+#      state: off
+    light.sovevaerelse_light_sovevaerelse:
       state: off
-    light.sovevaerelse_lys:
-      state: off
-    light.tristan1_lys:
+    light.tristan_light_tristan1:
       state: off
     light.spisebord_lys:
       state: off
-    light.stuespisebord_lys:
+    light.stue_light_stuespisebord:
       state: off
-    light.stuesofa_lys:
+    light.stue_light_stuesofa:
       state: off
-    light.victoria_over_skrivebord_lys:
+    light.victoria_light_over_skrivebord:
       state: off
-    light.victoria_over_seng_lys:
+    light.victoria_light_overseng:
       state: off
-    light.sophie_over_seng_lys:
+    light.sophie_light_sophie1:
       state: off
-    light.sophie_over_skrivebord_lys:
+    light.sophie_light_sophie2:
       state: off
     # Baghave
     switch.sonoff_1000986a15:
@@ -152,34 +116,34 @@
     switch.sonoff_1000989db8:
       state: off
     # Kontor lys - skal blive til Lille WC
-    switch.sonoff_1000319a9b:
-      state: off
+#    switch.sonoff_1000319a9b:
+#      state: off
 
 # turn on some lights when arriving home
 - name: TaendLysNaaAlarmFrakolbles
   id: 123456
   entities:
-    light.gang1_lys:
+    light.gang_light_gang1:
       state: on
-    light.gang2_lys:
+    light.gang_light_gang2:
       state: on
-    light.koekken1_lys:
+    light.kokken_light_kokken1:
       state: on
-    light.koekken2_lys:
+    light.kokken_light_kokken2:
       state: on
-    light.stuespisebord_lys:
+    light.stue_light_stuespisebord:
       state: on
-    light.stuesofa_lys:
+    light.stue_light_stuesofa:
       state: on
-    light.kommode1_lys_2:
+    light.stue_light_kommode1:
       state: on
-    light.kommode2_lys:
+    light.stue_light_kommode2:
       state: on
     
 # Terrasse Baghave Night
 - name: terrasseBaghaveNat
   entities:
-    light.terrassebaghave:
+    light.terrasse_light_terrassebaghave:
       state: on
       brightness: 30
 
