@@ -4,7 +4,7 @@ alias: Garage when opening door
 id: Garage_when_opening_door
 trigger:
 - platform: state
-  entity_id: binary_sensor.bryggersdor_abner
+  entity_id: binary_sensor.bryggers_sensor_bryggersdor_contact
   to: 'on'
 condition:
 - condition: state

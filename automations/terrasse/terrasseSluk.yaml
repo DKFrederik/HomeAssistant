@@ -7,5 +7,5 @@ trigger:
 action:
   service: light.turn_off
   entity_id:
-    - light.terrasseforhave_group
-    - light.terrassebaghave_lys_2
+    - light.terrasse_light_terrasseforhave
+    - light.terrasse_light_terrassebaghave

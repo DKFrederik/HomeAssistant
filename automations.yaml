@@ -1,35 +1,3 @@
-- id: '1697148780977'
-  alias: Stue åben lille vindue gardin
-  description: ''
-  triggers:
-  - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
-    domain: deconz
-    type: remote_button_short_press
-    subtype: open
-    trigger: device
-  conditions: []
-  actions:
-  - data: {}
-    action: cover.open_cover
-    target:
-      device_id: e7a3970603bbf5f1e64e13b435e134ef
-  mode: single
-- id: '1697148849703'
-  alias: stue luk lille vindue gardin
-  description: ''
-  triggers:
-  - device_id: aa35a6a04f3fcff0fcfe53fa9a61973b
-    domain: deconz
-    type: remote_button_short_press
-    subtype: close
-    trigger: device
-  conditions: []
-  actions:
-  - data: {}
-    action: cover.close_cover
-    target:
-      device_id: e7a3970603bbf5f1e64e13b435e134ef
-  mode: single
 - id: '1697148849415'
   alias: Trine er kommet hjem - Frederik
   description: ''
@@ -406,8 +374,8 @@
   description: resume playing after TTS
   triggers:
   - type: opened
-    device_id: fbdccd24e03ffc66c22b8fe9767c9889
-    entity_id: cdaa7e29c83160b5a3848c45f6147a08
+    device_id: bd8ab77921a34425041ae4cef5632ec4
+    entity_id: 3f44441253de2330a9ee51f89655ff06
     domain: binary_sensor
     trigger: device
   conditions: []
@@ -527,38 +495,6 @@
     target:
       device_id: c9e17d5fef2b455565f01cf5cb1c3a72
   mode: single
-- id: '1734222859007'
-  alias: 'Stue - Tænd for lille lampe ved tv når loft lys "stuesofa" tænder '
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: 04bb7f2a1f6a2eae765a35c2019b9de3
-    entity_id: 8a374da779d4b3ce0bb66a5cfae5c00d
-    domain: light
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 97fa7024552e0b30df6473be1129dadd
-    entity_id: 62a0859166b131d5a113460522ec7cf4
-    domain: switch
-  mode: single
-- id: '1734222939492'
-  alias: 'Stue - sluk for lille lampe ved tv når loft lys "stuesofa" slukker '
-  description: ''
-  triggers:
-  - type: turned_off
-    device_id: 04bb7f2a1f6a2eae765a35c2019b9de3
-    entity_id: 8a374da779d4b3ce0bb66a5cfae5c00d
-    domain: light
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 97fa7024552e0b30df6473be1129dadd
-    entity_id: 62a0859166b131d5a113460522ec7cf4
-    domain: switch
-  mode: single
 - id: '1734593887463'
   alias: Kontor - vindue åben
   description: Luk Radiator når vinduet åbnes
@@ -578,7 +514,7 @@
       device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
 - id: '1734593961335'
-  alias: Kontor - vindue åben
+  alias: Kontor - vindue lukket
   description: Sæt Radiator til auto når vinduet Lukkes
   triggers:
   - type: not_opened
@@ -595,70 +531,6 @@
     target:
       device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
-- id: '1734597133659'
-  alias: Victoria - Sluk lys over skrivebord
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: ee80491d05cdc82c945f934c9d10959c
-    type: action
-    subtype: 'on'
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 06be6bef03a012d7624afd861b571b1c
-    entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-    domain: light
-  mode: single
-- id: '1734597244090'
-  alias: Victoria - Tænd lys over skrivebord
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: ee80491d05cdc82c945f934c9d10959c
-    type: action
-    subtype: 'on'
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 06be6bef03a012d7624afd861b571b1c
-    entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-    domain: light
-  mode: single
-- id: '1734598816455'
-  alias: Victoria - Sluk lys over seng
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: dada718125fa62aec93f4ab10de045ea
-    type: action
-    subtype: 'off'
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-    entity_id: 330393822a88b56289a8ee40681dbe15
-    domain: light
-  mode: single
-- id: '1734598856287'
-  alias: Victoria - Tænd lys over seng
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: dada718125fa62aec93f4ab10de045ea
-    type: action
-    subtype: 'on'
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-    entity_id: 330393822a88b56289a8ee40681dbe15
-    domain: light
-  mode: single
 - id: '1734680525144'
   alias: Kontor - Tænd lys
   description: ''
@@ -671,8 +543,12 @@
   conditions: []
   actions:
   - type: turn_on
-    device_id: fd90a586a8931bbd1473e8b512253b43
-    entity_id: edcd586a475c35e5ada40fdc6fa6dd7e
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: turn_on
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
     domain: light
   mode: single
 - id: '1734680554585'
@@ -687,8 +563,12 @@
   conditions: []
   actions:
   - type: turn_off
-    device_id: fd90a586a8931bbd1473e8b512253b43
-    entity_id: edcd586a475c35e5ada40fdc6fa6dd7e
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: turn_off
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
     domain: light
   mode: single
 - id: '1734680599895'
@@ -743,23 +623,187 @@
     entity_id: 44886775e0d071482e986140b153298b
     domain: light
   mode: single
-- id: '1734723395587'
-  alias: Kontor - toggle lys - remote ved dør
+- id: '1734786548210'
+  alias: 'Sophie - sophie2 - tænd/sluk/skru op og ned '
+  description: ''
+  use_blueprint:
+    path: FloppyGit/tradfri_e1743_switch_to_light.yaml
+    input:
+      source_switch_e1743_action: sensor.sophie_remote_sophie2_action
+      target_light:
+        device_id: cac765242ce4b1a532fbc438cfa79097
+- id: '1734786980649'
+  alias: Sophie - sophie1 - tænd/sluk/skru op og ned
+  description: ''
+  use_blueprint:
+    path: FloppyGit/tradfri_e1743_switch_to_light.yaml
+    input:
+      source_switch_e1743_action: sensor.sophie_remote_sophie1_action
+      target_light:
+        device_id: ba38ff9b156656877c62124304072f59
+- id: '1734788825464'
+  alias: Victoria - overseng - tænd/sluk/skru op og ned
+  description: ''
+  use_blueprint:
+    path: KeviinCosmos/ikea-styrbar-e2001-2002-ultimate-zigbee2mqtt-z2m.yaml
+    input:
+      controller_entity: sensor.victoria_remote_over_seng_action
+      light_small_push:
+      - type: turn_off
+        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        domain: light
+      light_large_push:
+      - type: turn_on
+        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        domain: light
+      light_large_hold:
+      - device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        domain: light
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        type: brightness_increase
+      hold_delay: 500
+      light_small_hold:
+      - device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        domain: light
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        type: brightness_decrease
+      arrow_left_push:
+      - type: turn_on
+        device_id: 06be6bef03a012d7624afd861b571b1c
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        domain: light
+      arrow_right_push:
+      - type: turn_off
+        device_id: 06be6bef03a012d7624afd861b571b1c
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        domain: light
+- id: '1734788998048'
+  alias: Victoria - over skrivebord - tænd/sluk/skru op og ned
+  description: ''
+  use_blueprint:
+    path: KeviinCosmos/ikea-styrbar-e2001-2002-ultimate-zigbee2mqtt-z2m.yaml
+    input:
+      controller_entity: sensor.victoria_remote_over_skrivebord_action
+      hold_delay: 500
+      light_large_push:
+      - type: turn_on
+        device_id: 06be6bef03a012d7624afd861b571b1c
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        domain: light
+      light_large_hold:
+      - device_id: 06be6bef03a012d7624afd861b571b1c
+        domain: light
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        type: brightness_increase
+      light_small_push:
+      - type: turn_off
+        device_id: 06be6bef03a012d7624afd861b571b1c
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        domain: light
+      light_small_hold:
+      - device_id: 06be6bef03a012d7624afd861b571b1c
+        domain: light
+        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
+        type: brightness_decrease
+      arrow_left_push:
+      - type: turn_on
+        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        domain: light
+      arrow_left_hold: []
+      arrow_right_push:
+      - type: turn_off
+        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
+        entity_id: 330393822a88b56289a8ee40681dbe15
+        domain: light
+      arrow_right_hold: []
+- id: '1734877370629'
+  alias: Kontor - Pressent - tænd lys
+  description: Tænd lys når der er nogen
+  triggers:
+  - type: occupied
+    device_id: d7d3bc79c625ac6be784158965c5efd7
+    entity_id: 2716cd871347a641e9e3816c0a9e7867
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: turn_on
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    domain: light
+  mode: single
+- id: '1734877425064'
+  alias: Kontor - Pressent - Sluk lys
+  description: Tænd lys når der er nogen
+  triggers:
+  - type: not_occupied
+    device_id: d7d3bc79c625ac6be784158965c5efd7
+    entity_id: 2716cd871347a641e9e3816c0a9e7867
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: turn_off
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    domain: light
+  mode: single
+- id: '1734879019552'
+  alias: Stue - Tænd lille lampe sammen med sofa lys
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 30f2b71db2fe6de49f43c9b48e67b429
+    entity_id: 7861d4d4869e92f5bc28e46e9f2a5ef1
+    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 97fa7024552e0b30df6473be1129dadd
+    entity_id: 62a0859166b131d5a113460522ec7cf4
+    domain: switch
+  mode: single
+- id: '1734879050796'
+  alias: Stue - Sluk lille lampe sammen med sofa lys
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: 30f2b71db2fe6de49f43c9b48e67b429
+    entity_id: 7861d4d4869e92f5bc28e46e9f2a5ef1
+    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 97fa7024552e0b30df6473be1129dadd
+    entity_id: 62a0859166b131d5a113460522ec7cf4
+    domain: switch
+  mode: single
+- id: '1735041774519'
+  alias: Køkken - spisebord - Tænd/Sluk
   description: ''
   triggers:
   - domain: mqtt
-    device_id: 197235b096292559bf7a47ff677f2008
+    device_id: cca2de2ff5712542389ae97e7981890f
     type: action
     subtype: toggle
     trigger: device
   conditions: []
   actions:
   - type: toggle
-    device_id: 6e65da499107f5e51b96b478fad69e86
-    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
-    domain: light
-  - type: toggle
-    device_id: 56b3b560b189448e5adb7876b5ba6988
-    entity_id: 9a6783159b65f0db65209a0b725a8280
+    device_id: 243903f9e038dfd0ab9f4ec61e625371
+    entity_id: 234477e1b5a8be1a9723a99896d7dbb9
     domain: light
   mode: single

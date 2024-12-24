@@ -1,40 +1,40 @@
 # To be split out in subfolders allready created!!! 
 
 # Livingroom normal
-- name: Livingroom normal
-  entities:
-    light.stuesofa:
-      state: on
-      brightness: 255
-    light.stuespisebord:
-      state: on
-      brightness: 255
+# - name: Livingroom normal
+#   entities:
+#     light.stuesofa:
+#       state: on
+#       brightness: 255
+#     light.stuespisebord:
+#       state: on
+#       brightness: 255
 
 # Livingroom dim
-- name: Livingroom dim
-  entities:
-    light.stuesofa:
-      state: on
-      brightness: 40
-    light.stuespisebord:
-      state: on
-      brightness: 40
+# - name: Livingroom dim
+#   entities:
+#     light.stuesofa:
+#       state: on
+#       brightness: 40
+#     light.stuespisebord:
+#       state: on
+#       brightness: 40
 
 # Garage Night
 - name: GarageNat
   entities:
     light.garage_group:
       state: on
-      brightness: 20
+      brightness: 50
 
 # Garage when bryggers door closes 
 - name: garage_when_door_closes
   entities:
     light.garage_group:
       state: on
-      brightness: 80
+      brightness: 50
 
-# Livingroom dim
+# Garage when bryggers door opens
 - name: garage_opening_the_door
   entities:
     light.garage_group:
@@ -56,14 +56,14 @@
       brightness: 30
 
 # KomodeAften
-- name: KomodeAften
-  entities:
-    light.komode1:
-      state: on
-      brightness: 110
-    light.komode2:
-      state: on
-      brightness: 110
+# - name: KomodeAften
+#   entities:
+#     light.komode1:
+#       state: on
+#       brightness: 110
+#     light.komode2:
+#       state: on
+#       brightness: 110
 
 # Gang dag
 - name: GangDag
@@ -80,10 +80,10 @@
       brightness: 30
 
 # Gang sluk
-- name: GangOff
-  entities:
-    light.gang_group:
-      state: off
+# - name: GangOff
+#   entities:
+#     light.gang_group:
+#       state: off
 
 # Sovevaerelse dag
 - name: SovevaerelseDag
@@ -135,13 +135,7 @@
       state: off
     light.stuespisebord_lys:
       state: off
-    switch.sonoff_1000989db8:
-      state: off
-    switch.sonoff_1000319a9b:
-      state: off
     light.stuesofa_lys:
-      state: off
-    switch.sonoff_1000986a15:
       state: off
     light.victoria_over_skrivebord_lys:
       state: off
@@ -151,8 +145,17 @@
       state: off
     light.sophie_over_skrivebord_lys:
       state: off
+    # Baghave
+    switch.sonoff_1000986a15:
+      state: off
+    # Lofts lys
+    switch.sonoff_1000989db8:
+      state: off
+    # Kontor lys - skal blive til Lille WC
+    switch.sonoff_1000319a9b:
+      state: off
 
-# turn on some lights 
+# turn on some lights when arriving home
 - name: TaendLysNaaAlarmFrakolbles
   id: 123456
   entities:
@@ -178,11 +181,11 @@
   entities:
     light.terrassebaghave:
       state: on
-      brightness: 20
+      brightness: 30
 
 # Terrasse Forhave Night
 - name: terrasseForhaveNat
   entities:
-    light.terrasseforhave_group:
+    light.terrasse_light_terrasseforhave:
       state: on
-      brightness: 20
+      brightness: 50
