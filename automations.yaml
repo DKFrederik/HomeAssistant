@@ -599,8 +599,12 @@
   conditions: []
   actions:
   - type: turn_on
-    device_id: 5ecf82ff9e7d1da79dbe356104e19255
-    entity_id: 44886775e0d071482e986140b153298b
+    device_id: c4ed21175855ac8416682295b2b0d679
+    entity_id: 61763b06c313793c91092eac8dae4a5e
+    domain: light
+  - type: turn_on
+    device_id: e2a156b1421a1ccc45229aac2596056e
+    entity_id: 21080a5520354e1780cb9adb0084df84
     domain: light
   mode: single
 - id: '1734690419544'
@@ -619,8 +623,12 @@
   conditions: []
   actions:
   - type: turn_off
-    device_id: 5ecf82ff9e7d1da79dbe356104e19255
-    entity_id: 44886775e0d071482e986140b153298b
+    device_id: c4ed21175855ac8416682295b2b0d679
+    entity_id: 61763b06c313793c91092eac8dae4a5e
+    domain: light
+  - type: turn_off
+    device_id: e2a156b1421a1ccc45229aac2596056e
+    entity_id: 21080a5520354e1780cb9adb0084df84
     domain: light
   mode: single
 - id: '1734786548210'
