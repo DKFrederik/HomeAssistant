@@ -111,6 +111,8 @@ devices:
     friendly_name: Køkken_remote_køkken2
   '0x842712fffe194efd':
     friendly_name: Kontor_sensor_pressent
+    no_occupancy_since:
+      - undefined: 120
   '0x3425b4fffe9a6087':
     friendly_name: ' Victoria_remote_over_seng'
   '0x6c5cb1fffe609906':
