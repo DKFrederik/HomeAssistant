@@ -5,14 +5,14 @@
   entities:
     light.garage_group:
       state: on
-      brightness: 50
+      brightness: 70
 
 # Garage when bryggers door closes 
 - name: garage_when_door_closes
   entities:
     light.garage_group:
       state: on
-      brightness: 50
+      brightness: 70
 
 # Garage when bryggers door opens
 - name: garage_opening_the_door
@@ -33,7 +33,7 @@
   entities:
     light.badevaerelse_group:
       state: on
-      brightness: 30
+      brightness: 50
 
 # Gang dag
 - name: GangDag
@@ -47,7 +47,7 @@
   entities:
     light.gang_group:
       state: on
-      brightness: 30
+      brightness: 50
 
 # Sovevaerelse dag
 - name: SovevaerelseDag
@@ -61,7 +61,7 @@
   entities:
     light.sovevaerelse_light_sovevaerelse:
       state: on
-      brightness: 30
+      brightness: 50
 
 # turn off all lights 
 - name: SlukAltLysUntagetUdelysOgUnderKoekkenbordet
@@ -145,7 +145,7 @@
   entities:
     light.terrasse_light_terrassebaghave:
       state: on
-      brightness: 30
+      brightness: 50
 
 # Terrasse Forhave Night
 - name: terrasseForhaveNat

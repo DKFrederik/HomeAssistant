@@ -7,5 +7,5 @@ trigger:
 action:
   service: light.turn_off
   entity_id:
-    - light.garage1_lys
-    - light.garage2_lys
+    - light.garage_light_garage1
+    - light.garage_light_garage2

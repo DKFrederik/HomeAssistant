@@ -143,8 +143,6 @@ devices:
     friendly_name: Stue_Light_kommode2
   '0x000d6ffffee82601':
     friendly_name: Stue_Light_stueSofa
-  '0x90fd9ffffe8c74c4':
-    friendly_name: Stue_remote_stueSofa
   '0xd0cf5efffed8c415':
     friendly_name: Stue_Light_stueSpisebord
   '0x000b57fffe9b6863':
@@ -163,6 +161,8 @@ devices:
     friendly_name: Garage_Light_garage2
   '0x00158d00045cab46':
     friendly_name: Bryggers_sensor_bryggersDør
+  '0x90fd9ffffe8c74c4':
+    friendly_name: Stue_remote_stueSofa
 groups:
   '2':
     friendly_name: gang.group

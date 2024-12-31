@@ -351,24 +351,6 @@
       message: Far er kommet hjem
       language: da-DK
   mode: single
-- id: '1721779087759'
-  alias: Stue stor terrassedør åbnet TTS
-  description: resume playing after TTS
-  triggers:
-  - type: opened
-    device_id: 3b71e11b51fa44389b96f86d03f07692
-    entity_id: c09dcd2007eb746a94b12f397f155f5a
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - metadata: {}
-    data:
-      entity_id: media_player.aben_lukke
-      message: Terrassedøren i stuen er blevet åbnet
-      language: da-DK
-    action: tts.cloud_say
-  mode: single
 - id: '1721779415086'
   alias: 'Bryggers døren er blevet åbnet '
   description: resume playing after TTS
@@ -532,27 +514,7 @@
       device_id: 70031b73bebd812285d08297d6d4cd38
   mode: single
 - id: '1734680525144'
-  alias: Kontor - Tænd lys
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: 9d40a6d3b1d108acd0092f707f339bf0
-    type: action
-    subtype: arrow_left_click
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 6e65da499107f5e51b96b478fad69e86
-    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
-    domain: light
-  - type: turn_on
-    device_id: 56b3b560b189448e5adb7876b5ba6988
-    entity_id: 9a6783159b65f0db65209a0b725a8280
-    domain: light
-  mode: single
-- id: '1734680554585'
-  alias: Kontor - Sluk lys
+  alias: Kontor - remoteTest - sluk lys
   description: ''
   triggers:
   - domain: mqtt
@@ -567,6 +529,26 @@
     entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
     domain: light
   - type: turn_off
+    device_id: 56b3b560b189448e5adb7876b5ba6988
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    domain: light
+  mode: single
+- id: '1734680554585'
+  alias: Kontor - remoteTest - Tænd lys
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: arrow_left_click
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 6e65da499107f5e51b96b478fad69e86
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    domain: light
+  - type: turn_on
     device_id: 56b3b560b189448e5adb7876b5ba6988
     entity_id: 9a6783159b65f0db65209a0b725a8280
     domain: light
@@ -814,4 +796,63 @@
     device_id: 243903f9e038dfd0ab9f4ec61e625371
     entity_id: 234477e1b5a8be1a9723a99896d7dbb9
     domain: light
+  mode: single
+- id: '1735175315574'
+  alias: Kontor - remoteTest -Skru op
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: arrow_left_hold
+    trigger: device
+  conditions: []
+  actions:
+  - device_id: 6e65da499107f5e51b96b478fad69e86
+    domain: light
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    type: brightness_increase
+  - device_id: 56b3b560b189448e5adb7876b5ba6988
+    domain: light
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    type: brightness_increase
+  mode: single
+- id: '1735175377719'
+  alias: Kontor - remoteTest - Skru ned
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 9d40a6d3b1d108acd0092f707f339bf0
+    type: action
+    subtype: arrow_right_hold
+    trigger: device
+  conditions: []
+  actions:
+  - device_id: 6e65da499107f5e51b96b478fad69e86
+    domain: light
+    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
+    type: brightness_decrease
+  - device_id: 56b3b560b189448e5adb7876b5ba6988
+    domain: light
+    entity_id: 9a6783159b65f0db65209a0b725a8280
+    type: brightness_decrease
+  mode: single
+- id: '1735176310831'
+  alias: Stue - Stor terrassedør åbnet TTS
+  description: ''
+  triggers:
+  - type: opened
+    device_id: ff9ef66b6ff1a955792a0ba960b28004
+    entity_id: 6094e2542e284055babcfca715c253b4
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: tts.cloud_say
+    metadata: {}
+    data:
+      cache: false
+      entity_id: media_player.aben_lukke
+      message: Terrassedøren i stuen er blevet åbnet
+      language: da-DK
   mode: single
