@@ -548,10 +548,12 @@
     device_id: 6e65da499107f5e51b96b478fad69e86
     entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
     domain: light
+    brightness_pct: 60
   - type: turn_on
     device_id: 56b3b560b189448e5adb7876b5ba6988
     entity_id: 9a6783159b65f0db65209a0b725a8280
     domain: light
+    brightness_pct: 60
   mode: single
 - id: '1734680599895'
   alias: Baghave - Tænd/sluk
@@ -580,14 +582,12 @@
     trigger: device
   conditions: []
   actions:
-  - type: turn_on
-    device_id: c4ed21175855ac8416682295b2b0d679
-    entity_id: 61763b06c313793c91092eac8dae4a5e
-    domain: light
-  - type: turn_on
-    device_id: e2a156b1421a1ccc45229aac2596056e
-    entity_id: 21080a5520354e1780cb9adb0084df84
-    domain: light
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 60
+    target:
+      entity_id: light.legestue_group
   mode: single
 - id: '1734690419544'
   alias: Legestue - Sluk lys hvis der ikke er nogen i lokalet
@@ -604,14 +604,11 @@
       seconds: 0
   conditions: []
   actions:
-  - type: turn_off
-    device_id: c4ed21175855ac8416682295b2b0d679
-    entity_id: 61763b06c313793c91092eac8dae4a5e
-    domain: light
-  - type: turn_off
-    device_id: e2a156b1421a1ccc45229aac2596056e
-    entity_id: 21080a5520354e1780cb9adb0084df84
-    domain: light
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.legestue_group
   mode: single
 - id: '1734786548210'
   alias: 'Sophie - sophie2 - tænd/sluk/skru op og ned '
@@ -631,84 +628,6 @@
       source_switch_e1743_action: sensor.sophie_remote_sophie1_action
       target_light:
         device_id: ba38ff9b156656877c62124304072f59
-- id: '1734788825464'
-  alias: Victoria - overseng - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: KeviinCosmos/ikea-styrbar-e2001-2002-ultimate-zigbee2mqtt-z2m.yaml
-    input:
-      controller_entity: sensor.victoria_remote_over_seng_action
-      light_small_push:
-      - type: turn_off
-        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        domain: light
-      light_large_push:
-      - type: turn_on
-        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        domain: light
-      light_large_hold:
-      - device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        domain: light
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        type: brightness_increase
-      hold_delay: 500
-      light_small_hold:
-      - device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        domain: light
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        type: brightness_decrease
-      arrow_left_push:
-      - type: turn_on
-        device_id: 06be6bef03a012d7624afd861b571b1c
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        domain: light
-      arrow_right_push:
-      - type: turn_off
-        device_id: 06be6bef03a012d7624afd861b571b1c
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        domain: light
-- id: '1734788998048'
-  alias: Victoria - over skrivebord - tænd/sluk/skru op og ned
-  description: ''
-  use_blueprint:
-    path: KeviinCosmos/ikea-styrbar-e2001-2002-ultimate-zigbee2mqtt-z2m.yaml
-    input:
-      controller_entity: sensor.victoria_remote_over_skrivebord_action
-      hold_delay: 500
-      light_large_push:
-      - type: turn_on
-        device_id: 06be6bef03a012d7624afd861b571b1c
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        domain: light
-      light_large_hold:
-      - device_id: 06be6bef03a012d7624afd861b571b1c
-        domain: light
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        type: brightness_increase
-      light_small_push:
-      - type: turn_off
-        device_id: 06be6bef03a012d7624afd861b571b1c
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        domain: light
-      light_small_hold:
-      - device_id: 06be6bef03a012d7624afd861b571b1c
-        domain: light
-        entity_id: d7c4891e4d2161fd14e8b14b2b1ca215
-        type: brightness_decrease
-      arrow_left_push:
-      - type: turn_on
-        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        domain: light
-      arrow_left_hold: []
-      arrow_right_push:
-      - type: turn_off
-        device_id: cb03b6e9dc646b7a226b5b7ee67c5d50
-        entity_id: 330393822a88b56289a8ee40681dbe15
-        domain: light
-      arrow_right_hold: []
 - id: '1734877370629'
   alias: Kontor - Pressent - tænd lys
   description: Tænd lys når der er nogen
@@ -720,37 +639,38 @@
     trigger: device
   conditions: []
   actions:
-  - type: turn_on
-    device_id: 6e65da499107f5e51b96b478fad69e86
-    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
-    domain: light
-    brightness_pct: 60
-  - type: turn_on
-    device_id: 56b3b560b189448e5adb7876b5ba6988
-    entity_id: 9a6783159b65f0db65209a0b725a8280
-    domain: light
-    brightness_pct: 60
-  mode: single
-- id: '1734877425064'
-  alias: Kontor - Pressent - Sluk lys
-  description: Tænd lys når der er nogen
-  triggers:
-  - type: not_occupied
-    device_id: d7d3bc79c625ac6be784158965c5efd7
-    entity_id: 2716cd871347a641e9e3816c0a9e7867
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 6e65da499107f5e51b96b478fad69e86
-    entity_id: 2cc18da8fb81e31ca785b2a140f2ea36
-    domain: light
-  - type: turn_off
-    device_id: 56b3b560b189448e5adb7876b5ba6988
-    entity_id: 9a6783159b65f0db65209a0b725a8280
-    domain: light
-  mode: single
+  - choose:
+    - conditions:
+      - type: is_occupied
+        condition: device
+        device_id: d7d3bc79c625ac6be784158965c5efd7
+        entity_id: 2716cd871347a641e9e3816c0a9e7867
+        domain: binary_sensor
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        data:
+          brightness: 178
+          color_temp: 330
+        target:
+          entity_id: light.kontor_group
+    - conditions:
+      - type: is_not_occupied
+        condition: device
+        device_id: d7d3bc79c625ac6be784158965c5efd7
+        entity_id: 2716cd871347a641e9e3816c0a9e7867
+        domain: binary_sensor
+        for:
+          hours: 0
+          minutes: 1
+          seconds: 0
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kontor_group
+  mode: restart
 - id: '1734879019552'
   alias: Stue - Tænd lille lampe sammen med sofa lys
   description: ''

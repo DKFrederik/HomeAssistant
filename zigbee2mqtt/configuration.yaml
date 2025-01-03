@@ -111,8 +111,7 @@ devices:
     friendly_name: Køkken_remote_køkken2
   '0x842712fffe194efd':
     friendly_name: Kontor_sensor_pressent
-    no_occupancy_since:
-      - undefined: 120
+    no_occupancy_since: []
   '0x3425b4fffe9a6087':
     friendly_name: ' Victoria_remote_over_seng'
   '0x6c5cb1fffe609906':
@@ -165,6 +164,10 @@ devices:
     friendly_name: Bryggers_sensor_bryggersDør
   '0x90fd9ffffe8c74c4':
     friendly_name: Stue_remote_stueSofa
+  '0x90fd9ffffe929717':
+    friendly_name: '0x90fd9ffffe929717'
+  '0xd0cf5efffefba8c1':
+    friendly_name: Legestue_Light_legestue3
 groups:
   '2':
     friendly_name: gang.group
