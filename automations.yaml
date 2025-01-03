@@ -662,7 +662,7 @@
         domain: binary_sensor
         for:
           hours: 0
-          minutes: 1
+          minutes: 0
           seconds: 0
       sequence:
       - action: light.turn_off
@@ -777,4 +777,42 @@
       entity_id: media_player.aben_lukke
       message: Terrassedøren i stuen er blevet åbnet
       language: da-DK
+  mode: single
+- id: '1735876650796'
+  alias: Soveværelse - luk vindue
+  description: Sæt Radiator til auto når vinduet Lukkes
+  triggers:
+  - type: not_opened
+    device_id: 68272f2d2bd9c290a6ea9d41e706d4c9
+    entity_id: e47308fd3f35b9d3291a8bd8a0bfd504
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: climate.set_hvac_mode
+    metadata: {}
+    data:
+      hvac_mode: auto
+    target:
+      device_id:
+      - 547da8a34695f82651d4b68935710d1d
+  mode: single
+- id: '1735876690141'
+  alias: Soveværelse - åben vindue
+  description: Luk Radiator når vinduet åbnes
+  triggers:
+  - type: opened
+    device_id: 68272f2d2bd9c290a6ea9d41e706d4c9
+    entity_id: e47308fd3f35b9d3291a8bd8a0bfd504
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: climate.set_hvac_mode
+    metadata: {}
+    data:
+      hvac_mode: 'off'
+    target:
+      device_id:
+      - 547da8a34695f82651d4b68935710d1d
   mode: single
