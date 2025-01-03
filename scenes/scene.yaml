@@ -89,8 +89,8 @@
       state: off
     light.legestue_light_legestue2:
       state: off
-#    light.legestue_light_legestue3:
-#      state: off
+    light.legestue_light_legestue3:
+      state: off
     light.sovevaerelse_light_sovevaerelse:
       state: off
     light.tristan_light_tristan1:
