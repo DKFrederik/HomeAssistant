@@ -169,4 +169,4 @@ devices:
 groups:
   '2':
     friendly_name: gang.group
-version: 4
+version: 3
