@@ -164,11 +164,11 @@
         "linkquality": 228
     },
     "0x187a3efffe8924e7": {
-        "current": 1.64,
-        "power": 366.25,
+        "current": 1.73,
+        "power": 394.08,
         "voltage": 232,
         "state": "ON",
-        "energy": 81.88,
+        "energy": 81.91,
         "power_on_behavior": "on",
         "linkquality": 216
     },
