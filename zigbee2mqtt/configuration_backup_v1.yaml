@@ -1,5 +1,4 @@
-homeassistant:
-  enabled: true
+homeassistant: true
 advanced:
   network_key:
     - 161
@@ -28,18 +27,19 @@ advanced:
     - 223
     - 130
     - 35
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
 mqtt:
   server: mqtt://core-mosquitto:1883
   user: addons
   password: yeiNgoshue6koquohzohqueigh1Uejohnoophohpoo9shaeg3ThigahpohShoh4e
 frontend:
-  enabled: true
   port: 8099
 serial:
   port: >-
     /dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0
-  #adapter: ezsp
-  adapter: ember
+  adapter: ezsp
 device_options:
   legacy: false
 devices:
@@ -171,4 +171,6 @@ devices:
 groups:
   '2':
     friendly_name: gang.group
-version: 4
+    devices:
+      - 0x90fd9ffffe898295/1
+      - 0x90fd9ffffe86c8fb/1

@@ -40,7 +40,11 @@
   "network_key": {
     "key": "a10a6ea36746a2879dd2a2226fa1e53e",
     "sequence_number": 0,
+<<<<<<< HEAD
     "frame_counter": 942268
+=======
+    "frame_counter": 880358
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
   },
   "devices": []
 }

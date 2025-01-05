@@ -164,11 +164,19 @@
         "linkquality": 224
     },
     "0x187a3efffe8924e7": {
+<<<<<<< HEAD
         "current": 1.83,
         "power": 399.17,
         "voltage": 233,
         "state": "ON",
         "energy": 100.83,
+=======
+        "current": 1.52,
+        "power": 325.63,
+        "voltage": 231,
+        "state": "ON",
+        "energy": 99.17,
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
         "power_on_behavior": "on",
         "linkquality": 220
     },
@@ -194,7 +202,11 @@
         "contact": true,
         "voltage": 2965,
         "battery": 77,
+<<<<<<< HEAD
         "device_temperature": 17,
+=======
+        "device_temperature": 18,
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
         "power_outage_count": 431,
         "trigger_count": 0,
         "linkquality": 172
@@ -237,7 +249,11 @@
             "latest_version": 587806257
         },
         "linkquality": 156,
+<<<<<<< HEAD
         "state": "OFF",
+=======
+        "state": "ON",
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
         "brightness": 104
     },
     "0x60efabfffeee9b6c": {
@@ -260,7 +276,7 @@
     },
     "0x6c5cb1fffe5223d6": {
         "color_mode": "xy",
-        "state": "OFF",
+        "state": "ON",
         "brightness": 254,
         "linkquality": 212,
         "update": {
@@ -363,7 +379,11 @@
     "0xcc86ecfffe912f36": {
         "position": 0,
         "state": "CLOSE",
+<<<<<<< HEAD
         "battery": 43,
+=======
+        "battery": 44,
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
         "update": {
             "state": "idle",
             "installed_version": 604241939,
@@ -378,7 +398,11 @@
             "latest_version": 604241926
         },
         "linkquality": 148,
+<<<<<<< HEAD
         "battery": 20
+=======
+        "battery": 14
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
     },
     "0xd0cf5efffee6f633": {
         "color_mode": "xy",
@@ -438,7 +462,11 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
+<<<<<<< HEAD
         "illuminance": 10,
+=======
+        "illuminance": 11,
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
         "occupancy": false,
         "linkquality": 220,
         "enrolled": true
@@ -459,7 +487,7 @@
             "installed_version": 587757105,
             "latest_version": 587757105
         },
-        "state": "OFF",
+        "state": "ON",
         "brightness": 254,
         "linkquality": 144
     },
@@ -494,7 +522,7 @@
     },
     "0x000d6ffffee82601": {
         "color_mode": "xy",
-        "state": "OFF",
+        "state": "ON",
         "update": {
             "state": "idle",
             "installed_version": 587814449,
@@ -563,7 +591,11 @@
             "latest_version": 604241925
         },
         "linkquality": 255,
+<<<<<<< HEAD
         "battery": 40
+=======
+        "battery": 30
+>>>>>>> 86aea6bc8186ab6c6ffe3500d8b40692b171499b
     },
     "0xb43522fffe7a0d9c": {
         "color_mode": "xy",
