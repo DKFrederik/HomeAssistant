@@ -5,14 +5,14 @@
   entities:
     light.garage_group:
       state: on
-      brightness: 70
+      brightness: 40
 
 # Garage when bryggers door closes 
 - name: garage_when_door_closes
   entities:
     light.garage_group:
       state: on
-      brightness: 70
+      brightness: 40
 
 # Garage when bryggers door opens
 - name: garage_opening_the_door

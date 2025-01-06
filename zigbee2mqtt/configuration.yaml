@@ -33,13 +33,11 @@ mqtt:
   user: addons
   password: yeiNgoshue6koquohzohqueigh1Uejohnoophohpoo9shaeg3ThigahpohShoh4e
 frontend:
-  enabled: true
   port: 8099
 serial:
   port: >-
     /dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0
   adapter: ezsp
-  #adapter: ember
 device_options:
   legacy: false
 devices:
@@ -168,7 +166,5 @@ devices:
     friendly_name: '0x90fd9ffffe929717'
   '0xd0cf5efffefba8c1':
     friendly_name: Legestue_Light_legestue3
-groups:
-  '2':
-    friendly_name: gang.group
+groups: {}
 version: 4
