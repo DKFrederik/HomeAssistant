@@ -170,10 +170,10 @@
     },
     "0x187a3efffe8924e7": {
         "current": 1.5,
-        "power": 329.38,
-        "voltage": 234,
+        "power": 324.74,
+        "voltage": 232,
         "state": "ON",
-        "energy": 124.82,
+        "energy": 124.86,
         "power_on_behavior": "on",
         "linkquality": 148
     },
@@ -207,9 +207,9 @@
     },
     "0x00158d00045cf07e": {
         "contact": true,
-        "voltage": 3015,
+        "voltage": 3005,
         "battery": 100,
-        "device_temperature": 13,
+        "device_temperature": 15,
         "power_outage_count": 50,
         "trigger_count": 0,
         "linkquality": 148
@@ -468,8 +468,7 @@
         "illuminance": 0,
         "occupancy": false,
         "linkquality": 220,
-        "enrolled": true,
-        "illuminance_lux": 0
+        "enrolled": true
     },
     "0x90fd9ffffe8b10b0": {
         "battery": 50,
