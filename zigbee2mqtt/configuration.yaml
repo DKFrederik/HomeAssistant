@@ -37,7 +37,7 @@ frontend:
 serial:
   port: >-
     /dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_e20ab905b69aed118fd67a08a8669f5d-if00-port0
-  adapter: ezsp
+  adapter: ember
 device_options:
   legacy: false
 devices:
