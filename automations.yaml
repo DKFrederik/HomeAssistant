@@ -586,6 +586,10 @@
     metadata: {}
     data:
       brightness_pct: 60
+      rgb_color:
+      - 240
+      - 178
+      - 112
     target:
       entity_id: light.legestue_group
   mode: single
