@@ -53,7 +53,7 @@
     #       [ states('sensor.tpj4cf806p_generated_energy_today'), 
     #         states('sensor.rfhbcfe0pf_generated_energy_today') ] }}
      friendly_name: TotalSolarPower
-     unit_of_measurement: kWh
+     unit_of_measurement: kW
      #state_class: total_increasing
      unique_id: kn4356654kj36n453lk6345lm645yugfdsiogbs
 

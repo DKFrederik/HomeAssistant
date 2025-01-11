@@ -33,6 +33,7 @@ mqtt:
   user: addons
   password: yeiNgoshue6koquohzohqueigh1Uejohnoophohpoo9shaeg3ThigahpohShoh4e
 frontend:
+  enabled: true
   port: 8099
 serial:
   port: >-
@@ -101,8 +102,10 @@ devices:
     friendly_name: Soveværelse_remote_soveværelse
   '0x000b57fffee8f53e':
     friendly_name: Køkken_Light_køkken1
+    color_sync: true
   '0x90fd9ffffe176786':
     friendly_name: Køkken_Light_køkken2
+    color_sync: true
   '0x90fd9ffffe8614b5':
     friendly_name: Køkken_remote_køkken1
   '0x90fd9ffffe0e03f8':
