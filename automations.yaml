@@ -655,7 +655,6 @@
         metadata: {}
         data:
           brightness: 178
-#          color_temp: 330
           color_temp_kelvin: 330
         target:
           entity_id: light.kontor_group
