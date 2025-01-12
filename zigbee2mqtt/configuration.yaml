@@ -98,14 +98,15 @@ devices:
     friendly_name: Victoria_Light_overSeng
   '0x90fd9ffffe6ddc96':
     friendly_name: Soveværelse_Light_soveværelse
+    color_sync: true
   '0x90fd9ffffed56c36':
     friendly_name: Soveværelse_remote_soveværelse
   '0x000b57fffee8f53e':
     friendly_name: Køkken_Light_køkken1
-    color_sync: true
+    color_sync: false
   '0x90fd9ffffe176786':
     friendly_name: Køkken_Light_køkken2
-    color_sync: true
+    color_sync: false
   '0x90fd9ffffe8614b5':
     friendly_name: Køkken_remote_køkken1
   '0x90fd9ffffe0e03f8':
@@ -123,8 +124,10 @@ devices:
     friendly_name: Stue_remote_stueLilleVindue
   '0xd0cf5efffee6f633':
     friendly_name: terrasse_Light_terrasseForHave
+    color_sync: true
   '0x881a14fffe957022':
     friendly_name: ' terrasse_Light_terrasseBagHave'
+    color_sync: true
   '0x90fd9ffffe02ae12':
     friendly_name: Badeværelse_Light_badeværelse1
   '0x90fd9ffffe336f74':
@@ -137,6 +140,7 @@ devices:
     friendly_name: Gang_remote_gang
   '0x000b57fffeeeea51':
     friendly_name: Tristan_Light_tristan1
+    color_sync: true
   '0x000b57fffeedcd8d':
     friendly_name: Tristan_remote_tristan
   '0x90fd9ffffe90f221':
@@ -145,6 +149,7 @@ devices:
     friendly_name: Stue_Light_kommode2
   '0x000d6ffffee82601':
     friendly_name: Stue_Light_stueSofa
+    color_sync: true
   '0xd0cf5efffed8c415':
     friendly_name: Stue_Light_stueSpisebord
   '0x000b57fffe9b6863':
