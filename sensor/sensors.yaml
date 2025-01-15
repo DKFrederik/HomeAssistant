@@ -98,3 +98,90 @@
 #                                                                                                              #
 ################################################################################################################
 
+- platform: integration
+  source: sensor.bryggers_vaskemaskine_power
+  name: bryggers_vaskemaskine_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.stuen_lille_lampe_power
+  name: lille_lampe_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.legestue_tv_power
+  name: lille_stue_tv_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.kokken_opvaskemaskine_power
+  name: opvaskemaskine_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.kokken_koleskab_power
+  name: køleskab_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.kokken_kaffemaskine_almindelig_power
+  name: lille_kaffemaskine_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.kokken_fryser_power
+  name: fryser_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.kokken_espressomaskine_power
+  name: espressomaskine_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.skur_power
+  name: Skur_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.victoria_computer_power
+  name: victoria_computer_total
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
+
+- platform: integration
+  source: sensor.it_rack_power
+  name: it_rack_loft_power
+  unit_prefix: k
+  round: 2
+  max_sub_interval:
+    minutes: 1
