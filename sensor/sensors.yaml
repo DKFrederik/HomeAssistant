@@ -15,11 +15,22 @@
 
 ################################################################################################################
 #                                                                                                              #
-#                                                Heat                                                          #
+#                                                Opvaskemaskine                                                #
 #                                                                                                              #
 ################################################################################################################
 
-
+- platform: template
+  sensors:
+    hvornaar_er_opvaskemaskinen_faerdig:
+      friendly_name: "Status på Opvaskemaskinen"
+      #check sensor.kokken_opvaskemaskine_duration state
+      value_template: >
+        {% if is_state('sensor.kokken_opvaskemaskine_remaining_program_time', 'unavailable') %}
+          Opvaskemaskine er ikke startet!
+        {% else %}
+        "{{ as_timestamp(states('sensor.kokken_opvaskemaskine_remaining_program_time')) | timestamp_custom('%A %-d %B, %H:%M') }}"
+        {% endif %}
+      unique_id: "hvornaar_er_opvaskemaskinen_faerdig"
 
 ################################################################################################################
 #                                                                                                              #
