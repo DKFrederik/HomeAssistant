@@ -139,8 +139,8 @@
     minutes: 1
 
 - platform: integration
-  source: sensor.kokken_kaffemaskine_almindelig_power
-  name: lille_kaffemaskine_total
+  source: sensor.kokken_airfryer_power
+  name: Airfryer_total
   unit_prefix: k
   round: 2
   max_sub_interval:
