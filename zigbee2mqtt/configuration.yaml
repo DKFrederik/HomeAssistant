@@ -99,8 +99,6 @@ devices:
   '0x90fd9ffffe6ddc96':
     friendly_name: Soveværelse_Light_soveværelse
     color_sync: true
-  '0x90fd9ffffed56c36':
-    friendly_name: Soveværelse_remote_soveværelse
   '0x000b57fffee8f53e':
     friendly_name: Køkken_Light_køkken1
     color_sync: false
@@ -137,7 +135,7 @@ devices:
   '0x9035eafffe463ccb':
     friendly_name: Badeværelse_sensor_badeværelse1
   '0x90fd9ffffe8b10b0':
-    friendly_name: Gang_remote_gang
+    friendly_name: ' Soveværelse_remote_soveværelse'
   '0x000b57fffeeeea51':
     friendly_name: Tristan_Light_tristan1
     color_sync: true
