@@ -17,13 +17,19 @@ from homeassistant.helpers.entity import EntityCategory
 
 DOMAIN = "easee"
 TIMEOUT = 30
-VERSION = "0.9.67"
+VERSION = "0.9.68"
 MIN_HA_VERSION = "2024.8.0"
 CONF_MONITORED_SITES = "monitored_sites"
 MANUFACTURER = "Easee"
 MODEL_EQUALIZER = "Equalizer"
 MODEL_CHARGING_ROBOT = "Charging Robot"
-PLATFORMS = [Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
+PLATFORMS = [
+    Platform.BUTTON,
+    Platform.BINARY_SENSOR,
+    Platform.LIGHT,
+    Platform.SENSOR,
+    Platform.SWITCH,
+]
 EASEE_PRODUCT_CODES = {
     1: "Easee Home",
     100: "Easee Charge",
@@ -206,7 +212,6 @@ MANDATORY_EASEE_ENTITIES = {
             "config.authorizationRequired",
             "config.localNodeType",
             "config.localAuthorizationRequired",
-            "config.ledStripBrightness",
             "site.id",
             "site.name",
             "site.siteKey",
@@ -300,14 +305,15 @@ OPTIONAL_EASEE_ENTITIES = {
         "state_class": SensorStateClass.TOTAL_INCREASING,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
-    "energy_per_hour": {
+    "energy_last_hour": {
         "key": "state.energyPerHour",
         "attrs": [],
         "units": UnitOfEnergy.KILO_WATT_HOUR,
         "convert_units_func": None,
         "suggested_display_precision": 1,
-        "translation_key": "energy_per_hour",
+        "translation_key": "energy_last_hour",
         "device_class": SensorDeviceClass.ENERGY,
+        "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "cost_day": {
@@ -363,7 +369,10 @@ OPTIONAL_EASEE_ENTITIES = {
             "state.latestPulse",
             "config.wiFiSSID",
             "state.wiFiAPEnabled",
+            "config.wiFiAddress",
+            "config.wiFiMACAddress",
             "state.wiFiRSSI",
+            "config.cellAddress",
             "state.cellRSSI",
             "state.localRSSI",
         ],
@@ -735,6 +744,18 @@ OPTIONAL_EASEE_ENTITIES = {
         "device_class": None,
         "switch_func": "override_schedule",
         "translation_key": "override_schedule",
+    },
+    "led_strip": {
+        "type": "light",
+        "key": "config.ledStripBrightness",
+        "attrs": [],
+        "units": None,
+        "convert_units_func": None,
+        "translation_key": "led_strip",
+        "device_class": None,
+        "switch_func": "set_led_strip_brightness",
+        "enabled_default": True,
+        "entity_category": EntityCategory.CONFIG,
     },
 }
 

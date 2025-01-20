@@ -121,6 +121,11 @@
         "name": "Override schedule"
       }
     },
+    "light": {
+      "led_strip": {
+        "name": "LED strip"
+      }
+    },
     "sensor": {
       "circuit_current": {
         "name": "Circuit current"
@@ -213,6 +218,9 @@
           "start_charging": "Start charging",
           "stop_charging": "Stop charging"
         }
+      },
+      "energy_last_hour": {
+        "name": "Energy last hour"
       },
       "energy_per_hour": {
         "name": "Energy per hour"
@@ -441,6 +449,10 @@
         "device_id": {
           "description": "Select one of the chargers in the circuit that should be controlled.",
           "name": "Target device"
+        },
+        "time_to_live": {
+          "description": "Set time in minutes for the command to live. 0 = indefinitely.",
+          "name": "Time to live"
         }
       },
       "name": "Set charger dynamic limit"

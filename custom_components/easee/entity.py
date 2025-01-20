@@ -126,6 +126,11 @@ class ChargerEntity(Entity):
             ),
         )
 
+        if self._state_key not in self._attrs_keys:
+            self.data.register_for_update(self._state_key, self)
+        for attr in self._attrs_keys:
+            self.data.register_for_update(attr, self)
+
     async def async_will_remove_from_hass(self) -> None:
         """Disconnect object when removed."""
         controller = self.hass.data[DOMAIN]["controller"]
@@ -137,6 +142,8 @@ class ChargerEntity(Entity):
             controller.switch_entities.remove(self)
         if self in controller.button_entities:
             controller.button_entities.remove(self)
+        if self in controller.light_entities:
+            controller.light_entities.remove(self)
         if self in controller.equalizer_sensor_entities:
             controller.equalizer_sensor_entities.remove(self)
         if self in controller.equalizer_binary_sensor_entities:
