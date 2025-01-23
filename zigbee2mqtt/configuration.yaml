@@ -172,5 +172,7 @@ devices:
     friendly_name: '0x90fd9ffffe929717'
   '0xd0cf5efffefba8c1':
     friendly_name: Legestue_Light_legestue3
+  '0x90fd9ffffed56c36':
+    friendly_name: '0x90fd9ffffed56c36'
 groups: {}
 version: 4
