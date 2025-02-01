@@ -1,0 +1,396 @@
+mqtt:
+  enabled: false
+
+detectors:
+  coral:
+    type: edgetpu
+    device: usb
+
+#<--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+cameras:
+  Skur: # <------ Name the camera
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:35120oe102fK!@10.45.5.71:554//Streaming/Channels/1/ # <----- The stream you want to use for detection
+          roles:
+            - detect
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 1280
+      height: 720
+#<--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+  Garage: # <------ Name the camera
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:35120oe102fK!@10.45.5.72:554//Streaming/Channels/1/ # <----- The stream you want to use for detection
+          roles:
+            - detect
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 1280
+      height: 720
+#<--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+  Baghave: # <------ Name the camera
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:35120oe102fK!@10.45.5.75:554//Streaming/Channels/1/ # <----- The stream you want to use for detection
+          roles:
+            - detect
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 1280
+      height: 720
+#<--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+  Kontor: # <------ Name the camera
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://Admin12345678901:35120oe102fK_1@10.45.5.80/live0 # <----- The stream you want to use for detection
+          roles:
+            - detect
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 1280
+      height: 720
+
+#go2rtc:
+#  streams:
+#    Skur:
+#      - rtsp://admin:35120oe102fK!@10.45.5.71:554//Streaming/Channels/1/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Skur_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.71:554//Streaming/Channels/2/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Garage:
+#      - rtsp://admin:35120oe102fK!@10.45.5.72:554//Streaming/Channels/1/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Garage_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.72:554//Streaming/Channels/2/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Loft_1:
+#      - rtsp://admin:35120oe102fK!@10.45.5.73:554//Streaming/Channels/1/
+#    Loft_1_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.73:554//Streaming/Channels/2/
+#    Loft_2:
+#      - rtsp://admin:35120oe102fK!@10.45.5.74:554//Streaming/Channels/1/
+#    Loft_2_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.74:554//Streaming/Channels/2/
+#    Baghave:
+#      - rtsp://admin:35120oe102fK!@10.45.5.75:554//Streaming/Channels/1/
+#    Baghave_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.75:554//Streaming/Channels/2/
+#    Kontor:
+#      - rtsp://Admin12345678901:35120oe102fK_1@10.45.5.80/live0
+
+
+
+
+version: 0.14
+
+
+
+#mqtt:
+#  enabled: true
+#  host: 10.45.2.20
+#  port: 1883
+#  user: frederik
+#  password: 35120oe102fk
+#detectors:
+#
+#  coral:
+#    type: edgetpu
+#    device: usb
+#
+#cameras:
+#  # <------- Event record ------->
+#
+#  Skur: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Skur?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#        #Low resolution for object detecting 
+#        - path: rtsp://127.0.0.1:8554/Skur_Low_Res?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 480 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - bicycle
+#        - car
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#
+##   <--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+#  Garage: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Garage?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#            - audio
+#        - path: rtsp://127.0.0.1:8554/Garage_Low_Res?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 480 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - bicycle
+#        - car
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#    motion:
+#      mask: 0.394,0.172,0.444,0.092,0.44,0.03,0.363,0.059,0.276,0.089,0.304,0.325
+#  
+#  #   <--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+#  Loft_1: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Loft_1?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#        - path: rtsp://127.0.0.1:8554/Loft_1_Low_Res?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 480 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#
+##   <--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+#  Loft_2: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Loft_2?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#        - path: rtsp://127.0.0.1:8554/Loft_2_Low_Res?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 480 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#
+##   <--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+#  Baghave: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Baghave?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#        - path: rtsp://127.0.0.1:8554/Baghave_Low_Res?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 480 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - bicycle
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#  
+#  #   <--------------------------------------------------------------------------New Camera----------------------------------------------------------------------------------->
+#  Kontor: # <------ Name the camera
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/Kontor?video
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#            - detect
+#            - audio
+##        - path: rtsp://127.0.0.1:8554/Kontor?video
+##          input_args: preset-rtsp-restream
+##          roles:
+##            - detect
+#          hwaccel_args: preset-vaapi
+#      output_args:
+#        record: preset-record-generic-audio-aac
+#    detect:
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 1920 # <---- update for your camera's resolution
+#      height: 1080 # <---- update for your camera's resolution
+#      fps: 5
+#      max_disappeared: 25
+#    objects:
+#      track:
+#        - person
+#        - bicycle
+#        - cat
+#        - dog
+#        - mouse
+#    snapshots:
+#      enabled: true
+#    record:
+#      enabled: true
+#      retain:
+#        days: 5
+#        mode: all
+#      events:
+#        pre_capture: 5
+#        post_capture: 5
+#        retain:
+#          default: 42
+#          mode: motion
+#
+#go2rtc:
+#  streams:
+#    Skur:
+#      - rtsp://admin:35120oe102fK!@10.45.5.71:554//Streaming/Channels/1/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Skur_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.71:554//Streaming/Channels/2/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Garage:
+#      - rtsp://admin:35120oe102fK!@10.45.5.72:554//Streaming/Channels/1/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Garage_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.72:554//Streaming/Channels/2/
+#      - ffmpeg:front#audio=aac#audio=opus
+#    Loft_1:
+#      - rtsp://admin:35120oe102fK!@10.45.5.73:554//Streaming/Channels/1/
+#    Loft_1_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.73:554//Streaming/Channels/2/
+#    Loft_2:
+#      - rtsp://admin:35120oe102fK!@10.45.5.74:554//Streaming/Channels/1/
+#    Loft_2_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.74:554//Streaming/Channels/2/
+#    Baghave:
+#      - rtsp://admin:35120oe102fK!@10.45.5.75:554//Streaming/Channels/1/
+#    Baghave_Low_Res:
+#      - rtsp://admin:35120oe102fK!@10.45.5.75:554//Streaming/Channels/2/
+#    Kontor:
+#      - rtsp://Admin12345678901:35120oe102fK_1@10.45.5.80/live0
+#version: 0.14
+#

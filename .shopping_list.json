@@ -358,5 +358,10 @@
     "name": "Rense og afkalkings tabletter til kaffe maskinen",
     "id": "ca7807a7dc194d49a7a0acda0b7a236a",
     "complete": false
+  },
+  {
+    "name": "Kaffe",
+    "id": "21b2d71487de443b899c43efff1b74df",
+    "complete": false
   }
 ]
