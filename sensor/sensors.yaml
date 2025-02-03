@@ -73,7 +73,7 @@
       sol_total_outpu_lige_nu:
           friendly_name: "Energi lige nu (total)"
           unit_of_measurement: 'W'
-          value_template: '{{ states("sensor.tpj4cf806p_pv_output_actual") | float + states("sensor.rfhbcfe0pf_pv_output_actual") | float }}'
+          value_template: '{{ states("sensor.tpj4cf806p_pv1_watt") | float + states("sensor.tpj4cf806p_pv2_watt") | float }}'
 
 # - platform: template
 #   sensors:
