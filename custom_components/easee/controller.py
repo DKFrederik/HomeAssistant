@@ -1,7 +1,6 @@
 """Easee Connector class."""
 
 import asyncio
-from collections import deque
 from datetime import timedelta
 from gc import collect
 import json
@@ -91,53 +90,67 @@ class CostData:
         """Initialize the cost data."""
         self.site: Site = site
         self.period: int = period
-        self.request_logs = deque()
+        self.request_queue = asyncio.Queue()
         self.observers = {}
-        self.task = None
+        self.task = asyncio.create_task(
+            self.request_handler(), name="easee_hass cost update task"
+        )
+
+    def __del__(self):
+        """Cancel our consumer task."""
+        self.task.cancel()
 
     def register_for_update(self, product_id, cost_callback):
         """Register callback for data update."""
         self.observers[product_id] = cost_callback
-        _LOGGER.debug("Cost refresh callback registered.")
+        _LOGGER.debug("Cost refresh callback registered for %s.", product_id)
 
     def request_update(self, product_id):
         """Add a request to queue."""
-        self.request_logs.append(product_id)
-        self.task = asyncio.create_task(
-            self.request_handler(), name="easee_hass cost update task"
-        )
-        _LOGGER.debug("Cost refresh requested.")
+        self.request_queue.put_nowait(product_id)
+        _LOGGER.debug("Cost refresh requested for %s.", product_id)
 
     async def request_handler(self):
         """Update cost data task."""
-        await asyncio.sleep(self.period)
-        if self.request_logs:
-            _LOGGER.debug("Refreshing cost for %s.", self.request_logs)
-            self.request_logs.clear()
+        while True:
+            product_id = await self.request_queue.get()
+            await asyncio.sleep(self.period)
+            _LOGGER.debug("Cost refresh for %s", product_id)
+            self.request_queue.task_done()
+            while not self.request_queue.empty():
+                product_id = await self.request_queue.get()
+                _LOGGER.debug("Cost refresh for %s", product_id)
+                self.request_queue.task_done()
+
             await self.update_cost()
-        _LOGGER.debug("End of cost update task.")
+            """Wait to comply with rate limit (max 10 calls/hour)"""
+            await asyncio.sleep(1200-self.period)
 
     async def update_cost(self):
         """Poll cost data and notify observers."""
-        dt_end = dt_util.now().replace(microsecond=0)
-        dt_start = dt_util.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        costs_day = await self.site.get_cost_between_dates(
-            dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
-        )
-        await asyncio.sleep(1)
-        dt_start = dt_start.replace(day=1)
-        costs_month = await self.site.get_cost_between_dates(
-            dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
-        )
-        await asyncio.sleep(1)
-        dt_start = dt_start.replace(month=1)
-        costs_year = await self.site.get_cost_between_dates(
-            dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
-        )
-        _LOGGER.debug("Cost refreshed %s %s %s", costs_day, costs_month, costs_year)
-        self.notify_observers(costs_day, "day")
-        self.notify_observers(costs_month, "month")
-        self.notify_observers(costs_year, "year")
+        try:
+            dt_end = dt_util.now().replace(microsecond=0)
+            dt_start = dt_util.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            costs_day = await self.site.get_cost_between_dates(
+                dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
+            )
+            await asyncio.sleep(1)
+            dt_start = dt_start.replace(day=1)
+            costs_month = await self.site.get_cost_between_dates(
+                dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
+            )
+            await asyncio.sleep(1)
+            dt_start = dt_start.replace(month=1)
+            costs_year = await self.site.get_cost_between_dates(
+                dt_util.as_utc(dt_start), dt_util.as_utc(dt_end)
+            )
+        except Exception as ex:
+            _LOGGER.error("Cost refresh failed with exception %s", ex)
+        else:
+            _LOGGER.debug("Cost refreshed %s %s %s", costs_day, costs_month, costs_year)
+            self.notify_observers(costs_day, "day")
+            self.notify_observers(costs_month, "month")
+            self.notify_observers(costs_year, "year")
 
     def notify_observers(self, costs, name):
         """Send notification to observers."""
@@ -169,13 +182,7 @@ class ProductData:
         self.config = None
         self.schedule = None
         self.weekly_schedule = None
-        self.state_observers = {}
-        self.config_observers = {}
-        self.schedule_observers = {}
-        self.weekly_schedule_observers = {}
-        self.cost_observers = {}
-        self.site_observers = {}
-        self.circuit_observers = {}
+        self.observers = {}
         self.cost_data: CostData = cost_data
         if self.cost_data is not None:
             self.cost_data.register_for_update(self.product.id, self.cost_update)
@@ -189,32 +196,18 @@ class ProductData:
 
     def register_for_update(self, name, entity):
         """Register a entity to watch changes."""
-        _LOGGER.debug("Register for updates on %s with %s", name, entity)
+        _LOGGER.debug("Register for updates on %s", name)
 
         if "." in name:
             first, second = name.split(".")
+            if first.startswith("cost"):
+                first = "cost"
 
-            if first == "state":
-                observers = self.state_observers
-            elif first == "config":
-                observers = self.config_observers
-            elif first == "schedule":
-                observers = self.schedule_observers
-            elif first == "weekly_schedule":
-                observers = self.weekly_schedule_observers
-            elif first == "site":
-                observers = self.site_observers
-            elif first == "circuit":
-                observers = self.circuit_observers
-            elif first.startswith("cost"):
-                observers = self.cost_observers
-            else:
-                _LOGGER.debug("No such data to watch %s", name)
-                return
-
-            if second not in observers:
-                observers[second] = []
-            observers[second].append(entity)
+            if first not in self.observers:
+                self.observers[first] = {}
+            if second not in self.observers[first]:
+                self.observers[first][second] = []
+            self.observers[first][second].append(entity)
 
     def is_state_polled(self):
         """Check if state is polled."""
@@ -326,8 +319,8 @@ class ProductData:
                     self.set_schedule("chargeStopTime", time.strftime("%H:%M"), False)
 
         # Make sure the entities update
-        self.notify("isEnabled", self.weekly_schedule_observers)
-        self.notify("isEnabled", self.schedule_observers)
+        self.notify("isEnabled", self.observers["weekly_schedule"])
+        self.notify("isEnabled", self.observers["schedule"])
 
     def cost_update(self, cost_type, cost_data):
         """Update callback for cost data."""
@@ -338,12 +331,13 @@ class ProductData:
         if "year" in cost_type:
             self.cost_year = cost_data
 
-        self.notify("totalCost", self.cost_observers)
+        self.notify("totalCost", self.observers["cost"])
 
     async def async_cost_refresh(self):
         """Ask for cost data update."""
         if self.cost_data is not None:
-            self.cost_data.request_update(self.product.id)
+            if self.check_enabled("totalCost", self.observers["cost"]):
+                self.cost_data.request_update(self.product.id)
 
     def check_latest_pulse(self):
         """Check if product has timed out."""
@@ -440,25 +434,25 @@ class ProductData:
         """Update state and notify."""
         self.state[index] = value
         if notify:
-            self.notify(index, self.state_observers)
+            self.notify(index, self.observers["state"])
 
     def set_config(self, index, value, notify=True):
         """Update config and notify."""
         self.config[index] = value
         if notify:
-            self.notify(index, self.config_observers)
+            self.notify(index, self.observers["config"])
 
     def set_schedule(self, index, value, notify=True):
         """Update schedule and notify."""
         self.schedule[index] = value
         if notify:
-            self.notify(index, self.schedule_observers)
+            self.notify(index, self.observers["schedule"])
 
     def set_weekly_schedule(self, index, value, notify=True):
         """Update weekly_schedule data and notify."""
         self.weekly_schedule[index] = value
         if notify:
-            self.notify(index, self.weekly_schedule_observers)
+            self.notify(index, self.observers["weekly_schedule"])
 
     def notify(self, index, observers):
         """Notify any listeners that data has changed."""
@@ -467,10 +461,18 @@ class ProductData:
                 if observer.enabled:
                     observer.async_schedule_update_ha_state(True)
 
+    def check_enabled(self, index, observers):
+        """Check if there are any enabled entities for a specific data."""
+        if index in observers:
+            for observer in observers[index]:
+                if observer.enabled:
+                    return True
+        return False
+
     def site_notify(self):
         """Notify any site listeners that data has changed."""
-        for index in self.site_observers:
-            for observer in self.site_observers[index]:
+        for index in self.observers["site"]:
+            for observer in self.observers["site"][index]:
                 if observer.enabled:
                     observer.async_schedule_update_ha_state(True)
 
@@ -753,10 +755,10 @@ class Controller:
             await equalizer_data.async_refresh()
             equalizer_data.set_signalr_state(self.easee.sr_is_connected())
 
-    async def async_force_site_notify(self, product_id):
+    async def async_force_site_notify(self, site_id):
         """Send an update request to all entities watching site data."""
         for charger_data in self.chargers_data:
-            if charger_data.product.id == product_id:
+            if charger_data.site.id == site_id:
                 charger_data.site_notify()
 
     def get_sites(self):
