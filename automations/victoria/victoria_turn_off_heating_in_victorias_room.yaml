@@ -3,7 +3,7 @@ alias: 'victoria turn off heating in victorias room '
 description: 'turn off heating in victorias room if window opens '
 trigger:
 #Husk Vinduer skal tilføjes i gruppen
-- entity_id: binary_sensor.victoriavinduegruppe
+- entity_id: binary_sensor.victoria_sensor_victoriavindue1_contact
   from: 'off'
   platform: state
   to: 'on'

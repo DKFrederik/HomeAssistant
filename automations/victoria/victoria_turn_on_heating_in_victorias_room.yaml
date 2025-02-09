@@ -3,7 +3,7 @@ alias: victoria turn on heating in victorias room
 description: turn off heating in victorias room when window closes
 trigger:
 #Husk Vinduer skal tilføjes i gruppen
-- entity_id: binary_sensor.victoriavinduegruppe
+- entity_id: binary_sensor.victoria_sensor_victoriavindue1_contact
   from: 'on'
   platform: state
   to: 'off'
