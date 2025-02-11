@@ -1,0 +1,38 @@
+{
+    "services": {
+        "send_prompt": {
+            "name": "Send prompt to mistral",
+            "description": "Sends a prompt to mistral ai",
+            "fields": {
+                "prompt": {
+                    "name": "prompt",
+                    "description": "The prompt to send to mistral ai"
+                },
+                "conversation_id": {
+                    "name": "conversation id",
+                    "description": "A id assigned to a long-running conversation. Use this if you want the AI to be context aware to a conversation"
+                },
+                "model": {
+                    "name": "model",
+                    "description": "The model to be used (Not required when using agents)"
+                },
+                "agent_id": {
+                    "name": "agent id",
+                    "description": "The id of the agent to send the prompt to"
+                },
+                "identifier": {
+                    "name": "identifier",
+                    "description": "A identifier you can assign to ract on in the receiving event"
+                },
+                "timeout_in_seconds": {
+                    "name": "timeout in seconds",
+                    "description": "Timeout in seconds. 60 should be default."
+                }
+            }
+        },
+        "retrieve_last": {
+            "name": "Retrieve last communication",
+            "description": "Retrieves the last sent prompt and response (if it exists)"
+        }
+    }
+}

@@ -1,0 +1,55 @@
+# Send prompt
+send_prompt:
+  fields:
+    prompt:
+      required: true
+      example: "How are you today?"
+      default: "Your prompt goes here"
+      selector:
+        text:
+
+    conversation_id:
+      required: false
+      example: "my-conversation-id"
+      selector:
+        text:
+
+    model:
+      required: false
+      example: "mistral-large-latest"
+      default: "mistral-large-latest"
+      selector:
+        select:
+          options:
+            - mistral-large-latest
+            - ministral-3b-latest
+            - ministral-8b-latest
+            - mistral-small-latest
+            - codestral-latest
+            - mistral-moderation-latest
+            - open-mistral-nemo
+            - open-codestral-mamba
+
+    agent_id:
+      required: false
+      example: "ag:xxxxxxxx:xxxxxxxx:xxxxxxxxxx:xxxxxxxx"
+      selector:
+        text:
+
+    identifier:
+      required: false
+      example: "Your identifier (will be returned in event)"
+      selector:
+        text:
+
+    timeout_in_seconds:
+      required: false
+      example: 60
+      default: 60
+      selector:
+        number:
+          min: 10
+          max: 320
+
+# Retrieve Last Communication
+retrieve_last:

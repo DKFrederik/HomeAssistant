@@ -27,14 +27,14 @@
 - id: '1697148849615'
   alias: Trine er kommet hjem - Victoria
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - person.trine_haase_pedersen
     from: not_home
     to: home
-  action:
-  - service: notify.mobile_app_iphone_4
+    trigger: state
+  actions:
+  - action: notify.mobile_app_victoria_telefon
     data:
       message: Mor er kommet hjem
 - id: '1697148849715'
@@ -47,7 +47,7 @@
     to: home
     trigger: state
   actions:
-  - action: notify.mobile_app_tristan_iphone_13
+  - action: notify.mobile_app_tristan_iphone_13_ny
     data:
       message: Mor er kommet hjem
 - id: '2697148849715'
@@ -66,14 +66,14 @@
 - id: '2697148849615'
   alias: Frederik er kommet hjem - Victoria
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - person.frederik_kristian_pedersen
     from: not_home
     to: home
-  action:
-  - service: notify.mobile_app_iphone_4
+    trigger: state
+  actions:
+  - action: notify.mobile_app_victoria_telefon
     data:
       message: Far er kommet hjem
 - id: '2697148849515'
@@ -86,7 +86,7 @@
     to: home
     trigger: state
   actions:
-  - action: notify.mobile_app_tristan_iphone_13
+  - action: notify.mobile_app_tristan_iphone_13_ny
     data:
       message: Far er kommet hjem
 - id: '2697148849415'
@@ -144,16 +144,16 @@
 - id: '3697148849615'
   alias: Sophie er kommet hjem - Victoria
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - person.sophie_haase_pedersen
     from: not_home
     to: home
-  action:
-  - service: notify.mobile_app_iphone_4
+    trigger: state
+  actions:
+  - action: notify.mobile_app_victoria_telefon
     data:
-      message: Sophie er kommet hjem
+      message: Sophe er kommet hjem
 - id: '3697148849715'
   alias: Sophie er kommet hjem - Tristan
   description: ''
@@ -164,7 +164,7 @@
     to: home
     trigger: state
   actions:
-  - action: notify.mobile_app_tristan_iphone_13
+  - action: notify.mobile_app_tristan_iphone_13_ny
     data:
       message: Sophie er kommet hjem
 - id: '4697148849415'
@@ -216,7 +216,7 @@
     to: home
     trigger: state
   actions:
-  - action: notify.mobile_app_tristan_iphone_13
+  - action: notify.mobile_app_tristan_iphone_13_ny
     data:
       message: Victoria er kommet hjem
 - id: '5697148849415'
@@ -261,14 +261,14 @@
 - id: '5697148849715'
   alias: Tristan er kommet hjem - Victoria
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - person.tristan
     from: not_home
     to: home
-  action:
-  - service: notify.mobile_app_iphone_4
+    trigger: state
+  actions:
+  - action: notify.mobile_app_victoria_telefon
     data:
       message: Tristan er kommet hjem
 - id: '1721776282506'
