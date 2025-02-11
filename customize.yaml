@@ -1,0 +1,6 @@
+device_tracker.ioniq_5_location_2:
+  entity_picture: /local/pictures/hyundaiIONIQ5/ioniq5.jpg
+device_tracker.volkswagen_passat_geolocation:
+  entity_picture: /local/pictures/passat/vw-passat-b8-variant.jpg
+device_tracker.vw_passat:
+  entity_picture: /local/pictures/passat/vw-passat-b8-variant.jpg
