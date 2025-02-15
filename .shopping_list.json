@@ -2,7 +2,7 @@
   {
     "name": "Mælk",
     "id": "4edecbb325034b4a823474ec7ac6815c",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Pålæg",
@@ -367,6 +367,6 @@
   {
     "name": "Aioli ",
     "id": "ec488965d9c9485587f059c4fff53c53",
-    "complete": false
+    "complete": true
   }
 ]
