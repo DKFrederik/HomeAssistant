@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from datetime import timedelta
 import logging
+from datetime import timedelta
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components import sensor
@@ -17,14 +17,12 @@ from homeassistant.const import CONF_NAME, EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.template import Template
-from homeassistant.util import dt as dt_utils
 from homeassistant.util import slugify as util_slugify
-from jinja2 import pass_context
 from pystromligning.exceptions import InvalidAPIResponse, TooManyRequests
 
 from .api import StromligningAPI
 from .base import StromligningSensorEntityDescription
-from .const import CONF_TEMPLATE, DEFAULT_TEMPLATE, DOMAIN, UPDATE_SIGNAL
+from .const import CONF_TEMPLATE, DEFAULT_TEMPLATE, DOMAIN, UPDATE_SIGNAL_NEXT
 
 LOGGER = logging.getLogger(__name__)
 
@@ -39,6 +37,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="current_price_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="current_price_ex_vat",
@@ -50,6 +49,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="current_price_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="spotprice_vat",
@@ -61,6 +61,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="spotprice_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="spotprice_ex_vat",
@@ -72,6 +73,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="spotprice_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="electricity_tax_vat",
@@ -83,6 +85,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="electricity_tax_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="electricity_tax_ex_vat",
@@ -94,6 +97,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="electricity_tax_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_min_vat",
@@ -105,6 +109,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="today_min_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_min_ex_vat",
@@ -116,6 +121,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="today_min_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_max_vat",
@@ -127,6 +133,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="today_max_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_max_ex_vat",
@@ -138,6 +145,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="today_max_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_mean_vat",
@@ -149,6 +157,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="today_mean_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="today_mean_ex_vat",
@@ -162,6 +171,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="today_mean_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_min_vat",
@@ -175,6 +185,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="tomorrow_min_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_min_ex_vat",
@@ -188,6 +199,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="tomorrow_min_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_max_vat",
@@ -201,6 +213,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="tomorrow_max_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_max_ex_vat",
@@ -214,6 +227,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="tomorrow_max_ex_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_mean_vat",
@@ -227,6 +241,7 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=True,
         translation_key="tomorrow_mean_vat",
+        unit_of_measurement="kr/kWh",
     ),
     StromligningSensorEntityDescription(
         key="tomorrow_mean_ex_vat",
@@ -240,6 +255,38 @@ SENSORS = [
         suggested_display_precision=2,
         entity_registry_enabled_default=False,
         translation_key="tomorrow_mean_ex_vat",
+        unit_of_measurement="kr/kWh",
+    ),
+    StromligningSensorEntityDescription(
+        key="next_data_refresh",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=None,
+        device_class=SensorDeviceClass.TIMESTAMP,
+        icon="mdi:clock-fast",
+        value_fn=lambda stromligning: stromligning.get_next_update(),
+        entity_registry_enabled_default=True,
+        translation_key="next_data_refresh",
+        update_signal=UPDATE_SIGNAL_NEXT,
+    ),
+    StromligningSensorEntityDescription(
+        key="net_owner",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=None,
+        device_class=None,
+        icon="mdi:transmission-tower-export",
+        value_fn=lambda stromligning: stromligning.get_net_owner(),
+        entity_registry_enabled_default=False,
+        translation_key="net_owner",
+    ),
+    StromligningSensorEntityDescription(
+        key="provider",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=None,
+        device_class=None,
+        icon="mdi:home-lightning-bolt",
+        value_fn=lambda stromligning: stromligning.get_power_provider(),
+        entity_registry_enabled_default=False,
+        translation_key="provider",
     ),
 ]
 
@@ -291,11 +338,13 @@ class StromligningSensor(SensorEntity):
             "manufacturer": "Strømligning",
         }
 
-        self._attr_native_unit_of_measurement = "kr/kWh"
+        self._attr_native_unit_of_measurement = (
+            self.entity_description.unit_of_measurement
+        )
 
         async_dispatcher_connect(
             self._hass,
-            util_slugify(UPDATE_SIGNAL),
+            util_slugify(self.entity_description.update_signal),
             self.handle_update,
         )
 
@@ -385,35 +434,9 @@ class StromligningSensor(SensorEntity):
     async def handle_update(self) -> None:
         """Handle data update."""
         try:
-            # if (
-            #     self.entity_description.key
-            #     in [
-            #         "tomorrow_max",
-            #         "tomorrow_min",
-            #         "tomorrow_mean",
-            #     ]
-            #     and not self.api.tomorrow_available
-            # ):
-            #     self._attr_native_value = None
-            # else:
             self._attr_native_value = self.entity_description.value_fn(
                 self._hass.data[DOMAIN][self._config.entry_id]
             )
-
-            # template_value = self._cost_template.async_render()
-
-            # if not isinstance(template_value, int | float):
-            #     try:
-            #         template_value = float(template_value)
-            #     except (TypeError, ValueError):
-            #         LOGGER.exception(
-            #             "Failed to convert %s %s to float",
-            #             template_value,
-            #             type(template_value),
-            #         )
-            #         raise
-
-            # self._attr_native_value += template_value
 
             LOGGER.debug(
                 "Setting value for '%s' to: %s",
