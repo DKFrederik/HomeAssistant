@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.59,
-        "power": 352.56,
-        "voltage": 237,
+        "current": 1.78,
+        "power": 401.46,
+        "voltage": 235,
         "state": "ON",
-        "energy": 421.57,
+        "energy": 421.6,
         "power_on_behavior": "on",
         "linkquality": 140
     },
@@ -352,7 +352,7 @@
     },
     "0x842712fffe194efd": {
         "illumination": "bright",
-        "occupancy": false,
+        "occupancy": true,
         "occupancy_sensitivity": "medium",
         "linkquality": 172,
         "occupancy_timeout": 16,
