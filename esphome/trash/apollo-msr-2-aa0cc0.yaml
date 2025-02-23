@@ -1,6 +1,6 @@
 substitutions:
   name: apollo-msr-2-aa0cc0
-  friendly_name: Apollo MSR-2 Stue
+  friendly_name: Apollo MSR-2 Legestue
 packages:
   ApolloAutomation.MSR-2: github://ApolloAutomation/MSR-2/Integrations/ESPHome/MSR-2.yaml
 esphome:
@@ -9,9 +9,8 @@ esphome:
   friendly_name: ${friendly_name}
 api:
   encryption:
-    key: M2odUz5fhCnVgXQOy9FNf9aSdyRKho2rxjEtgacKkWA=
+    key: ZPSbStZeDqyk22q2IcDOBnuMBCVKk4Halusah+OqLFo=
 
-#Enable logging
 logger:
   level: DEBUG
 

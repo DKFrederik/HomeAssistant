@@ -2,17 +2,15 @@ substitutions:
   name: apollo-msr-2-aa0cc0
   friendly_name: Apollo MSR-2 Legestue
 packages:
-  ApolloAutomation.MSR-2: github://ApolloAutomation/MSR-2/Integrations/ESPHome/MSR-2.yaml
+  ApolloAutomation.MSR-2_Factory: github://ApolloAutomation/MSR-2/Integrations/ESPHome/MSR-2_Factory.yaml
 esphome:
   name: ${name}
   name_add_mac_suffix: false
   friendly_name: ${friendly_name}
 api:
   encryption:
-    key: ZPSbStZeDqyk22q2IcDOBnuMBCVKk4Halusah+OqLFo=
+    key: RsE/XgnZPmMNh17PG61u2ZleBkzdRQEiIlYD/8SboRY=
 
-logger:
-  level: DEBUG
 
 wifi:
   ssid: !secret wifi_ssid

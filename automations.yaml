@@ -591,7 +591,10 @@
       - 178
       - 112
     target:
-      entity_id: light.legestue_group
+      entity_id:
+      - light.legestue_light_legestue1
+      - light.legestue_light_legestue2
+      - light.legestue_light_legestue3
   mode: single
 - id: '1734690419544'
   alias: Legestue - Sluk lys hvis der ikke er nogen i lokalet
@@ -602,17 +605,16 @@
     entity_id: 322a2c0112b2f673c85db15150579961
     domain: binary_sensor
     trigger: device
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
   conditions: []
   actions:
   - action: light.turn_off
     metadata: {}
     data: {}
     target:
-      entity_id: light.legestue_group
+      entity_id:
+      - light.legestue_light_legestue1
+      - light.legestue_light_legestue2
+      - light.legestue_light_legestue3
   mode: single
 - id: '1734786548210'
   alias: 'Sophie - sophie2 - tænd/sluk/skru op og ned '
