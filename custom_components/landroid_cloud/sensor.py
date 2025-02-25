@@ -2,17 +2,14 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
-
 import pytz
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
-from homeassistant.util import dt as dt_utils
 
 from .api import LandroidAPI
-from .const import ATTR_DEVICES, DOMAIN, ERROR_MAP, STATE_MAP
+from .const import ATTR_DEVICES, DOMAIN, ERROR_MAP
 from .device_base import LandroidSensor, LandroidSensorEntityDescription
 
 SENSORS = [
@@ -218,9 +215,9 @@ SENSORS = [
         name="Total Worktime",
         entity_category=EntityCategory.DIAGNOSTIC,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=None,
+        device_class=SensorDeviceClass.DURATION,
         entity_registry_enabled_default=True,
-        native_unit_of_measurement="hours",
+        native_unit_of_measurement="h",
         suggested_display_precision=0,
         value_fn=lambda landroid: (
             round(landroid.statistics["worktime_total"] / 60, 2)
