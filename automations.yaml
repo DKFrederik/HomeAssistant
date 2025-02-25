@@ -822,3 +822,36 @@
       device_id:
       - 547da8a34695f82651d4b68935710d1d
   mode: single
+- id: '1740491821573'
+  alias: 'victoria turn off heating in victorias room '
+  description: 'turn off heating in victorias room if window opens '
+  triggers:
+  - type: opened
+    device_id: dc284837aff71d8b81a288d17962d9a5
+    entity_id: 922b17a39254b79f7e7773e61c86e3f1
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - data: {}
+    action: climate.turn_off
+    target:
+      device_id: f3fbaf154948921904985aa4c21f2a6b
+  mode: single
+- id: '1740491914825'
+  alias: victoria turn on heating in victorias room
+  description: turn off heating in victorias room when window closes
+  triggers:
+  - type: not_opened
+    device_id: dc284837aff71d8b81a288d17962d9a5
+    entity_id: 922b17a39254b79f7e7773e61c86e3f1
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - data:
+      hvac_mode: auto
+    action: climate.set_hvac_mode
+    target:
+      device_id: f3fbaf154948921904985aa4c21f2a6b
+  mode: single

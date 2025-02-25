@@ -84,8 +84,6 @@ devices:
     friendly_name: Sophie_sensor_sophieVindue1
   '0x00158d00045cf07e':
     friendly_name: Sophie_sensor_sophieVindue2
-  '0x00158d00047db9c4':
-    friendly_name: Victoria_sensor_victoriaVindue1
   '0x705464fffe0aa52e':
     friendly_name: Sophie_Light_sophie1
   '0x705464fffe263b2a':
@@ -174,5 +172,7 @@ devices:
     friendly_name: Legestue_Light_legestue3
   '0x90fd9ffffed56c36':
     friendly_name: '0x90fd9ffffed56c36'
+  '0x00158d00047db9c4':
+    friendly_name: Victoria_sensor_victoriaVindue1
 groups: {}
 version: 4

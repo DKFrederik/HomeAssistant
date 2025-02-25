@@ -1,14 +1,14 @@
-id: 'victoria_turn_on_heating_in_victorias_room'
-alias: victoria turn on heating in victorias room
-description: turn off heating in victorias room when window closes
-trigger:
-#Husk Vinduer skal tilføjes i gruppen
-- entity_id: binary_sensor.victoria_sensor_victoriavindue1_contact
-  from: 'on'
-  platform: state
-  to: 'off'
-action:
-- data:
-    hvac_mode: auto
-  entity_id: climate.victorias_vaerelse
-  service: climate.set_hvac_mode
+# id: 'victoria_turn_on_heating_in_victorias_room'
+# alias: victoria turn on heating in victorias room
+# description: turn off heating in victorias room when window closes
+# trigger:
+# #Husk Vinduer skal tilføjes i gruppen
+# - entity_id: binary_sensor.victoria_sensor_victoriavindue1_contact
+#   from: 'on'
+#   platform: state
+#   to: 'off'
+# action:
+# - data:
+#     hvac_mode: auto
+#   entity_id: climate.victorias_vaerelse
+#   service: climate.set_hvac_mode
