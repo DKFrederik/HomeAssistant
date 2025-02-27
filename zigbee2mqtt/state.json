@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.54,
-        "power": 337.97,
+        "current": 1.52,
+        "power": 332.24,
         "voltage": 233,
         "state": "ON",
-        "energy": 453.51,
+        "energy": 453.54,
         "power_on_behavior": "on",
         "linkquality": 100
     },
@@ -343,7 +343,7 @@
     },
     "0x842712fffe194efd": {
         "illumination": "bright",
-        "occupancy": false,
+        "occupancy": true,
         "occupancy_sensitivity": "medium",
         "linkquality": 128,
         "occupancy_timeout": 16,
@@ -466,7 +466,7 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
-        "illuminance": 14,
+        "illuminance": 12,
         "occupancy": false,
         "linkquality": 164,
         "enrolled": true
@@ -660,7 +660,7 @@
         "device_temperature": 28,
         "power_outage_count": 1177,
         "trigger_count": 0,
-        "contact": false,
+        "contact": true,
         "linkquality": 128
     },
     "0x90fd9ffffe8c74c4": {
