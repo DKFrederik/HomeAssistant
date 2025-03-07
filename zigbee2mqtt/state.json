@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.89,
-        "power": 411.36,
-        "voltage": 231,
+        "current": 1.56,
+        "power": 359.3,
+        "voltage": 233,
         "state": "ON",
-        "energy": 523.87,
+        "energy": 523.9,
         "power_on_behavior": "on",
         "linkquality": 180
     },

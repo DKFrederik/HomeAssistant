@@ -5,8 +5,9 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from functools import partial
 import logging
 import inspect
-import json
 import re
+import json
+import base64
 from .const import (
     DOMAIN,
     CONF_OPENAI_API_KEY,
@@ -30,6 +31,11 @@ from .const import (
     CONF_AWS_SECRET_ACCESS_KEY,
     CONF_AWS_REGION_NAME,
     CONF_AWS_DEFAULT_MODEL,
+    CONF_OPENWEBUI_IP_ADDRESS,
+    CONF_OPENWEBUI_PORT,
+    CONF_OPENWEBUI_HTTPS,
+    CONF_OPENWEBUI_API_KEY,
+    CONF_OPENWEBUI_DEFAULT_MODEL,
     VERSION_ANTHROPIC,
     ENDPOINT_OPENAI,
     ENDPOINT_AZURE,
@@ -37,6 +43,7 @@ from .const import (
     ENDPOINT_GOOGLE,
     ENDPOINT_LOCALAI,
     ENDPOINT_OLLAMA,
+    ENDPOINT_OPENWEBUI,
     ENDPOINT_GROQ,
     ERROR_NOT_CONFIGURED,
     ERROR_GROQ_MULTIPLE_IMAGES,
@@ -98,6 +105,8 @@ class Request:
             return "OpenAI"
         elif CONF_AWS_ACCESS_KEY_ID in entry_data:
             return "AWS Bedrock"
+        elif CONF_OPENWEBUI_API_KEY in entry_data:
+            return "OpenWebUI"
 
         return None
 
@@ -135,8 +144,6 @@ class Request:
 
         self.validate(call)
 
-        gen_title_prompt = "Your job is to generate a title in the form '<object> seen' for texts. Do not mention the time, do not speculate. Generate a title for this text: {response}"
-
         if provider == 'OpenAI':
             api_key = config.get(CONF_OPENAI_API_KEY)
             provider_instance = OpenAI(hass=self.hass, api_key=api_key)
@@ -163,7 +170,8 @@ class Request:
         elif provider == 'Google':
             api_key = config.get(CONF_GOOGLE_API_KEY)
             model = call.model if call.model and call.model != "None" else "gemini-1.5-flash-latest"
-            provider_instance = Google(self.hass, api_key=api_key, endpoint={'base_url': ENDPOINT_GOOGLE, 'model': model})
+            provider_instance = Google(self.hass, api_key=api_key, endpoint={
+                                       'base_url': ENDPOINT_GOOGLE, 'model': model})
 
         elif provider == 'Groq':
             api_key = config.get(CONF_GROQ_API_KEY)
@@ -195,18 +203,38 @@ class Request:
             api_key = config.get(CONF_CUSTOM_OPENAI_API_KEY)
             endpoint = config.get(
                 CONF_CUSTOM_OPENAI_ENDPOINT)
-            default_model=config.get(CONF_CUSTOM_OPENAI_DEFAULT_MODEL)
+            default_model = config.get(CONF_CUSTOM_OPENAI_DEFAULT_MODEL)
             provider_instance = OpenAI(
                 self.hass, api_key=api_key, endpoint={'base_url': endpoint}, default_model=default_model)
 
         elif provider == 'AWS Bedrock':
-            model = call.model if call.model and call.model != "None" else config.get(CONF_AWS_DEFAULT_MODEL)
+            model = call.model if call.model and call.model != "None" else config.get(
+                CONF_AWS_DEFAULT_MODEL)
             provider_instance = AWSBedrock(self.hass,
-                    aws_access_key_id=config.get(CONF_AWS_ACCESS_KEY_ID),
-                    aws_secret_access_key=config.get(CONF_AWS_SECRET_ACCESS_KEY),
-                    aws_region_name=config.get(CONF_AWS_REGION_NAME),
-                    model=model
-                )
+                                           aws_access_key_id=config.get(
+                                               CONF_AWS_ACCESS_KEY_ID),
+                                           aws_secret_access_key=config.get(
+                                               CONF_AWS_SECRET_ACCESS_KEY),
+                                           aws_region_name=config.get(
+                                               CONF_AWS_REGION_NAME),
+                                           model=model
+                                           )
+
+        elif provider == 'OpenWebUI':
+            ip_address = config.get(CONF_OPENWEBUI_IP_ADDRESS)
+            port = config.get(CONF_OPENWEBUI_PORT)
+            https = config.get(CONF_OPENWEBUI_HTTPS, False)
+            api_key = config.get(CONF_OPENWEBUI_API_KEY)
+            default_model = config.get(CONF_OPENWEBUI_DEFAULT_MODEL)
+
+            endpoint = ENDPOINT_OPENWEBUI.format(
+                ip_address=ip_address,
+                port=port,
+                protocol="https" if https else "http"
+            )
+
+            provider_instance = OpenAI(
+                self.hass, api_key=api_key, endpoint={'base_url': endpoint}, default_model=default_model)
 
         else:
             raise ServiceValidationError("invalid_provider")
@@ -216,7 +244,7 @@ class Request:
         response_text = await provider_instance.vision_request(call)
 
         if call.generate_title:
-            call.message = gen_title_prompt.format(response=response_text)
+            call.message = call.memory.title_prompt + "Create a title for this text: " + response_text
             gen_title = await provider_instance.title_request(call)
 
             return {"title": re.sub(r'[^a-zA-Z0-9\s]', '', gen_title), "response_text": response_text}
@@ -229,7 +257,6 @@ class Request:
 
     async def _resolve_error(self, response, provider):
         """Translate response status to error message"""
-        import json
         full_response_text = await response.text()
         _LOGGER.info(f"[INFO] Full Response: {full_response_text}")
 
@@ -324,7 +351,6 @@ class Provider(ABC):
 
     async def _resolve_error(self, response, provider) -> str:
         """Translate response status to error message"""
-        import json
         full_response_text = await response.text()
         _LOGGER.info(f"[INFO] Full Response: {full_response_text}")
 
@@ -347,7 +373,7 @@ class Provider(ABC):
 class OpenAI(Provider):
     def __init__(self, hass, api_key="", endpoint={'base_url': ENDPOINT_OPENAI}, default_model="gpt-4o-mini"):
         super().__init__(hass, api_key, endpoint=endpoint)
-        self.default_model=default_model
+        self.default_model = default_model
 
     def _generate_headers(self) -> dict:
         return {'Content-type': 'application/json',
@@ -360,7 +386,8 @@ class OpenAI(Provider):
         else:
             url = self.endpoint
         response = await self._post(url=url, headers=headers, data=data)
-        response_text = response.get("choices")[0].get("message").get("content")
+        response_text = response.get(
+            "choices")[0].get("message").get("content")
         return response_text
 
     def _prepare_vision_data(self, call) -> list:
@@ -377,8 +404,21 @@ class OpenAI(Provider):
                 {"type": "text", "text": tag + ":"})
             payload["messages"][0]["content"].append({"type": "image_url", "image_url": {
                 "url": f"data:image/jpeg;base64,{image}"}})
+
         payload["messages"][0]["content"].append(
             {"type": "text", "text": call.message})
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="OpenAI")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": memory_content})
+            if system_prompt:
+                payload["messages"].insert(
+                    0, {"role": "developer", "content": system_prompt})
+
         return payload
 
     def _prepare_text_data(self, call) -> list:
@@ -440,6 +480,17 @@ class AzureOpenAI(Provider):
                 "url": f"data:image/jpeg;base64,{image}"}})
         payload["messages"][0]["content"].append(
             {"type": "text", "text": call.message})
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="OpenAI")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": memory_content})
+            if system_prompt:
+                payload["messages"].insert(
+                    0, {"role": "developer", "content": system_prompt})
         return payload
 
     def _prepare_text_data(self, call) -> list:
@@ -486,7 +537,7 @@ class Anthropic(Provider):
         return response_text
 
     def _prepare_vision_data(self, call) -> dict:
-        data = {
+        payload = {
             "model": call.model,
             "messages": [{"role": "user", "content": []}],
             "max_tokens": call.max_tokens,
@@ -495,13 +546,24 @@ class Anthropic(Provider):
         for image, filename in zip(call.base64_images, call.filenames):
             tag = ("Image " + str(call.base64_images.index(image) + 1)
                    ) if filename == "" else filename
-            data["messages"][0]["content"].append(
+            payload["messages"][0]["content"].append(
                 {"type": "text", "text": tag + ":"})
-            data["messages"][0]["content"].append({"type": "image", "source": {
-                                                  "type": "base64", "media_type": "image/jpeg", "data": f"{image}"}})
-        data["messages"][0]["content"].append(
+            payload["messages"][0]["content"].append({"type": "image", "source": {
+                "type": "base64", "media_type": "image/jpeg", "data": f"{image}"}})
+        payload["messages"][0]["content"].append(
             {"type": "text", "text": call.message})
-        return data
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="Anthropic")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": memory_content})
+            if system_prompt:
+                payload["system"] = system_prompt
+
+        return payload
 
     def _prepare_text_data(self, call) -> dict:
         return {
@@ -530,7 +592,7 @@ class Anthropic(Provider):
 class Google(Provider):
     def __init__(self, hass, api_key="", endpoint={'base_url': ENDPOINT_GOOGLE, 'model': "gemini-1.5-flash-latest"}):
         super().__init__(hass, api_key, endpoint)
-        self.default_model = "gemini-1.5-flash-latest"
+        self.default_model = "gemini-2.0-flash"
 
     def _generate_headers(self) -> dict:
         return {'content-type': 'application/json'}
@@ -546,16 +608,28 @@ class Google(Provider):
         return response_text
 
     def _prepare_vision_data(self, call) -> dict:
-        data = {"contents": [], "generationConfig": {
+        payload = {"contents": [{"role": "user", "parts": []}], "generationConfig": {
             "maxOutputTokens": call.max_tokens, "temperature": call.temperature}}
         for image, filename in zip(call.base64_images, call.filenames):
             tag = ("Image " + str(call.base64_images.index(image) + 1)
                    ) if filename == "" else filename
-            data["contents"].append({"role": "user", "parts": [
-                                    {"text": tag + ":"}, {"inline_data": {"mime_type": "image/jpeg", "data": image}}]})
-        data["contents"].append(
-            {"role": "user", "parts": [{"text": call.message}]})
-        return data
+            payload["contents"][0]["parts"].append({"text": tag + ":"})
+            payload["contents"][0]["parts"].append(
+                {"inline_data": {"mime_type": "image/jpeg", "data": image}})
+        payload["contents"][0]["parts"].append({"text": call.message})
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="Google")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["contents"].insert(
+                    0, {"role": "user", "parts": memory_content})
+            if system_prompt:
+                payload["system_instruction"] = {
+                    "parts": {"text": system_prompt}}
+
+        return payload
 
     def _prepare_text_data(self, call) -> dict:
         return {
@@ -592,7 +666,7 @@ class Groq(Provider):
 
     def _prepare_vision_data(self, call) -> dict:
         first_image = call.base64_images[0]
-        data = {
+        payload = {
             "messages": [
                 {
                     "role": "user",
@@ -605,7 +679,11 @@ class Groq(Provider):
             ],
             "model": call.model
         }
-        return data
+
+        system_prompt = call.memory.system_prompt
+        payload["messages"].insert(0, {"role": "user", "content": "System Prompt:" + system_prompt})
+
+        return payload
 
     def _prepare_text_data(self, call) -> dict:
         return {
@@ -625,7 +703,7 @@ class Groq(Provider):
             raise ServiceValidationError("empty_api_key")
         headers = self._generate_headers()
         data = {
-            "model": "llama3-8b-8192",
+            "model": self.default_model,
             "messages": [{
                 "role": "user",
                 "content": "Hi"
@@ -653,18 +731,30 @@ class LocalAI(Provider):
         return response_text
 
     def _prepare_vision_data(self, call) -> dict:
-        data = {"model": call.model, "messages": [{"role": "user", "content": [
+        payload = {"model": call.model, "messages": [{"role": "user", "content": [
         ]}], "max_tokens": call.max_tokens, "temperature": call.temperature}
         for image, filename in zip(call.base64_images, call.filenames):
             tag = ("Image " + str(call.base64_images.index(image) + 1)
                    ) if filename == "" else filename
-            data["messages"][0]["content"].append(
+            payload["messages"][0]["content"].append(
                 {"type": "text", "text": tag + ":"})
-            data["messages"][0]["content"].append(
+            payload["messages"][0]["content"].append(
                 {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image}"}})
-        data["messages"][0]["content"].append(
+        payload["messages"][0]["content"].append(
             {"type": "text", "text": call.message})
-        return data
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="OpenAI")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": memory_content})
+            if system_prompt:
+                payload["messages"].insert(
+                    0, {"role": "system", "content": system_prompt})
+
+        return payload
 
     def _prepare_text_data(self, call) -> dict:
         return {
@@ -711,17 +801,28 @@ class Ollama(Provider):
         return response_text
 
     def _prepare_vision_data(self, call) -> dict:
-        data = {"model": call.model, "messages": [], "stream": False, "options": {
+        payload = {"model": call.model, "messages": [], "stream": False, "options": {
             "num_predict": call.max_tokens, "temperature": call.temperature}}
+        
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(
+                memory_type="Ollama")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].extend(memory_content)
+            if system_prompt:
+                payload["system"] = system_prompt
+        
         for image, filename in zip(call.base64_images, call.filenames):
             tag = ("Image " + str(call.base64_images.index(image) + 1)
                    ) if filename == "" else filename
             image_message = {"role": "user",
                              "content": tag + ":", "images": [image]}
-            data["messages"].append(image_message)
+            payload["messages"].append(image_message)
         prompt_message = {"role": "user", "content": call.message}
-        data["messages"].append(prompt_message)
-        return data
+        payload["messages"].append(prompt_message)
+
+        return payload
 
     def _prepare_text_data(self, call) -> dict:
         return {
@@ -750,13 +851,14 @@ class Ollama(Provider):
             _LOGGER.error(f"Error: {e}")
             raise ServiceValidationError('handshake_failed')
 
+
 class AWSBedrock(Provider):
     def __init__(self, hass, aws_access_key_id, aws_secret_access_key, aws_region_name, model):
         super().__init__(hass, )
-        self.default_model=model
-        self.aws_access_key_id=aws_access_key_id
-        self.aws_secret_access_key=aws_secret_access_key
-        self.aws_region=aws_region_name
+        self.default_model = model
+        self.aws_access_key_id = aws_access_key_id
+        self.aws_secret_access_key = aws_secret_access_key
+        self.aws_region = aws_region_name
 
     def _generate_headers(self) -> dict:
         return {'Content-type': 'application/json',
@@ -769,12 +871,14 @@ class AWSBedrock(Provider):
 
     async def invoke_bedrock(self, model, data) -> dict:
         """Post data to url and return response data"""
-        _LOGGER.debug(f"AWS Bedrock request data: {Request.sanitize_data(data)}")
+        _LOGGER.debug(
+            f"AWS Bedrock request data: {Request.sanitize_data(data)}")
 
         try:
-            _LOGGER.info(f"Invoking Bedrock model {model} in {self.aws_region}")
+            _LOGGER.info(
+                f"Invoking Bedrock model {model} in {self.aws_region}")
             client = await self.hass.async_add_executor_job(
-                 partial(
+                partial(
                     boto3.client,
                     "bedrock-runtime",
                     region_name=self.aws_region,
@@ -790,7 +894,7 @@ class AWSBedrock(Provider):
                     modelId=model,
                     messages=data.get("messages"),
                     inferenceConfig=data.get("inferenceConfig")
-            ))
+                ))
             _LOGGER.debug(f"AWS Bedrock call Response: {response}")
 
         except Exception as e:
@@ -809,38 +913,48 @@ class AWSBedrock(Provider):
             tokens_in = token_usage.get("inputTokens")
             tokens_out = token_usage.get("outputTokens")
             tokens_total = token_usage.get("totalTokens")
-            _LOGGER.info(f"AWS Bedrock call latency: {latency}ms inputTokens: {tokens_in} outputTokens: {tokens_out} totalTokens: {tokens_total}")
+            _LOGGER.info(
+                f"AWS Bedrock call latency: {latency}ms inputTokens: {tokens_in} outputTokens: {tokens_out} totalTokens: {tokens_total}")
             response_data = response.get("output")
             _LOGGER.debug(f"AWS Bedrock call response data: {response_data}")
             return response_data
 
-
     def _prepare_vision_data(self, call) -> list:
         _LOGGER.debug(f"Found model type `{call.model}` for AWS Bedrock call.")
         # We need to generate the correct format for the respective models
-        data = {
-                "messages": [{"role": "user", "content": []}],
-                "inferenceConfig": {
-                    "maxTokens": call.max_tokens,
-                    "temperature": call.temperature
-                }
+        payload = {
+            "messages": [{"role": "user", "content": []}],
+            "inferenceConfig": {
+                "maxTokens": call.max_tokens,
+                "temperature": call.temperature
             }
+        }
 
         # Bedrock converse API wants the raw bytes of the image
-        import base64
         for image, filename in zip(call.base64_images, call.filenames):
             tag = ("Image " + str(call.base64_images.index(image) + 1)
-                ) if filename == "" else filename
-            data["messages"][0]["content"].append(
+                   ) if filename == "" else filename
+            payload["messages"][0]["content"].append(
                 {"text": tag + ":"})
-            data["messages"][0]["content"].append({
+            payload["messages"][0]["content"].append({
                 "image": {
                     "format": "jpeg",
                     "source": {"bytes": base64.b64decode(image)}
-                    }
-                })
-        data["messages"][0]["content"].append({"text": call.message})
-        return data
+                }
+            })
+        payload["messages"][0]["content"].append({"text": call.message})
+
+        if call.use_memory:
+            memory_content = call.memory._get_memory_images(memory_type="AWS")
+            system_prompt = call.memory.system_prompt
+            if memory_content:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": memory_content})
+            if system_prompt:
+                payload["messages"].insert(
+                    0, {"role": "user", "content": [{"text": system_prompt}]})
+
+        return payload
 
     def _prepare_text_data(self, call) -> list:
         return {
