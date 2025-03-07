@@ -1,0 +1,38 @@
+analyser_billede_ai:
+  sequence:
+  - action: camera.snapshot
+    metadata: {}
+    data:
+      filename: /media/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg
+    target:
+      entity_id: camera.ds_2cd2045fwd_i20190517aawrd20861400_101
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - action: llmvision.image_analyzer
+    metadata: {}
+    data:
+      remember: false
+      include_filename: true
+      max_tokens: 150
+      temperature: 0.5
+      generate_title: false
+      expose_images: true
+      expose_images_persist: false
+      provider: 01JNHM9Y1TK8HY6BQVTYYCGGYP
+      model: gemini-1.5-flash
+      message: "Analyser det følgende snapshot af min indkørsel. Rapporter alt af
+        interresse såsom pakker. Rapporter også vejrforhold og forholdene såsom is,
+        regn osv. \nRapporter nummerplader hvis de findes."
+      image_entity:
+      - camera.ds_2cd2045fwd_i20190517aawrd20861400_101
+    response_variable: cam_snapshot_summary
+  - variables:
+      response:
+        query_camera_snapshot: '{{cam_snapshot_summary}} medtag ikke emoji'
+  - stop: ''
+    response_variable: response
+  alias: analyser_billede_AI
+  description: ''

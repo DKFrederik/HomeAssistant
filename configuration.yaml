@@ -6,6 +6,9 @@ homeassistant:
   packages: !include_dir_named packages
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
+  
+  allowlist_external_dirs:
+    - '/media'
 
 # Load frontend themes from the themes folder
 frontend:

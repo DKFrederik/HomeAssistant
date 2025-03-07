@@ -15,3 +15,9 @@ spotcast:
     victoria:
       sp_dc: !secret victoria_sp_dc
       sp_key: !secret victoria_sp_key
+    tristan:
+      sp_dc: !secret tristan_sp_dc
+      sp_key: !secret tristan_sp_key
+    aeblevangen36:
+      sp_dc: !secret aeblevangen36_sp_dc
+      sp_key: !secret aeblevangen36_sp_key
