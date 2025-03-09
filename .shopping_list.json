@@ -408,5 +408,20 @@
     "name": "Vanilje sukker ",
     "id": "82aabc76dd524d2a9d98874afd5fd114",
     "complete": true
+  },
+  {
+    "name": "Bananer",
+    "id": "abb6bc44c36c4798b14a5505b4514fa8",
+    "complete": false
+  },
+  {
+    "name": "Juice",
+    "id": "d3500e92c61f470786edbbe3b842e717",
+    "complete": false
+  },
+  {
+    "name": "Frosne bær",
+    "id": "315db454de154e62aeff9e5466a8b4d6",
+    "complete": false
   }
 ]
