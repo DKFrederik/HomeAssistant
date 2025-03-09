@@ -140,6 +140,7 @@ class LandroidSwitchEntityDescription(
     command_fn: Callable[[WorxCloud], None] = None
     icon_on: str | None = None
     icon_off: str | None = None
+    required_feature: LandroidFeatureSupport | None = None
 
 
 @dataclass
@@ -181,9 +182,19 @@ class LandroidCloudBaseEntity(LandroidLogger):
         self._icon = None
         self._name = f"{api.friendly_name}"
         self._mac = api.device.mac_address
-        self._connections = {(dr.CONNECTION_NETWORK_MAC, self._mac)}
+        # self._connections = {(dr.CONNECTION_NETWORK_MAC, self._mac)}
+        self._connections = {}
         self._features_known = 0
         self._attr_available = self.api.device.online
+
+        if (
+            not isinstance(self.api.device.mac_address, type(None))
+            and self.api.device.mac_address != "__UUID__"
+        ):
+            self._connections = {
+                (dr.CONNECTION_NETWORK_MAC, self.api.device.mac_address)
+            }
+
         super().__init__()
 
     @property
@@ -427,7 +438,9 @@ class LandroidCloudBaseEntity(LandroidLogger):
         self.log(LoggerType.DATA_UPDATE, "Online: %s", device.online)
         self.log(LoggerType.DATA_UPDATE, "State '%s'", state)
         self.log(
-            LoggerType.DATA_UPDATE, "Last update: %s", device.last_status["timestamp"]
+            LoggerType.DATA_UPDATE,
+            "Last update: %s",
+            device.last_status["timestamp"] if "last_status" in device else "No data",
         )
         self.log(LoggerType.DATA_UPDATE, "Attributes:\n%s", self._attributes)
         self._attr_state = state
@@ -485,7 +498,7 @@ class LandroidCloudBaseEntity(LandroidLogger):
 #             "serial_number": self._api.device.serial_number,
 #         }
 
-#         if self._api.device.mac_address != "__UUID__":
+#         if not isinstance(self._api.device.mac_address, type(None)) and self._api.device.mac_address != "__UUID__":
 #             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
 #             self._attr_device_info.update({"connections": _connections})
 
@@ -886,7 +899,10 @@ class LandroidSelect(SelectEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
 
@@ -983,7 +999,10 @@ class LandroidButton(ButtonEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
         self._attr_extra_state_attributes = {}
@@ -1055,7 +1074,10 @@ class LandroidSensor(SensorEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
         self._attr_available = self._api.device.online
@@ -1203,7 +1225,10 @@ class LandroidNumber(NumberEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
 
@@ -1308,7 +1333,10 @@ class LandroidSwitch(SwitchEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
 
@@ -1427,7 +1455,10 @@ class LandroidBinarySensor(BinarySensorEntity):
             "serial_number": self._api.device.serial_number,
         }
 
-        if self._api.device.mac_address != "__UUID__":
+        if (
+            not isinstance(self._api.device.mac_address, type(None))
+            and self._api.device.mac_address != "__UUID__"
+        ):
             _connections = {(dr.CONNECTION_NETWORK_MAC, self._api.device.mac_address)}
             self._attr_device_info.update({"connections": _connections})
 
