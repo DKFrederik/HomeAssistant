@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.47,
-        "power": 316.53,
+        "current": 1.68,
+        "power": 381.57,
         "voltage": 233,
         "state": "ON",
-        "energy": 602.06,
+        "energy": 602.09,
         "power_on_behavior": "on",
         "linkquality": 180
     },
@@ -221,7 +221,7 @@
             "installed_version": 587806257,
             "latest_version": 587806257
         },
-        "state": "OFF",
+        "state": "ON",
         "brightness": 228,
         "level_config": {
             "on_level": "previous"
@@ -235,7 +235,7 @@
             "latest_version": 587806257
         },
         "linkquality": 168,
-        "state": "OFF",
+        "state": "ON",
         "brightness": 254,
         "update_available": false
     },
@@ -261,7 +261,7 @@
     },
     "0x6c5cb1fffe5223d6": {
         "color_mode": "color_temp",
-        "state": "OFF",
+        "state": "ON",
         "brightness": 254,
         "linkquality": 132,
         "update": {
@@ -366,7 +366,7 @@
     },
     "0x6c5cb1fffe609906": {
         "color_mode": "color_temp",
-        "state": "OFF",
+        "state": "ON",
         "brightness": 236,
         "update": {
             "state": "idle",
@@ -466,7 +466,7 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
-        "illuminance": 4,
+        "illuminance": 10,
         "occupancy": false,
         "linkquality": 168,
         "enrolled": true
@@ -513,7 +513,7 @@
             "latest_version": 587806257
         },
         "linkquality": 152,
-        "state": "OFF",
+        "state": "ON",
         "update_available": false,
         "brightness": 254,
         "color": {
@@ -533,7 +533,7 @@
             "latest_version": 587806257
         },
         "linkquality": 116,
-        "state": "OFF",
+        "state": "ON",
         "update_available": false,
         "brightness": 254,
         "color": {
