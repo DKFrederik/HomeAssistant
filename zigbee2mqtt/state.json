@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.68,
-        "power": 381.57,
+        "current": 1.64,
+        "power": 360.44,
         "voltage": 233,
         "state": "ON",
-        "energy": 602.09,
+        "energy": 602.18,
         "power_on_behavior": "on",
         "linkquality": 180
     },
