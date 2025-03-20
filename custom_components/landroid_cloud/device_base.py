@@ -618,9 +618,9 @@ class LandroidCloudMowerBase(LandroidCloudBaseEntity, LawnMowerEntity):
         if self.state not in [LawnMowerActivity.DOCKED, STATE_RETURNING]:
             device: WorxCloud = self.api.device
             self.log(LoggerType.SERVICE_CALL, "Going back to dock")
-            # Try calling safehome
+            # Try calling home (keep knives on while going home)
             await self.hass.async_add_executor_job(
-                self.api.cloud.safehome, device.serial_number
+                self.api.cloud.home, device.serial_number
             )
             # Ensure we are going home, in case the safehome wasn't successful
             wait_start = time.time()
@@ -628,9 +628,13 @@ class LandroidCloudMowerBase(LandroidCloudBaseEntity, LawnMowerEntity):
                 await asyncio.sleep(1)
                 if self.state in [STATE_RETURNING, LawnMowerActivity.DOCKED]:
                     break
+
+            # Mower didn't start homing routine
+            # Possibly the mower doesn't support homing with blades on
+            # Issue safehome command
             if self.state not in [STATE_RETURNING, LawnMowerActivity.DOCKED]:
                 await self.hass.async_add_executor_job(
-                    self.api.cloud.home, device.serial_number
+                    self.api.cloud.safehome, device.serial_number
                 )
 
     async def async_stop(self, **kwargs: Any) -> None:
@@ -1115,7 +1119,10 @@ class LandroidSensor(SensorEntity):
         self._attr_extra_state_attributes = {}
 
         if self.entity_description.key in ["last_update", "blades_reset_time"]:
-            if self._attr_native_value.hour > dt_utils.utcnow().hour:
+            if (
+                not isinstance(self._attr_native_value, type(None))
+                and self._attr_native_value.hour > dt_utils.utcnow().hour
+            ):
                 diff = (dt_utils.utcnow() - self._attr_native_value).total_seconds()
                 hours = divmod(diff, 3600)[0]
                 _LOGGER.debug("Corrigating timezone error by %s hours", hours)

@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.57,
-        "power": 335.28,
+        "current": 1.53,
+        "power": 339.13,
         "voltage": 232,
         "state": "ON",
-        "energy": 623.82,
+        "energy": 623.85,
         "power_on_behavior": "on",
         "linkquality": 180
     },
@@ -466,7 +466,7 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
-        "illuminance": 7,
+        "illuminance": 10,
         "occupancy": false,
         "linkquality": 168,
         "enrolled": true
