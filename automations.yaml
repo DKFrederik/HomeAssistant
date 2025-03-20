@@ -855,3 +855,23 @@
     target:
       device_id: f3fbaf154948921904985aa4c21f2a6b
   mode: single
+- id: '1742283043468'
+  alias: Kontor - Pressent - sluk lys
+  description: ''
+  triggers:
+  - type: not_occupied
+    device_id: d7d3bc79c625ac6be784158965c5efd7
+    entity_id: 2716cd871347a641e9e3816c0a9e7867
+    domain: binary_sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: f847031db1854dfff2c4dec16259a6ad
+    entity_id: 9a7ccb3f347f15e3d7b956a8daeaae77
+    domain: switch
+  mode: single
