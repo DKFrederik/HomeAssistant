@@ -59,7 +59,7 @@
         "update_available": false
     },
     "0x84fd27fffe60e528": {
-        "linkquality": 116,
+        "linkquality": 108,
         "update": {
             "state": "idle",
             "installed_version": 587753009,
@@ -159,7 +159,7 @@
         "update_available": false
     },
     "0x90fd9ffffe8ce6e0": {
-        "battery": 20,
+        "battery": 10,
         "update": {
             "state": "idle",
             "installed_version": 604241925,
@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.49,
-        "power": 327.45,
-        "voltage": 236,
+        "current": 1.65,
+        "power": 361.32,
+        "voltage": 234,
         "state": "ON",
-        "energy": 636.56,
+        "energy": 643.27,
         "power_on_behavior": "on",
         "linkquality": 180
     },
@@ -192,7 +192,7 @@
         "linkquality": 168,
         "voltage": 2975,
         "battery": 83,
-        "device_temperature": 29,
+        "device_temperature": 28,
         "power_outage_count": 281,
         "trigger_count": 0
     },
@@ -200,7 +200,7 @@
         "contact": true,
         "voltage": 2985,
         "battery": 90,
-        "device_temperature": 30,
+        "device_temperature": 28,
         "power_outage_count": 431,
         "trigger_count": 0,
         "linkquality": 144
@@ -322,7 +322,7 @@
         "color_temp_startup": 370
     },
     "0x90fd9ffffe8614b5": {
-        "battery": 90,
+        "battery": 80,
         "update": {
             "state": "idle",
             "installed_version": 604241925,
@@ -378,7 +378,7 @@
         "color_temp": 370
     },
     "0xcc86ecfffe912f36": {
-        "position": 37,
+        "position": 100,
         "state": "OPEN",
         "battery": 38,
         "update": {
@@ -466,13 +466,13 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
-        "illuminance": 414,
+        "illuminance": 452,
         "occupancy": false,
         "linkquality": 168,
         "enrolled": true
     },
     "0x90fd9ffffe8b10b0": {
-        "battery": 14,
+        "battery": 20,
         "linkquality": 132,
         "update": {
             "state": "idle",
@@ -687,7 +687,7 @@
         "color_temp": 429
     },
     "0x90fd9ffffe929717": {
-        "battery": 90,
+        "battery": 80,
         "update": {
             "state": "idle",
             "installed_version": 604241925,
