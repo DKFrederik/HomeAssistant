@@ -169,11 +169,11 @@
         "update_available": false
     },
     "0x187a3efffe8924e7": {
-        "current": 1.52,
-        "power": 346.2,
-        "voltage": 233,
+        "current": 1.63,
+        "power": 370.48,
+        "voltage": 234,
         "state": "ON",
-        "energy": 686.26,
+        "energy": 686.35,
         "power_on_behavior": "on",
         "linkquality": 112
     },
@@ -280,7 +280,7 @@
             "latest_version": 587806257
         },
         "linkquality": 148,
-        "state": "ON",
+        "state": "OFF",
         "update_available": false,
         "color": {
             "x": 0.3818,
@@ -466,8 +466,8 @@
     },
     "0x9035eafffe463ccb": {
         "battery": 90,
-        "illuminance": 7,
-        "occupancy": false,
+        "illuminance": 10,
+        "occupancy": true,
         "linkquality": 116,
         "enrolled": true
     },
