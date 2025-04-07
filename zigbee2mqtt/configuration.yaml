@@ -50,6 +50,7 @@ devices:
     friendly_name: Legestue_Repeater_legestue
   '0xa49e69fffe203a70':
     friendly_name: Victoria_remote_over_skrivebord
+    icon: device_icons/f1504ae638f983567e4384447325f67a.png
   '0x842e14fffe63a757':
     friendly_name: Sophie_Repeater_sophie
   '0x842e14fffe6c9453':
@@ -64,6 +65,7 @@ devices:
     friendly_name: Lillegang_repeater_lillegang
   '0x84ba20fffec7da2e':
     friendly_name: Soveværelse_Sensor_Vindue
+    icon: device_icons/7a0d11aaa26685f09d07bf0e65a78a0f.png
   '0x90fd9ffffe898295':
     friendly_name: Gang_light_gang1
   '0x90fd9ffffe86c8fb':
@@ -74,6 +76,7 @@ devices:
     friendly_name: Kontor_light_kontor2
   '0x90fd9ffffe8ce6e0':
     friendly_name: Kontor_remote_kontorTest
+    icon: device_icons/0bb605a453f07b8806fb5bd0288dd434.png
   '0x187a3efffe8924e7':
     friendly_name: Kontor_switch_computer
   '0x90fd9ffffe15ceaf':
@@ -90,8 +93,10 @@ devices:
     friendly_name: Sophie_Light_sophie2
   '0x60efabfffeee9b6c':
     friendly_name: Sophie_remote_sophie1
+    icon: device_icons/7146bc3333829dd31b1a37b1f83f6e01.png
   '0x705464fffe265cb8':
     friendly_name: Sophie_remote_sophie2
+    icon: device_icons/7146bc3333829dd31b1a37b1f83f6e01.png
   '0x6c5cb1fffe5223d6':
     friendly_name: Victoria_Light_overSeng
   '0x90fd9ffffe6ddc96':
@@ -107,11 +112,13 @@ devices:
     friendly_name: Køkken_remote_køkken1
   '0x90fd9ffffe0e03f8':
     friendly_name: Køkken_remote_køkken2
+    icon: device_icons/0bb605a453f07b8806fb5bd0288dd434.png
   '0x842712fffe194efd':
     friendly_name: Kontor_sensor_pressent
     no_occupancy_since: []
   '0x3425b4fffe9a6087':
     friendly_name: ' Victoria_remote_over_seng'
+    icon: device_icons/f1504ae638f983567e4384447325f67a.png
   '0x6c5cb1fffe609906':
     friendly_name: ' Victoria_Light_over_skrivebord'
   '0xcc86ecfffe912f36':
@@ -156,6 +163,7 @@ devices:
     friendly_name: Legestue_Light_legestue2
   '0x000b57fffee66f2f':
     friendly_name: Legestue_remote_legestue1
+    icon: device_icons/0bb605a453f07b8806fb5bd0288dd434.png
   '0x90fd9ffffe182127':
     friendly_name: Legestue_remote_legestue2
   '0xb43522fffe7a0d9c':
@@ -174,5 +182,7 @@ devices:
     friendly_name: '0x90fd9ffffed56c36'
   '0x00158d00047db9c4':
     friendly_name: Victoria_sensor_victoriaVindue1
+  '0x90ab96fffea2f0f7':
+    friendly_name: Stue_Spisebord_remote_Stue1
 groups: {}
 version: 4
