@@ -450,4 +450,11 @@
             "installed_version": 604241925,
             "latest_version": 604241925
         },
-    
+        "linkquality": 232
+    },
+    "0x84ba20fffeca7c33": {
+        "contact": false,
+        "tamper": false,
+        "battery_low": false
+    }
+}
