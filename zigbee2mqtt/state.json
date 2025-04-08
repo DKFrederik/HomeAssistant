@@ -321,10 +321,10 @@
         "brightness": 254
     },
     "0x187a3efffe8924e7": {
-        "power": 309.57,
-        "current": 1.52,
+        "power": 335.54,
+        "current": 1.55,
         "voltage": 232,
-        "energy": 13.13,
+        "energy": 13.16,
         "linkquality": 192,
         "state": "ON"
     },
