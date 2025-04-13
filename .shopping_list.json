@@ -2,7 +2,7 @@
   {
     "name": "Mælk",
     "id": "4edecbb325034b4a823474ec7ac6815c",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Pålæg",
@@ -127,11 +127,6 @@
   {
     "name": "toastbrød (Rema100 eller noget som ligner) ",
     "id": "abe5c76b0bfb4b9d8ab406eb5e7132e6",
-    "complete": true
-  },
-  {
-    "name": "Mælk",
-    "id": "0596fac585b241fe9a896dc3b9fb86b2",
     "complete": true
   },
   {
